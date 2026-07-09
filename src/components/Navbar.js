@@ -2,13 +2,15 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
+// Penyesuaian Tautan Navigasi (Menyiapkan alur untuk setiap folder halaman di dalam app/)
 const navLinks = [
-  { label: 'Business', dropdown: true },
-  { label: 'Tips and Trick HR', href: '#' },
-  { label: 'Pricing', href: '#' },
-  { label: 'Recruitment', href: '#' },
-  { label: 'About Us', href: '#' },
+  { label: 'Business', dropdown: true, href: '/business' },
+  { label: 'Tips and Trick HR', href: '/tips-and-trick' },
+  { label: 'Pricing', href: '/pricing' },
+  { label: 'Recruitment', href: '/recruitment' },
+  { label: 'About Us', href: '/about' },
 ];
 
 const businessSubMenu = [
@@ -41,16 +43,14 @@ const businessSubMenu = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('FHRI for Business');
-  // State baru untuk mengontrol dropdown agar hanya terbuka saat DIKLIK
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <nav className="relative bg-[#0B2A4A] text-white shadow-md z-50">
-      {/* Kontainer utama ber-class 'relative' agar dropdown sejajar dengan batas pinggirnya */}
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 relative">
         
-        {/* LOGO PERUSAHAAN (Ujung Kiri Navbar) */}
-        <a href="#" className="flex items-center gap-2 select-none">
+        {/* LOGO PERUSAHAAN (Kembali ke halaman utama '/') */}
+        <Link href="/" className="flex items-center gap-2 select-none">
           <div className="relative w-36 h-9 flex items-center">
             <Image
               src="/WhiteLogoFHRI.png" 
@@ -63,7 +63,6 @@ export default function Navbar() {
                 e.target.style.display = 'none';
               }}
             />
-            {/* Fallback teks cadangan tetap dipertahankan dengan aman */}
             <div className="absolute inset-0 flex flex-col leading-none pointer-events-none opacity-0 pseudologo-fallback">
               <span className="text-[10px] tracking-[0.3em] text-red-500">✦ ✦ ✦</span>
               <span className="text-2xl font-semibold text-white">
@@ -78,20 +77,18 @@ export default function Navbar() {
               }
             `}</style>
           </div>
-        </a>
+        </Link>
 
         {/* DESKTOP LINKS */}
         <div className="hidden lg:flex items-center gap-8 text-white/90 font-medium text-sm">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.label} className="py-2">
-                {/* TOMBOL TRIGGER: Menggunakan onClick untuk membuka/menutup dropdown */}
                 <button 
                   onClick={() => setDropdownOpen(!dropdownOpen)}
                   className="flex items-center gap-1.5 text-white hover:text-red-400 font-semibold transition-colors focus:outline-none cursor-pointer"
                 >
                   {link.label}
-                  {/* Panah berputar saat diklik */}
                   <svg 
                     className={`w-3.5 h-3.5 mt-0.5 transition-transform duration-200 ${
                       dropdownOpen ? 'rotate-180 text-red-400' : ''
@@ -104,7 +101,6 @@ export default function Navbar() {
                 </button>
 
                 {/* MEGA-MENU DROPDOWN */}
-                {/* Posisi left-6 right-6 / md:left-12 md:right-12 menjamin lebarnya 100% SAMA dengan jarak dari Logo ke tombol Join Us */}
                 <div 
                   className={`transition-all duration-300 absolute top-full left-6 right-6 md:left-12 md:right-12 mt-2 z-50 ${
                     dropdownOpen 
@@ -114,7 +110,6 @@ export default function Navbar() {
                 >
                   <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 md:p-8 flex gap-8 text-gray-800 w-full">
                     
-                    {/* SIDEBAR SEBELAH KIRI (Lebar 1/4 agar seimbang dengan lebar navbar) */}
                     <div className="w-1/4 flex flex-col justify-between border-r border-gray-100 pr-6 shrink-0">
                       <div className="flex flex-col gap-1.5">
                         
@@ -213,16 +208,15 @@ export default function Navbar() {
                       </div>
 
                       <div className="pt-4 mt-2 border-t border-gray-100">
-                        <a href="#" className="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 font-bold text-sm px-1 transition">
+                        <Link href="/business" onClick={() => setDropdownOpen(false)} className="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 font-bold text-sm px-1 transition">
                           Schedule Demo
                           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
 
-                    {/* KONTEN UTAMA SEBELAH KANAN (Lebar 3/4 agar mengisi sisa ruang navbar dengan sempurna) */}
                     <div className="w-3/4 flex flex-col justify-between">
                       <div>
                         <div className="flex items-center gap-3.5 mb-5">
@@ -242,7 +236,6 @@ export default function Navbar() {
                           </div>
                         </div>
 
-                        {/* Grid 6 Kartu Program yang leluasa dan rapi */}
                         <div className="grid grid-cols-3 gap-4">
                           {businessSubMenu.map((item, idx) => (
                             <div 
@@ -261,15 +254,16 @@ export default function Navbar() {
                       </div>
 
                       <div className="mt-6">
-                        <a 
-                          href="#" 
+                        <Link 
+                          href="/business"
+                          onClick={() => setDropdownOpen(false)}
                           className="inline-flex items-center gap-2 bg-[#0B2A4A] hover:bg-blue-950 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition duration-200 shadow-sm"
                         >
                           Learn More
                           <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
-                        </a>
+                        </Link>
                       </div>
 
                     </div>
@@ -278,16 +272,19 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <a key={link.label} href={link.href} className="hover:text-red-400 transition-colors py-2">
+              <Link 
+                key={link.label} 
+                href={link.href} 
+                className="hover:text-red-400 transition-colors py-2"
+              >
                 {link.label}
-              </a>
+              </Link>
             )
           )}
           
-          {/* TOMBOL JOIN US (Ujung Kanan Navbar) */}
-          <a href="#" className="bg-[#E60000] hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5">
+          <Link href="/pricing" className="bg-[#E60000] hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5">
             Join Us
-          </a>
+          </Link>
         </div>
 
         {/* MOBILE HAMBURGER MENU */}
@@ -309,15 +306,15 @@ export default function Navbar() {
       {/* MOBILE PANEL */}
       {mobileOpen && (
         <div className="lg:hidden bg-[#0A223B] border-t border-blue-900/40 px-6 py-5 flex flex-col gap-4 text-white/90 font-medium text-sm shadow-inner">
-          <a href="#" className="hover:text-red-400 py-1">Business</a>
-          <a href="#" className="hover:text-red-400 py-1">Tips and Trick HR</a>
-          <a href="#" className="hover:text-red-400 py-1">Pricing</a>
-          <a href="#" className="hover:text-red-400 py-1">Recruitment</a>
-          <a href="#" className="hover:text-red-400 py-1">About Us</a>
+          <Link href="/business" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">Business</Link>
+          <Link href="/tips-and-trick" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">Tips and Trick HR</Link>
+          <Link href="/pricing" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">Pricing</Link>
+          <Link href="/recruitment" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">Recruitment</Link>
+          <Link href="/about" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">About Us</Link>
           <div className="pt-2">
-            <a href="#" className="block bg-[#E60000] text-white px-5 py-2.5 rounded-full font-bold text-center shadow-md">
+            <Link href="/pricing" onClick={() => setMobileOpen(false)} className="block bg-[#E60000] text-white px-5 py-2.5 rounded-full font-bold text-center shadow-md">
               Join Us
-            </a>
+            </Link>
           </div>
         </div>
       )}
