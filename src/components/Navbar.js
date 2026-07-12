@@ -45,6 +45,14 @@ export default function Navbar() {
   const [activeTab, setActiveTab] = useState('FHRI for Business');
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
+  const tabPaths = {
+    'FHRI for Business': '/business/fhri-business',
+    'HRIS': '/business/hris',
+    'Talent Acquisition': '/business/talent-acquisition',
+    'FHRI Boot Camp': '/business/fhri-bootcamp',
+    'HRBP Boot Camp': '/business/hrbp-bootcamp',
+  };
+
   return (
     <nav className="relative bg-[#0B2A4A] text-white shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 relative">
@@ -255,7 +263,7 @@ export default function Navbar() {
 
                       <div className="mt-6">
                         <Link 
-                          href="/business"
+                          href={tabPaths[activeTab] || '/business'} 
                           onClick={() => setDropdownOpen(false)}
                           className="inline-flex items-center gap-2 bg-[#0B2A4A] hover:bg-blue-950 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition duration-200 shadow-sm"
                         >
