@@ -165,7 +165,7 @@ function Eyebrow({ children, tone = 'light' }) {
   return (
     <span
       className={`inline-flex items-center rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] ${
-        tone === 'light' ? 'bg-white/10 text-white' : 'bg-[#153C56]/8 text-[#153C56]'
+        tone === 'light' ? 'bg-white/10 text-white' : 'bg-[#00263C]/10 text-[#00263C]'
       }`}
     >
       {children}
@@ -174,7 +174,7 @@ function Eyebrow({ children, tone = 'light' }) {
 }
 
 // HANYA ADA SATU EXPORT DEFAULT
-export default function TalentAcquisitionPage() {
+export default function HumanCapitalSolutions() {
   // STATE DAN LOGIKA SLIDER DIPINDAHKAN KE SINI
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -212,7 +212,7 @@ export default function TalentAcquisitionPage() {
   return (
     <main className="min-h-screen font-sans">
       {/* ============ HERO ============ */}
-      <section className="relative bg-[#153C56] pt-20 pb-28 md:pb-36 px-6 md:px-12 overflow-hidden">
+      <section className="relative bg-[#00263C] pt-20 pb-28 md:pb-36 px-6 md:px-12 overflow-hidden">
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -244,8 +244,8 @@ export default function TalentAcquisitionPage() {
                 alt="First HR Indonesia consultants in a strategy session"
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B2A40]/50 via-transparent to-transparent" />
-              <span className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm text-[#153C56] text-[11px] font-bold px-3 py-1.5 rounded-full">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#00263C]/50 via-transparent to-transparent" />
+              <span className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm text-[#00263C] text-[11px] font-bold px-3 py-1.5 rounded-full">
                 Strategic: Talent Acquisition Panel
               </span>
             </div>
@@ -258,13 +258,13 @@ export default function TalentAcquisitionPage() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <Eyebrow tone="dark">What We Do</Eyebrow>
-            <h2 className="mt-5 text-3xl md:text-5xl font-bold text-[#153C56] leading-tight">Our Core Solutions</h2>
+            <h2 className="mt-5 text-3xl md:text-5xl font-bold text-[#00263C] leading-tight">Our Core Solutions</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {coreSolutions.map((item) => (
               <article
                 key={item.title}
-                className="group rounded-[1.75rem] bg-slate-50 p-2 ring-1 ring-slate-100 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_30px_60px_-20px_rgba(21,60,86,0.22)] hover:-translate-y-1.5"
+                className="group rounded-[1.75rem] bg-slate-50 p-2 ring-1 ring-slate-100 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_30px_60px_-20px_rgba(0,38,60,0.22)] hover:-translate-y-1.5"
               >
                 <div className="rounded-[calc(1.75rem-0.5rem)] bg-white overflow-hidden">
                   <div className="relative aspect-[4/3] overflow-hidden">
@@ -279,12 +279,12 @@ export default function TalentAcquisitionPage() {
                   </div>
                   <div className="flex flex-col p-5 gap-2">
                     <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{item.tag}</span>
-                    <h3 className="font-bold text-[#153C56] text-[16px] leading-snug group-hover:text-[#DC0017] transition-colors duration-300">
+                    <h3 className="font-bold text-[#00263C] text-[16px] leading-snug group-hover:text-[#DC0017] transition-colors duration-300">
                       {item.title}
                     </h3>
                     <p className="text-[13px] text-slate-500 leading-relaxed mt-1">{item.description}</p>
                     <div className="pt-4 mt-3 border-t border-slate-100">
-                      <span className="text-[11px] font-semibold text-[#153C56]">{item.meta}</span>
+                      <span className="text-[11px] font-semibold text-[#00263C]">{item.meta}</span>
                     </div>
                   </div>
                 </div>
@@ -298,7 +298,7 @@ export default function TalentAcquisitionPage() {
       <section className="bg-white pb-24 md:pb-32 px-6 md:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-[#153C56] leading-tight">More Than Just Recruitment</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#00263C] leading-tight">More Than Just Recruitment</h2>
             <p className="mt-4 text-slate-500 leading-relaxed">
               First HR helps you fill the role, and build the process that fills the next one faster.
             </p>
@@ -306,12 +306,12 @@ export default function TalentAcquisitionPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
             {howWeWork.map((item) => (
               <div key={item.title} className="flex flex-col">
-                <div className="w-12 h-12 rounded-full bg-[#153C56]/8 flex items-center justify-center mb-5">
-                  <svg className="w-5 h-5 text-[#153C56]" viewBox="0 0 24 24">
+                <div className="w-12 h-12 rounded-full bg-[#00263C]/10 flex items-center justify-center mb-5">
+                  <svg className="w-5 h-5 text-[#00263C]" viewBox="0 0 24 24">
                     {item.icon}
                   </svg>
                 </div>
-                <h3 className="font-bold text-[#153C56] text-[15px] mb-2">{item.title}</h3>
+                <h3 className="font-bold text-[#00263C] text-[15px] mb-2">{item.title}</h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed">{item.description}</p>
               </div>
             ))}
@@ -320,7 +320,7 @@ export default function TalentAcquisitionPage() {
       </section>
 
       {/* ============ CORPORATE SOLUTIONS + CTA BANNER ============ */}
-      <section className="bg-[#153C56]">
+      <section className="bg-[#00263C]">
         <div className="max-w-6xl mx-auto px-6 md:px-12 py-24 md:py-32">
           <Eyebrow>Corporate Solutions</Eyebrow>
           <div className="grid lg:grid-cols-2 gap-14 items-center mt-7">
@@ -354,12 +354,12 @@ export default function TalentAcquisitionPage() {
                 key={item.title}
                 className="bg-white rounded-2xl p-7 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:shadow-[0_24px_48px_-16px_rgba(0,0,0,0.25)]"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#153C56]/8 flex items-center justify-center mb-5">
-                  <svg className="w-[18px] h-[18px] text-[#153C56]" viewBox="0 0 24 24">
+                <div className="w-10 h-10 rounded-xl bg-[#00263C]/10 flex items-center justify-center mb-5">
+                  <svg className="w-[18px] h-[18px] text-[#00263C]" viewBox="0 0 24 24">
                     {item.icon}
                   </svg>
                 </div>
-                <h3 className="font-bold text-[#153C56] text-sm mb-2">{item.title}</h3>
+                <h3 className="font-bold text-[#00263C] text-sm mb-2">{item.title}</h3>
                 <p className="text-[12.5px] text-slate-500 leading-relaxed">{item.description}</p>
               </div>
             ))}
@@ -385,7 +385,7 @@ export default function TalentAcquisitionPage() {
           
           <button 
             onClick={prevSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#0B2A4A] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
+            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
             aria-label="Previous Slide"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -407,11 +407,11 @@ export default function TalentAcquisitionPage() {
                     </svg>
                   </div>
                   
-                  <p className="text-xl md:text-2xl font-medium text-[#0B2A4A] max-w-3xl mb-8 leading-relaxed mx-auto">
+                  <p className="text-xl md:text-2xl font-medium text-[#00263C] max-w-3xl mb-8 leading-relaxed mx-auto">
                     {testi.quote}
                   </p>
                   <div className="mb-4">
-                    <h4 className="text-[#0B2A4A] font-extrabold text-sm mb-1">{testi.name}</h4>
+                    <h4 className="text-[#00263C] font-extrabold text-sm mb-1">{testi.name}</h4>
                     <p className="text-gray-500 text-sm">{testi.role}</p>
                   </div>
                 </div>
@@ -421,7 +421,7 @@ export default function TalentAcquisitionPage() {
 
           <button 
             onClick={nextSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#0B2A4A] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
+            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
             aria-label="Next Slide"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -447,7 +447,7 @@ export default function TalentAcquisitionPage() {
       {/* ============ FINAL SPLIT CTA ============ */}
       <section className="bg-white py-24 px-4 md:px-8">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] bg-[#1a365d]">
+          <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] bg-[#00263C]">
             
             {/* Kiri: Gambar */}
             <div className="md:w-5/12 min-h-[300px] md:min-h-[480px] bg-slate-200 relative">

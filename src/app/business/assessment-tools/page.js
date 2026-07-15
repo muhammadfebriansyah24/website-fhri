@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 
 // SLIDER TESTIMONIAL (SECTION 5)
-export default function FhriBootcamp() {
+export default function AssessmentTools() {
   const [activeSlide, setActiveSlide] = useState(0);
 
   // DATA TESTIMONIAL (SECTION 5)
@@ -352,16 +352,13 @@ export default function FhriBootcamp() {
         </div>
       </section>
 
-      {/* SECTION 5: Testimonial Slider */}
-      <section className="bg-[#f8f9fa] py-24 px-4 md:px-8 flex flex-col items-center justify-center text-center">
-        
-        {/* Wrapper luar menggunakan Flexbox agar tombol aman di pinggir */}
+      {/* SECTION 4: TESTIMONIAL SLIDER */}
+      <section className="bg-white py-24 px-4 md:px-8 flex flex-col items-center justify-center text-center border-t border-gray-100">
         <div className="w-full max-w-6xl mx-auto flex items-center justify-between gap-4 md:gap-8">
           
-          {/* Tombol Panah Kiri */}
           <button 
             onClick={prevSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#0f2845] hover:bg-gray-50 hover:text-[#e23e3e] transition-all cursor-pointer focus:outline-none"
+            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#0B2A4A] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
             aria-label="Previous Slide"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -369,10 +366,7 @@ export default function FhriBootcamp() {
             </svg>
           </button>
 
-          {/* Kontainer Slider Utama - Strict Overflow Hidden */}
           <div className="w-full max-w-4xl mx-auto overflow-hidden rounded-xl">
-            
-            {/* Inner Track (Yang bergeser ke kiri/kanan) */}
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${activeSlide * 100}%)` }}
@@ -380,56 +374,48 @@ export default function FhriBootcamp() {
               {testimonials.map((testi, index) => (
                 <div key={index} className="w-full shrink-0 flex flex-col items-center justify-center px-2 md:px-6">
                   
-                  {/* Ikon Kutipan (Quote) */}
-                  <div className="mb-6">
-                    <svg className="w-10 h-10 text-pink-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 11.25v.75c0 1.657-1.343 3-3 3H6.75A1.5 1.5 0 015.25 13.5v-3a1.5 1.5 0 011.5-1.5h1.5c.828 0 1.5-.672 1.5-1.5V6.75A1.5 1.5 0 0111.25 5.25h.75A1.5 1.5 0 0113.5 6.75v4.5A1.5 1.5 0 0112 12.75h-.75c-.414 0-.75-.336-.75-.75v-.75zm8.25 0v.75c0 1.657-1.343 3-3 3h-.25A1.5 1.5 0 0113.5 13.5v-3a1.5 1.5 0 011.5-1.5h1.5c.828 0 1.5-.672 1.5-1.5V6.75A1.5 1.5 0 0119.5 5.25h.75A1.5 1.5 0 0121.75 6.75v4.5a1.5 1.5 0 01-1.5 1.5h-.75c-.414 0-.75-.336-.75-.75v-.75z" />
+                  {/* ICON KUTIPAN BARU */}
+                  <div className="mb-8">
+                    <svg className="w-12 h-12 text-[#FF6B6B] mx-auto opacity-90" fill="currentColor" viewBox="0 0 256 256">
+                      <path d="M116,72v88a48.05,48.05,0,0,1-48,48,8,8,0,0,1,0-16,32,32,0,0,0,32-32v-8H40a16,16,0,0,1-16-16V72A16,16,0,0,1,40,56h60A16,16,0,0,1,116,72ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Z"></path>
                     </svg>
                   </div>
                   
-                  {/* Teks Kutipan */}
-                  <p className="text-xl md:text-2xl font-medium text-[#0f2845] max-w-3xl mb-8 leading-relaxed mx-auto">
+                  <p className="text-xl md:text-2xl font-medium text-[#0B2A4A] max-w-3xl mb-8 leading-relaxed mx-auto">
                     {testi.quote}
                   </p>
-                  
-                  {/* Identitas Pembuat Kutipan */}
                   <div className="mb-4">
-                    <h4 className="text-[#0f2845] font-extrabold text-sm mb-1">{testi.name}</h4>
+                    <h4 className="text-[#0B2A4A] font-extrabold text-sm mb-1">{testi.name}</h4>
                     <p className="text-gray-500 text-sm">{testi.role}</p>
                   </div>
-
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Tombol Panah Kanan */}
           <button 
             onClick={nextSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#0f2845] hover:bg-gray-50 hover:text-[#e23e3e] transition-all cursor-pointer focus:outline-none"
+            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#0B2A4A] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
             aria-label="Next Slide"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
             </svg>
           </button>
-
         </div>
         
-        {/* Pagination Dots */}
         <div className="flex items-center gap-2 mt-8">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setActiveSlide(index)}
               className={`h-2.5 rounded-full transition-all duration-300 ease-in-out cursor-pointer focus:outline-none ${
-                activeSlide === index ? 'w-8 bg-[#e23e3e]' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
+                activeSlide === index ? 'w-8 bg-red-600' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
-
       </section>
 
       {/* SECTION 6: Call to Action (CTA) Card */}
