@@ -4,7 +4,9 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Penyesuaian Tautan Navigasi (Menyiapkan alur untuk setiap folder halaman di dalam app/)
+// ============================================================
+// DATA NAVIGASI UTAMA
+// ============================================================
 const navLinks = [
   { label: 'Business', dropdown: true, href: '/business' },
   { label: 'Tips and Trick HR', href: '/tips-and-trick' },
@@ -13,6 +15,107 @@ const navLinks = [
   { label: 'About Us', href: '/about' },
 ];
 
+// ============================================================
+// DATA MENU KIRI (BUSINESS TABS) DENGAN ICON
+// ============================================================
+const businessTabs = [
+  {
+    id: 'Business Support Services',
+    path: '/business/business-support',
+    icon: (
+      <>
+        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+      </>
+    )
+  },
+  {
+    id: 'Human Capital Solutions',
+    path: '/business/humancapital-solutions',
+    icon: (
+      <>
+        <circle cx="11" cy="11" r="8" />
+        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+      </>
+    )
+  },
+  {
+    id: 'Payroll & Outsourcing',
+    path: '/business/payroll',
+    icon: (
+      <>
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </>
+    )
+  },
+  {
+    id: 'Assessment Tools',
+    path: '/business/assessment-tools',
+    icon: (
+      <>
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+      </>
+    )
+  },
+  {
+    id: 'HR Boot Camp',
+    path: '/business/hr-bootcamp',
+    icon: (
+      <>
+        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+        <line x1="8" y1="21" x2="16" y2="21" />
+        <line x1="12" y1="17" x2="12" y2="21" />
+      </>
+    )
+  },
+  {
+    id: 'Industrial Relations & Legal Advisory',
+    path: '/business/industrial-relations',
+    icon: (
+      <>
+        <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11" />
+      </>
+    )
+  },
+  {
+    id: 'Health, Safety, and Environment',
+    path: '/business/hse',
+    icon: (
+      <>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M9 12l2 2 4-4" />
+      </>
+    )
+  },
+  {
+    id: 'Corporate Culture & Events',
+    path: '/business/corporate-culture',
+    icon: (
+      <>
+        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75" />
+      </>
+    )
+  },
+  {
+    id: 'Lembaga Sertifikasi Profesi',
+    path: '/business/lsp',
+    icon: (
+      <>
+        <circle cx="12" cy="8" r="7" />
+        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+      </>
+    )
+  }
+];
+
+// ============================================================
+// DATA MENU KANAN (SUBMENU DESKRIPSI)
+// ============================================================
 const businessSubMenu = [
   {
     title: 'HR Team Development',
@@ -45,19 +148,14 @@ export default function Navbar() {
   const [activeTab, setActiveTab] = useState('Business Support Services');
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const tabPaths = {
-    'Business Support Services': '/business/business-support',
-    'PayrollOutsourcing': '/business/payroll',
-    'Human Capital Solutions': '/business/humancapital-solutions',
-    'AssessmentTools': '/business/assessment-tools',
-    'HR Boot Camp': '/business/hr-bootcamp',
-  };
+  // Mencari data tab yang sedang aktif untuk mengambil path & icon-nya secara dinamis
+  const activeTabData = businessTabs.find((tab) => tab.id === activeTab) || businessTabs[0];
 
   return (
     <nav className="relative bg-white text-[#00263C] shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 relative">
         
-        {/* LOGO PERUSAHAAN (Kembali ke halaman utama '/') */}
+        {/* LOGO PERUSAHAAN */}
         <Link href="/" className="flex items-center gap-2 select-none -ml-3">
           <div className="relative w-36 h-9 flex items-center">
             <Image
@@ -97,109 +195,37 @@ export default function Navbar() {
 
                 {/* MEGA-MENU DROPDOWN */}
                 <div 
-                  className={`transition-all duration-300 absolute top-full left-6 right-6 md:left-12 md:right-12 mt-2 z-50 ${
+                  className={`transition-all duration-300 absolute top-full left-6 right-6 lg:left-12 lg:right-12 mt-2 z-50 ${
                     dropdownOpen 
                       ? 'visible opacity-100 translate-y-0' 
                       : 'invisible opacity-0 -translate-y-2 pointer-events-none'
                   }`}
                 >
+                  {/* Diperlebar layoutnya: w-1/3 untuk menu kiri, w-2/3 untuk kanan */}
                   <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 md:p-8 flex gap-8 text-gray-800 w-full">
                     
-                    <div className="w-1/4 flex flex-col justify-between border-r border-gray-100 pr-6 shrink-0">
-                      <div className="flex flex-col gap-1.5">
-                        
-                        <button 
-                          onClick={() => setActiveTab('Business Support Services')}
-                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-semibold transition ${
-                            activeTab === 'Business Support Services' 
-                              ? 'bg-[#0B2A4A] text-white shadow-md' 
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
-                          }`}
-                        >
-                          <span className="flex items-center gap-3">
-                            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                              <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
-                            </svg>
-                            Business Support Services
-                          </span>
-                          <span className="text-xs">›</span>
-                        </button>
-
-                        <button 
-                          onClick={() => setActiveTab('PayrollOutsourcing')}
-                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-medium transition ${
-                            activeTab === 'PayrollOutsourcing' 
-                              ? 'bg-[#0B2A4A] text-white shadow-md' 
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
-                          }`}
-                        >
-                          <span className="flex items-center gap-3">
-                            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <ellipse cx="12" cy="5" rx="9" ry="3" />
-                              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-                            </svg>
-                            Payroll & Outsourcing
-                          </span>
-                          <span className="text-xs">›</span>
-                        </button>
-
-                        <button 
-                          onClick={() => setActiveTab('Human Capital Solutions')}
-                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-medium transition ${
-                            activeTab === 'Human Capital Solutions' 
-                              ? 'bg-[#0B2A4A] text-white shadow-md' 
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
-                          }`}
-                        >
-                          <span className="flex items-center gap-3">
-                            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <circle cx="11" cy="11" r="8" />
-                              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                            </svg>
-                            Human Capital Solutions
-                          </span>
-                          <span className="text-xs">›</span>
-                        </button>
-
-                        <button 
-                          onClick={() => setActiveTab('AssessmentTools')}
-                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-medium transition ${
-                            activeTab === 'AssessmentTools' 
-                              ? 'bg-[#0B2A4A] text-white shadow-md' 
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
-                          }`}
-                        >
-                          <span className="flex items-center gap-3">
-                            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                              <path d="M6 12v5c3 3 9 3 12 0v-5" />
-                            </svg>
-                            Assessment Tools
-                          </span>
-                          <span className="text-xs">›</span>
-                        </button>
-
-                        <button 
-                          onClick={() => setActiveTab('HR Boot Camp')}
-                          className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-medium transition ${
-                            activeTab === 'HR Boot Camp' 
-                              ? 'bg-[#0B2A4A] text-white shadow-md' 
-                              : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
-                          }`}
-                        >
-                          <span className="flex items-center gap-3">
-                            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                              <circle cx="9" cy="7" r="4" />
-                              <path d="M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75" />
-                            </svg>
-                            HR Boot Camp
-                          </span>
-                          <span className="text-xs">›</span>
-                        </button>
-
+                    {/* BAGIAN KIRI: DAFTAR TAB (Di-Map secara otomatis) */}
+                    <div className="w-[35%] flex flex-col justify-between border-r border-gray-100 pr-6 shrink-0">
+                      <div className="flex flex-col gap-1">
+                        {businessTabs.map((tab) => (
+                          <button 
+                            key={tab.id}
+                            onClick={() => setActiveTab(tab.id)}
+                            className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-left text-[13px] font-semibold transition ${
+                              activeTab === tab.id 
+                                ? 'bg-[#0B2A4A] text-white shadow-md' 
+                                : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
+                            }`}
+                          >
+                            <span className="flex items-center gap-3">
+                              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                {tab.icon}
+                              </svg>
+                              <span className="truncate">{tab.id}</span>
+                            </span>
+                            <span className="text-xs ml-2 shrink-0">›</span>
+                          </button>
+                        ))}
                       </div>
 
                       <div className="pt-4 mt-2 border-t border-gray-100">
@@ -212,18 +238,18 @@ export default function Navbar() {
                       </div>
                     </div>
 
-                    <div className="w-3/4 flex flex-col justify-between">
+                    {/* BAGIAN KANAN: DESKRIPSI & SUBMENU */}
+                    <div className="w-[65%] flex flex-col justify-between pl-2">
                       <div>
                         <div className="flex items-center gap-3.5 mb-5">
                           <div className="w-11 h-11 bg-[#0B2A4A] rounded-xl flex items-center justify-center text-white shadow-sm shrink-0">
-                            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                              <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-                              <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
+                            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                              {activeTabData.icon}
                             </svg>
                           </div>
                           <div>
                             <h3 className="text-lg font-bold text-[#0B2A4A] leading-tight">
-                              {activeTab}
+                              {activeTabData.id}
                             </h3>
                             <p className="text-xs text-gray-500 mt-0.5">
                               Build a future-ready HR Team with expert-led training.
@@ -231,13 +257,13 @@ export default function Navbar() {
                           </div>
                         </div>
 
-                        <div className="grid grid-cols-3 gap-4">
+                        <div className="grid grid-cols-2 xl:grid-cols-3 gap-4">
                           {businessSubMenu.map((item, idx) => (
                             <div 
                               key={idx} 
                               className="bg-white border border-gray-100 hover:border-blue-200 rounded-2xl p-4 transition-all duration-200 hover:shadow-md flex flex-col justify-start"
                             >
-                              <h4 className="text-sm font-bold text-[#0B2A4A] mb-1.5 leading-snug">
+                              <h4 className="text-[13px] font-bold text-[#0B2A4A] mb-1.5 leading-snug">
                                 {item.title}
                               </h4>
                               <p className="text-xs text-gray-500 leading-relaxed line-clamp-3">
@@ -250,7 +276,7 @@ export default function Navbar() {
 
                       <div className="mt-6">
                         <Link 
-                          href={tabPaths[activeTab] || '/business'} 
+                          href={activeTabData.path} 
                           onClick={() => setDropdownOpen(false)}
                           className="inline-flex items-center gap-2 bg-[#0B2A4A] hover:bg-blue-950 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition duration-200 shadow-sm"
                         >
@@ -300,14 +326,26 @@ export default function Navbar() {
 
       {/* MOBILE PANEL */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-blue-900/40 px-6 py-5 flex flex-col gap-4 text-[#00263C]/90 font-medium text-sm shadow-inner">
-          <Link href="/business" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">Business</Link>
-          <Link href="/tips-and-trick" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">Tips and Trick HR</Link>
-          <Link href="/pricing" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">Pricing</Link>
-          <Link href="/recruitment" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">Recruitment</Link>
-          <Link href="/about" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">About Us</Link>
-          <div className="pt-2">
-            <Link href="/pricing" onClick={() => setMobileOpen(false)} className="block bg-[#E60000] text-white px-5 py-2.5 rounded-full font-bold text-center shadow-md">
+        <div className="lg:hidden bg-white border-t border-blue-900/40 px-6 py-5 flex flex-col gap-4 text-[#00263C]/90 font-medium text-sm shadow-inner max-h-[70vh] overflow-y-auto">
+          <div className="border-b border-gray-100 pb-3 mb-2">
+            <span className="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Business Solutions</span>
+            {businessTabs.map((tab) => (
+              <Link 
+                key={tab.id} 
+                href={tab.path} 
+                onClick={() => setMobileOpen(false)} 
+                className="block hover:text-[#DC0017] py-2 text-sm pl-2 border-l-2 border-transparent hover:border-[#DC0017]"
+              >
+                {tab.id}
+              </Link>
+            ))}
+          </div>
+          <Link href="/tips-and-trick" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">Tips and Trick HR</Link>
+          <Link href="/pricing" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">Pricing</Link>
+          <Link href="/recruitment" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">Recruitment</Link>
+          <Link href="/about" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">About Us</Link>
+          <div className="pt-4 mt-2">
+            <Link href="/pricing" onClick={() => setMobileOpen(false)} className="block bg-[#E60000] text-white px-5 py-3 rounded-full font-bold text-center shadow-md">
               Join Us
             </Link>
           </div>
