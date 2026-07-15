@@ -42,26 +42,26 @@ const businessSubMenu = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('FHRI for Business');
+  const [activeTab, setActiveTab] = useState('Business Support Services');
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const tabPaths = {
-    'FHRI for Business': '/business/fhri-business',
-    'HRIS': '/business/hris',
-    'Talent Acquisition': '/business/talent-acquisition',
-    'FHRI Boot Camp': '/business/fhri-bootcamp',
-    'HRBP Boot Camp': '/business/hrbp-bootcamp',
+    'Business Support Services': '/business/business-support',
+    'PayrollOutsourcing': '/business/payroll',
+    'Human Capital Solutions': '/business/humancapital-solutions',
+    'AssessmentTools': '/business/assessment-tools',
+    'HR Boot Camp': '/business/hr-bootcamp',
   };
 
   return (
-    <nav className="relative bg-[#0B2A4A] text-white shadow-md z-50">
+    <nav className="relative bg-white text-[#00263C] shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 relative">
         
         {/* LOGO PERUSAHAAN (Kembali ke halaman utama '/') */}
-        <Link href="/" className="flex items-center gap-2 select-none">
+        <Link href="/" className="flex items-center gap-2 select-none -ml-3">
           <div className="relative w-36 h-9 flex items-center">
             <Image
-              src="/WhiteLogoFHRI.png" 
+              src="/fhri-logo.png" 
               alt="First HR Indonesia Logo"
               width={140}
               height={36}
@@ -71,35 +71,22 @@ export default function Navbar() {
                 e.target.style.display = 'none';
               }}
             />
-            <div className="absolute inset-0 flex flex-col leading-none pointer-events-none opacity-0 pseudologo-fallback">
-              <span className="text-[10px] tracking-[0.3em] text-red-500">✦ ✦ ✦</span>
-              <span className="text-2xl font-semibold text-white">
-                first <span className="font-extrabold">HR</span>
-              </span>
-              <span className="text-[10px] tracking-[0.35em] text-slate-400 -mt-1">INDONESIA</span>
-            </div>
-            <style jsx>{`
-              .relative :global(img[style*="display: none"]) + .pseudologo-fallback {
-                opacity: 1;
-                position: relative;
-              }
-            `}</style>
           </div>
         </Link>
 
         {/* DESKTOP LINKS */}
-        <div className="hidden lg:flex items-center gap-8 text-white/90 font-medium text-sm">
+        <div className="hidden lg:flex items-center gap-8 text-[#00263C]/90 font-medium text-sm">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.label} className="py-2">
                 <button 
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex items-center gap-1.5 text-white hover:text-red-400 font-semibold transition-colors focus:outline-none cursor-pointer"
+                  className="flex items-center gap-1.5 text-[#00263C] hover:text-[#DC0017] font-semibold transition-colors focus:outline-none cursor-pointer"
                 >
                   {link.label}
                   <svg 
                     className={`w-3.5 h-3.5 mt-0.5 transition-transform duration-200 ${
-                      dropdownOpen ? 'rotate-180 text-red-400' : ''
+                      dropdownOpen ? 'rotate-180 text-[#DC0017]' : ''
                     }`} 
                     viewBox="0 0 12 8" 
                     fill="none"
@@ -122,9 +109,9 @@ export default function Navbar() {
                       <div className="flex flex-col gap-1.5">
                         
                         <button 
-                          onClick={() => setActiveTab('FHRI for Business')}
+                          onClick={() => setActiveTab('Business Support Services')}
                           className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-semibold transition ${
-                            activeTab === 'FHRI for Business' 
+                            activeTab === 'Business Support Services' 
                               ? 'bg-[#0B2A4A] text-white shadow-md' 
                               : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
                           }`}
@@ -134,15 +121,15 @@ export default function Navbar() {
                               <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
                               <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
                             </svg>
-                            FHRI for Business
+                            Business Support Services
                           </span>
                           <span className="text-xs">›</span>
                         </button>
 
                         <button 
-                          onClick={() => setActiveTab('HRIS')}
+                          onClick={() => setActiveTab('PayrollOutsourcing')}
                           className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-medium transition ${
-                            activeTab === 'HRIS' 
+                            activeTab === 'PayrollOutsourcing' 
                               ? 'bg-[#0B2A4A] text-white shadow-md' 
                               : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
                           }`}
@@ -153,15 +140,15 @@ export default function Navbar() {
                               <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
                               <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
                             </svg>
-                            HRIS
+                            Payroll & Outsourcing
                           </span>
                           <span className="text-xs">›</span>
                         </button>
 
                         <button 
-                          onClick={() => setActiveTab('Talent Acquisition')}
+                          onClick={() => setActiveTab('Human Capital Solutions')}
                           className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-medium transition ${
-                            activeTab === 'Talent Acquisition' 
+                            activeTab === 'Human Capital Solutions' 
                               ? 'bg-[#0B2A4A] text-white shadow-md' 
                               : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
                           }`}
@@ -171,15 +158,15 @@ export default function Navbar() {
                               <circle cx="11" cy="11" r="8" />
                               <line x1="21" y1="21" x2="16.65" y2="16.65" />
                             </svg>
-                            Talent Acquisition
+                            Human Capital Solutions
                           </span>
                           <span className="text-xs">›</span>
                         </button>
 
                         <button 
-                          onClick={() => setActiveTab('FHRI Boot Camp')}
+                          onClick={() => setActiveTab('AssessmentTools')}
                           className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-medium transition ${
-                            activeTab === 'FHRI Boot Camp' 
+                            activeTab === 'AssessmentTools' 
                               ? 'bg-[#0B2A4A] text-white shadow-md' 
                               : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
                           }`}
@@ -189,15 +176,15 @@ export default function Navbar() {
                               <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                               <path d="M6 12v5c3 3 9 3 12 0v-5" />
                             </svg>
-                            FHRI Boot Camp
+                            Assessment Tools
                           </span>
                           <span className="text-xs">›</span>
                         </button>
 
                         <button 
-                          onClick={() => setActiveTab('HRBP Boot Camp')}
+                          onClick={() => setActiveTab('HR Boot Camp')}
                           className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-left text-sm font-medium transition ${
-                            activeTab === 'HRBP Boot Camp' 
+                            activeTab === 'HR Boot Camp' 
                               ? 'bg-[#0B2A4A] text-white shadow-md' 
                               : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'
                           }`}
@@ -208,7 +195,7 @@ export default function Navbar() {
                               <circle cx="9" cy="7" r="4" />
                               <path d="M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75" />
                             </svg>
-                            HRBP Boot Camp
+                            HR Boot Camp
                           </span>
                           <span className="text-xs">›</span>
                         </button>
@@ -283,7 +270,7 @@ export default function Navbar() {
               <Link 
                 key={link.label} 
                 href={link.href} 
-                className="hover:text-red-400 transition-colors py-2"
+                className="hover:text-[#DC0017] transition-colors py-2"
               >
                 {link.label}
               </Link>
@@ -297,7 +284,7 @@ export default function Navbar() {
 
         {/* MOBILE HAMBURGER MENU */}
         <button
-          className="lg:hidden text-white hover:text-red-400 focus:outline-none"
+          className="lg:hidden text-[#00263C] hover:text-[#DC0017] focus:outline-none"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -313,12 +300,12 @@ export default function Navbar() {
 
       {/* MOBILE PANEL */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#0A223B] border-t border-blue-900/40 px-6 py-5 flex flex-col gap-4 text-white/90 font-medium text-sm shadow-inner">
-          <Link href="/business" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">Business</Link>
-          <Link href="/tips-and-trick" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">Tips and Trick HR</Link>
-          <Link href="/pricing" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">Pricing</Link>
-          <Link href="/recruitment" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">Recruitment</Link>
-          <Link href="/about" onClick={() => setMobileOpen(false)} className="hover:text-red-400 py-1">About Us</Link>
+        <div className="lg:hidden bg-white border-t border-blue-900/40 px-6 py-5 flex flex-col gap-4 text-[#00263C]/90 font-medium text-sm shadow-inner">
+          <Link href="/business" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">Business</Link>
+          <Link href="/tips-and-trick" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">Tips and Trick HR</Link>
+          <Link href="/pricing" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">Pricing</Link>
+          <Link href="/recruitment" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">Recruitment</Link>
+          <Link href="/about" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1">About Us</Link>
           <div className="pt-2">
             <Link href="/pricing" onClick={() => setMobileOpen(false)} className="block bg-[#E60000] text-white px-5 py-2.5 rounded-full font-bold text-center shadow-md">
               Join Us

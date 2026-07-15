@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function HrisPage() {
+export default function PayrollOutsourcing() {
   // ==========================================
   // STATE & DATA UNTUK TESTIMONIAL SLIDER
   // ==========================================
@@ -123,7 +123,7 @@ export default function HrisPage() {
     <div className="w-full min-h-screen bg-white font-sans">
       
       {/* SECTION 1: HERO SECTION (NEW DESIGN) */}
-      <section className="bg-[#153C56] pt-24 pb-24 px-6 md:px-12 flex items-center min-h-[85vh]">
+      <section className="bg-[#00263C] pt-24 pb-24 px-6 md:px-12 flex items-center min-h-[85vh]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 w-full">
           
           {/* Left Side: Text */}
@@ -164,14 +164,14 @@ export default function HrisPage() {
 
               {/* Floating Badge (Efficiency Increase) */}
               <div className="absolute top-1/2 -left-4 md:-left-12 transform -translate-y-1/2 bg-white/95 backdrop-blur shadow-[0_10px_30px_rgba(0,0,0,0.15)] rounded-xl p-3 md:p-4 flex items-center gap-4">
-                <div className="bg-[#122A40] text-white p-2.5 rounded-lg flex items-center justify-center">
+                <div className="bg-[#00263C] text-white p-2.5 rounded-lg flex items-center justify-center">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                 </div>
                 <div>
                   <p className="text-[10px] md:text-[11px] text-gray-500 font-medium">Efficiency Increase</p>
-                  <p className="text-lg md:text-xl font-black text-[#122A40]">+45%</p>
+                  <p className="text-lg md:text-xl font-black text-[#00263C]">+45%</p>
                 </div>
               </div>
 
@@ -184,7 +184,7 @@ export default function HrisPage() {
       {/* SECTION 2: CORE HRIS MODULES */}
       <section className="py-20 px-6 md:px-12 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#0B2A4A] mb-4">Core HRIS Modules</h2>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#00263C] mb-4">Core HRIS Modules</h2>
           <p className="text-gray-500 mb-12 max-w-2xl mx-auto">
             Reliable solutions for all your HR needs, specifically designed for operational ease and accuracy.
           </p>
@@ -229,10 +229,10 @@ export default function HrisPage() {
               }
             ].map((module, index) => (
               <div key={index} className="bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 flex flex-col items-center text-center hover:-translate-y-1 transition-transform">
-                <div className="w-16 h-16 bg-[#0B2A4A] rounded-[1.25rem] flex items-center justify-center mb-6 shadow-md">
+                <div className="w-16 h-16 bg-[#00263C] rounded-[1.25rem] flex items-center justify-center mb-6 shadow-md">
                   {module.icon}
                 </div>
-                <h3 className="font-bold text-xl text-[#0B2A4A] mb-3">{module.title}</h3>
+                <h3 className="font-bold text-xl text-[#00263C] mb-3">{module.title}</h3>
                 <p className="text-sm text-gray-500 leading-relaxed">{module.desc}</p>
               </div>
             ))}
@@ -249,10 +249,10 @@ export default function HrisPage() {
               
               {/* Text Side */}
               <div className="md:w-1/2 space-y-6">
-                <div className="w-12 h-12 bg-[#0B2A4A] rounded-lg flex items-center justify-center shadow-md">
+                <div className="w-12 h-12 bg-[#00263C] rounded-lg flex items-center justify-center shadow-md">
                    <span className="text-white font-bold">{feature.icon}</span>
                 </div>
-                <h2 className="text-3xl font-extrabold text-[#0B2A4A]">{feature.title}</h2>
+                <h2 className="text-3xl font-extrabold text-[#00263C]">{feature.title}</h2>
                 <p className="text-gray-600 leading-relaxed">
                   {feature.desc}
                 </p>
@@ -283,7 +283,7 @@ export default function HrisPage() {
 
           <div className="pt-8 text-center flex justify-center">
              <button className="bg-red-600 hover:bg-red-700 transition text-white px-10 py-4 rounded-full font-bold shadow-lg">
-                Book a Strategic Consultation
+               Book a Strategic Consultation
              </button>
           </div>
 
@@ -296,7 +296,7 @@ export default function HrisPage() {
           
           <button 
             onClick={prevSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#0B2A4A] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
+            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
             aria-label="Previous Slide"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -319,11 +319,11 @@ export default function HrisPage() {
                     </svg>
                   </div>
                   
-                  <p className="text-xl md:text-2xl font-medium text-[#0B2A4A] max-w-3xl mb-8 leading-relaxed mx-auto">
+                  <p className="text-xl md:text-2xl font-medium text-[#00263C] max-w-3xl mb-8 leading-relaxed mx-auto">
                     {testi.quote}
                   </p>
                   <div className="mb-4">
-                    <h4 className="text-[#0B2A4A] font-extrabold text-sm mb-1">{testi.name}</h4>
+                    <h4 className="text-[#00263C] font-extrabold text-sm mb-1">{testi.name}</h4>
                     <p className="text-gray-500 text-sm">{testi.role}</p>
                   </div>
                 </div>
@@ -333,7 +333,7 @@ export default function HrisPage() {
 
           <button 
             onClick={nextSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#0B2A4A] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
+            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
             aria-label="Next Slide"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
