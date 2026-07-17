@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function CTA() {
   return (
-    <section className="relative bg-[#0B2A4A] py-24 px-6 md:px-12 overflow-hidden">
+    <section className="relative bg-[#00263C] py-24 px-6 md:px-12 overflow-hidden">
       {/* subtle decorative pattern */}
       <div
         className="absolute inset-0 opacity-10"
