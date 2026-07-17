@@ -2,174 +2,115 @@
 
 import React, { useState } from 'react';
 
-// SLIDER TESTIMONIAL (SECTION 5)
-export default function AssessmentTools() {
-  const [activeSlide, setActiveSlide] = useState(0);
+export default function AssessmentToolsPage() {
+  // --- STATE UNTUK INTERACTIVE TABS (SECTION 2) ---
+  const [activeTab, setActiveTab] = useState(0);
 
-  // DATA TESTIMONIAL (SECTION 5)
-  const testimonials = [
+  // --- DATA KONTEN ASSESSMENT TOOLS ---
+  const assessmentData = [
     {
-      quote: '"FHRI membantu tim HR kami bertransformasi dari fungsi operasional menjadi mitra strategis. Dampaknya terasa langsung pada bisnis."',
-      name: '[Full Name 1]',
-      role: '[Job Title], [Company Name]',
+      id: 'skill',
+      title: 'Skill & Performance Appraisal',
+      shortDesc: 'Evaluasi kesiapan teknis dan pencapaian target kerja secara terukur.',
+      focus: 'Mengukur gap kompetensi teknis & pencapaian Key Performance Indicators (KPI).',
+      methodology: 'Tes fungsional, simulasi praktik, dan studi kasus industri spesifik.',
+      output: 'Skor kuantitatif kesiapan teknis karyawan dan matriks kinerja.',
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
     },
     {
-      quote: '"Sangat direkomendasikan! Pelatihan ini memberikan insight yang luar biasa dan applicable untuk tantangan HR masa kini."',
-      name: '[Full Name 2]',
-      role: '[Job Title], [Company Name]',
+      id: '360',
+      title: '360-Degree Feedback',
+      shortDesc: 'Dapatkan pandangan komprehensif dari seluruh struktur interaksi kerja.',
+      focus: 'Evaluasi efektivitas kolaborasi, gaya komunikasi, dan kepemimpinan.',
+      methodology: 'Kuesioner anonim terkalibrasi dari atasan, rekan sejawat (peer), dan bawahan.',
+      output: 'Peta buta (blind spot) interpersonal dan laporan efektivitas kolaborasi.',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=800&auto=format&fit=crop',
     },
     {
-      quote: '"Kurikulumnya komprehensif dan mentornya adalah praktisi ahli. Tim kami langsung mengimplementasikan ilmu yang didapat."',
-      name: '[Full Name 3]',
-      role: '[Job Title], [Company Name]',
-    },
-    {
-      quote: '"Transformasi yang dibawa oleh program ini sangat signifikan dalam cara kami mengelola talenta dan performa karyawan."',
-      name: '[Full Name 4]',
-      role: '[Job Title], [Company Name]',
+      id: 'potential',
+      title: 'Potential & Personality',
+      shortDesc: 'Petakan DNA psikologis karyawan untuk kesiapan suksesi masa depan.',
+      focus: 'Kesiapan suksesi, kelincahan belajar (learning agility), dan gaya kerja.',
+      methodology: 'Tes psikometrik, inventory kepribadian, dan evaluasi keselarasan budaya (cultural fit).',
+      output: 'Profil psikologis lengkap dan rekomendasi presisi untuk jalur karir.',
+      image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop',
     }
   ];
 
-  // FUNGSI ARROW (SECTION 5)
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-
   return (
-    <main className="min-h-screen font-sans">
+    <main className="min-h-screen font-sans bg-[#FFFFFF]">
       
-      {/* SECTION 1: Hero & Form */}
-      <section className="bg-[#00263C] text-white py-16 px-8">
-        <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          {/* Kolom Kiri: Teks */}
-          <div className="max-w-xl">
-            <span className="bg-white/10 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider border border-white/20 inline-block">
-              Leading HR Academy in Indonesia
-            </span>
-            <h1 className="text-[3.5rem] md:text-6xl font-extrabold mt-6 mb-6 leading-[1.1] tracking-tight">
-              Elevate Your HR Career with Strategic Expertise
-            </h1>
-            <p className="mb-8 text-gray-300 text-lg leading-relaxed">
-              We help organizations build high-impact HR teams at scale, through targeted upskilling, structured capability development, and hands-on learning.
-            </p>
-            <button className="bg-[#DC2626] hover:bg-[#B91C1C] transition-colors text-white px-8 py-3.5 rounded-full font-bold flex items-center gap-2 w-max">
-              Start Now 
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-            </button>
-          </div>
-
-          {/* Kolom Kanan: Form */}
-          <div className="bg-white rounded-[2rem] p-8 md:p-10 text-gray-800 shadow-2xl lg:ml-auto w-full max-w-md">
-            <h2 className="text-2xl font-bold mb-2 text-[#00263C]">Schedule a Team Demo</h2>
-            <p className="text-sm text-gray-500 mb-8">Register up to 10 team members for measurable HR transformation.</p>
+      {/* =========================================
+          SECTION 1: HERO SECTION (NAVY BACKGROUND) 
+          ========================================= */}
+      <section className="relative pt-24 pb-16 px-6 md:px-12 lg:pt-32 lg:pb-24 overflow-hidden bg-[#00263C]">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
-            <form className="space-y-5">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-500 mb-1.5">First Name *</label>
-                  <input type="text" className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 text-sm" />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-500 mb-1.5">Last Name *</label>
-                  <input type="text" className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 text-sm" />
-                </div>
+            {/* KOLOM KIRI: Copywriting */}
+            <div className="flex flex-col justify-center max-w-2xl relative z-10">
+              <div className="mb-6">
+                <span className="inline-block py-1.5 px-4 rounded-full bg-white/10 text-white text-xs font-bold uppercase tracking-widest border border-white/20">
+                  Assessment Tools
+                </span>
               </div>
-              
-              <div>
-                <label className="block text-xs font-bold text-gray-500 mb-1.5">Business Email *</label>
-                <input type="email" className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 text-sm" />
-              </div>
-              
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-500 mb-1.5">Company *</label>
-                  <input type="text" className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 text-sm" />
-                </div>
-                <div>
-                  <label className="block text-xs font-bold text-gray-500 mb-1.5">Team Size *</label>
-                  <select className="w-full border border-gray-200 rounded-lg p-3 bg-white focus:outline-none focus:border-blue-500 text-sm text-gray-700">
-                    <option>Choose...</option>
-                  </select>
-                </div>
-              </div>
-              
-              <div>
-                <label className="block text-xs font-bold text-gray-500 mb-1.5">Phone Number *</label>
-                <input type="tel" placeholder="+62 ..." className="w-full border border-gray-200 rounded-lg p-3 focus:outline-none focus:border-blue-500 text-sm" />
-              </div>
-              
-              <button type="button" className="w-full bg-[#00263C] text-white font-bold py-3.5 rounded-lg mt-4 hover:bg-[#001826] transition flex justify-center items-center gap-2 text-sm">
-                Talk to an Expert 
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-              </button>
-              
-              <p className="text-[11px] text-center text-gray-400 mt-4">
-                By registering, you agree to our Terms & Conditions.
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] mb-6 tracking-tight">
+                Ukur Kapabilitas, <br className="hidden md:block" />
+                Eliminasi Asumsi dalam <span className="text-[#C92A2A]">Keputusan SDM</span> Anda.
+              </h1>
+              <p className="text-lg text-gray-300 mb-10 leading-relaxed max-w-lg">
+                Hadirkan presisi dalam pengembangan talenta. Evaluasi objektif untuk mengidentifikasi potensi kepemimpinan, kapabilitas teknis, dan keselarasan budaya melalui alat ukur berstandar industri.
               </p>
-            </form>
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTION 2: Business Impact */}
-      <section className="bg-white py-24 px-8 text-gray-800">
-        <div className="container mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          
-          {/* Kolom Kiri: Teks Penjelasan */}
-          <div className="max-w-lg">
-            <span className="text-xs font-bold text-gray-600 uppercase tracking-wider bg-gray-100 px-4 py-2 rounded-full inline-block">
-              BUILD A FUTURE-READY HR TEAM
-            </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold mt-6 mb-6 leading-[1.2] text-[#00263C]">
-              Elevate HR: From Operations to Business Impact
-            </h2>
-            <p className="text-gray-500 leading-relaxed text-lg">
-              HR is becoming more global, technology-enabled, and data-driven, with AI accelerating the shift. To keep up, HR teams need new capabilities that move them beyond administration and toward real business impact. AIHR helps organizations close critical skill gaps and build future-ready HR teams.
-            </p>
-          </div>
-
-          {/* Kolom Kanan: Daftar Keunggulan */}
-          <div className="space-y-12 lg:mt-4">
+              
+              <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
+                <button className="w-full sm:w-auto px-8 py-4 bg-[#C92A2A] hover:bg-[#a82222] text-white font-bold rounded-lg transition-colors shadow-lg shadow-[#C92A2A]/20 flex justify-center items-center gap-2">
+                  Jadwalkan Konsultasi Asesmen
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+                <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/70 text-white hover:bg-white hover:text-[#00263C] font-bold rounded-lg transition-colors flex justify-center items-center gap-2">
+                  Lihat Contoh Laporan
+                </button>
+              </div>
+              
+              <div className="pt-8 border-t border-white/10">
+                <p className="text-xs font-bold text-gray-400 mb-4 uppercase tracking-wider">
+                  Dipercaya oleh +50 Perusahaan Nasional
+                </p>
+                <div className="flex items-center gap-8 text-white/40">
+                  <div className="text-2xl font-extrabold italic tracking-tighter">COMPANY <span className="text-white/20">A</span></div>
+                  <div className="text-2xl font-black uppercase tracking-widest border-2 border-white/20 px-2 rounded-md">BRAND</div>
+                  <div className="text-2xl font-bold lowercase">enterprise</div>
+                </div>
+              </div>
+            </div>
             
-            <div className="flex gap-6">
-              <div className="w-14 h-14 bg-[#00263C] rounded-xl shrink-0 flex items-center justify-center text-white shadow-md">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.01-.146 2.008-.415 2.981m-6.425.864c.238.163.488.314.75.452M12 11h.01"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 text-[#00263C]">Build a Strategic HR Function</h3>
-                <p className="text-gray-500 leading-relaxed">Equip your HR teams with the skills and frameworks to contribute to strategic decisions and drive measurable business impact.</p>
-              </div>
-            </div>
-
-            <div className="flex gap-6">
-              <div className="w-14 h-14 bg-[#00263C] rounded-xl shrink-0 flex items-center justify-center text-white shadow-md">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 text-[#00263C]">Enable Data-Driven & AI-Smart HR Teams</h3>
-                <p className="text-gray-500 leading-relaxed">Develop the capabilities to leverage data and AI, enabling smarter workforce decisions and stronger organizational performance.</p>
-              </div>
-            </div>
-
-            <div className="flex gap-6">
-              <div className="w-14 h-14 bg-[#00263C] rounded-xl shrink-0 flex items-center justify-center text-white shadow-md">
-                <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2 text-[#00263C]">Develop Excellence Across Every HR Function</h3>
-                <p className="text-gray-500 leading-relaxed">Close critical skill gaps across your entire HR team and build consistent expertise in every core HR domain.</p>
+            {/* KOLOM KANAN: Visual Mockup */}
+            <div className="relative w-full h-full min-h-[400px] lg:min-h-[550px] flex items-center justify-center mt-10 lg:mt-0">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-tr from-[#C92A2A]/30 to-white/5 rounded-[3rem] rotate-3 -z-10 blur-sm"></div>
+              <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-[0_20px_60px_-12px_rgba(0,0,0,0.5)] overflow-hidden transform hover:-translate-y-2 transition-transform duration-500">
+                <div className="bg-gray-100 p-3 flex items-center gap-2 border-b border-gray-200">
+                  <div className="flex gap-1.5 ml-1">
+                    <div className="w-3 h-3 rounded-full bg-[#C92A2A]"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <div className="mx-auto text-[#00263C]/60 text-[10px] font-bold tracking-widest uppercase pr-6">
+                    Assessment Analytics
+                  </div>
+                </div>
+                <div className="p-1 bg-white aspect-[4/3] relative">
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" alt="Data Analytics Dashboard" className="absolute inset-0 w-full h-full object-cover opacity-90 rounded-b-xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div>
+                  <div className="absolute bottom-6 left-6 right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-4">
+                     <div className="w-12 h-12 bg-[#00263C]/5 rounded-full flex items-center justify-center shrink-0">
+                       <svg className="w-6 h-6 text-[#C92A2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                     </div>
+                     <div>
+                       <h4 className="text-sm font-extrabold text-[#00263C] mb-0.5">Potensi Kepemimpinan</h4>
+                       <p className="text-xs text-gray-500 font-medium">Kandidat mencapai skor 92% pada pilar strategi eksekusi.</p>
+                     </div>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -177,135 +118,385 @@ export default function AssessmentTools() {
         </div>
       </section>
 
-      {/* SECTION 3: Goals & Solutions Grid */}
-      <section className="bg-[#fcfcfd] py-24 px-8 font-sans text-gray-800">
-        <div className="container mx-auto max-w-6xl">
+      {/* =========================================
+          SECTION 2: CORE ASSESSMENT (INTERACTIVE TABS) 
+          ========================================= */}
+      <section className="bg-[#FFFFFF] py-24 px-6 md:px-12 relative border-b border-gray-100">
+        <div className="container mx-auto max-w-7xl">
           
-          {/* Header */}
+          {/* Header Section */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[#DC2626] text-xs font-bold uppercase tracking-widest">
-              FIRST HR FOR TEAMS
+            <span className="text-[#C92A2A] text-xs font-bold uppercase tracking-widest mb-3 block">
+              Core Portfolio
             </span>
-            <h2 className="text-4xl lg:text-5xl font-extrabold mt-4 mb-6 leading-tight text-[#00263C]">
-              Whatever Your HR Goals,<br className="hidden lg:block"/> the Next Step Starts Here
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#00263C] mb-6">
+              Alat Ukur Berbasis Data
             </h2>
-            <p className="text-gray-500 text-lg">
-              Explore solutions designed to help you build the HR capabilities your organization needs and empower your HR team to perform at its best.
+            <p className="text-gray-500 text-lg leading-relaxed">
+              Kami menggunakan pendekatan multidimensi untuk mengukur apa yang benar-benar memengaruhi kinerja dan pertumbuhan organisasi Anda.
             </p>
           </div>
 
-          {/* Solutions Grid Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Interactive Tabs Navigation */}
+          <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
+            {assessmentData.map((tab, index) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(index)}
+                className={`px-6 py-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 ease-in-out border-2 ${
+                  activeTab === index 
+                    ? 'bg-[#00263C] text-white border-[#00263C] shadow-lg shadow-[#00263C]/20 scale-105' 
+                    : 'bg-white text-gray-500 border-gray-200 hover:border-[#C92A2A]/50 hover:text-[#00263C]'
+                }`}
+              >
+                {tab.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Tab Content Area */}
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              
+              {/* Kiri: Teks Detail */}
+              <div className="space-y-8 animate-fadeIn">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-[#00263C] mb-4">
+                    {assessmentData[activeTab].title}
+                  </h3>
+                  <p className="text-gray-500 text-lg leading-relaxed">
+                    {assessmentData[activeTab].shortDesc}
+                  </p>
+                </div>
+
+                <div className="space-y-6">
+                  {/* Poin 1: Fokus */}
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-[#C92A2A]/10 flex items-center justify-center shrink-0">
+                      <svg className="w-6 h-6 text-[#C92A2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[#00263C] text-sm uppercase tracking-wider mb-1">Fokus Evaluasi</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{assessmentData[activeTab].focus}</p>
+                    </div>
+                  </div>
+
+                  {/* Poin 2: Metodologi */}
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-[#00263C]/5 flex items-center justify-center shrink-0">
+                      <svg className="w-6 h-6 text-[#00263C]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[#00263C] text-sm uppercase tracking-wider mb-1">Metodologi</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{assessmentData[activeTab].methodology}</p>
+                    </div>
+                  </div>
+
+                  {/* Poin 3: Output */}
+                  <div className="flex gap-4">
+                    <div className="w-12 h-12 rounded-lg bg-green-50 flex items-center justify-center shrink-0">
+                      <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-[#00263C] text-sm uppercase tracking-wider mb-1">Hasil Akhir (Output)</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{assessmentData[activeTab].output}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Kanan: Gambar Dinamis */}
+              <div className="relative w-full h-[350px] md:h-[450px] rounded-2xl overflow-hidden group">
+                {/* Overlay Warna Sedikit untuk Estetika */}
+                <div className="absolute inset-0 bg-[#00263C]/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                <img 
+                  src={assessmentData[activeTab].image} 
+                  alt={assessmentData[activeTab].title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+                />
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================
+          SECTION 3: IDEAL USE CASES (IMPLEMENTASI) 
+          ========================================= */}
+      <section className="bg-[#00263C] py-24 px-6 md:px-12 relative">
+        <div className="container mx-auto max-w-7xl">
+          
+          {/* Header Section */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-[#C92A2A] text-xs font-bold uppercase tracking-widest mb-3 block">
+              Konteks Implementasi
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-6">
+              Skenario Implementasi Strategis
+            </h2>
+            <p className="text-gray-300 text-lg leading-relaxed">
+              Alat ukur kami dirancang untuk mendukung berbagai keputusan krusial dalam siklus hidup pengelolaan SDM di perusahaan Anda.
+            </p>
+          </div>
+
+          {/* Grid 4 Kolom untuk Use Cases */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             
-            {/* Card 1: Team License */}
-            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col h-full">
-              <div className="flex justify-between items-start mb-6">
-                <span className="bg-[#00263C] text-white text-xs font-semibold px-4 py-1.5 rounded-full">
-                  Team License
-                </span>
-                <div className="w-10 h-10 bg-[#00263C] rounded-full flex items-center justify-center text-white shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path></svg>
+            {/* Card 1: Promosi & Suksesi */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[#C92A2A]/10 hover:-translate-y-2 transition-all duration-300 group">
+              {/* Latar Belakang Ikon Navy, Hover menjadi Merah */}
+              <div className="w-14 h-14 bg-[#00263C] group-hover:bg-[#C92A2A] rounded-xl flex items-center justify-center mb-6 transition-colors duration-300">
+                {/* Ikon berwarna Putih */}
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#00263C] mb-3">Promosi & Suksesi</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Mengidentifikasi pemimpin masa depan secara objektif dan mempersiapkan talenta terbaik untuk menduduki posisi kunci organisasi.
+              </p>
+            </div>
+
+            {/* Card 2: Restrukturisasi Organisasi */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[#C92A2A]/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-[#00263C] group-hover:bg-[#C92A2A] rounded-xl flex items-center justify-center mb-6 transition-colors duration-300">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#00263C] mb-3">Restrukturisasi</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Memetakan ulang talenta dan kapabilitas saat terjadi merger, akuisisi, atau upaya efisiensi operasional perusahaan.
+              </p>
+            </div>
+
+            {/* Card 3: Identifikasi Kebutuhan Training (TNA) */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[#C92A2A]/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-[#00263C] group-hover:bg-[#C92A2A] rounded-xl flex items-center justify-center mb-6 transition-colors duration-300">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#00263C] mb-3">Kebutuhan Training (TNA)</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Menemukan celah keterampilan (<span className="italic">skill gap</span>) secara presisi untuk merancang program pelatihan yang efektif.
+              </p>
+            </div>
+
+            {/* Card 4: Evaluasi Kinerja Tahunan */}
+            <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl hover:shadow-[#C92A2A]/10 hover:-translate-y-2 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-[#00263C] group-hover:bg-[#C92A2A] rounded-xl flex items-center justify-center mb-6 transition-colors duration-300">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#00263C] mb-3">Evaluasi Kinerja</h3>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                Menyediakan data pendukung yang valid dan objektif untuk keputusan kompensasi, bonus tahunan, dan retensi.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================
+          SECTION 4: METHODOLOGY & USER FLOW 
+          ========================================= */}
+      <section className="bg-[#FFFFFF] py-24 px-6 md:px-12 relative">
+        <div className="container mx-auto max-w-5xl">
+          
+          {/* Header Section */}
+          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
+            <span className="text-[#C92A2A] text-xs font-bold uppercase tracking-widest mb-3 block">
+              Metodologi Asesmen
+            </span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-[#00263C] mb-6">
+              Proses Terstruktur, Hasil Terukur
+            </h2>
+            <p className="text-gray-500 text-lg leading-relaxed">
+              Kami memastikan setiap tahap asesmen berjalan transparan, efisien, dan memberikan data yang benar-benar relevan untuk objektif bisnis Anda.
+            </p>
+          </div>
+
+          {/* Vertical Timeline Container */}
+          <div className="max-w-4xl mx-auto relative">
+            
+            {/* Garis Vertikal Latar Belakang */}
+            <div className="absolute left-[27px] md:left-[39px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-[#C92A2A] via-[#C92A2A]/40 to-transparent"></div>
+
+            <div className="space-y-12 md:space-y-16">
+              
+              {/* Step 1: Discovery & Alignment */}
+              <div className="relative pl-16 md:pl-24 group">
+                {/* Timeline Dot */}
+                <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-[#C92A2A] rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-[#C92A2A] transition-all duration-300 z-10">
+                   <span className="text-[#00263C] group-hover:text-white font-bold text-sm transition-colors">1</span>
+                </div>
+                
+                {/* Content Card */}
+                <div className="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
+                  {/* Panah penunjuk ke garis timeline (opsional estetika) */}
+                  <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-gray-100 rotate-45 hidden md:block"></div>
+                  
+                  <h3 className="text-xl md:text-2xl font-bold text-[#00263C] mb-3">
+                    Discovery & Alignment
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm md:text-base">
+                    Sesi diskusi mendalam bersama pemangku kepentingan untuk menentukan indikator kompetensi, kriteria sukses, dan matriks keberhasilan yang selaras dengan budaya serta tujuan strategis perusahaan Anda.
+                  </p>
                 </div>
               </div>
-              <h3 className="text-2xl font-bold text-[#00263C] mb-6 leading-snug">
-                Provide Your HR Team with Continuous Learning
-              </h3>
-              <ul className="space-y-4 mb-8 flex-grow">
-                {['400+ Hours of Training', 'Covering All HR Domains', 'On-Demand & Self-Paced'].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-500 text-sm">
-                    <svg className="w-4 h-4 text-[#DC2626] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-6 border-t border-gray-100 mt-auto">
-                <a href="#" className="text-[#DC2626] text-xs font-bold uppercase tracking-wider hover:text-[#B91C1C] transition flex items-center gap-2">
-                  EXPLORE TEAM LICENSES <span>→</span>
-                </a>
+
+              {/* Step 2: Deployment */}
+              <div className="relative pl-16 md:pl-24 group">
+                {/* Timeline Dot */}
+                <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-[#C92A2A] rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-[#C92A2A] transition-all duration-300 z-10">
+                   <span className="text-[#00263C] group-hover:text-white font-bold text-sm transition-colors">2</span>
+                </div>
+                
+                {/* Content Card */}
+                <div className="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
+                  <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-gray-100 rotate-45 hidden md:block"></div>
+                  
+                  <h3 className="text-xl md:text-2xl font-bold text-[#00263C] mb-3">
+                    Secure Deployment
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm md:text-base">
+                    Distribusi alat tes dan kuesioner kepada seluruh partisipan melalui platform digital yang aman, minim kendala teknis, dan dilengkapi dengan panduan pengerjaan yang jelas.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 3: Data Processing */}
+              <div className="relative pl-16 md:pl-24 group">
+                {/* Timeline Dot */}
+                <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-[#C92A2A] rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-[#C92A2A] transition-all duration-300 z-10">
+                   <span className="text-[#00263C] group-hover:text-white font-bold text-sm transition-colors">3</span>
+                </div>
+                
+                {/* Content Card */}
+                <div className="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
+                  <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-gray-100 rotate-45 hidden md:block"></div>
+                  
+                  <h3 className="text-xl md:text-2xl font-bold text-[#00263C] mb-3">
+                    Multi-Dimensional Analysis
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm md:text-base">
+                    Pemrosesan data mentah menggunakan sistem analitik terkalibrasi untuk meminimalisir bias (menjaga objektivitas 100%) dan memetakan pola kompetensi antar individu maupun tim.
+                  </p>
+                </div>
+              </div>
+
+              {/* Step 4: Executive Reporting */}
+              <div className="relative pl-16 md:pl-24 group">
+                {/* Timeline Dot */}
+                <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-[#C92A2A] rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-[#C92A2A] transition-all duration-300 z-10">
+                   <span className="text-[#00263C] group-hover:text-white font-bold text-sm transition-colors">4</span>
+                </div>
+                
+                {/* Content Card */}
+                <div className="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
+                  <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-gray-100 rotate-45 hidden md:block"></div>
+                  
+                  <h3 className="text-xl md:text-2xl font-bold text-[#00263C] mb-3">
+                    Executive Reporting & Debriefing
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm md:text-base">
+                    Penyerahan laporan visual yang komprehensif (dilengkapi grafik dan ringkasan eksekutif), dilanjutkan dengan sesi presentasi bersama konsultan ahli kami untuk mendiskusikan *actionable insights*.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* =========================================
+          SECTION 5: THE OUTPUT (DATA VISUALIZATION) 
+          ========================================= */}
+      <section className="bg-gray-50 py-24 px-6 md:px-12 relative overflow-hidden">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            
+            {/* KOLOM KIRI: Visual/Mockup Laporan */}
+            <div className="relative w-full order-2 lg:order-1">
+              {/* Latar Belakang Dekoratif Laporan */}
+              <div className="absolute top-4 -left-4 w-full h-full bg-[#00263C] rounded-2xl transform -rotate-2 -z-10 opacity-10"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#C92A2A]/10 rounded-full blur-3xl -z-10"></div>
+
+              {/* Main Image (Dashboard / Report Mockup) */}
+              <div className="relative bg-white rounded-2xl p-2 border border-gray-200 shadow-[0_20px_50px_-12px_rgba(0,38,60,0.15)] group">
+                <div className="overflow-hidden rounded-xl relative aspect-[4/3]">
+                  <img 
+                    src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=1000&auto=format&fit=crop" 
+                    alt="Executive Assessment Report" 
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                  />
+                  {/* Overlay Gradien Halus */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[#00263C]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
               </div>
             </div>
 
-            {/* Card 2: HR Boot Camps */}
-            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col h-full">
-              <div className="flex justify-between items-start mb-6">
-                <span className="bg-[#00263C] text-white text-xs font-semibold px-4 py-1.5 rounded-full">
-                  HR Boot Camps
-                </span>
-                <div className="w-10 h-10 bg-[#00263C] rounded-full flex items-center justify-center text-white shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-[#00263C] mb-6 leading-snug">
-                Close HR Skill Gaps
-              </h3>
-              <ul className="space-y-4 mb-8 flex-grow">
-                {['Cohort-Based Learning', 'Live Sessions', 'Direct Impact & ROI'].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-500 text-sm">
-                    <svg className="w-4 h-4 text-[#DC2626] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-6 border-t border-gray-100 mt-auto">
-                <a href="#" className="text-[#DC2626] text-xs font-bold uppercase tracking-wider hover:text-[#B91C1C] transition flex items-center gap-2">
-                  EXPLORE ALL HR BOOT CAMPS <span>→</span>
-                </a>
-              </div>
-            </div>
+            {/* KOLOM KANAN: Teks Penjelasan Output */}
+            <div className="flex flex-col justify-center order-1 lg:order-2">
+              <span className="text-[#C92A2A] text-xs font-bold uppercase tracking-widest mb-3 block">
+                Hasil Akhir (Output)
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-[#00263C] mb-6 leading-tight">
+                Laporan Komprehensif yang Menggerakkan Keputusan.
+              </h2>
+              <p className="text-gray-500 text-lg leading-relaxed mb-10">
+                Kami tidak memberikan Anda tumpukan data mentah yang membingungkan. Setiap proses asesmen diakhiri dengan pelaporan visual yang tajam, terstruktur, dan siap ditindaklanjuti oleh jajaran eksekutif.
+              </p>
 
-            {/* Card 3: Tailored HR Academy */}
-            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col h-full">
-              <div className="flex justify-between items-start mb-6">
-                <span className="bg-[#00263C] text-white text-xs font-semibold px-4 py-1.5 rounded-full">
-                  Tailored HR Academy
-                </span>
-                <div className="w-10 h-10 bg-[#00263C] rounded-full flex items-center justify-center text-white shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+              {/* Daftar Fitur Laporan */}
+              <div className="space-y-8">
+                
+                {/* Fitur 1 */}
+                <div className="flex gap-5 items-start group">
+                  <div className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
+                    <svg className="w-5 h-5 text-[#00263C] group-hover:text-[#C92A2A] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-[#00263C] mb-2">Actionable Insights</h4>
+                    <p className="text-gray-500 text-sm leading-relaxed">
+                      Laporan dilengkapi dengan rekomendasi tindakan nyata (action plan), bukan sekadar deretan skor numerik tanpa konteks.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <h3 className="text-2xl font-bold text-[#00263C] mb-6 leading-snug">
-                Build HR Capabilities at Scale
-              </h3>
-              <ul className="space-y-4 mb-8 flex-grow">
-                {['Capability Model Mapping', 'Tailored Learning Journeys', 'Dedicated Delivery Support'].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-500 text-sm">
-                    <svg className="w-4 h-4 text-[#DC2626] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-6 border-t border-gray-100 mt-auto">
-                <a href="#" className="text-[#DC2626] text-xs font-bold uppercase tracking-wider hover:text-[#B91C1C] transition flex items-center gap-2">
-                  EXPLORE ENTERPRISE SOLUTIONS <span>→</span>
-                </a>
-              </div>
-            </div>
 
-            {/* Card 4: HR Advisory Services */}
-            <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] flex flex-col h-full">
-              <div className="flex justify-between items-start mb-6">
-                <span className="bg-[#00263C] text-white text-xs font-semibold px-4 py-1.5 rounded-full">
-                  HR Advisory Services
-                </span>
-                <div className="w-10 h-10 bg-[#00263C] rounded-full flex items-center justify-center text-white shrink-0">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                {/* Fitur 2 */}
+                <div className="flex gap-5 items-start group">
+                  <div className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
+                    <svg className="w-5 h-5 text-[#00263C] group-hover:text-[#C92A2A] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-[#00263C] mb-2">Clear Visualizations</h4>
+                    <p className="text-gray-500 text-sm leading-relaxed">
+                      Penyajian data melalui grafik radar, peta panas (<span className="italic">heat map</span>), dan perbandingan normatif yang sangat mudah dibaca secara sekilas.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <h3 className="text-2xl font-bold text-[#00263C] mb-6 leading-snug">
-                HR Audit, Advisory, and Transformation
-              </h3>
-              <ul className="space-y-4 mb-8 flex-grow">
-                {['Independent HR Audits', 'HR Transformation', 'Implementation Partner'].map((item, i) => (
-                  <li key={i} className="flex items-center text-gray-500 text-sm">
-                    <svg className="w-4 h-4 text-[#DC2626] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-6 border-t border-gray-100 mt-auto">
-                <a href="#" className="text-[#DC2626] text-xs font-bold uppercase tracking-wider hover:text-[#B91C1C] transition flex items-center gap-2">
-                  EXPLORE HR ADVISORY SOLUTIONS <span>→</span>
-                </a>
+
+                {/* Fitur 3 */}
+                <div className="flex gap-5 items-start group">
+                  <div className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
+                    <svg className="w-5 h-5 text-[#00263C] group-hover:text-[#C92A2A] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-[#00263C] mb-2">Confidential & Secure</h4>
+                    <p className="text-gray-500 text-sm leading-relaxed">
+                      Distribusi hasil laporan dijamin kerahasiaannya dengan enkripsi tingkat tinggi untuk mematuhi regulasi privasi data perusahaan.
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
 
@@ -313,147 +504,55 @@ export default function AssessmentTools() {
         </div>
       </section>
 
-      {/* SECTION 4: High-Performance Culture (Split Layout) */}
-      <section className="bg-[#00263C] text-white flex flex-col md:flex-row w-full">
-        {/* Kolom Kiri: Gambar */}
-        <div className="md:w-1/2 w-full min-h-[300px] md:min-h-[500px] relative bg-slate-300">
-          <img 
-            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop" 
-            alt="HR Team Meeting" 
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
+      {/* =========================================
+          SECTION 6: FINAL CONVERSION (CTA) 
+          ========================================= */}
+      <section className="relative py-24 px-6 md:px-12 bg-[#00263C] overflow-hidden">
         
-        {/* Kolom Rujuk: Teks Penjelasan */}
-        <div className="md:w-1/2 w-full py-16 px-8 lg:p-20 flex flex-col justify-center">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            Build a <br />
-            <span className="text-[#DC2626]">High-Performance</span> <br />
-            Culture
+        {/* Elemen Dekoratif Latar Belakang */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Pola Grid Halus */}
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+          {/* Cahaya Aksentuasi Merah */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#C92A2A] rounded-full blur-[100px] opacity-20 transform translate-x-1/2 -translate-y-1/2"></div>
+          {/* Cahaya Aksentuasi Putih/Biru Terang */}
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#00426b] rounded-full blur-[100px] opacity-40 transform -translate-x-1/2 translate-y-1/2"></div>
+        </div>
+
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
+          
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+            Siap Membangun Tim Berbasis Data?
           </h2>
-          <p className="text-gray-300 text-lg mb-10 max-w-lg leading-relaxed">
-            Modern work environments demand a new approach to talent management. Equip your team with data-driven insights and innovative strategies to navigate the future of work.
+          
+          <p className="text-gray-300 text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+            Diskusikan kebutuhan spesifik organisasi Anda bersama konsultan ahli kami, atau pelajari lebih dalam melalui sampel laporan nyata yang kami hasilkan.
           </p>
           
-          <ul className="space-y-4">
-            {[
-              'Internationally Recognized Certification',
-              'Lifetime Access to Materials',
-              'Professional Community Support'
-            ].map((item, index) => (
-              <li key={index} className="flex items-center text-sm font-medium text-gray-200">
-                <svg className="w-5 h-5 text-[#DC2626] mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* SECTION 5: TESTIMONIAL SLIDER */}
-      <section className="bg-white py-24 px-4 md:px-8 flex flex-col items-center justify-center text-center border-t border-gray-100">
-        <div className="w-full max-w-6xl mx-auto flex items-center justify-between gap-4 md:gap-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
+            
+            {/* Tombol Aksi 1: Hubungi Kami (Primary Red) */}
+            <button className="w-full sm:w-auto px-8 py-4 bg-[#C92A2A] hover:bg-[#a82222] text-white font-bold rounded-lg transition-all duration-300 shadow-[0_4px_20px_rgba(201,42,42,0.4)] hover:shadow-[0_6px_25px_rgba(201,42,42,0.6)] hover:-translate-y-1 flex justify-center items-center gap-2">
+              Hubungi Tim Ahli Kami
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
+            
+            {/* Tombol Aksi 2: Unduh Sampel (Outline White) */}
+            <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/60 text-white hover:bg-white hover:border-white hover:text-[#00263C] font-bold rounded-lg transition-all duration-300 flex justify-center items-center gap-2">
+              Unduh Sampel Laporan (.PDF)
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+              </svg>
+            </button>
+            
+          </div>
           
-          <button 
-            onClick={prevSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-[#DC2626] transition-all cursor-pointer focus:outline-none"
-            aria-label="Previous Slide"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+          <p className="text-gray-400 text-xs mt-8 font-medium">
+            *Kerahasiaan data Anda adalah prioritas utama kami.
+          </p>
 
-          <div className="w-full max-w-4xl mx-auto overflow-hidden rounded-xl">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-            >
-              {testimonials.map((testi, index) => (
-                <div key={index} className="w-full shrink-0 flex flex-col items-center justify-center px-2 md:px-6">
-                  
-                  {/* ICON KUTIPAN BARU */}
-                  <div className="mb-8">
-                    <svg className="w-12 h-12 text-[#DC2626] mx-auto opacity-90" fill="currentColor" viewBox="0 0 256 256">
-                      <path d="M116,72v88a48.05,48.05,0,0,1-48,48,8,8,0,0,1,0-16,32,32,0,0,0,32-32v-8H40a16,16,0,0,1-16-16V72A16,16,0,0,1/40,56h60A16,16,0,0,1,116,72ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Z"></path>
-                    </svg>
-                  </div>
-                  
-                  <p className="text-xl md:text-2xl font-medium text-[#00263C] max-w-3xl mb-8 leading-relaxed mx-auto">
-                    {testi.quote}
-                  </p>
-                  <div className="mb-4">
-                    <h4 className="text-[#00263C] font-extrabold text-sm mb-1">{testi.name}</h4>
-                    <p className="text-gray-500 text-sm">{testi.role}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <button 
-            onClick={nextSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-[#DC2626] transition-all cursor-pointer focus:outline-none"
-            aria-label="Next Slide"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-        
-        <div className="flex items-center gap-2 mt-8">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveSlide(index)}
-              className={`h-2.5 rounded-full transition-all duration-300 ease-in-out cursor-pointer focus:outline-none ${
-                activeSlide === index ? 'w-8 bg-[#DC2626]' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 6: Call to Action (CTA) Card */}
-      <section className="bg-white py-24 px-4 md:px-8">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] bg-[#00263C]">
-            
-            {/* Kiri: Gambar */}
-            <div className="md:w-5/12 min-h-[300px] md:min-h-[480px] bg-slate-200 relative">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
-                alt="HR Professional" 
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-            
-            {/* Kanan: Teks dan Tombol CTA */}
-            <div className="md:w-7/12 p-10 md:p-20 flex flex-col justify-center relative">
-              
-              <div className="absolute top-0 bottom-0 left-[60%] w-32 bg-white/5 skew-x-12 hidden md:block"></div>
-              
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight relative z-10">
-                Find the Right Path <br className="hidden md:block"/>
-                for Your HR Team
-              </h2>
-              <p className="text-gray-300 text-sm md:text-lg mb-10 leading-relaxed relative z-10 max-w-lg">
-                Whether you want to provide continuous learning, close skill gaps, or build HR capabilities at scale, AIHR offers tailored solutions designed to support your goals.
-              </p>
-              
-              <button className="bg-[#DC2626] hover:bg-[#B91C1C] transition text-white text-sm font-bold uppercase tracking-wider py-4 px-8 rounded-lg w-max flex items-center gap-2 relative z-10 shadow-lg">
-                BOOK A CALL
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
-              </button>
-            </div>
-            
-          </div>
         </div>
       </section>
 
