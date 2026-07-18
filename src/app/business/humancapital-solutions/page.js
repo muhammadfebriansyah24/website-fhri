@@ -355,7 +355,7 @@ export default function HumanCapitalSolutions() {
               >
                 {testimonials.map((testi, idx) => (
                   <div key={idx} className="w-full shrink-0">
-                    <p className="text-xl md:text-2xl lg:text-3xl font-extrabold text-[#00263C] leading-tight tracking-tight text-balance">
+                    <p className="text-xl md:text-2xl lg:text-3xl font-bold text-[#00263C] leading-tight tracking-tight text-balance">
                       {testi.quote}
                     </p>
                     <div className="mt-8 flex items-center gap-4">
@@ -449,7 +449,6 @@ export default function HumanCapitalSolutions() {
               <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
                 <h3 className="text-lg font-bold text-white mb-6">Schedule a Talent Consultation</h3>
                 
-                {/* ponytail: Simple action simulation. Upgrade to real API handler when endpoints are wired. */}
                 <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Brief submitted successfully. Our lead consultant will connect with you via email."); }}>
                   <div>
                     <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Business Email *</label>
