@@ -50,15 +50,15 @@ export default function Programs() {
             className="w-full h-11 md:h-[60px] block relative z-10"
             aria-hidden="true"
           >
-            <path d={NAVY_TAB_PATH} fill="#153C56" />
+            <path d={NAVY_TAB_PATH} fill="#00263C" />
           </svg>
 
           <div
-            className="bg-[#153C56] mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] px-6 md:px-12 pt-2 md:pt-4 pb-36 md:pb-44 text-center relative flex flex-col items-center"
+            className="bg-[#00263C] mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] px-6 md:px-12 pt-2 md:pt-4 pb-36 md:pb-44 text-center relative flex flex-col items-center"
             style={{ marginTop: '-2px' }}
           >
 
-            <span className="relative z-20 inline-flex items-center px-8 md:px-10 py-2.5 md:py-3 text-[15px] md:text-[17px] font-semibold uppercase tracking-[0.2em] text-white bg-[#153C56] rounded-full mb-6 md:mb-8 border-3 border-[#DC0017] -mt-5 md:-mt-8 shadow-sm">
+            <span className="relative z-20 inline-flex items-center px-8 md:px-10 py-2.5 md:py-3 text-[15px] md:text-[17px] font-semibold uppercase tracking-[0.2em] text-white rounded-full mb-6 md:mb-8 border-3 border-[#DC0017] -mt-5 md:-mt-8 shadow-sm">
               Our Programs
             </span>
 
@@ -128,7 +128,7 @@ export default function Programs() {
             </div>
 
             <div className="mt-12 flex justify-center pb-4 relative z-10">
-              <button className="group flex items-center gap-3 text-white text-[13px] font-bold tracking-wide px-8 py-4 rounded-full bg-[#153C56] hover:bg-[#DC0017] shadow-md hover:shadow-lg transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
+              <button className="group flex items-center gap-3 text-white text-[13px] font-bold tracking-wide px-8 py-4 rounded-full bg-[#00263C] hover:bg-[#DC0017] shadow-md hover:shadow-lg transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]">
                 BROWSE ALL PROGRAMS
                 <span className="w-7 h-7 rounded-full flex items-center justify-center bg-white/10 group-hover:bg-white/20 group-hover:translate-x-1 transition-transform">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

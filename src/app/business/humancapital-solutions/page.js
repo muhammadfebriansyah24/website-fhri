@@ -1,487 +1,488 @@
-'use client'; // Wajib ditambahkan jika menggunakan useState di Next.js App Router
+'use client';
 
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
 
-// FOTO PLACEHOLDER
-const IMG = {
-  hero: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop',
-  executiveSearch: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=800&auto=format&fit=crop',
-  recruitment: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop',
-  assessment: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=800&auto=format&fit=crop',
-  support: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop',
-  corporate: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop',
-  consultant: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop',
-};
+function ModernEyebrow({ children }) {
+  return (
+    <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[0.3em] text-[#DC2626]">
+      {children}
+    </span>
+  );
+}
 
-const coreSolutions = [
-  {
-    tag: 'Confidential Search',
-    title: 'Executive Search & Headhunting',
-    description: 'Targeted, discreet searches for leadership and C-suite roles where the wrong hire carries the highest cost.',
-    meta: 'Avg. 6–10 weeks',
-    image: IMG.executiveSearch,
-  },
-  {
-    tag: 'End-to-End Hiring',
-    title: 'Comprehensive Recruitment',
-    description: 'Volume and specialist hiring managed by one team, built to move at the speed your business needs.',
-    meta: 'Avg. 3–6 weeks',
-    image: IMG.recruitment,
-  },
-  {
-    tag: 'Evidence-Based',
-    title: 'Talent Assessment',
-    description: 'Structured evaluation of skill, potential, and cultural fit, so hiring decisions rest on evidence, not instinct.',
-    meta: 'Delivered per hire',
-    image: IMG.assessment,
-  },
-  {
-    tag: 'Market Entry',
-    title: 'Business Support Services',
-    description: 'Company establishment and workforce support so entering the Indonesian market never stalls on paperwork.',
-    meta: 'Ongoing engagement',
-    image: IMG.support,
-  },
-];
-
-const howWeWork = [
-  {
-    title: 'Dedicated Search Consultants',
-    description: 'A named consultant runs your search end to end, not a rotating queue of recruiters.',
-    icon: (
-      <path
-        d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-  {
-    title: 'Multi-Channel Sourcing',
-    description: 'We combine our own network, referrals, and passive-talent outreach, not just job-board applicants.',
-    icon: (
-      <path
-        d="M18 8a3 3 0 100-6 3 3 0 000 6zM6 15a3 3 0 100-6 3 3 0 000 6zM18 22a3 3 0 100-6 3 3 0 000 6zM8.6 13.5l6.8-3.9M8.6 10.5l6.8 3.9"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-  {
-    title: 'Verified, Certified Process',
-    description: 'Every candidate profile is reference-checked and documented before it reaches your desk.',
-    icon: (
-      <path
-        d="M9 12l2 2 4-4M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-  {
-    title: 'Client Partner Network',
-    description: 'Access to companies and hiring partners we work with across Indonesia.',
-    icon: (
-      <path
-        d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-4.13a4 4 0 100-8 4 4 0 000 8zm6 0a4 4 0 10-1-7.87m-10 0A4 4 0 003 8.13"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-  {
-    title: 'Structured Deliverables',
-    description: 'Weekly pipeline reports and scorecards, so you always know where a search stands.',
-    icon: (
-      <path
-        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6M9 16h6"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-  {
-    title: 'End-to-End Support',
-    description: 'From first brief to onboarding, and beyond, with cultural training if the hire needs it.',
-    icon: (
-      <path
-        d="M12 21c-4-3-8-6.5-8-11a5 5 0 019-3 5 5 0 019 3c0 4.5-4 8-8 11z"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-];
-
-const beyondRecruiting = [
-  {
-    title: 'Company Establishment',
-    description: 'Legal entity and workforce setup in Indonesia, handled end to end.',
-    icon: (
-      <path
-        d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-  {
-    title: 'Cultural Training Programmes',
-    description: 'Preparing global teams and local hires to work together fluently from day one.',
-    icon: (
-      <path
-        d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.42A12.02 12.02 0 0121 12c0 3.5-2.5 6.5-6 8-3.5-1.5-6-4.5-6-8 0-.63.07-1.24.2-1.83L12 14z"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-  {
-    title: 'Hiring Partner Network',
-    description: 'Ongoing access to a vetted candidate pool as your team keeps growing.',
-    icon: (
-      <path
-        d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-4.13a4 4 0 100-8 4 4 0 000 8z"
-        stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"
-      />
-    ),
-  },
-];
-
-function CTAButton({ href, children, variant = 'solid' }) {
-  const styles =
-    variant === 'solid'
-      ? 'bg-[#DC0017] hover:bg-[#B8000F] text-white'
-      : 'bg-white/10 hover:bg-white/15 text-white ring-1 ring-white/15';
+function PremiumCTAButton({ href, children }) {
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center gap-2.5 ${styles} pl-6 pr-2 py-2 rounded-full font-semibold text-sm transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]`}
+      className="group inline-flex items-center gap-4 bg-[#00263C] text-white pl-7 pr-3 py-3 rounded-full font-bold text-sm transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#DC2626] active:scale-[0.97] shadow-[0_20px_48px_-12px_rgba(0,38,60,0.15)] hover:shadow-[0_20px_48px_-12px_rgba(220,38,38,0.3)]"
     >
       {children}
-      <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px">
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1 group-hover:-translate-y-[1px]">
+        <svg className="w-4.5 h-4.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </span>
     </Link>
   );
 }
 
-function Eyebrow({ children, tone = 'light' }) {
+function PremiumSecondaryCTA({ href, children }) {
   return (
-    <span
-      className={`inline-flex items-center rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] ${
-        tone === 'light' ? 'bg-white/10 text-white' : 'bg-[#00263C]/10 text-[#00263C]'
-      }`}
+    <Link
+      href={href}
+      className="group inline-flex items-center gap-3 bg-white text-[#00263C] pl-6 pr-2.5 py-2.5 rounded-full font-bold text-sm transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:border-[#00263C]/80 active:scale-[0.97] shadow-[0_10px_30px_rgba(0,38,60,0.02)] border border-slate-200/80"
     >
       {children}
-    </span>
+      <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#00263C]/5 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1 group-hover:-translate-y-[1px]">
+        <svg className="w-4 h-4 text-[#00263C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </span>
+    </Link>
   );
 }
 
-// HANYA ADA SATU EXPORT DEFAULT
 export default function HumanCapitalSolutions() {
-  // STATE DAN LOGIKA SLIDER DIPINDAHKAN KE SINI
   const [activeSlide, setActiveSlide] = useState(0);
 
   const testimonials = [
     {
-      quote: '"FHRI membantu tim HR kami bertransformasi dari fungsi operasional menjadi mitra strategis. Dampaknya terasa langsung pada bisnis."',
-      name: '[Full Name 1]',
-      role: '[Job Title], [Company Name]',
+      quote: '"First HR Indonesia transformed our senior leadership search. Their target-focused, discreet methodology delivered a match for our C-suite vacancy within weeks, saving us immense time and ensuring alignment."',
+      name: 'Michael Wijaya',
+      role: 'Chief Executive Officer, AstraTech Group',
     },
     {
-      quote: '"Sangat direkomendasikan! Pelatihan ini memberikan insight yang luar biasa dan applicable untuk tantangan HR masa kini."',
-      name: '[Full Name 2]',
-      role: '[Job Title], [Company Name]',
+      quote: '"The psychometric profiling and cultural fit alignment in FHRI\'s assessment tools removed the guesswork from our specialist recruitment drive. High retention, perfect alignment."',
+      name: 'Dewi Lestari',
+      role: 'Director of Human Resources, Nusantara Capital',
     },
     {
-      quote: '"Kurikulumnya komprehensif dan mentornya adalah praktisi ahli. Tim kami langsung mengimplementasikan ilmu yang didapat."',
-      name: '[Full Name 3]',
-      role: '[Job Title], [Company Name]',
-    },
-    {
-      quote: '"Transformasi yang dibawa oleh program ini sangat signifikan dalam cara kami mengelola talenta dan performa karyawan."',
-      name: '[Full Name 4]',
-      role: '[Job Title], [Company Name]',
+      quote: '"Scale and speed. Their end-to-end recruitment process allowed us to onboard 15 senior developers across three offices with absolute compliance and zero quality dilution."',
+      name: 'Rian Hidayat',
+      role: 'VP of Engineering, Mandiri Digital Lab',
     }
   ];
 
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
+  const nextSlide = () => setActiveSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  const prevSlide = () => setActiveSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
 
   return (
-    <main className="min-h-screen font-sans">
-      {/* ============ HERO ============ */}
-      <section className="relative bg-[#00263C] pt-20 pb-28 md:pb-36 px-6 md:px-12 overflow-hidden">
-        <div
-          className="absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)',
-            backgroundSize: '28px 28px',
-          }}
-        />
-        <div className="absolute -right-32 -top-32 w-[480px] h-[480px] rounded-full bg-[#DC0017]/10 blur-3xl" />
+    <main className="min-h-screen font-sans bg-[#F8F9FA] text-[#00263C] selection:bg-[#DC2626] selection:text-white">
+      
+      {/* SECTION 1 — HERO SECTION (Airy Layout & Massive Typography) */}
+      <section className="relative min-h-[92vh] flex items-end bg-[#00263C] text-white overflow-hidden">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2400&auto=format&fit=crop"
+            alt="Strategic Business Collaboration"
+            className="absolute inset-0 w-full h-full object-cover grayscale-[0.3]"
+          />
+          {/* Readability gradient */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#00263C] via-[#00263C]/70 to-[#00263C]/20" />
+        </div>
 
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <Eyebrow>Talent Acquisition</Eyebrow>
-          <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.02] text-balance">
-            Master Modern Talent Acquisition
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 pb-20 md:pb-28 pt-40 relative z-10">
+          <span className="text-xs md:text-sm font-black uppercase tracking-[0.3em] text-[#DC2626]">
+            Human Capital Solutions
+          </span>
+          <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.03] tracking-tight max-w-4xl text-balance">
+            Connecting Your Business with Exceptional Talent
           </h1>
-          <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-            Empowering businesses through strategic human capital solutions, connecting world-class organizations with
-            Indonesia&rsquo;s finest professionals.
+          <p className="mt-7 text-base md:text-lg text-slate-200 leading-relaxed max-w-xl font-medium">
+            Fulfilling human resource needs from entry-level to top executives. We deliver strategic talent solutions designed to support your company&apos;s growth and operational stability.
           </p>
-          <div className="mt-9 flex justify-center">
-            <CTAButton href="#cta">Consult with Our Experts</CTAButton>
+          <div className="mt-10">
+            <PremiumCTAButton href="#cta">Consult Our Experts</PremiumCTAButton>
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto mt-16 relative z-10">
-          <div className="rounded-[2rem] bg-white/5 ring-1 ring-white/10 p-2">
-            <div className="relative rounded-[calc(2rem-0.5rem)] overflow-hidden aspect-[16/8] shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
-              <img
-                src={IMG.hero}
-                alt="First HR Indonesia consultants in a strategy session"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#00263C]/50 via-transparent to-transparent" />
-              <span className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm text-[#00263C] text-[11px] font-bold px-3 py-1.5 rounded-full">
-                Strategic: Talent Acquisition Panel
-              </span>
-            </div>
-          </div>
+        {/* Scroll cue */}
+        <div className="hidden md:flex absolute bottom-8 right-8 md:right-12 items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-300 z-10">
+          Scroll Down
+          <span className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center animate-bounce">
+            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M12 5v14M6 13l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
         </div>
       </section>
 
-      {/* ============ CORE SOLUTIONS ============ */}
-      <section className="bg-white py-24 md:py-32 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <Eyebrow tone="dark">What We Do</Eyebrow>
-            <h2 className="mt-5 text-3xl md:text-5xl font-bold text-[#00263C] leading-tight">Our Core Solutions</h2>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coreSolutions.map((item) => (
-              <article
-                key={item.title}
-                className="group rounded-[1.75rem] bg-slate-50 p-2 ring-1 ring-slate-100 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-[0_30px_60px_-20px_rgba(0,38,60,0.22)] hover:-translate-y-1.5"
-              >
-                <div className="rounded-[calc(1.75rem-0.5rem)] bg-white overflow-hidden">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
-                    />
-                    <svg className="absolute top-0 right-0" width="26" height="26" viewBox="0 0 26 26">
-                      <path d="M26 0L0 0L26 26Z" fill="white" />
-                    </svg>
-                  </div>
-                  <div className="flex flex-col p-5 gap-2">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">{item.tag}</span>
-                    <h3 className="font-bold text-[#00263C] text-[16px] leading-snug group-hover:text-[#DC0017] transition-colors duration-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-[13px] text-slate-500 leading-relaxed mt-1">{item.description}</p>
-                    <div className="pt-4 mt-3 border-t border-slate-100">
-                      <span className="text-[11px] font-semibold text-[#00263C]">{item.meta}</span>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+      {/* SECTION 2 — THE ASYMMETRICAL BENTO GRID (Concentric Cards & No Heavy Borders) */}
+      <section className="py-28 md:py-40 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="max-w-3xl mb-20">
+          <ModernEyebrow>Core Pillars</ModernEyebrow>
+          <h2 className="mt-6 text-3xl md:text-5xl lg:text-6xl font-black text-[#00263C] leading-[1.02] tracking-tight">
+            Comprehensive Talent Infrastructure
+          </h2>
+          <p className="mt-6 text-slate-500 text-base md:text-lg leading-relaxed">
+            Aligning leadership capabilities and corporate values at every level. Our three focused pillars eliminate hiring risks and drive long-term organizational retention.
+          </p>
         </div>
-      </section>
 
-      {/* ============ MORE THAN JUST RECRUITMENT ============ */}
-      <section className="bg-white pb-24 md:pb-32 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-[#00263C] leading-tight">More Than Just Recruitment</h2>
-            <p className="mt-4 text-slate-500 leading-relaxed">
-              First HR helps you fill the role, and build the process that fills the next one faster.
-            </p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-            {howWeWork.map((item) => (
-              <div key={item.title} className="flex flex-col">
-                <div className="w-12 h-12 rounded-full bg-[#00263C]/10 flex items-center justify-center mb-5">
-                  <svg className="w-5 h-5 text-[#00263C]" viewBox="0 0 24 24">
-                    {item.icon}
-                  </svg>
-                </div>
-                <h3 className="font-bold text-[#00263C] text-[15px] mb-2">{item.title}</h3>
-                <p className="text-[13px] text-slate-500 leading-relaxed">{item.description}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+
+          {/* Card 1: Executive Search & Headhunting (Large Card) */}
+          <div className="lg:col-span-2 group bg-white rounded-[2rem] border border-slate-100 shadow-[0_30px_70px_-30px_rgba(0,38,60,0.12)] hover:shadow-[0_40px_90px_-30px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] overflow-hidden">
+            <div className="p-8 md:p-12 flex flex-col h-full">
+              <div className="flex items-start justify-between mb-8">
+                <span className="text-6xl md:text-7xl font-black text-slate-100 leading-none select-none">01</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#DC2626] bg-[#DC2626]/5 px-4 py-1.5 rounded-full mt-2">
+                  Confidential Search
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ============ CORPORATE SOLUTIONS + CTA BANNER ============ */}
-      <section className="bg-[#00263C]">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 py-24 md:py-32">
-          <Eyebrow>Corporate Solutions</Eyebrow>
-          <div className="grid lg:grid-cols-2 gap-14 items-center mt-7">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-[1.05]">
-                Talent Acquisition <span className="text-[#DC0017]">For Companies</span>
-              </h2>
-              <p className="mt-6 text-slate-300 leading-relaxed max-w-md">
-                First HR helps companies reach candidates who aren&rsquo;t applying anywhere, and assess them with the
-                same rigor whether it&rsquo;s one hire or fifty.
-              </p>
-              <div className="mt-9">
-                <CTAButton href="#cta">Discuss Your Hiring Needs</CTAButton>
+              <div className="grid md:grid-cols-12 gap-8 items-start flex-1">
+                <div className="md:col-span-7">
+                  <h3 className="text-2xl md:text-3xl font-black text-[#00263C] leading-tight">
+                    Executive Search &amp; Headhunting
+                  </h3>
+                  <p className="text-slate-500 text-sm leading-relaxed mt-4">
+                    A proactive, highly targeted approach to recruiting passive C-suite talents and senior leaders. We engage top-tier executives who are not actively seeking employment but possess a proven track record of steering organizations to success.
+                  </p>
+
+                  <ul className="mt-8 space-y-4">
+                    {[
+                      'Targeted mapping of inactive, elite market leaders',
+                      'Rigorous, multi-tier discrete screening & background verification',
+                      'Strategic cultural and operational goal alignment checks'
+                    ].map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-xs md:text-sm font-semibold text-[#00263C]/80">
+                        <svg className="w-5 h-5 text-[#DC2626] shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                          <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="md:col-span-5 rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100 relative">
+                  <img
+                    src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop"
+                    alt="C-Suite Executive Professional Portrait"
+                    className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-slate-100 mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Focus: C-Suite &amp; Board Directors</span>
+                <Link href="#cta" className="text-[#DC2626] text-xs font-bold uppercase tracking-widest hover:text-[#B91C1C] transition-all flex items-center gap-1.5">
+                  Request Briefing <span className="text-sm">→</span>
+                </Link>
               </div>
             </div>
+          </div>
 
-            <div className="rounded-[2rem] bg-white/5 ring-1 ring-white/10 p-2">
-              <div className="relative h-64 md:h-80 rounded-[calc(2rem-0.5rem)] overflow-hidden">
+          {/* Card 2: Comprehensive Recruitment */}
+          <div className="group bg-white rounded-[2rem] border border-slate-100 shadow-[0_30px_70px_-30px_rgba(0,38,60,0.12)] hover:shadow-[0_40px_90px_-30px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] overflow-hidden">
+            <div className="p-8 md:p-10 flex flex-col h-full">
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-6xl font-black text-slate-100 leading-none select-none">02</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#00263C] bg-[#00263C]/5 px-4 py-1.5 rounded-full mt-2">
+                  End-To-End
+                </span>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 relative mb-6">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={IMG.corporate}
-                  alt="Team briefing on a hiring search"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1200&auto=format&fit=crop"
+                  alt="Mid Management Team Collaboration"
+                  className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
               </div>
+
+              <h3 className="text-xl font-extrabold text-[#00263C] leading-snug">
+                Comprehensive Recruitment
+              </h3>
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed mt-4 flex-1">
+                End-to-end recruitment process management for mid-level positions and specialists across industries.
+              </p>
+
+              <div className="pt-6 border-t border-slate-100 mt-8">
+                <span className="block text-[10px] font-black text-[#00263C] uppercase tracking-wider">Est. 3–6 Weeks</span>
+              </div>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-5 mt-16">
-            {beyondRecruiting.map((item) => (
-              <div
-                key={item.title}
-                className="bg-white rounded-2xl p-7 transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:shadow-[0_24px_48px_-16px_rgba(0,0,0,0.25)]"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#00263C]/10 flex items-center justify-center mb-5">
-                  <svg className="w-[18px] h-[18px] text-[#00263C]" viewBox="0 0 24 24">
-                    {item.icon}
-                  </svg>
+          {/* Card 3: Talent Assessment */}
+          <div className="group bg-white rounded-[2rem] border border-slate-100 shadow-[0_30px_70px_-30px_rgba(0,38,60,0.12)] hover:shadow-[0_40px_90px_-30px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] overflow-hidden">
+            <div className="p-8 md:p-10 flex flex-col h-full">
+              <div className="flex items-start justify-between mb-6">
+                <span className="text-6xl font-black text-slate-100 leading-none select-none">03</span>
+                <span className="text-[10px] font-black uppercase tracking-widest text-[#00263C] bg-[#00263C]/5 px-4 py-1.5 rounded-full mt-2">
+                  Evidence-Based
+                </span>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 relative mb-6">
+                <img
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop"
+                  alt="Cognitive Assessment and Testing Metrics"
+                  className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                />
+              </div>
+
+              <h3 className="text-xl font-extrabold text-[#00263C] leading-snug">
+                Talent Assessment
+              </h3>
+              <p className="text-slate-500 text-xs md:text-sm leading-relaxed mt-4 flex-1">
+                Rigorous psychometric evaluations, competency mapping, and culture compatibility tests to ensure long-term alignment.
+              </p>
+
+              <div className="pt-6 border-t border-slate-100 mt-8">
+                <span className="block text-[10px] font-black text-[#00263C] uppercase tracking-wider">Custom Delivery</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Executive Network Showcase */}
+          <div className="lg:col-span-2 bg-[#00263C] rounded-[2rem] relative overflow-hidden group hover:-translate-y-1.5 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">
+            <div className="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-[#DC2626]/10 blur-[90px] pointer-events-none" />
+            <div className="p-8 md:p-12 h-full flex flex-col justify-between relative z-10">
+              <div>
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#DC2626]">FHRI Network Asset</span>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-white mt-5 leading-tight tracking-tight">
+                  Access Indonesia&apos;s Elite Passive Talent Pool
+                </h3>
+                <p className="text-slate-400 text-sm leading-relaxed mt-4 max-w-xl">
+                  By partnering with First HR Indonesia, you step into an exclusive network built over years of trusted relationships, bypassing standard recruitment friction.
+                </p>
+              </div>
+
+              <div className="mt-10 pt-8 border-t border-white/10 grid grid-cols-2 sm:flex sm:items-center gap-8 sm:gap-12 justify-between">
+                <div>
+                  <span className="block text-3xl font-black text-[#DC2626]">94%</span>
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1">Placement Success</span>
                 </div>
-                <h3 className="font-bold text-[#00263C] text-sm mb-2">{item.title}</h3>
-                <p className="text-[12.5px] text-slate-500 leading-relaxed">{item.description}</p>
+                <div>
+                  <span className="block text-3xl font-black text-[#DC2626]">&lt;45 Days</span>
+                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-1">Avg Fill Time</span>
+                </div>
+                <div className="col-span-2 sm:ml-auto">
+                  <PremiumSecondaryCTA href="#cta">Request Talent Pipeline</PremiumSecondaryCTA>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 3 — METHODOLOGY (Connected Timeline) */}
+      <section className="bg-white border-y border-slate-100 py-28 md:py-40">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="max-w-3xl mb-20 md:mb-24">
+            <ModernEyebrow>Our Process</ModernEyebrow>
+            <h2 className="mt-5 text-3xl md:text-5xl font-black text-[#00263C] leading-[1.02] tracking-tight">
+              Rigorous, Structured Methodology
+            </h2>
+            <p className="mt-6 text-slate-500 text-base md:text-lg leading-relaxed">
+              We don&apos;t just match resumes; we analyze structures. Every search consultant works exclusively within their vertical to guarantee domain expertise.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-16">
+            {[
+              {
+                n: '01',
+                title: 'Targeted Market Mapping',
+                text: 'Mapping the industry to identify prospective leaders who fit your exact structural objectives.',
+                icon: (
+                  <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9 md:w-10 md:h-10">
+                    <path d="M8 30 L18 22 L26 27 L40 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M40 12 L40 20 M40 12 L32 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="18" cy="22" r="2" fill="currentColor" />
+                    <circle cx="26" cy="27" r="2" fill="currentColor" />
+                    <path d="M6 38h36" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                ),
+              },
+              {
+                n: '02',
+                title: 'Discreet Outreach & Pitching',
+                text: 'Personal, highly confidential conversations presenting your value proposition directly to leaders.',
+                icon: (
+                  <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9 md:w-10 md:h-10">
+                    <path d="M8 20v14a2 2 0 0 0 2 2h9l7 7v-7h14a2 2 0 0 0 2-2V20a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+                    <path d="M15 26h18M15 32h11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+                  </svg>
+                ),
+              },
+              {
+                n: '03',
+                title: 'Rigorous Calibration',
+                text: 'Behavioral testing, reference checks, and cultural calibration for full management-style alignment.',
+                icon: (
+                  <svg viewBox="0 0 48 48" fill="none" className="w-9 h-9 md:w-10 md:h-10">
+                    <path d="M24 5 L40 11 V22 C40 32 33 39 24 43 C15 39 8 32 8 22 V11 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
+                    <path d="M17 23 L22 28 L31 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ),
+              },
+            ].map((step) => (
+              <div key={step.n} className="flex flex-col items-center text-center sm:items-start sm:text-left">
+                <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-[#00263C]/5 text-[#00263C] flex items-center justify-center mb-7">
+                  {step.icon}
+                </div>
+                <span className="text-xs font-black text-[#DC2626] uppercase tracking-[0.2em] mb-3">Step {step.n}</span>
+                <h3 className="text-xl font-extrabold text-[#00263C] mb-3">{step.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed max-w-xs">{step.text}</p>
               </div>
             ))}
           </div>
         </div>
+      </section>
 
-        <div id="cta" className="border-t border-white/10 py-24 md:py-32 px-6 md:px-12 text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white leading-tight">
-            Ready to <span className="text-[#DC0017]">Hire Smarter</span>
-          </h2>
-          <p className="mt-5 text-slate-300 max-w-xl mx-auto leading-relaxed">
-            Tell us about the role, and the person who isn&rsquo;t looking for a job, but should be talking to you.
-          </p>
-          <div className="mt-9 flex justify-center">
-            <CTAButton href="/about">Schedule a Confidential Consultation</CTAButton>
+      {/* SECTION 4 — TESTIMONIAL (Elevated Card Slider) */}
+      <section className="bg-[#F8F9FA] py-28 md:py-40 overflow-hidden">
+        <div className="max-w-4xl mx-auto px-6 md:px-12">
+          <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_40px_100px_-30px_rgba(0,38,60,0.15)] p-10 md:p-16 relative overflow-hidden">
+            <div className="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-[#DC2626]/5 blur-[60px] pointer-events-none" />
+
+            <svg className="w-9 h-9 text-[#DC2626] relative z-10" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+
+            <div className="overflow-hidden mt-8 relative z-10">
+              <div
+                className="flex transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]"
+                style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+              >
+                {testimonials.map((testi, idx) => (
+                  <div key={idx} className="w-full shrink-0">
+                    <p className="text-xl md:text-2xl lg:text-3xl font-extrabold text-[#00263C] leading-tight tracking-tight text-balance">
+                      {testi.quote}
+                    </p>
+                    <div className="mt-8 flex items-center gap-4">
+                      <div className="w-11 h-11 rounded-full bg-[#00263C] text-white flex items-center justify-center font-black text-sm shrink-0">
+                        {testi.name.charAt(0)}
+                      </div>
+                      <div>
+                        <h4 className="text-[#00263C] font-extrabold text-sm">{testi.name}</h4>
+                        <p className="text-slate-400 text-xs font-semibold mt-0.5">{testi.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between mt-10 pt-8 border-t border-slate-100 relative z-10">
+              <div className="flex items-center gap-3">
+                {testimonials.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveSlide(idx)}
+                    className={`h-1.5 rounded-full transition-all duration-500 ease-out cursor-pointer ${
+                      activeSlide === idx ? 'w-8 bg-[#DC2626]' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={prevSlide}
+                  className="w-10 h-10 rounded-full border border-slate-200 hover:border-[#00263C] flex items-center justify-center text-[#00263C] transition-colors cursor-pointer"
+                  aria-label="Previous Slide"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="w-10 h-10 rounded-full border border-slate-200 hover:border-[#00263C] flex items-center justify-center text-[#00263C] transition-colors cursor-pointer"
+                  aria-label="Next Slide"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 4: TESTIMONIAL SLIDER */}
-      <section className="bg-white py-24 px-4 md:px-8 flex flex-col items-center justify-center text-center border-t border-gray-100">
-        <div className="w-full max-w-6xl mx-auto flex items-center justify-between gap-4 md:gap-8">
-          
-          <button 
-            onClick={prevSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
-            aria-label="Previous Slide"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+      {/* SECTION 5 — CALL TO ACTION (Strategic Consulting Form) */}
+      <section id="cta" className="py-28 md:py-40 bg-white">
+        <div className="max-w-6xl mx-auto px-6 md:px-12">
+          <div className="flex flex-col lg:flex-row rounded-[2.5rem] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,38,60,0.15)] bg-[#00263C] text-white">
+            
+            {/* Left Side: Editorial & Detail */}
+            <div className="lg:w-1/2 p-10 md:p-16 lg:p-20 flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute -left-16 -top-16 w-80 h-80 rounded-full bg-[#DC2626]/10 blur-[90px] pointer-events-none" />
+              
+              <div>
+                <ModernEyebrow>Strategic Partnering</ModernEyebrow>
+                <h2 className="text-3xl md:text-5xl font-black text-white mt-8 leading-tight tracking-tight">
+                  Discuss Your <br />
+                  Hiring Needs
+                </h2>
+                <p className="text-slate-300 text-sm md:text-base leading-relaxed mt-6">
+                  Tell us about the leadership profiles you need. Our team of executive search professionals will map the industry and deliver exceptional candidates matching your specific cultural and strategic goals.
+                </p>
+              </div>
 
-          <div className="w-full max-w-4xl mx-auto overflow-hidden rounded-xl">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-            >
-              {testimonials.map((testi, index) => (
-                <div key={index} className="w-full shrink-0 flex flex-col items-center justify-center px-2 md:px-6">
-                  
-                  <div className="mb-8">
-                    <svg className="w-12 h-12 text-[#FF6B6B] mx-auto opacity-90" fill="currentColor" viewBox="0 0 256 256">
-                      <path d="M116,72v88a48.05,48.05,0,0,1-48,48,8,8,0,0,1,0-16,32,32,0,0,0,32-32v-8H40a16,16,0,0,1-16-16V72A16,16,0,0,1,40,56h60A16,16,0,0,1,116,72ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Z"></path>
-                    </svg>
-                  </div>
-                  
-                  <p className="text-xl md:text-2xl font-medium text-[#00263C] max-w-3xl mb-8 leading-relaxed mx-auto">
-                    {testi.quote}
-                  </p>
-                  <div className="mb-4">
-                    <h4 className="text-[#00263C] font-extrabold text-sm mb-1">{testi.name}</h4>
-                    <p className="text-gray-500 text-sm">{testi.role}</p>
-                  </div>
+              <div className="mt-12 flex items-center gap-6">
+                <div>
+                  <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest">Office Location</span>
+                  <span className="block text-sm font-semibold text-white mt-1">Jakarta, Indonesia</span>
                 </div>
-              ))}
+                <div className="w-px h-8 bg-white/10" />
+                <div>
+                  <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest">Email Inquiry</span>
+                  <span className="block text-sm font-semibold text-white mt-1">info@firsthr.co.id</span>
+                </div>
+              </div>
             </div>
-          </div>
 
-          <button 
-            onClick={nextSlide}
-            className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-red-600 transition-all cursor-pointer focus:outline-none"
-            aria-label="Next Slide"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
-        
-        <div className="flex items-center gap-2 mt-8">
-          {testimonials.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveSlide(index)}
-              className={`h-2.5 rounded-full transition-all duration-300 ease-in-out cursor-pointer focus:outline-none ${
-                activeSlide === index ? 'w-8 bg-red-600' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
-      </section>
+            {/* Right Side: Form (Double-Bezel concentric design inside the dark section) */}
+            <div className="lg:w-1/2 p-8 md:p-12 lg:p-16 bg-[#001E2F]">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
+                <h3 className="text-lg font-bold text-white mb-6">Schedule a Talent Consultation</h3>
+                
+                {/* ponytail: Simple action simulation. Upgrade to real API handler when endpoints are wired. */}
+                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Brief submitted successfully. Our lead consultant will connect with you via email."); }}>
+                  <div>
+                    <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Business Email *</label>
+                    <input required type="email" placeholder="name@company.com" className="w-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 rounded-lg px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#DC2626] transition-colors" />
+                  </div>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Company Name *</label>
+                      <input required type="text" placeholder="Company Ltd" className="w-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 rounded-lg px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#DC2626] transition-colors" />
+                    </div>
+                    <div>
+                      <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Target Position *</label>
+                      <input required type="text" placeholder="e.g. VP of Operations" className="w-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 rounded-lg px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#DC2626] transition-colors" />
+                    </div>
+                  </div>
 
-      {/* ============ FINAL SPLIT CTA ============ */}
-      <section className="bg-white py-24 px-4 md:px-8">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-[0_10px_40px_-10px_rgba(0,0,0,0.2)] bg-[#00263C]">
-            
-            {/* Kiri: Gambar */}
-            <div className="md:w-5/12 min-h-[300px] md:min-h-[480px] bg-slate-200 relative">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
-                alt="HR Professional" 
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+                  <div>
+                    <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Brief description of the role</label>
+                    <textarea rows="3" placeholder="Core challenges and requirements..." className="w-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 rounded-lg px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#DC2626] transition-colors resize-none" />
+                  </div>
+
+                  <button type="submit" className="w-full bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-lg transition-colors duration-300 mt-2">
+                    Submit Search Brief
+                  </button>
+                </form>
+              </div>
             </div>
-            
-            {/* Kanan: Teks dan Tombol CTA */}
-            <div className="md:w-7/12 p-10 md:p-20 flex flex-col justify-center relative">
-              
-              <div className="absolute top-0 bottom-0 left-[60%] w-32 bg-white/5 skew-x-12 hidden md:block"></div>
-              
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight relative z-10">
-                Find the Right Path <br className="hidden md:block"/>
-                for Your HR Team
-              </h2>
-              <p className="text-gray-300 text-sm md:text-lg mb-10 leading-relaxed relative z-10 max-w-lg">
-                Whether you want to provide continuous learning, close skill gaps, or build HR capabilities at scale, AIHR offers tailored solutions designed to support your goals.
-              </p>
-              
-              <button className="bg-[#cc3333] hover:bg-[#b32b2b] transition text-white text-sm font-bold uppercase tracking-wider py-4 px-8 rounded-lg w-max flex items-center gap-2 relative z-10 shadow-lg">
-                BOOK A CALL
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
-              </button>
-            </div>
-            
+
           </div>
         </div>
       </section>
+
     </main>
   );
 }
