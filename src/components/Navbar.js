@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Recruitment', href: '/recruitment' },
   { label: 'About Us', href: '/about' },
+  { label: 'FHRI News', href: '/newsletter' },
 ];
 
 // LEFT MENU DATA (BUSINESS TABS) WITH ICON, SUBTITLE & SUBMENU
@@ -624,6 +625,7 @@ export default function Navbar() {
           <Link href="/pricing" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">Pricing</Link>
           <Link href="/recruitment" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">Recruitment</Link>
           <Link href="/about" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">About Us</Link>
+          <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">FHRI News</Link>
           <div className="pt-4 mt-2">
             <Link href="/pricing" onClick={() => setMobileOpen(false)} className="block bg-[#E60000] text-white px-5 py-3 rounded-full font-bold text-center shadow-md">
               Join Us
