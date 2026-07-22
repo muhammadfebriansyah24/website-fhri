@@ -4,9 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// ============================================================
 // MAIN NAVIGATION DATA
-// ============================================================
 const navLinks = [
   { label: 'Business', dropdown: true, href: '/business' },
   { label: 'Tips and Trick HR', href: '/tips-and-trick' },
@@ -15,9 +13,7 @@ const navLinks = [
   { label: 'About Us', href: '/about' },
 ];
 
-// ============================================================
 // LEFT MENU DATA (BUSINESS TABS) WITH ICON, SUBTITLE & SUBMENU
-// ============================================================
 const businessTabs = [
   {
     id: 'Business Support Services',
@@ -428,7 +424,6 @@ export default function Navbar() {
                       : 'invisible opacity-0 -translate-y-2 pointer-events-none'
                   }`}
                 >
-                  {/* Widened layout: w-1/3 for the left menu, w-2/3 for the right */}
                   <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 md:p-8 flex gap-8 text-gray-800 w-full">
                     
                     {/* LEFT SECTION: TAB LIST (auto-mapped) */}
