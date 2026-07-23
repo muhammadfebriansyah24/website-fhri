@@ -71,28 +71,28 @@ const eventsList = [
 
 const newsList = [
   { 
-    id: 'annual-hr-summit', // <-- Tambahan ID
+    id: 'annual-hr-summit', 
     image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80', 
     title: 'Annual HR Summit', 
     description: 'Join industry leaders to discuss the future of work and HR transformation.',
     publishedAt: '12 August 2026 • 09:00 AM'
   },
   { 
-    id: 'program-launch', // <-- Tambahan ID
+    id: 'program-launch', 
     image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80', 
     title: 'Program Launch', 
     description: 'New certification programs available for mid-level HR professionals.',
     publishedAt: '18 August 2026 • 13:30 PM'
   },
   { 
-    id: 'future-of-work', // <-- Tambahan ID
+    id: 'future-of-work', 
     image: 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=800&q=80', 
     title: 'Future of Work', 
     description: 'Research findings on hybrid work models and employee engagement in 2026.',
     publishedAt: '24 August 2026 • 10:15 AM'
   },
   { 
-    id: 'partnership-announcement', // <-- Tambahan ID
+    id: 'partnership-announcement', 
     image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80', 
     title: 'Partnership Announcement', 
     description: 'FHRI collaborates with top universities to expand learning modules.',
@@ -140,33 +140,36 @@ const WHITE_TAB_PATH =
 
 function Hero() {
   return (
-    <section className="relative bg-[#00263C] pt-24 pb-36 md:pb-44 px-6 md:px-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16 relative z-10">
+    <section className="relative bg-brand-navy min-h-[85vh] flex items-center pt-24 pb-36 md:pb-44 px-6 md:px-12 overflow-hidden">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16 relative z-10 w-full">
         
         <div className="md:w-1/2">
-          <span className="text-base font-extrabold text-[#DC2626] tracking-widest uppercase">
+          <span className="text-eyebrow text-brand-red">
             First HR Indonesia
           </span>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
+
+          {/* Hanya menambahkan warna putih karena ukuran H1 sudah diatur global */}
+          <h1 className="mt-5 md:mt-6 text-white">
             Strategic Partner for Outstanding Talent
           </h1>
-          <p className="mt-6 text-sm text-slate-300 leading-relaxed max-w-md">
+
+          <p className="mt-8 text-slate-300 max-w-md">
             FHRI helps companies and HR professionals build capacity, accelerate careers, and transform HR practices through practical learning and innovation.
           </p>
-          <button className="mt-8 bg-[#DC2626] text-white px-8 py-3 rounded-full font-semibold text-sm transition hover:bg-white hover:text-[#00263C]">
+          <button className="mt-8 bg-brand-red text-white px-8 py-3 rounded-full font-semibold text-sm transition duration-700 hover:bg-white hover:text-brand-navy">
             DISCOVER MORE
           </button>
         </div>
 
         <div className="md:w-1/2 w-full">
-          <div className="w-full aspect-[16/10] rounded-xl overflow-hidden shadow-2xl relative border border-slate-700/50">
+          <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative border border-slate-700/50 group">
             <Image
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
               alt="HR Team Collaboration"
               fill
               unoptimized
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover object-center"
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         </div>
@@ -250,7 +253,7 @@ function Network() {
   const duplicatedPartners = [...partnerLogos, ...partnerLogos];
 
   return (
-    <section className="bg-white py-16 px-6 md:px-12 text-center overflow-hidden">
+    <section className="bg-white py-20 md:py-28 px-6 md:px-12 text-center overflow-hidden">
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -266,10 +269,10 @@ function Network() {
         }
       `}</style>
 
-      <h3 className="text-[#DC2626] font-extrabold text-xl tracking-widest uppercase">Our Network</h3>
-      <h2 className="text-3xl font-bold text-[#00263C] mt-2">Strategic Partners</h2>
+      <span className="text-eyebrow block mb-5 md:mb-6">Our Network</span>
+      <h2>Strategic Partners</h2>
       
-      <div className="marquee-container relative max-w-6xl mx-auto mt-10 overflow-hidden">
+      <div className="marquee-container relative max-w-6xl mx-auto mt-8 md:mt-10 overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
@@ -277,7 +280,7 @@ function Network() {
           {duplicatedPartners.map((partner, index) => (
             <div 
               key={index} 
-              className="w-48 h-20 shrink-0 bg-white border border-gray-200 rounded-xl flex items-center justify-center p-4 transition-all duration-300 ease-out cursor-pointer hover:shadow-lg hover:border-[#DC2626] hover:scale-105"
+              className="w-48 h-20 shrink-0 bg-white border border-gray-200 rounded-xl flex items-center justify-center p-4 transition-transform duration-500 ease-out cursor-pointer hover:-translate-y-1"
             >
               {partner.svg}
             </div>
@@ -301,10 +304,10 @@ function Testimonial() {
   };
 
   return (
-    <section className="bg-white py-12 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <section className="bg-brand-offwhite py-20 md:py-28 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
         
-        <div className="w-full md:w-1/2 aspect-[4/3] relative rounded-xl overflow-hidden bg-gray-100 shadow-md">
+        <div className="w-full md:w-1/2 aspect-[4/3] relative rounded-[2rem] overflow-hidden bg-gray-100 group">
           <Image
             key={current.image}
             src={current.image}
@@ -312,31 +315,33 @@ function Testimonial() {
             fill
             unoptimized
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover object-center transition-all duration-500 ease-in-out"
+            className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 
         <div className="w-full md:w-1/2">
-          <svg className="w-12 h-12 text-[#DC2626] opacity-30 mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg className="w-12 h-12 text-brand-red opacity-100 mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 15c0 2-1 4-2 6zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L19 15c0 2-1 4-2 6z" fill="currentColor"/>
           </svg>
           
           <div className="min-h-[120px]">
-            <p className="text-xl md:text-2xl font-bold text-[#00263C] leading-snug">
-              &quot;{current.quote}&quot;
+            {/* Quote bukan paragraf biasa, ukurannya kita tahan */}
+            <p className="text-2xl md:text-3xl font-normal leading-relaxed text-brand-navy">
+              <span className="text-gold-base font-bold">&quot;</span>{current.quote}<span className="text-gold-base font-bold">&quot;</span>
             </p>
           </div>
           
           <div className="mt-8">
-            <p className="font-bold text-[#00263C]">{current.name}</p>
-            <p className="text-gray-500 text-sm mt-1">{current.role}</p>
+            {/* Name diubah menjadi H3 */}
+            <h3>{current.name}</h3>
+            <p className="text-xs text-slate-500 mt-1">{current.role}</p>
           </div>
 
           <div className="flex gap-4 mt-10">
-            <button onClick={prevTestimonial} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-[#DC2626] hover:text-[#DC2626] transition">
+            <button onClick={prevTestimonial} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-brand-red hover:text-brand-red transition duration-700">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
             </button>
-            <button onClick={nextTestimonial} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-[#DC2626] hover:text-[#DC2626] transition">
+            <button onClick={nextTestimonial} className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-brand-red hover:text-brand-red transition duration-700">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
           </div>
@@ -348,36 +353,37 @@ function Testimonial() {
 
 function News() {
   return (
-    <section className="bg-[#00263C] py-20 px-6 md:px-12">
+    <section className="bg-brand-navy py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-white text-3xl font-bold mb-10">FHRI News</h2>
+        <h2 className="text-white mb-8 md:mb-10">FHRI News</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {newsList.map((news, idx) => (
-            <div key={idx} className="bg-white rounded-xl overflow-hidden flex flex-col shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="relative aspect-[16/10] w-full bg-gray-100">
+            <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group">
+              <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
                 <Image 
                   src={news.image} 
                   alt={news.title} 
                   fill 
                   unoptimized 
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-center" 
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105" 
                 />
               </div>
               <div className="p-5 flex flex-col flex-grow">
-                <div className="flex items-center text-gray-400 text-xs font-medium mb-2">
+                <div className="flex items-center text-slate-400 text-xs font-normal mb-2">
                   <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                   </svg>
                   {news.publishedAt}
                 </div>
                 
-                <h3 className="font-bold text-[#DC2626] text-lg mb-2 line-clamp-1">{news.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 flex-grow leading-relaxed line-clamp-3">{news.description}</p>
-                <Link href={`/newsletter?id=${news.id}`} className="text-[#DC2626] text-sm font-bold hover:underline inline-flex items-center gap-1">
-  View More <span>&gt;</span>
-</Link>
+                {/* Diubah menjadi h4 agar pas untuk judul item card */}
+                <h4 className="text-brand-red mb-2 line-clamp-1">{news.title}</h4>
+                <p className="text-sm text-slate-500 mb-4 flex-grow line-clamp-3">{news.description}</p>
+                <Link href={`/newsletter?id=${news.id}`} className="text-brand-red text-sm font-bold hover:underline inline-flex items-center gap-1">
+                  View More <span className="transition-transform group-hover:translate-x-1">&gt;</span>
+                </Link>
               </div>
             </div>
           ))}
@@ -389,73 +395,74 @@ function News() {
 
 function Programs() {
   return (
-    <section className="bg-[#ffffff] pt-16 pb-24 px-4 md:px-8 flex justify-center">
+    <section className="bg-white py-20 md:py-28 px-2 md:px-8 flex justify-center overflow-hidden">
       <div className="w-full max-w-[1440px]">
-        {/* FOLDER NAVY (luar) */}
-        <div className="relative w-full drop-shadow-xl">
+        {/* ===== FOLDER NAVY (luar) ===== */}
+        <div className="relative w-full drop-shadow-xl md:drop-shadow-2xl">
           <svg
             viewBox="0 0 1440 60"
             preserveAspectRatio="none"
-            className="w-full h-11 md:h-[60px] block relative z-10"
+            className="hidden md:block w-full h-[60px] relative z-10"
             aria-hidden="true"
           >
+            {/* Isi path mengambil variabel warna jika dibutuhkan, atau hex statis */}
             <path d={NAVY_TAB_PATH} fill="#00263C" />
           </svg>
 
           <div
-            className="bg-[#00263C] mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] px-6 pt-6 pb-36 md:pb-44 text-center relative flex flex-col items-center"
-            style={{ marginTop: '-2px' }}
+            className="bg-brand-navy mx-4 md:mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] px-5 md:px-12 pt-10 pb-32 md:pt-4 md:pb-44 text-center relative flex flex-col items-center md:-mt-[2px]"
           >
-            <span className="relative z-20 text-base font-extrabold text-[#DC2626] tracking-widest uppercase mb-4">
+            <span className="relative z-20 inline-flex items-center px-6 md:px-10 py-2 md:py-3 text-eyebrow text-white rounded-full border-2 md:border-3 border-brand-red md:-mt-8 shadow-sm">
               Our Programs
             </span>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+            <h2 className="mt-5 md:mt-6 text-white max-w-4xl text-balance">
               Explore HR Development Programs
             </h2>
-            <p className="text-slate-300 text-sm max-w-2xl mx-auto">
+            
+            <p className="mt-8 md:mt-10 text-slate-300 max-w-2xl mx-auto text-balance">
               A wide range of courses designed to help HR professionals build capacity and accelerate their careers.
             </p>
           </div>
         </div>
 
-        {/* FOLDER PUTIH (dalam) */}
-        <div className="relative w-full mx-auto -mt-28 md:-mt-36 z-10">
+        {/* ===== FOLDER PUTIH (dalam) ===== */}
+        <div className="relative w-full mx-auto -mt-20 md:-mt-36 z-10 drop-shadow-[0_15px_40px_rgba(21,60,86,0.12)] md:drop-shadow-[0_20px_50px_rgba(21,60,86,0.15)]">
           <svg
             viewBox="0 0 1440 48"
             preserveAspectRatio="none"
-            className="w-full h-9 md:h-12 block relative z-10 drop-shadow-[0_-5px_15px_rgba(0,0,0,0.05)]"
+            className="hidden md:block w-full h-12 relative z-10"
             aria-hidden="true"
           >
             <path d={WHITE_TAB_PATH} fill="white" />
           </svg>
 
           <div
-            className="bg-white mx-[5.5%] rounded-b-[2rem] md:rounded-b-[2.5rem] p-5 md:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.1)] relative z-0"
-            style={{ marginTop: '-2px' }}
+            className="bg-white mx-4 md:mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] p-5 md:p-10 shadow-sm relative z-0 md:-mt-[2px]"
           >
             {/* Grid Kartu Program */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {programsList.map((item, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl overflow-hidden border border-gray-100 flex flex-col shadow-sm hover:shadow-lg transition-all duration-300"
+                  className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group"
                 >
-                  <div className="relative aspect-[16/10] w-full bg-gray-100">
+                  <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
                     <Image 
                       src={item.image} 
                       alt={item.title} 
                       fill 
                       unoptimized 
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover object-center" 
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105" 
                     />
                   </div>
                   <div className="p-5 flex flex-col flex-grow">
-                    <h3 className="font-bold text-[#00263C] mb-2">{item.title}</h3>
-                    <p className="text-[13px] text-gray-500 mb-4 flex-grow leading-relaxed">{item.description}</p>
-                    <Link href="#" className="text-[#DC2626] text-[13px] font-bold hover:underline inline-flex items-center gap-1">
-                      Read More <span>&gt;</span>
+                    {/* Menggunakan H4 karena ukurannya pass untuk grid title */}
+                    <h4 className="mb-2">{item.title}</h4>
+                    <p className="text-sm text-slate-500 mb-4 flex-grow">{item.description}</p>
+                    <Link href="#" className="text-brand-red text-sm font-bold hover:underline inline-flex items-center gap-1">
+                      Read More <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                     </Link>
                   </div>
                 </div>
@@ -464,29 +471,30 @@ function Programs() {
 
             {/* Corporate & Culture Events Section */}
             <div className="mt-24 text-center">
-              <h2 className="text-2xl font-bold text-[#00263C] mb-2">Corporate & Culture Events</h2>
-              <p className="text-gray-500 text-sm mb-10 max-w-2xl mx-auto">
+              <h2 className="mb-8">Corporate & Culture Events</h2>
+              <p className="text-slate-500 mb-10 max-w-2xl mx-auto">
                 Discover various internal events and cultural activities designed to foster team building, engagement, and alignment with our core values.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                 {eventsList.map((event, idx) => (
-                  <div key={idx} className="flex flex-col group cursor-pointer bg-white rounded-xl overflow-hidden border border-gray-100 p-3 shadow-xs hover:shadow-md transition">
-                    <div className="relative aspect-[16/10] w-full rounded-lg overflow-hidden mb-4 bg-gray-100">
+                  <div key={idx} className="flex flex-col cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 p-3 group">
+                    <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-4 bg-gray-100">
                       <Image 
                         src={event.image} 
                         alt={event.title} 
                         fill 
                         unoptimized 
                         sizes="(max-width: 768px) 100vw, 33vw"
-                        className="object-cover object-center group-hover:scale-105 transition duration-500" 
+                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105" 
                       />
                     </div>
                     <div className="px-1 flex flex-col flex-grow">
-                      <h3 className="font-bold text-[#00263C] mb-1">{event.title}</h3>
-                      <p className="text-[13px] text-gray-500 mb-3 flex-grow">{event.description}</p>
-                      <Link href="#" className="text-[#DC2626] text-[13px] font-bold hover:underline mt-auto inline-flex items-center gap-1">
-                        Read More <span>&gt;</span>
+                      {/* Menggunakan H4 */}
+                      <h4 className="mb-1">{event.title}</h4>
+                      <p className="text-sm text-slate-500 mb-3 flex-grow">{event.description}</p>
+                      <Link href="#" className="text-brand-red text-sm font-bold hover:underline mt-auto inline-flex items-center gap-1">
+                        Read More <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                       </Link>
                     </div>
                   </div>
@@ -503,7 +511,7 @@ function Programs() {
 
 function CTA() {
   return (
-    <section className="relative py-28 px-6 md:px-12 text-center bg-[#00263C] overflow-hidden">
+    <section className="relative py-24 md:py-36 px-6 md:px-12 text-center bg-brand-navy overflow-hidden">
       {/* Background Image / Logo & Overlay */}
       <div className="absolute inset-0 z-0 flex items-center justify-center opacity-15">
         <Image 
@@ -512,22 +520,22 @@ function CTA() {
           fill 
           unoptimized
           priority
-          /* object-contain digunakan agar logo pas ukurannya dan tidak terpotong */
           className="object-contain object-center p-4 md:p-16"
         />
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        <p className="text-white text-sm font-extrabold tracking-widest uppercase mb-4 opacity-90">
+        <p className="text-eyebrow mb-5 opacity-90">
           READY TO TAKE THE NEXT STEP?
         </p>
-        <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-6">
-          Elevate Your Career: Grow Alongside Leading HR Professionals
+        <h2 className="text-2xl md:text-3xl text-white mb-8 md:mb-10">
+          Elevate Your Career : 
+          <br/>Grow Alongside Leading HR Professionals
         </h2>
         <p className="text-slate-300 mb-8 max-w-xl mx-auto">
           Become a part of FHRI and elevate your HR capabilities alongside the largest professional community in Indonesia.
         </p>
-        <button className="bg-[#DC2626] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white hover:text-[#00263C] transition shadow-lg">
+        <button className="bg-brand-red text-white px-8 py-3.5 rounded-full font-semibold hover:bg-white hover:text-brand-navy transition duration-700 shadow-lg">
           Start Your Journey
         </button>
       </div>
@@ -535,43 +543,7 @@ function CTA() {
   );
 }
 
-function BottomCTA() {
-  return (
-    <section className="py-20 px-6 md:px-12 bg-gray-50">
-      <div className="max-w-6xl mx-auto rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-2xl border border-gray-100 bg-white">
-        
-        {/* Gambar logo agar tidak terpotong (object-contain + p-8) */}
-        <div className="w-full md:w-1/3 relative aspect-square md:aspect-auto min-h-[280px] flex items-center justify-center p-8">
-          <Image 
-            src="/fhri-logo.png"
-            alt="HR Consultation Logo" 
-            fill 
-            unoptimized
-            sizes="(max-width: 768px) 100vw, 33vw"
-            /* Class diubah dari object-cover menjadi object-contain beserta tambahan padding */
-            className="object-contain object-center p-8 md:p-12"
-          />
-        </div>
-        
-        <div className="w-full md:w-2/3 bg-[#00263C] p-10 md:p-16 flex flex-col justify-center items-start">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Find the Right Path<br/>for Your HR Team
-          </h2>
-          <p className="text-slate-300 text-sm mb-8 max-w-md leading-relaxed">
-            Talking to our experts helps you uncover strategies that improve productivity, retention, and HR performance across the board.
-          </p>
-          <button className="bg-[#DC2626] text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:bg-white hover:text-[#00263C] transition">
-            Find out more
-          </button>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ==========================================
 // 3. MAIN PAGE EXPORT
-// ==========================================
 
 export default function Home() {
   return (
@@ -582,7 +554,6 @@ export default function Home() {
       <News />
       <Programs />
       <CTA />
-      <BottomCTA />
-    </main>
+      </main>
   );
 }
