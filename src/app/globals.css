@@ -61,11 +61,11 @@
   }
 }
 
-/* 3. CUSTOM UTILITIES (KOMPONEN BERULANG)= */
+/* 3. CUSTOM UTILITIES = */
 @layer components {
   /* Eyebrow Label */
   .text-eyebrow {
-    @apply text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-brand-red;
+    @apply text-base md:text-lg font-bold uppercase tracking-[0.3em] text-brand-red;
   }
 
   /* Teaser / Secondary Text */
