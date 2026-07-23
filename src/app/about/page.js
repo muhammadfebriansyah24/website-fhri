@@ -4,30 +4,30 @@ import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// ==========================================
+
 // DATA KONTEN ABOUT US
-// ==========================================
+
 
 const valuesData = [
   {
     title: 'Ownership',
     desc: 'We act with accountability, take initiative, and turn challenges into opportunities through proactive problem solving.',
-    icon: <svg className="w-6 h-6 text-[#DC2626]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
+    icon: <svg className="w-6 h-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
   },
   {
     title: 'Excellence',
     desc: 'We pursue the highest standards, continuously improve, and deliver outstanding results with passion and purpose.',
-    icon: <svg className="w-6 h-6 text-[#DC2626]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>,
+    icon: <svg className="w-6 h-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>,
   },
   {
     title: 'Trust',
     desc: 'We build lasting relationships through trust, integrity, and accountability while honoring commitments.',
-    icon: <svg className="w-6 h-6 text-[#DC2626]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>,
+    icon: <svg className="w-6 h-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>,
   },
   {
     title: 'Driven to Grow',
     desc: 'We never stop learning, improving, and growing to become better every day in a dynamic landscape.',
-    icon: <svg className="w-6 h-6 text-[#DC2626]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>,
+    icon: <svg className="w-6 h-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>,
   },
 ];
 
@@ -39,7 +39,6 @@ const journeyTimeline = [
   { year: '2026', title: 'Continuous Improvement', desc: 'Expanded impact by partnering with leading organizations across industries to build future-ready teams and accelerate business transformation.' },
 ];
 
-// DATA TIM LENGKAP DENGAN EXECUTIVE SUMMARY
 const leadershipTeam = [
   { 
     name: 'Robby P. Tambunan', 
@@ -100,7 +99,6 @@ const leadershipTeam = [
     image: '/6.png',
     summary: [
       "Adriel Tambunan is a Law graduate from Tarumanagara University who has developed a strong foundation in Digital Marketing through hands-on experience in content creation, social media management, and digital communication. By combining analytical thinking, creativity, and strategic planning, he develops marketing initiatives that align with business objectives and evolving market trends.",
-      "His expertise includes content planning, copywriting, social media management, short-form video production, campaign execution, and performance analysis. He approaches every project with attention to detail, ensuring quality and consistency from planning through evaluation.",
       "His expertise includes content planning, copywriting, social media management, short-form video production, campaign execution, and performance analysis. He approaches every project with attention to detail, ensuring quality and consistency from planning through evaluation.",
       "Driven by curiosity and a commitment to continuous learning, he stays updated with digital trends, consumer behavior, and emerging technologies to develop relevant and effective marketing strategies. Adaptable, collaborative, and analytical, he is committed to delivering innovative digital marketing solutions that create measurable impact and support long-term business growth."
     ]
@@ -213,7 +211,7 @@ export default function AboutUsPage() {
 
   // State & Ref untuk Leadership Executive Summary
   const [activeLeaderIndex, setActiveLeaderIndex] = useState(0);
-  const thumbnailContainerRef = useRef(null); // Ref untuk mengontrol scroll thumbnail
+  const thumbnailContainerRef = useRef(null);
   const activeLeader = leadershipTeam[activeLeaderIndex];
 
   useEffect(() => {
@@ -232,7 +230,6 @@ export default function AboutUsPage() {
     if (thumbnailContainerRef.current) {
       const activeThumbnail = thumbnailContainerRef.current.children[activeLeaderIndex];
       if (activeThumbnail) {
-        // Menggeser kontainer thumbnail agar foto yang aktif selalu berada di tengah
         activeThumbnail.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
     }
@@ -249,11 +246,9 @@ export default function AboutUsPage() {
   if (!mounted) return null; 
 
   return (
-    <main className="bg-[#F8FAFC] text-gray-800 overflow-hidden font-sans">
+    <main className="bg-slate-50 overflow-hidden selection:bg-brand-red selection:text-white">
       
-      {/* ============================================================
-          CSS ANIMASI & CUSTOM SCROLLBAR
-          ============================================================ */}
+      {/* CSS ANIMASI & CUSTOM SCROLLBAR */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -293,14 +288,12 @@ export default function AboutUsPage() {
         .hide-scroll-mobile { -ms-overflow-style: none; scrollbar-width: none; }
       `}} />
 
-      {/* ============================================================
-          1. HERO SECTION
-          ============================================================ */}
-      <section className="relative bg-[#00263C] text-white pt-36 pb-48 md:pt-48 md:pb-56 px-6 md:px-12 overflow-hidden flex items-center justify-center min-h-[90vh]">
+      {/* 1. HERO SECTION */}
+      <section className="relative bg-brand-navy text-white pt-36 pb-48 md:pt-48 md:pb-56 px-6 md:px-12 overflow-hidden flex items-center justify-center min-h-[90vh]">
         <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{ animationDuration: '4s' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#DC2626]/20 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{ animationDuration: '6s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 bg-[#00263C] rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-red/20 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{ animationDuration: '6s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 bg-brand-navy rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="hidden lg:flex absolute top-40 left-[10%] bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl animate-float items-center gap-4 shadow-2xl z-20">
           <div className="w-12 h-12 bg-blue-500/40 rounded-full flex items-center justify-center">
@@ -310,16 +303,16 @@ export default function AboutUsPage() {
           </div>
           <div>
             <p className="text-xs text-blue-200 font-bold uppercase tracking-wider">Trusted Partner</p>
-            <p className="text-white font-extrabold text-lg">500+ Companies</p>
+            <p className="text-white font-semibold text-lg">500+ Companies</p>
           </div>
         </div>
 
-        <div className="hidden lg:flex absolute bottom-48 right-[10%] bg-gradient-to-br from-[#0B2A4A] to-[#00263C] border border-slate-700 p-4 rounded-2xl animate-float-reverse items-center gap-4 shadow-2xl z-20">
+        <div className="hidden lg:flex absolute bottom-48 right-[10%] bg-gradient-to-br from-[#0B2A4A] to-brand-navy border border-slate-700 p-4 rounded-2xl animate-float-reverse items-center gap-4 shadow-2xl z-20">
           <div className="flex -space-x-4">
             <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/1.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
             <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/2.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
             <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/3.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-            <div className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] bg-[#DC2626] flex items-center justify-center text-xs font-bold text-white z-10">+11</div>
+            <div className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] bg-brand-red flex items-center justify-center text-xs font-bold text-white z-10">+11</div>
           </div>
           <div>
             <p className="text-white font-bold text-sm">Expert Leaders</p>
@@ -328,42 +321,43 @@ export default function AboutUsPage() {
         </div>
 
         <div className="max-w-5xl mx-auto text-center relative z-30">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#00263C] border border-slate-700 shadow-xl mb-8">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626] animate-pulse"></span>
-            <span className="text-xs font-bold text-slate-300 tracking-[0.25em] uppercase">About First HR Indonesia</span>
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-navy border border-slate-700 shadow-xl mb-8">
+            <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
+            <h5 className="font-bold text-slate-300 tracking-[0.25em] uppercase">About First HR Indonesia</h5>
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-[5rem] font-black text-white leading-[1.1] mb-8 drop-shadow-2xl">
+          <h1 className="text-white mb-8 drop-shadow-2xl">
             One Mission, <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#DC2626] to-red-400">Endless Innovation</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">Endless Innovation</span>
           </h1>
           <p className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light drop-shadow-md">
-            Empowering organizations through strategic human capital solutions. We connect world-class strategies with Indonesia's finest professionals to shape a better world of work.
+            Empowering organizations through strategic human capital solutions. We connect world-class strategies with Indonesia&apos;s finest professionals to shape a better world of work.
           </p>
         </div>
       </section>
 
-      {/* ============================================================
-          2. VISION & MISSION
-          ============================================================ */}
+      {/* 2. VISION & MISSION */}
       <section className="relative px-6 md:px-12 -mt-32 md:-mt-40 z-40 pb-20">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           
           <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.15)] border border-slate-100 transform transition-transform hover:-translate-y-2 duration-500 flex flex-col justify-center">
-            <div className="w-14 h-14 bg-[#00263C] rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+            <div className="w-14 h-14 bg-brand-navy rounded-2xl flex items-center justify-center mb-6 shadow-lg">
               <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
             </div>
-            <h2 className="text-sm text-[#DC2626] font-bold uppercase tracking-widest mb-4">Our Vision</h2>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-[#00263C] leading-tight">
+            {/* Menggunakan tag h6 untuk Section Label */}
+            <h4 className="text-brand-red mb-4">Our Vision</h4>
+            {/* Menggunakan H2 untuk Judul Besar Section */}
+            <h2 className="text-brand-navy">
               To be the most trusted Strategic Human Capital Partner.
-            </h3>
+            </h2>
           </div>
 
-          <div className="bg-gradient-to-br from-[#0B2A4A] to-[#00263C] text-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.25)] border border-slate-700 relative overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
+          <div className="bg-gradient-to-br from-[#0B2A4A] to-brand-navy text-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.25)] border border-slate-700 relative overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-            <div className="w-14 h-14 bg-[#DC2626] rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-red-500/30">
+            <div className="w-14 h-14 bg-brand-red rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-red-500/30">
               <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
             </div>
-            <h2 className="text-sm text-slate-400 font-bold uppercase tracking-widest mb-6">Our Mission</h2>
+            {/* Menggunakan tag h6 untuk Section Label */}
+            <h4 className="text-slate-400 mb-6">Our Mission</h4>
             <ul className="space-y-5">
               {[
                 "Deliver strategic Human Capital solutions.",
@@ -372,7 +366,7 @@ export default function AboutUsPage() {
                 "Partner with integrity and excellence."
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-4">
-                  <span className="text-[#DC2626] mt-1 drop-shadow-md">✦</span>
+                  <span className="text-brand-red mt-1 drop-shadow-md">✦</span>
                   <span className="text-slate-100 text-lg md:text-xl font-medium leading-snug">{item}</span>
                 </li>
               ))}
@@ -382,45 +376,46 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          3. OUR VALUES 
-          ============================================================ */}
-      <section className="py-24 px-6 md:px-12 bg-[#F8FAFC]">
+      {/* 3. OUR VALUES  */}
+      <section className="py-24 px-6 md:px-12 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-[#DC2626] font-bold text-xs tracking-[0.2em] uppercase bg-red-50 px-3 py-1.5 rounded-full inline-block">Our Core Values</span>
-            <h2 className="mt-4 text-3xl md:text-5xl font-extrabold text-[#00263C]">Values That Guide Us</h2>
-            <p className="mt-4 text-slate-500 text-lg">The four pillars that define how we work, how we treat each other, and how we deliver impact.</p>
+            <span className="text-eyebrow gradient-gold text-white px-4 py-1.5 rounded-full inline-block shadow-sm">
+            Our Core Values
+            </span>
+            <h2 className="mt-4 mb-4 text-brand-navy">Values That Guide Us</h2>
+            <p className="mt-4">The four pillars that define how we work, how we treat each other, and how we deliver impact.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {valuesData.map((item, idx) => (
               <div key={idx} className={`group bg-white p-8 rounded-[2rem] border border-slate-100 hover:border-blue-100 hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.12)] transition-all duration-500 relative ${idx % 2 === 0 ? 'lg:translate-y-4' : 'lg:-translate-y-4'}`}>
-                <div className="w-14 h-14 bg-[#F8FAFC] rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-14 h-14 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                   {item.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-[#00263C] mb-3 group-hover:text-[#DC2626] transition-colors">{item.title}</h3>
-                <p className="text-slate-500 leading-relaxed text-sm">{item.desc}</p>
+                {/* Menggunakan H4 untuk judul kartu */}
+                <h4 className="mb-3 group-hover:text-brand-red transition-colors text-brand-navy">{item.title}</h4>
+                <p>{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ============================================================
-          4. EXECUTIVE PROFILE / LEADERSHIP TEAM (DYNAMIC & ANIMATED)
-          ============================================================ */}
+      {/* 4. EXECUTIVE PROFILE / LEADERSHIP TEAM (DYNAMIC & ANIMATED) */}
       <section className="py-24 px-6 md:px-12 bg-white relative overflow-hidden border-t border-slate-100">
         <div className="max-w-7xl mx-auto relative z-10">
           
           <div className="text-center mb-16">
-            <span className="text-[#DC2626] font-bold text-xs tracking-[0.2em] uppercase bg-red-50 px-3 py-1.5 rounded-full inline-block">Executive Profiles</span>
-            <h2 className="mt-4 text-4xl md:text-5xl font-extrabold text-[#00263C]">Meet The Leadership Team</h2>
-            <p className="mt-4 text-slate-500 text-lg max-w-2xl mx-auto">Driven by experienced practitioners and thought leaders passionate about transforming the future of human resources.</p>
+            <span className="text-eyebrow gradient-gold text-white px-4 py-1.5 rounded-full inline-block mb-4 shadow-sm">
+            Executive Profiles
+            </span>
+            <h2 className="text-brand-navy">Meet The Leadership Team</h2>
+            <p className="mt-4 max-w-2xl mx-auto">Driven by experienced practitioners and thought leaders passionate about transforming the future of human resources.</p>
           </div>
 
           {/* Kartu Profil Utama (Master Card) dengan Background Gradien Bergerak */}
-          <div className="bg-gradient-to-br from-[#F8FAFC] via-white to-blue-50 animate-gradient-shift border border-slate-200/60 rounded-[3rem] p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,38,60,0.1)] transition-all duration-500 ease-in-out relative overflow-hidden">
+          <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50 animate-gradient-shift border border-slate-200/60 rounded-[3rem] p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,38,60,0.1)] transition-all duration-500 ease-in-out relative overflow-hidden">
             
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start relative z-10">
               
@@ -438,20 +433,22 @@ export default function AboutUsPage() {
                     <svg className="w-20 h-20 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                   </div>
                 </div>
-                <h3 className="text-3xl font-extrabold text-[#00263C] leading-tight">{activeLeader.name}</h3>
-                <p className="text-sm font-black text-[#DC2626] uppercase tracking-widest mt-2">{activeLeader.role}</p>
+                {/* Judul H3 untuk Nama */}
+                <h3 className="text-brand-navy">{activeLeader.name}</h3>
+                {/* Menggunakan text-eyebrow karena formatnya sangat cocok */}
+                <p className="text-eyebrow mt-2">{activeLeader.role}</p>
                 <div className="w-12 h-1 bg-slate-200 mt-6 rounded-full mx-auto lg:mx-0"></div>
               </div>
 
               {/* KANAN: Executive Summary (Animasi Fade Slide Up bertingkat) */}
               <div key={`txt-${activeLeaderIndex}`} className="lg:col-span-8 animate-fade-slide-up">
-                <h4 className="text-xl font-bold text-[#0B2A4A] mb-6 flex items-center gap-2 justify-center lg:justify-start">
-                  <svg className="w-5 h-5 text-[#DC2626]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <h4 className="text-[#0B2A4A] mb-6 flex items-center gap-2 justify-center lg:justify-start">
+                  <svg className="w-5 h-5 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                   Executive Summary
                 </h4>
                 
                 {/* Text Container dengan custom scrollbar */}
-                <div className="h-[340px] md:h-[380px] overflow-y-auto pr-2 md:pr-4 custom-scrollbar text-slate-600 leading-relaxed text-[15px] md:text-base text-justify space-y-5">
+                <div className="h-[340px] md:h-[380px] overflow-y-auto pr-2 md:pr-4 custom-scrollbar text-justify space-y-5">
                   {activeLeader.summary.map((paragraph, index) => (
                     <p 
                       key={index} 
@@ -470,7 +467,7 @@ export default function AboutUsPage() {
           <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6">
             
             <div className="flex items-center gap-2 md:gap-4 w-full md:w-auto justify-center">
-              <button onClick={prevLeader} className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-[#00263C] hover:bg-[#DC2626] hover:text-white hover:border-[#DC2626] transition-all">
+              <button onClick={prevLeader} className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-brand-navy hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
                 <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" /></svg>
               </button>
 
@@ -483,7 +480,7 @@ export default function AboutUsPage() {
                   <button 
                     key={index} 
                     onClick={() => setActiveLeaderIndex(index)} 
-                    className={`relative w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full overflow-hidden border-4 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${index === activeLeaderIndex ? 'border-[#DC2626] scale-110 shadow-lg' : 'border-white opacity-60 hover:opacity-100 hover:scale-105'}`}
+                    className={`relative w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full overflow-hidden border-4 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${index === activeLeaderIndex ? 'border-brand-red scale-110 shadow-lg' : 'border-white opacity-60 hover:opacity-100 hover:scale-105'}`}
                     aria-label={`View profile of ${leader.name}`}
                   >
                     <Image src={leader.image} alt={leader.name} fill className="object-cover" onError={(e) => { e.target.style.display = 'none'; }} />
@@ -492,7 +489,7 @@ export default function AboutUsPage() {
                 ))}
               </div>
 
-              <button onClick={nextLeader} className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-[#00263C] hover:bg-[#DC2626] hover:text-white hover:border-[#DC2626] transition-all">
+              <button onClick={nextLeader} className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-brand-navy hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
                 <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" /></svg>
               </button>
             </div>
@@ -505,20 +502,18 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          5. THE FHRI JOURNEY (Timeline)
-          ============================================================ */}
-      <section className="bg-[#F8FAFC] py-24 px-6 md:px-12">
+      {/* 5. THE FHRI JOURNEY (Timeline) */}
+      <section className="bg-slate-50 py-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-[#00263C] leading-tight">Our Journey</h2>
-            <p className="mt-4 text-slate-500 text-lg">9 Years. One Mission. Endless Innovation.</p>
+            <h2 className="text-brand-navy">Our Journey</h2>
+            <p className="mt-4">9 Years. One Mission. Endless Innovation.</p>
           </div>
           <div className="grid md:grid-cols-5 gap-4">
             {journeyTimeline.map((item, idx) => (
-              <div key={idx} className="group bg-white border border-slate-200 p-6 rounded-[2rem] hover:bg-[#00263C] transition-colors duration-500 flex flex-col shadow-sm">
-                <h3 className="text-4xl font-black text-slate-200 group-hover:text-[#DC2626] transition-colors duration-500 mb-4">{item.year}</h3>
-                <h4 className="text-lg font-bold text-[#00263C] group-hover:text-white mb-2">{item.title}</h4>
+              <div key={idx} className="group bg-white border border-slate-200 p-6 rounded-[2rem] hover:bg-brand-navy transition-colors duration-500 flex flex-col shadow-sm">
+                <h3 className="text-4xl font-bold text-slate-200 group-hover:text-brand-red transition-colors duration-500 mb-4">{item.year}</h3>
+                <h4 className="text-brand-navy group-hover:text-white mb-2">{item.title}</h4>
                 <p className="text-sm text-slate-500 group-hover:text-slate-300 leading-relaxed">{item.desc}</p>
               </div>
             ))}
@@ -526,23 +521,21 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          6. BEHIND THE SCENES GALLERY 
-          ============================================================ */}
-      <section className="bg-[#00263C] py-24 px-6 md:px-12 overflow-hidden">
+      {/* 6. BEHIND THE SCENES GALLERY  */}
+      <section className="bg-brand-navy py-24 px-6 md:px-12 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 gap-6 text-center md:text-left">
             <div className="flex flex-col items-center md:items-start">
-              <span className="text-[#DC2626] font-bold text-xs tracking-[0.2em] uppercase inline-block">Gallery</span>
-              <h2 className="mt-2 text-3xl md:text-5xl font-extrabold text-white tracking-tight">Behind The Scenes</h2>
-              <p className="mt-4 text-slate-300 text-lg">Step into the vibrant world of First HR Indonesia.</p>
+              <span className="text-eyebrow inline-block">Gallery</span>
+              <h2 className="mt-2 text-white">Behind The Scenes</h2>
+              <p className="mt-4 text-slate-300">Step into the vibrant world of First HR Indonesia.</p>
             </div>
             <div className="flex gap-3 justify-center md:justify-end">
-              <button onClick={prevGallery} className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#DC2626] hover:border-[#DC2626] transition-all">
+              <button onClick={prevGallery} className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" /></svg>
               </button>
-              <button onClick={nextGallery} className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-[#DC2626] hover:border-[#DC2626] transition-all">
+              <button onClick={nextGallery} className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" /></svg>
               </button>
             </div>
@@ -571,8 +564,8 @@ export default function AboutUsPage() {
                     </div>
                     
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8">
-                      <span className="text-[#DC2626] text-[10px] font-black uppercase tracking-widest mb-2">FHRI Moment</span>
-                      <h4 className="text-white font-bold text-lg md:text-xl leading-snug">{slide.title}</h4>
+                      <span className="text-brand-red text-xs font-bold uppercase tracking-[0.25em] mb-2">FHRI Moment</span>
+                      <h4 className="text-white">{slide.title}</h4>
                     </div>
                   </div>
                 ))}
@@ -583,14 +576,12 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          7. CTA FOOTER
-          ============================================================ */}
-      <section className="bg-[#DC2626] text-white py-20 px-6 md:px-12">
+      {/* 7. CTA FOOTER */}
+      <section className="bg-brand-red text-white py-20 px-6 md:px-12">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-6">Partner With The Best</h2>
+          <h2 className="text-white mb-6">Partner With The Best</h2>
           <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">Discover how First HR Indonesia can elevate your organizational capability and drive sustainable business growth.</p>
-          <Link href="/pricing" className="inline-flex items-center gap-2 bg-white text-[#DC2626] font-extrabold px-10 py-4 rounded-full transition-transform hover:scale-105 shadow-xl uppercase tracking-wider text-sm">
+          <Link href="/pricing" className="inline-flex items-center gap-2 bg-white text-brand-red font-bold px-10 py-4 rounded-full transition-transform hover:scale-105 shadow-xl uppercase tracking-wide text-sm">
             Join Us
           </Link>
         </div>
