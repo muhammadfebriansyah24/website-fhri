@@ -1,1 +1,90 @@
 @import "tailwindcss";
+
+/* 1. DESIGN TOKENS */
+@theme {
+  /* Brand Colors */
+  --color-brand-navy: #00263C;
+  --color-brand-red: #DC2626;
+  --color-brand-offwhite: #F8F9FA;
+  
+  /* Slate Scale */
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+
+  /* Gold Ornaments */
+  --color-gold-light: #E8D287;
+  --color-gold-base: #C9A227;
+  --color-gold-dark: #8A6D1F;
+
+  /* Font Family - Menghubungkan variabel Poppins dari layout.js */
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* 2. GLOBAL TYPOGRAPHY (EDITORIAL BOLD) */
+@layer base {
+  /* H1 (Hero) */
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight;
+  }
+
+  /* H2 (Section heading) */
+  h2 {
+    @apply text-3xl md:text-4xl font-bold leading-[1.15] tracking-tight;
+  }
+
+  /* H3 (Subsection/card title) */
+  h3 {
+    @apply text-xl md:text-2xl font-bold leading-snug;
+  }
+
+  /* H4 (Item/row title) */
+  h4 {
+    @apply text-lg font-semibold leading-snug;
+  }
+
+  /* H5 (Small label heading) */
+  h5 {
+    @apply text-base font-semibold leading-snug;
+  }
+
+  /* H6 / Section label */
+  h6 {
+    @apply text-xs font-bold uppercase tracking-[0.25em];
+  }
+
+  /* Paragraph (Body) */
+  p {
+    @apply text-sm md:text-base font-normal leading-relaxed text-slate-600;
+  }
+}
+
+/* 3. CUSTOM UTILITIES (KOMPONEN BERULANG)= */
+@layer components {
+  /* Eyebrow Label */
+  .text-eyebrow {
+    @apply text-xs md:text-sm font-bold uppercase tracking-[0.3em] text-brand-red;
+  }
+
+  /* Teaser / Secondary Text */
+  .text-teaser {
+    @apply text-sm font-normal leading-relaxed text-slate-500;
+  }
+
+  /* Highlighted Takeaway */
+  .text-takeaway {
+    @apply text-sm font-semibold;
+  }
+
+  /* Index Number */
+  .text-index {
+    @apply text-xs md:text-sm font-semibold tabular-nums;
+  }
+
+  /* Gold Gradient Background/Text */
+  .gradient-gold {
+    background: linear-gradient(135deg, var(--color-gold-light), var(--color-gold-base), var(--color-gold-dark));
+  }
+}
