@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 
 // ============================================================
@@ -35,39 +35,17 @@ function PremiumCTAButton({ href, children }) {
 // MAIN PAGE
 // ============================================================
 export default function CorporateCultureEvents() {
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  const testimonials = [
-    {
-      quote: '"The Professional Work Ethic workshop reshaped how our teams show up every day. Accountability and time management are no longer just values on a poster — they show up in our numbers."',
-      name: 'Anita Kusuma',
-      role: 'Head of People, Bintang Logistics',
-    },
-    {
-      quote: '"FHRI ran our annual town hall from concept to execution. Flawless coordination, and the energy in the room was the best we\'ve had in years."',
-      name: 'Farhan Ramadhan',
-      role: 'HR Director, Cipta Semesta Group',
-    },
-    {
-      quote: '"Our leadership outbound program broke down silos that had built up for years. Teams came back communicating in a completely different way."',
-      name: 'Sarah Tan',
-      role: 'VP People & Culture, Meridian Finance',
-    },
-  ];
-
-  const nextSlide = () => setActiveSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  const prevSlide = () => setActiveSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-
   return (
     <main className="min-h-screen font-sans bg-[#F8F9FA] text-[#00263C] selection:bg-[#DC2626] selection:text-white">
 
       {/* SECTION 1 — HERO (Full-bleed) */}
       <section className="relative min-h-[92vh] flex items-end bg-[#00263C] text-white overflow-hidden">
         <div className="absolute inset-0">
+          {/* Gambar Hero: Kolaborasi tim profesional Indonesia yang santai (Relevan dengan "Work Culture") */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2400&auto=format&fit=crop"
-            alt="Corporate team building and culture workshop"
+            src="https://images.unsplash.com/photo-1531547977107-a5f0f32d6d87?q=80&w=2400&auto=format&fit=crop"
+            alt="Indonesian Professionals Collaborating in a Relaxed Office Culture Setting"
             className="absolute inset-0 w-full h-full object-cover grayscale-[0.3]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#00263C] via-[#00263C]/70 to-[#00263C]/20" />
@@ -81,8 +59,22 @@ export default function CorporateCultureEvents() {
           <p className="mt-7 text-base md:text-lg text-slate-200 leading-relaxed max-w-xl font-medium">
             From professional ethics workshops to corporate events and outbound training, we help organizations turn culture into a measurable advantage — not just a set of values on a wall.
           </p>
-          <div className="mt-10">
-            <PremiumCTAButton href="#cta">Consult Our Experts</PremiumCTAButton>
+          <div className="mt-9">
+            <button
+              type="button"
+              className="group inline-flex items-center gap-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#DC2626]/30"
+            >
+              Consult Our Experts
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
 
@@ -90,7 +82,7 @@ export default function CorporateCultureEvents() {
           Scroll Down
           <span className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center animate-bounce">
             <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M12 5v14M6 13l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M12 5v14M6 13l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
         </div>
@@ -122,7 +114,8 @@ export default function CorporateCultureEvents() {
                 { label: 'Duration', value: '1–2 Day Intensive' },
                 { label: 'Best For', value: 'Frontline & Mid-Management' },
               ],
-              img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop',
+              // Gambar: Mentoring dan kolaborasi profesional kantor Indonesia
+              img: 'https://images.unsplash.com/photo-1558698972-c50e325e6799?q=80&w=1400&auto=format&fit=crop',
               rotate: '-rotate-2',
             },
             {
@@ -137,7 +130,8 @@ export default function CorporateCultureEvents() {
                 { label: 'Scale', value: '50–2,000+ Attendees' },
                 { label: 'Best For', value: 'HR & Corporate Comms Teams' },
               ],
-              img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1400&auto=format&fit=crop',
+              // Gambar: Audiens di acara konferensi/town hall korporat
+              img: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?q=80&w=1400&auto=format&fit=crop',
               rotate: 'rotate-2',
             },
             {
@@ -152,7 +146,8 @@ export default function CorporateCultureEvents() {
                 { label: 'Location', value: 'Nationwide Venues' },
                 { label: 'Best For', value: 'Cross-Functional & Leadership' },
               ],
-              img: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1400&auto=format&fit=crop',
+              // Gambar: Aktivitas team building luar ruangan (menyatukan tangan)
+              img: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?q=80&w=1400&auto=format&fit=crop',
               rotate: '-rotate-2',
             },
           ].map((row, idx) => (
@@ -212,27 +207,17 @@ export default function CorporateCultureEvents() {
                   ))}
                 </div>
 
-                <div className="flex flex-wrap gap-x-8 gap-y-4 mt-8 pt-8 border-t border-slate-100">
+                {/* Perbaikan layout meta-data (Format, Scale, Best For) menjadi flex-row sejajar di satu baris */}
+                <div className="flex flex-col sm:flex-row gap-y-4 sm:gap-x-4 lg:gap-x-6 mt-8 pt-8 border-t border-slate-100 w-full">
                   {row.meta.map((m, mi) => (
-                    <div key={m.label} className={mi > 0 ? 'pl-8 border-l border-slate-100' : ''}>
-                      <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest">{m.label}</span>
-                      <span className="block text-sm font-bold text-[#00263C] mt-1">{m.value}</span>
+                    <div key={m.label} className={`flex-1 ${mi > 0 ? 'sm:pl-4 lg:pl-6 sm:border-l border-slate-100' : ''}`}>
+                      <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-tight">{m.label}</span>
+                      <span className="block text-sm font-bold text-[#00263C] mt-1 leading-snug">{m.value}</span>
                     </div>
                   ))}
                 </div>
 
-                <Link
-                  href="#cta"
-                  className="group/link inline-flex items-center gap-2 mt-8 text-xs font-bold uppercase tracking-widest transition-all"
-                  style={{ color: row.accent }}
-                >
-                  Request Program Brief
-                  <span className="w-6 h-6 rounded-full bg-current/10 flex items-center justify-center transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/link:translate-x-1" style={{ backgroundColor: `${row.accent}1A` }}>
-                    <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                      <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </span>
-                </Link>
+                {/* Button Request Program Brief telah dihapus sepenuhnya dari sini */}
               </div>
             </div>
           ))}
@@ -305,150 +290,6 @@ export default function CorporateCultureEvents() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 4 — TESTIMONIAL (Elevated Card Slider) */}
-      <section className="bg-[#F8F9FA] py-20 md:py-28 overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 md:px-12">
-          <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_40px_100px_-30px_rgba(0,38,60,0.15)] p-10 md:p-16 relative overflow-hidden">
-            <div className="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-[#DC2626]/5 blur-[60px] pointer-events-none" />
-
-            <svg className="w-9 h-9 text-[#DC2626] relative z-10" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
-
-            <div className="overflow-hidden mt-8 relative z-10">
-              <div
-                className="flex transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]"
-                style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-              >
-                {testimonials.map((testi, idx) => (
-                  <div key={idx} className="w-full shrink-0">
-                    <p className="text-xl md:text-2xl lg:text-3xl font-bold text-[#00263C] leading-tight tracking-tight text-balance">
-                      {testi.quote}
-                    </p>
-                    <div className="mt-8 flex items-center gap-4">
-                      <div className="w-11 h-11 rounded-full bg-[#00263C] text-white flex items-center justify-center font-black text-sm shrink-0">
-                        {testi.name.charAt(0)}
-                      </div>
-                      <div>
-                        <h4 className="text-[#00263C] font-extrabold text-sm">{testi.name}</h4>
-                        <p className="text-slate-400 text-xs font-semibold mt-0.5">{testi.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between mt-10 pt-8 border-t border-slate-100 relative z-10">
-              <div className="flex items-center gap-3">
-                {testimonials.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setActiveSlide(idx)}
-                    className={`h-1.5 rounded-full transition-all duration-500 ease-out cursor-pointer ${
-                      activeSlide === idx ? 'w-8 bg-[#DC2626]' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
-                  />
-                ))}
-              </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={prevSlide}
-                  className="w-10 h-10 rounded-full border border-slate-200 hover:border-[#00263C] flex items-center justify-center text-[#00263C] transition-colors cursor-pointer"
-                  aria-label="Previous Slide"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
-                  onClick={nextSlide}
-                  className="w-10 h-10 rounded-full border border-slate-200 hover:border-[#00263C] flex items-center justify-center text-[#00263C] transition-colors cursor-pointer"
-                  aria-label="Next Slide"
-                >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 5 — CALL TO ACTION */}
-      <section id="cta" className="py-28 md:py-40 bg-white">
-        <div className="max-w-6xl mx-auto px-6 md:px-12">
-          <div className="flex flex-col lg:flex-row rounded-[2.5rem] overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,38,60,0.15)] bg-[#00263C] text-white">
-            
-            {/* Left Side: Editorial & Detail */}
-            <div className="lg:w-1/2 p-10 md:p-16 lg:p-20 flex flex-col justify-between relative overflow-hidden">
-              <div className="absolute -left-16 -top-16 w-80 h-80 rounded-full bg-[#DC2626]/10 blur-[90px] pointer-events-none" />
-              
-              <div>
-                <ModernEyebrow>Strategic Partnering</ModernEyebrow>
-                <h2 className="text-3xl md:text-5xl font-black text-white mt-8 leading-tight tracking-tight">
-                  Discuss Your <br />
-                  Hiring Needs
-                </h2>
-                <p className="text-slate-300 text-sm md:text-base leading-relaxed mt-6">
-                  Tell us about the leadership profiles you need. Our team of executive search professionals will map the industry and deliver exceptional candidates matching your specific cultural and strategic goals.
-                </p>
-              </div>
-
-              <div className="mt-12 flex items-center gap-6">
-                <div>
-                  <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest">Office Location</span>
-                  <span className="block text-sm font-semibold text-white mt-1">Jakarta, Indonesia</span>
-                </div>
-                <div className="w-px h-8 bg-white/10" />
-                <div>
-                  <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-widest">Email Inquiry</span>
-                  <span className="block text-sm font-semibold text-white mt-1">info@firsthr.co.id</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Side: Form (Double-Bezel concentric design inside the dark section) */}
-            <div className="lg:w-1/2 p-8 md:p-12 lg:p-16 bg-[#001E2F]">
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8">
-                <h3 className="text-lg font-bold text-white mb-6">Schedule a Talent Consultation</h3>
-                
-                <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert("Brief submitted successfully. Our lead consultant will connect with you via email."); }}>
-                  <div>
-                    <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Business Email *</label>
-                    <input required type="email" placeholder="name@company.com" className="w-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 rounded-lg px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#DC2626] transition-colors" />
-                  </div>
-                  
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Company Name *</label>
-                      <input required type="text" placeholder="Company Ltd" className="w-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 rounded-lg px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#DC2626] transition-colors" />
-                    </div>
-                    <div>
-                      <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Target Position *</label>
-                      <input required type="text" placeholder="e.g. VP of Operations" className="w-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 rounded-lg px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#DC2626] transition-colors" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1.5">Brief description of the role</label>
-                    <textarea rows="3" placeholder="Core challenges and requirements..." className="w-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 rounded-lg px-3.5 py-2.5 text-xs md:text-sm focus:outline-none focus:border-[#DC2626] transition-colors resize-none" />
-                  </div>
-
-                  <button type="submit" className="w-full bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-lg transition-colors duration-300 mt-2">
-                    Submit Search Brief
-                  </button>
-                </form>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>

@@ -1,48 +1,13 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Head from 'next/head';
 
 export default function HRBootcampPage() {
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  // DATA TESTIMONIAL
-  const testimonials = [
-    {
-      quote: '"FHRI membantu tim HR kami bertransformasi dari fungsi operasional menjadi mitra strategis. Dampaknya terasa langsung pada bisnis."',
-      name: '[Full Name 1]',
-      role: '[Job Title], [Company Name]',
-    },
-    {
-      quote: '"Sangat direkomendasikan! Pelatihan ini memberikan insight yang luar biasa dan applicable untuk tantangan HR masa kini."',
-      name: '[Full Name 2]',
-      role: '[Job Title], [Company Name]',
-    },
-    {
-      quote: '"Kurikulumnya komprehensif dan mentornya adalah praktisi ahli. Tim kami langsung mengimplementasikan ilmu yang didapat."',
-      name: '[Full Name 3]',
-      role: '[Job Title], [Company Name]',
-    },
-    {
-      quote: '"Transformasi yang dibawa oleh program ini sangat signifikan dalam cara kami mengelola talenta dan performa karyawan."',
-      name: '[Full Name 4]',
-      role: '[Job Title], [Company Name]',
-    }
-  ];
-
-  // FUNGSI ARROW SLIDER
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-
   return (
     <div className="min-h-screen bg-white text-slate-800 antialiased overflow-x-hidden">
       <Head>
-        <title>HR Boot Camp</title>
+        <title>HR Boot Camp | Executive Education Series</title>
       </Head>
 
       <style dangerouslySetInnerHTML={{__html: `
@@ -67,20 +32,31 @@ export default function HRBootcampPage() {
               Transform your career trajectory through our rigorous, result-oriented programs. Designed for forward-thinking professionals ready to master strategic HR methodologies and drive quantifiable business impact.
             </p>
             
-            <button className="mt-4 inline-flex items-center justify-center px-8 py-3.5 bg-[#DC2626] text-white font-semibold rounded-full hover:bg-red-700 transition-colors shadow-lg shadow-[#DC2626]/30">
-              Explore Programs
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            <div className="mt-9">
+            <button
+              type="button"
+              className="group inline-flex items-center gap-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#DC2626]/30"
+            >
+              Consult Our Experts
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>
+        </div>
 
           <div className="relative w-full aspect-[4/3] flex items-center justify-center z-10">
             <div className="absolute inset-0 rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
-              {/* Gambar: Suasana HR Executive Workshop / Seminar */}
+              {/* Gambar Hero: Peserta Duduk di Ruang Pelatihan Eksekutif (Relevan dengan "Intensive Boot Camps") */}
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" 
-                alt="HR Professionals in an executive workshop" 
+                src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1200&auto=format&fit=crop" 
+                alt="Participants Seated in an Executive Training Room" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -91,26 +67,26 @@ export default function HRBootcampPage() {
         <section className="bg-white px-8 lg:px-20 py-24 grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="grid grid-cols-2 gap-4 lg:gap-6">
             <div className="col-span-2 rounded-2xl overflow-hidden aspect-video bg-slate-200 shadow-lg">
-              {/* Gambar: Kelas/Cohort yang interaktif merepresentasikan 12-week curriculum */}
+              {/* Gambar 1 (Besar): Kolaborasi Kohort HRBP (Relevan dengan target strategis HRBP di lingkup korporat) */}
               <img 
-                src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?q=80&w=1000&auto=format&fit=crop" 
-                alt="HR Cohort and Immersive Curriculum" 
+                src="https://images.unsplash.com/photo-1531538512164-e6c51ea63d20?q=80&w=1000&auto=format&fit=crop" 
+                alt="Asian HRBP Cohort Collaborating on Strategic Planning" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="rounded-2xl overflow-hidden aspect-square bg-slate-200 shadow-md">
-              {/* Gambar: Mentoring dan Studi Kasus */}
+              {/* Gambar 2 (Kecil): Diskusi Mentoring (Relevan dengan "12-Week Immersive Curriculum") */}
               <img 
-                src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&auto=format&fit=crop" 
-                alt="Live Case Study Analysis" 
+                src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=600&auto=format&fit=crop" 
+                alt="Indonesian HR Professionals in Mentoring Discussion" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className="rounded-2xl overflow-hidden aspect-square bg-slate-200 shadow-md">
-              {/* Gambar: Profesional HR berdiskusi (HRBP) */}
+              {/* Gambar 3 (Kecil): Catatan Studi Kasus di Ruang Seminar (Relevan dengan "Live Case Study Analysis") */}
               <img 
-                src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=600&auto=format&fit=crop" 
-                alt="Direct Mentorship from Industry Leaders" 
+                src="https://images.unsplash.com/photo-1776512377708-6b4eb702505e?q=80&w=600&auto=format&fit=crop" 
+                alt="Case Study Notes During Live Seminar Session" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -140,12 +116,6 @@ export default function HRBootcampPage() {
                 Direct Mentorship from Industry CHROs
               </li>
             </ul>
-            <div className="pt-4">
-              <a href="#" className="inline-flex items-center text-[#DC2626] font-bold hover:text-red-700 transition-colors group">
-                View Curriculum Outline
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-              </a>
-            </div>
           </div>
         </section>
 
@@ -223,10 +193,10 @@ export default function HRBootcampPage() {
             <div className="bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
               <div className="w-full aspect-[16/9] bg-[#001b2a] relative">
                  <div className="absolute top-4 left-4 text-white text-xs font-bold tracking-widest uppercase z-10 drop-shadow-md">HR BOOT CAMP PROGRAMS</div>
-                 {/* Gambar: Tim memetakan strategi di dinding kaca (mencerminkan agile execution & restructuring) */}
+                 {/* Gambar Section 4: Kesepakatan Bisnis Pasca-Program (Relevan dengan "Commercial Acumen", "ROI", dan "P&L Outcomes") */}
                  <img 
-                   src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800&auto=format&fit=crop" 
-                   alt="HR team executing an agile talent strategy" 
+                   src="https://images.unsplash.com/photo-1543132220-3ec99c6094dc?q=80&w=800&auto=format&fit=crop" 
+                   alt="Asian Business Leaders Shaking Hands After Strategic Alignment" 
                    className="w-full h-full object-cover opacity-80"
                  />
               </div>
@@ -236,108 +206,6 @@ export default function HRBootcampPage() {
                 </p>
                 <p className="text-slate-300 text-sm">— Sarah Jenkins, VP of HR</p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SECTION 5: TESTIMONIAL SLIDER */}
-        <section className="bg-white py-24 px-4 md:px-8 flex flex-col items-center justify-center text-center border-t border-gray-100">
-          <div className="w-full max-w-6xl mx-auto flex items-center justify-between gap-4 md:gap-8">
-            
-            <button 
-              onClick={prevSlide}
-              className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-[#DC2626] transition-all cursor-pointer focus:outline-none"
-              aria-label="Previous Slide"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            <div className="w-full max-w-4xl mx-auto overflow-hidden rounded-xl">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-              >
-                {testimonials.map((testi, index) => (
-                  <div key={index} className="w-full shrink-0 flex flex-col items-center justify-center px-2 md:px-6">
-                    
-                    <div className="mb-8">
-                      <svg className="w-12 h-12 text-[#DC2626] mx-auto opacity-90" fill="currentColor" viewBox="0 0 256 256">
-                        <path d="M116,72v88a48.05,48.05,0,0,1-48,48,8,8,0,0,1,0-16,32,32,0,0,0,32-32v-8H40a16,16,0,0,1-16-16V72A16,16,0,0,1,40,56h60A16,16,0,0,1,116,72ZM216,56H156a16,16,0,0,0-16,16v64a16,16,0,0,0,16,16h60v8a32,32,0,0,1-32,32,8,8,0,0,0,0,16,48.05,48.05,0,0,0,48-48V72A16,16,0,0,0,216,56Z"></path>
-                      </svg>
-                    </div>
-                    
-                    <p className="text-xl md:text-2xl font-medium text-[#00263C] max-w-3xl mb-8 leading-relaxed mx-auto">
-                      {testi.quote}
-                    </p>
-                    <div className="mb-4">
-                      <h4 className="text-[#00263C] font-extrabold text-sm mb-1">{testi.name}</h4>
-                      <p className="text-gray-500 text-sm">{testi.role}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <button 
-              onClick={nextSlide}
-              className="shrink-0 w-12 h-12 md:w-14 md:h-14 bg-white rounded-full shadow-[0_4px_12px_rgba(0,0,0,0.08)] flex items-center justify-center text-[#00263C] hover:bg-gray-50 hover:text-[#DC2626] transition-all cursor-pointer focus:outline-none"
-              aria-label="Next Slide"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-          
-          <div className="flex items-center gap-2 mt-8">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveSlide(index)}
-                className={`h-2.5 rounded-full transition-all duration-300 ease-in-out cursor-pointer focus:outline-none ${
-                  activeSlide === index ? 'w-8 bg-[#DC2626]' : 'w-2.5 bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-        </section>
-
-        {/* SECTION 6: CALL TO ACTION CARD */}
-        <section className="bg-white py-24 px-4 md:px-8">
-          <div className="container mx-auto max-w-6xl">
-            <div className="flex flex-col md:flex-row rounded-2xl overflow-hidden shadow-2xl bg-[#00263C]">
-              
-              <div className="md:w-5/12 min-h-[300px] md:min-h-[480px] bg-slate-200 relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
-                  alt="HR Professional Call to Action" 
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-              
-              <div className="md:w-7/12 p-10 md:p-20 flex flex-col justify-center relative">
-                
-                <div className="absolute top-0 bottom-0 left-[60%] w-32 bg-white/5 skew-x-12 hidden md:block"></div>
-                
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight relative z-10">
-                  Find the Right Path <br className="hidden md:block"/>
-                  for Your HR Team
-                </h2>
-                <p className="text-gray-300 text-sm md:text-lg mb-10 leading-relaxed relative z-10 max-w-lg">
-                  Whether you want to provide continuous learning, close skill gaps, or build HR capabilities at scale, AIHR offers tailored solutions designed to support your goals.
-                </p>
-                
-                <button className="bg-[#DC2626] hover:bg-red-700 transition text-white text-sm font-bold uppercase tracking-wider py-4 px-8 rounded-lg w-max flex items-center gap-2 relative z-10 shadow-lg shadow-[#DC2626]/30">
-                  BOOK A CALL
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                  </svg>
-                </button>
-              </div>
-              
             </div>
           </div>
         </section>
