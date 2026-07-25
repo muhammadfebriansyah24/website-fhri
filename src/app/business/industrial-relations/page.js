@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 
 // ============================================================
 // REUSABLE UI COMPONENTS
@@ -22,10 +21,9 @@ function Eyebrow({ children, tone = 'light' }) {
 }
 
 // ============================================================
-// KOMPONEN CHATBOT LEGAL (DENGAN FITUR TOP UP & FAQ - NO EMOJI)
+// KOMPONEN CHATBOT LEGAL (Menerima props isOpen & setIsOpen)
 // ============================================================
-function LegalChatbotWidget() {
-  const [isOpen, setIsOpen] = useState(false);
+function LegalChatbotWidget({ isOpen, setIsOpen }) {
   const [step, setStep] = useState(1); 
   // Step 1: Pilih Tipe (Baru / Top-Up / FAQ)
   // Step 2: Input Teks (Masalah / Nama Instansi)
@@ -196,14 +194,11 @@ function LegalChatbotWidget() {
               </div>
             )}
 
-            {/* ==============================================
-                STEP 4: KHUSUS TAMPILAN FAQ (ACCORDION)
-                ============================================== */}
+            {/* Step 4: KHUSUS TAMPILAN FAQ (ACCORDION) */}
             {step === 4 && chatType === 'faq' && (
               <div className="bg-white border border-slate-200 text-slate-700 p-4 rounded-2xl rounded-tl-sm text-[13.5px] shadow-sm w-full animate-fade-slide-up">
                 <p className="mb-3 font-semibold text-[#00263C]">Berikut adalah pertanyaan yang sering diajukan kepada kami:</p>
                 
-                {/* List FAQ Accordion */}
                 <div className="space-y-2">
                   {faqList.map((faq, index) => (
                     <details key={index} className="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
@@ -226,7 +221,7 @@ function LegalChatbotWidget() {
               </div>
             )}
 
-            {/* Step 2: Form Pertanyaan (Hanya untuk New & Topup) */}
+            {/* Step 2: Form Pertanyaan */}
             {step === 2 && chatType !== 'faq' && (
               <div className="bg-white border border-slate-200 text-slate-700 p-3.5 rounded-2xl rounded-tl-sm text-[13.5px] shadow-sm w-[90%] animate-fade-slide-up">
                 {chatType === 'new' 
@@ -242,7 +237,7 @@ function LegalChatbotWidget() {
               </div>
             )}
 
-            {/* Step 3: Pilih Paket Token (Hanya untuk New & Topup) */}
+            {/* Step 3: Pilih Paket Token */}
             {step === 3 && chatType !== 'faq' && (
               <div className="bg-white border border-slate-200 text-slate-700 p-4 rounded-2xl rounded-tl-sm text-[13.5px] shadow-sm w-full animate-fade-slide-up">
                 <p className="mb-4">
@@ -273,7 +268,7 @@ function LegalChatbotWidget() {
             <div ref={chatEndRef} />
           </div>
 
-          {/* Area Input (Hanya muncul jika butuh diketik di Step 2 New/Topup) */}
+          {/* Area Input */}
           {step === 2 && chatType !== 'faq' && (
             <form onSubmit={handleSendMessage} className="p-3 bg-white border-t border-slate-200 flex gap-2">
               <input 
@@ -312,6 +307,9 @@ function LegalChatbotWidget() {
 // MAIN PAGE COMPONENT
 // ============================================================
 export default function IndustrialRelationsPage() {
+  // Pindahkan State chat widget ke komponen utama (Parent)
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
   const services = [
     {
       id: "01",
@@ -357,15 +355,24 @@ export default function IndustrialRelationsPage() {
             <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-lg">
               Providing expert guidance on labor compliance, risk mitigation, and harmonized workplace relations to protect corporate assets while ensuring a fair working environment.
             </p>
-            <div className="mt-10">
-              <Link href="#contact" className="inline-flex items-center gap-3 bg-[#DC2626] hover:bg-[#B91C1C] text-white px-8 py-4 rounded-full font-bold transition-all shadow-[0_8px_20px_rgba(220,38,38,0.3)] hover:-translate-y-1">
-                Consult with Our Experts
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-            </div>
+            <div className="mt-9">
+            <button
+              type="button"
+              className="group inline-flex items-center gap-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#DC2626]/30"
+            >
+              Consult Our Experts
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
           </div>
+        </div>
 
           <div className="md:w-1/2 relative w-full flex justify-center lg:justify-end">
             <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px]">
@@ -409,13 +416,7 @@ export default function IndustrialRelationsPage() {
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">{service.icon}</svg>
                 </div>
                 <h3 className="text-2xl font-bold text-[#00263C] mb-4 leading-snug">{service.title}</h3>
-                <p className="text-slate-500 leading-relaxed">{service.desc}</p>
-                <div className="mt-8 pt-6 border-t border-slate-100 mt-auto">
-                  <Link href="#contact" className="inline-flex items-center gap-2 text-sm font-bold text-[#DC2626] group-hover:text-[#00263C] transition-colors">
-                    Learn More 
-                    <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
-                  </Link>
-                </div>
+                <p className="text-slate-500 leading-relaxed mb-auto">{service.desc}</p>
               </div>
             </div>
           ))}
@@ -461,26 +462,8 @@ export default function IndustrialRelationsPage() {
         </div>
       </section>
 
-      {/* 4. CTA BANNER */}
-      <section id="contact" className="py-24 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto bg-gradient-to-br from-[#0B2A4A] to-[#00263C] rounded-[3rem] p-10 md:p-16 text-center shadow-2xl relative overflow-hidden border border-[#0B2A4A]/50">
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Need Expert Legal Counsel?</h2>
-            <p className="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
-              Secure your business operations and maintain a harmonious workplace. Contact our Industrial Relations experts today for a confidential consultation.
-            </p>
-            <Link href="/pricing" className="inline-flex items-center gap-3 bg-[#DC2626] text-white hover:bg-[#B91C1C] px-10 py-4 rounded-full font-extrabold transition-all hover:scale-105 shadow-lg uppercase tracking-wider text-sm">
-              Contact Our Legal Team
-              <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* === MEMANGGIL WIDGET CHATBOT === */}
-      <LegalChatbotWidget />
+      {/* === MEMANGGIL WIDGET CHATBOT (Meneruskan Props State) === */}
+      <LegalChatbotWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
 
     </main>
   );

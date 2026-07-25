@@ -5,19 +5,19 @@ import Image from 'next/image';
 
 const testimonials = [
   {
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
+    image: 'https://images.unsplash.com/photo-1529232356377-57971f020a94?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
     quote: 'FHRI helped our HR team transform from an operational function to a strategic partner. The impact on our business has been immediate and profound.',
-    name: 'Sarah Rahman',
+    name: 'Sarah Cantika',
     role: 'HR Director, TechVision Inc',
   },
   {
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
+    image: 'https://images.unsplash.com/photo-1665224751641-8ea911ca2267?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
     quote: 'The programs from FHRI are incredibly practical. Our team was able to implement new recruitment strategies within just a few weeks.',
-    name: 'Budi Santoso',
+    name: 'Indah Permata',
     role: 'Talent Acquisition Lead, Kencana Group',
   },
   {
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
+    image: 'https://images.unsplash.com/photo-1751552805465-e4005aadd81d?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
     quote: 'The audit and compliance materials provided are extremely comprehensive, giving our company peace of mind and confidence in our decision-making.',
     name: 'Anita Wijaya',
     role: 'HR Manager, Global Logistics',
@@ -82,17 +82,13 @@ export default function Testimonial() {
         {/* Kolom Kanan: Teks Testimonial */}
         <div className="w-full md:w-1/2 relative flex flex-col justify-center">
           
-          {/* Ikon Kutip Raksasa di Latar Belakang */}
-          <svg className="absolute -top-10 -left-6 w-24 h-24 text-brand-red opacity-10" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 15c0 2-1 4-2 6zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L19 15c0 2-1 4-2 6z"/>
-          </svg>
-
-          <svg className="w-10 h-10 text-brand-red mb-6 relative z-10" viewBox="0 0 24 24" fill="currentColor">
+          {/* Ikon Kutip Tunggal sebagai Aksen Dekoratif (di belakang teks, tidak tumpang tindih) */}
+          <svg className="absolute -top-8 -left-2 w-16 h-16 text-brand-red opacity-10 pointer-events-none select-none" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 15c0 2-1 4-2 6zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L19 15c0 2-1 4-2 6z"/>
           </svg>
           
           {/* Konten Teks yang Teranimasi */}
-          <div key={`text-${active}`} className="animate-fade-slide">
+          <div key={`text-${active}`} className="relative z-10 pt-8 animate-fade-slide">
             <div className="min-h-[140px] relative z-10">
               {/* PENAMBAHAN 'font-sans' AGAR MENGGUNAKAN POPPINS */}
               <p className="text-2xl md:text-3xl font-sans font-normal leading-relaxed text-brand-navy">

@@ -534,7 +534,7 @@ export default function Navbar() {
             )
           )}
           
-          <Link href="/pricing" className="bg-[#E60000] hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5">
+          <Link href="/join-us" className="bg-[#E60000] hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5">
             Join Us
           </Link>
         </div>

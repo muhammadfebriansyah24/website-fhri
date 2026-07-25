@@ -13,49 +13,49 @@ import CTA from '@/components/CTA';
 
 const programsList = [
   { 
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80', 
     title: 'Business Support Services', 
     description: 'Operational support for market entry, covering company establishment, regulatory compliance, and cultural integration.',
     link: '/business/business-support'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1754531976828-69e42ce4e0d9?auto=format&fit=crop&w=800&q=80', 
     title: 'Human Capital Solutions', 
     description: 'End-to-end talent acquisition from entry-level to C-suite, including executive search and talent assessment.',
     link: '/business/humancapital-solutions'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1565688534245-05d6b5be184a?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80', 
     title: 'Payroll & Outsourcing', 
     description: 'Comprehensive HR administrative management, accurate payroll processing, and flexible workforce solutions.',
     link: '/business/payroll'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80', 
     title: 'Assessment Tools', 
     description: 'Evaluation tools including 360-degree feedback and personality assessments to identify capabilities and drive employee development.',
     link: '/business/assessment-tools'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80', 
     title: 'HR Boot Camp', 
     description: 'Intensive, results-oriented training programs designed to accelerate HR team development and strategic business partnering.',
     link: '/business/hr-bootcamp'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80', 
     title: 'Industrial Relations & Legal Advisory', 
     description: 'Expert labor law consulting, dispute management, and union partnership strategies to maintain a harmonious workplace.',
     link: '/business/industrial-relations'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1503428593586-e225b39bddfe?auto=format&fit=crop&w=800&q=80', 
     title: 'Health, Safety and Environment (HSE)', 
     description: 'Comprehensive solutions for a safe workplace, environmental compliance, risk assessment, and safety management systems.',
     link: '/business/hse'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80', 
     title: 'Professional Certification Institute', 
     description: 'Recognized certification programs designed to elevate professional standards and validate HR competencies.',
     link: '/business/lsp'
@@ -64,19 +64,19 @@ const programsList = [
 
 const eventsList = [
   { 
-    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&w=800&q=80', 
     title: 'Town Hall Meeting', 
     description: 'Quarterly company update and performance review sessions.',
     link: '/business/corporate-culture'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=800&q=80', 
     title: 'Corporate Social Responsibility', 
     description: 'Community outreach and environmental sustainability programs.',
     link: '/business/corporate-culture'
   },
   { 
-    image: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?auto=format&fit=crop&w=800&q=80', 
     title: 'Outbound Training (OBT)', 
     description: 'Team building and leadership development in outdoor settings.',
     link: '/business/corporate-culture'
@@ -86,28 +86,28 @@ const eventsList = [
 const newsList = [
   { 
     id: 'annual-hr-summit', 
-    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1754531976828-69e42ce4e0d9?auto=format&fit=crop&w=800&q=80', 
     title: 'Annual HR Summit', 
     description: 'Join industry leaders to discuss the future of work and HR transformation.',
     publishedAt: '12 August 2026 • 09:00 AM'
   },
   { 
     id: 'program-launch', 
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80', 
     title: 'Program Launch', 
     description: 'New certification programs available for mid-level HR professionals.',
     publishedAt: '18 August 2026 • 13:30 PM'
   },
   { 
     id: 'future-of-work', 
-    image: 'https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80', 
     title: 'Future of Work', 
     description: 'Research findings on hybrid work models and employee engagement in 2026.',
     publishedAt: '24 August 2026 • 10:15 AM'
   },
   { 
     id: 'partnership-announcement', 
-    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80', 
+    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=800&q=80', 
     title: 'Partnership Announcement', 
     description: 'FHRI collaborates with top universities to expand learning modules.',
     publishedAt: '30 August 2026 • 15:45 PM'
@@ -157,8 +157,8 @@ function Hero() {
         <div className="md:w-1/2 w-full">
           <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative border border-slate-700/50 group">
             <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
-              alt="HR Team Collaboration"
+              src="https://images.unsplash.com/photo-1746021535489-00edc5efb203?auto=format&fit=crop&w=1200&q=80"
+              alt="Modern HR Consulting Workspace"
               fill
               unoptimized
               sizes="(max-width: 768px) 100vw, 50vw"
