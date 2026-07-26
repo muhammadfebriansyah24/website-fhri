@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 
 // DATA DUMMY LOWONGAN PEKERJAAN
 const jobOpenings = [
@@ -53,6 +55,48 @@ const jobOpenings = [
 ];
 
 export default function RecruitmentPage() {
+  // 1. STATE UNTUK MENANGKAP INPUT FORM
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    position: '',
+    linkedin: '',
+    coverLetter: ''
+  });
+
+  // 2. FUNGSI UNTUK MENGUBAH STATE SAAT ADA INPUT
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  // 3. FUNGSI UNTUK SUBMIT FORM & MEMBUKA GMAIL (MAILTO)
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Mencegah halaman reload
+
+    // Membuat Subjek Email otomatis
+    const subject = encodeURIComponent(`Job Application: ${formData.position} - ${formData.name}`);
+    
+    // Membuat Isi Body Email otomatis
+    const body = encodeURIComponent(
+      `Dear FHRI Recruitment Team,\n\n` +
+      `I would like to apply for the ${formData.position} position at First HR Indonesia.\n\n` +
+      `Here are my details:\n` +
+      `- Full Name: ${formData.name}\n` +
+      `- Email Address: ${formData.email}\n` +
+      `- LinkedIn / Portfolio: ${formData.linkedin || 'Not provided'}\n\n` +
+      `--- Cover Letter / Motivation ---\n` +
+      `${formData.coverLetter}\n\n` +
+      `Best regards,\n${formData.name}`
+    );
+
+    // Mengarahkan langsung ke aplikasi email bawaan / Gmail dengan format terisi
+    window.location.href = `mailto:fiqlacampus24@gmail.com?subject=${subject}&body=${body}`;
+  };
+
   return (
     <main className="min-h-screen bg-brand-offwhite font-sans selection:bg-brand-red selection:text-white">
       
@@ -69,26 +113,26 @@ export default function RecruitmentPage() {
             <div>
               {/* OPSI 1: Aksen Garis Editorial & Eyebrow */}
               <div className="flex items-center gap-4 mb-6 md:mb-8">
-                <span className="text-eyebrow">
+                <span className="text-eyebrow text-brand-red font-bold uppercase tracking-widest text-sm">
                   Careers at FHRI
                 </span>
               </div>
 
               {/* Ukuran dan ketebalan sudah diatur di @layer base h1 */}
-              <h1 className="text-white mb-6">
+              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                 Build Your Future with <br className="hidden md:block" />
                 <span className="text-brand-red">First HR Indonesia</span>
               </h1>
               
               {/* Ukuran paragraf mengikuti @layer base p */}
-              <p className="text-slate-300 mb-8 max-w-lg">
+              <p className="text-slate-300 text-lg mb-8 max-w-lg leading-relaxed">
                 We are more than a consulting firm — we are a community of innovators united by a shared drive to grow, lead, and transform the HR landscape in Indonesia.
               </p>
               
               <div className="flex flex-wrap gap-4">
                 <a 
                   href="#open-positions" 
-                  className="inline-flex items-center gap-2.5 bg-brand-red hover:bg-red-700 text-white px-8 py-3.5 rounded-full font-semibold transition-all duration-300 shadow-lg shadow-red-500/30 hover:-translate-y-0.5"
+                  className="inline-flex items-center justify-center gap-2.5 bg-brand-red hover:bg-[#a82222] text-white px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 uppercase tracking-wide text-sm"
                 >
                   View Open Positions
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -124,40 +168,37 @@ export default function RecruitmentPage() {
       </section>
 
       { /* SECTION 2 — LIFE AT FHRI (PERKS & CULTURE)*/ }
-      <section className="py-20 px-6 md:px-12 bg-white border-b border-slate-100">
+      <section className="py-24 px-6 md:px-12 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            {/* Menggunakan text-eyebrow */}
-            <span className="text-eyebrow block mb-2">Why Join Us</span>
-            {/* Menggunakan h2 dari base layer */}
-            <h2>More Than Just a Workplace</h2>
-            <p className="mt-4">
+            <span className="text-eyebrow text-brand-red block mb-4 font-bold uppercase tracking-widest text-sm">Why Join Us</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy">More Than Just a Workplace</h2>
+            <p className="mt-4 text-slate-600 text-lg leading-relaxed">
               We invest heavily in our people because we believe that organizational excellence starts from within.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
+            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
               <div className="w-14 h-14 bg-brand-navy text-white rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
               </div>
-              {/* Judul kartu menggunakan h4 */}
-              <h4 className="mb-3">Continuous Learning</h4>
-              <p>Access to premium HR training, certifications, and mentorship from industry veterans to accelerate your professional growth.</p>
+              <h4 className="mb-3 text-xl font-bold text-brand-navy">Continuous Learning</h4>
+              <p className="text-slate-600 leading-relaxed text-sm">Access to premium HR training, certifications, and mentorship from industry veterans to accelerate your professional growth.</p>
             </div>
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
+            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
               <div className="w-14 h-14 bg-brand-red text-white rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               </div>
-              <h4 className="mb-3">Impactful Work</h4>
-              <p>Work on strategic projects that directly influence the organizational culture and business performance of top companies in Indonesia.</p>
+              <h4 className="mb-3 text-xl font-bold text-brand-navy">Impactful Work</h4>
+              <p className="text-slate-600 leading-relaxed text-sm">Work on strategic projects that directly influence the organizational culture and business performance of top companies in Indonesia.</p>
             </div>
-            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
+            <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
               <div className="w-14 h-14 bg-brand-navy text-white rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
               </div>
-              <h4 className="mb-3">Collaborative Culture</h4>
-              <p>Join a supportive, agile team where transparency, trust, and proactive problem-solving are celebrated daily.</p>
+              <h4 className="mb-3 text-xl font-bold text-brand-navy">Collaborative Culture</h4>
+              <p className="text-slate-600 leading-relaxed text-sm">Join a supportive, agile team where transparency, trust, and proactive problem-solving are celebrated daily.</p>
             </div>
           </div>
         </div>
@@ -168,10 +209,11 @@ export default function RecruitmentPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <h2>Current Openings</h2>
-              <p className="mt-4">Discover your next career move with First HR Indonesia.</p>
+              <span className="text-eyebrow text-brand-red block mb-3 font-bold uppercase tracking-widest text-sm">Join The Team</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-brand-navy">Current Openings</h2>
+              <p className="mt-4 text-slate-600 text-lg">Discover your next career move with First HR Indonesia.</p>
             </div>
-            <div className="text-sm font-semibold text-slate-500 bg-white px-4 py-2 rounded-full shadow-sm border border-slate-200">
+            <div className="text-sm font-bold text-brand-navy bg-white px-5 py-2.5 rounded-full shadow-sm border border-slate-200">
               Showing {jobOpenings.length} positions
             </div>
           </div>
@@ -179,36 +221,36 @@ export default function RecruitmentPage() {
           {/* Grid Kartu Lowongan */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {jobOpenings.map((job) => (
-              <div key={job.id} className="bg-white rounded-[1.5rem] p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl hover:border-blue-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+              <div key={job.id} className="bg-white rounded-[1.5rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl hover:border-blue-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
                 
                 {/* Department Badge */}
                 <div className="mb-5">
-                  <span className="inline-flex px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-brand-navy bg-brand-navy/10 rounded-md">
+                  <span className="inline-flex px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-navy bg-brand-navy/10 rounded-md">
                     {job.department}
                   </span>
                 </div>
                 
-                {/* Job Title & Desc (Menggunakan h4) */}
-                <h4 className="mb-3 group-hover:text-brand-red transition-colors">
+                {/* Job Title & Desc */}
+                <h4 className="mb-3 text-xl font-bold text-brand-navy group-hover:text-brand-red transition-colors leading-tight">
                   {job.title}
                 </h4>
-                <p className="mb-8 flex-grow">
+                <p className="mb-8 flex-grow text-slate-600 text-[15px] leading-relaxed">
                   {job.desc}
                 </p>
                 
                 {/* Footer Card: Location, Type & Apply Btn */}
-                <div className="pt-5 border-t border-slate-100 flex items-center justify-between mt-auto">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-xs font-medium text-slate-400 flex items-center gap-1.5">
+                <div className="pt-6 border-t border-slate-100 flex items-center justify-between mt-auto">
+                  <div className="flex flex-col gap-1.5">
+                    <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                       {job.location}
                     </span>
-                    <span className="text-xs font-semibold text-slate-600 flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-slate-600 flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                       {job.type}
                     </span>
                   </div>
-                  <a href="#apply-form" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-brand-red group-hover:bg-brand-red group-hover:text-white transition-colors duration-300">
+                  <a href="#apply-form" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-brand-red border border-slate-100 group-hover:bg-brand-red group-hover:text-white group-hover:border-brand-red transition-all duration-300">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                   </a>
                 </div>
@@ -219,110 +261,124 @@ export default function RecruitmentPage() {
       </section>
 
       {/* SECTION 4 — FORM PENDAFTARAN  */}
-      <section id="apply-form" className="py-24 px-6 md:px-12 bg-white">
-        <div className="max-w-6xl mx-auto bg-brand-navy rounded-[2.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
+      <section id="apply-form" className="py-24 px-6 md:px-12 bg-white pb-32">
+        <div className="max-w-6xl mx-auto bg-brand-navy rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
           
           {/* Elemen Dekorasi Background */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-red/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-red/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 relative z-10 items-center">
             
             {/* Bagian Kiri: Teks */}
             <div className="flex flex-col justify-center">
               {/* Eyebrow khusus form */}
-              <span className="text-eyebrow text-brand-red mb-4 block">
+              <span className="text-eyebrow text-brand-red mb-4 block font-bold uppercase tracking-widest text-sm">
                 Ready to Apply?
               </span>
-              <h2 className="text-white mb-6">
+              <h2 className="text-white mb-6 text-4xl md:text-5xl font-bold leading-tight">
                 Submit Your <br/> Application
               </h2>
-              <p className="text-slate-300 mb-10">
+              <p className="text-slate-300 mb-10 text-lg leading-relaxed">
                 Tell us about your professional background and aspirations. Select the role you are applying for, and our recruitment team will get back to you shortly.
               </p>
               
-              <div className="flex gap-12">
+              <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
                 <div>
-                  <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-1">Office Location</p>
-                  <p className="text-white font-medium">Jakarta, Indonesia</p>
+                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1.5">Office Location</p>
+                  <p className="text-white font-medium text-lg">Jakarta, Indonesia</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 uppercase tracking-wider font-semibold mb-1">General Inquiry</p>
-                  <p className="text-white font-medium">recruitment@firsthr.co.id</p>
+                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1.5">General Inquiry</p>
+                  <p className="text-white font-medium text-lg">recruitment@firsthr.co.id</p>
                 </div>
               </div>
             </div>
 
             {/* Bagian Kanan: Form */}
-            <div className="bg-[#0B2A4A]/80 backdrop-blur-sm border border-white/10 rounded-3xl p-8 shadow-xl">
-              <form className="space-y-5">
-                {/* Full Name & Email */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs text-slate-300 font-semibold uppercase tracking-wider ml-1 block">Full Name *</label>
+            <div className="bg-[#0B2A4A]/80 backdrop-blur-md border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl">
+              
+              {/* FORM DIMULAI DI SINI */}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">Full Name *</label>
                     <input 
                       type="text" 
+                      name="name" // Tambahkan nama untuk state
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="John Doe" 
-                      className="w-full bg-[#051C35] border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors placeholder-slate-500"
+                      className="w-full bg-[#051C35] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors placeholder-slate-500"
                       required
                     />
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs text-slate-300 font-semibold uppercase tracking-wider ml-1 block">Email Address *</label>
+                  <div className="space-y-2">
+                    <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">Email Address *</label>
                     <input 
                       type="email" 
+                      name="email" // Tambahkan nama untuk state
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="name@email.com" 
-                      className="w-full bg-[#051C35] border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors placeholder-slate-500"
+                      className="w-full bg-[#051C35] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors placeholder-slate-500"
                       required
                     />
                   </div>
                 </div>
 
-                {/* Position Dropdown & LinkedIn */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs text-slate-300 font-semibold uppercase tracking-wider ml-1 block">Select Position *</label>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">Select Position *</label>
                     <select 
-                      defaultValue=""
-                      className="w-full bg-[#051C35] border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors appearance-none cursor-pointer"
+                      name="position" // Tambahkan nama untuk state
+                      value={formData.position}
+                      onChange={handleChange}
+                      className="w-full bg-[#051C35] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors appearance-none cursor-pointer"
                       required
                     >
                       <option value="" disabled>Choose a role...</option>
                       {jobOpenings.map(job => (
                         <option key={job.id} value={job.title}>{job.title}</option>
                       ))}
-                      <option value="other">Other (General Application)</option>
+                      <option value="General Application">Other (General Application)</option>
                     </select>
                   </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs text-slate-300 font-semibold uppercase tracking-wider ml-1 block">LinkedIn URL / Portfolio</label>
+                  <div className="space-y-2">
+                    <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">LinkedIn URL / Portfolio</label>
                     <input 
                       type="url" 
+                      name="linkedin" // Tambahkan nama untuk state
+                      value={formData.linkedin}
+                      onChange={handleChange}
                       placeholder="https://linkedin.com/in/..." 
-                      className="w-full bg-[#051C35] border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors placeholder-slate-500"
+                      className="w-full bg-[#051C35] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors placeholder-slate-500"
                     />
                   </div>
                 </div>
 
-                {/* Cover Letter / Motivation */}
-                <div className="space-y-1.5">
-                  <label className="text-xs text-slate-300 font-semibold uppercase tracking-wider ml-1 block">Brief Cover Letter</label>
+                <div className="space-y-2">
+                  <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">Brief Cover Letter</label>
                   <textarea 
                     rows="4" 
+                    name="coverLetter" // Tambahkan nama untuk state
+                    value={formData.coverLetter}
+                    onChange={handleChange}
                     placeholder="Tell us why you are a great fit for this role..." 
-                    className="w-full bg-[#051C35] border border-white/5 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors resize-none placeholder-slate-500"
+                    className="w-full bg-[#051C35] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors resize-none placeholder-slate-500"
                   ></textarea>
                 </div>
 
-                {/* Tombol Submit */}
                 <button 
-                  type="button" 
-                  className="w-full bg-brand-red hover:bg-red-700 text-white font-bold py-3.5 rounded-xl transition-colors mt-2 uppercase tracking-wide text-sm flex items-center justify-center gap-2"
+                  type="submit" // Pastikan tipe submit
+                  className="w-full bg-brand-red hover:bg-[#a82222] text-white font-bold py-4 rounded-xl transition-all shadow-[0_5px_15px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 mt-4 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
                 >
                   Submit Application
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                 </button>
               </form>
+              {/* FORM SELESAI */}
 
             </div>
           </div>

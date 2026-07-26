@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 import Testimonial from '@/components/Testimonial';
 import CTA from '@/components/CTA';
+import { newsData } from '@/components/newsData';
 
 // ==========================================
 // 1. DATA & CONSTANTS
@@ -80,37 +81,6 @@ const eventsList = [
     title: 'Outbound Training (OBT)', 
     description: 'Team building and leadership development in outdoor settings.',
     link: '/business/corporate-culture'
-  },
-];
-
-const newsList = [
-  { 
-    id: 'annual-hr-summit', 
-    image: 'https://images.unsplash.com/photo-1754531976828-69e42ce4e0d9?auto=format&fit=crop&w=800&q=80', 
-    title: 'Annual HR Summit', 
-    description: 'Join industry leaders to discuss the future of work and HR transformation.',
-    publishedAt: '12 August 2026 • 09:00 AM'
-  },
-  { 
-    id: 'program-launch', 
-    image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=800&q=80', 
-    title: 'Program Launch', 
-    description: 'New certification programs available for mid-level HR professionals.',
-    publishedAt: '18 August 2026 • 13:30 PM'
-  },
-  { 
-    id: 'future-of-work', 
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80', 
-    title: 'Future of Work', 
-    description: 'Research findings on hybrid work models and employee engagement in 2026.',
-    publishedAt: '24 August 2026 • 10:15 AM'
-  },
-  { 
-    id: 'partnership-announcement', 
-    image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=800&q=80', 
-    title: 'Partnership Announcement', 
-    description: 'FHRI collaborates with top universities to expand learning modules.',
-    publishedAt: '30 August 2026 • 15:45 PM'
   },
 ];
 
@@ -290,8 +260,9 @@ function News() {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-white mb-8 md:mb-10">FHRI News</h2>
         
+        {/* 👇 MENGGUNAKAN newsData DARI FILE TERPUSAT */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {newsList.map((news, idx) => (
+          {newsData.map((news, idx) => (
             <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group">
               <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
                 <Image 
@@ -391,7 +362,6 @@ function Programs() {
                   <div className="p-5 flex flex-col flex-grow">
                     <h4 className="mb-2">{item.title}</h4>
                     <p className="text-sm text-slate-500 mb-4 flex-grow">{item.description}</p>
-                    {/* 👇 Menggunakan item.link yang ditambahkan di atas */}
                     <Link href={item.link} className="text-brand-red text-sm font-bold hover:underline inline-flex items-center gap-1">
                       Read More <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                     </Link>

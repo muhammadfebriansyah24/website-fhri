@@ -1,18 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-
-function ModernEyebrow({ children, color }) {
-  return (
-    <span
-      className="text-eyebrow block"
-      style={color ? { color } : undefined}
-    >
-      {children}
-    </span>
-  );
-}
-
+import CTA from '@/components/CTA'; // <-- Import komponen CTA ditambahkan di sini
 
 // DATA
 
@@ -287,33 +276,8 @@ export default function TipsAndTricks() {
         </div>
       </section>
 
-      {/* CTA  */}
-      <section className="px-6 md:px-12 py-24 md:py-36 bg-brand-offwhite">
-        <div className="max-w-2xl mx-auto text-center">
-          {/* Memberikan warna khusus jika tidak ingin menggunakan merah bawaan eyebrow */}
-          <ModernEyebrow className="text-brand-red">Ready to Put This Into Practice?</ModernEyebrow>
-          
-          <h2 className="mt-5 md:mt-6 text-balance">
-            From hiring the right people to
-            <br />
-            building the culture around them
-          </h2>
-          <p className="mt-5 max-w-md mx-auto">
-            FHRI&apos;s Executive Search, Professional Work Ethic, and Corporate Event consultants can help you apply the right program for your organization.
-          </p>
-          <a
-            href="#cta"
-            className="group inline-flex items-center gap-4 bg-brand-navy text-white pl-7 pr-3 py-3 rounded-full font-bold text-sm mt-9 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-brand-red active:scale-[0.97]"
-          >
-            Consult Our Experts
-            <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">
-              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </a>
-        </div>
-      </section>
+      {/* CTA Komponen Global */}
+      <CTA />
 
     </main>
   );

@@ -15,6 +15,9 @@ export default function JoinUsPage() {
     service: 'Business Support Services', // Nilai default sesuai opsi pertama
   });
 
+  // State untuk menampilkan notifikasi sukses
+  const [showSuccess, setShowSuccess] = useState(false);
+
   // Handle perubahan input
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -24,15 +27,20 @@ export default function JoinUsPage() {
     }));
   };
 
-  // Handle submit form (Redirect ke WhatsApp)
+  // Handle submit form (Tampilkan notifikasi lalu Redirect ke WhatsApp)
   const handleSubmit = (e) => {
     e.preventDefault(); // Mencegah reload halaman
+
+    // Munculkan notifikasi sukses
+    setShowSuccess(true);
 
     // Rangkai pesan WhatsApp
     const message = `Hello First HR Indonesia,%0A%0AI would like to inquire about a business consultation. Here are my details:%0A%0A*Full Name:* ${formData.fullName}%0A*Phone Number:* ${formData.phone}%0A*Company:* ${formData.company}%0A*Email:* ${formData.email}%0A*Inquired Service:* ${formData.service}%0A%0AI would like to consult regarding this matter. Thank you.`;
 
-    // Arahkan ke link WhatsApp di tab baru
-    window.open(`https://wa.me/${ADMIN_WA_NUMBER}?text=${message}`, '_blank');
+    // Beri jeda sedikit (1.2 detik) agar user sempat melihat notifikasi sukses sebelum tab WA terbuka
+    setTimeout(() => {
+      window.open(`https://wa.me/${ADMIN_WA_NUMBER}?text=${message}`, '_blank');
+    }, 1200);
   };
 
   return (
@@ -58,7 +66,21 @@ export default function JoinUsPage() {
 
         {/* Right Section: Form Card */}
         <div className="w-full flex justify-center md:justify-end">
-          <div className="bg-white rounded-[20px] p-8 md:p-10 shadow-2xl w-full max-w-[480px]">
+          <div className="bg-white rounded-[20px] p-8 md:p-10 shadow-2xl w-full max-w-[480px] relative overflow-hidden">
+            
+            {/* NOTIFIKASI SUKSES (Muncul ketika form disubmit) */}
+            {showSuccess && (
+              <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-30 flex flex-col items-center justify-center text-center p-6 animate-fade-slide-up">
+                <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 shadow-inner">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Inquiry Sent Successfully!</h3>
+                <p className="text-slate-600 text-sm">Redirecting you to our WhatsApp admin...</p>
+              </div>
+            )}
+
             <h2 className="text-[22px] font-bold text-[#1E293B] mb-6">
               Business Consultation
             </h2>
@@ -76,7 +98,7 @@ export default function JoinUsPage() {
                   value={formData.fullName}
                   onChange={handleChange}
                   placeholder="Enter your name"
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400"
+                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400 text-slate-800"
                 />
               </div>
 
@@ -92,7 +114,7 @@ export default function JoinUsPage() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="+62"
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400"
+                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400 text-slate-800"
                 />
               </div>
 
@@ -108,7 +130,7 @@ export default function JoinUsPage() {
                   value={formData.company}
                   onChange={handleChange}
                   placeholder="Your Company"
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400"
+                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400 text-slate-800"
                 />
               </div>
 
@@ -124,7 +146,7 @@ export default function JoinUsPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="email@business.com"
-                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400"
+                  className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400 text-slate-800"
                 />
               </div>
 
@@ -138,7 +160,7 @@ export default function JoinUsPage() {
                     id="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm appearance-none bg-white focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors text-slate-600"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm appearance-none bg-white focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors text-slate-800"
                   >
                     <option value="Business Support Services">Business Support Services</option>
                     <option value="Human Capital Solutions">Human Capital Solutions</option>
@@ -163,7 +185,7 @@ export default function JoinUsPage() {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full bg-[#B91C1C] hover:bg-[#991B1B] text-white font-bold text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-md"
+                  className="w-full bg-[#B91C1C] hover:bg-[#991B1B] text-white font-bold text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-md cursor-pointer"
                 >
                   Send Inquiry
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
