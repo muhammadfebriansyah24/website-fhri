@@ -628,7 +628,7 @@ export default function Navbar() {
           <Link href="/about" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">About Us</Link>
           <Link href="/newsletter" onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">FHRI News</Link>
           <div className="pt-4 mt-2">
-            <Link href="/pricing" onClick={() => setMobileOpen(false)} className="block bg-[#E60000] text-white px-5 py-3 rounded-full font-bold text-center shadow-md">
+            <Link href="/join-us" onClick={() => setMobileOpen(false)} className="block bg-[#E60000] text-white px-5 py-3 rounded-full font-bold text-center shadow-md">
               Join Us
             </Link>
           </div>
