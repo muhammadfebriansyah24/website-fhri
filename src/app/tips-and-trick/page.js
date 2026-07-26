@@ -2,12 +2,11 @@
 
 import React, { useState } from 'react';
 
-
-function ModernEyebrow({ children, color = '#DC2626' }) {
+function ModernEyebrow({ children, color }) {
   return (
     <span
-      className="text-xs md:text-sm font-black uppercase tracking-[0.3em]"
-      style={{ color }}
+      className="text-eyebrow block"
+      style={color ? { color } : undefined}
     >
       {children}
     </span>
@@ -61,7 +60,7 @@ const CATEGORIES = [
     key: 'culture',
     label: 'Culture & Leadership',
     intro: 'Small, consistent habits that shape how people actually feel at work every day.',
-    accent: '#00263C',
+    accent: '#DC2626',
     img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop',
     tips: [
       {
@@ -100,7 +99,7 @@ const CATEGORIES = [
     key: 'events',
     label: 'Events & Team Building',
     intro: 'What separates a memorable corporate event from one everyone forgets by Monday.',
-    accent: '#B45309',
+    accent: '#DC2626',
     img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop',
     tips: [
       {
@@ -146,24 +145,25 @@ function TipRow({ tip, accent, index, isOpen, onToggle }) {
         className="w-full flex items-start gap-5 md:gap-7 text-left py-6 md:py-7 cursor-pointer group"
       >
         <span
-          className="text-xs md:text-sm font-medium tabular-nums mt-1 shrink-0 transition-colors duration-500"
-          style={{ color: isOpen ? accent : '#94A3B8' }}
+          className="text-index mt-1 shrink-0 transition-colors duration-500"
+          style={{ color: isOpen ? accent : 'var(--color-slate-400)' }}
         >
           {String(index + 1).padStart(2, '0')}
         </span>
         <div className="flex-1">
-          <h3 className="text-lg md:text-xl font-medium text-[#00263C] leading-snug transition-colors duration-500 group-hover:text-[#00263C]">
+          {/* H4 langsung memanggil aturan tipografi dasar */}
+          <h4 className="transition-colors duration-500">
             {tip.title}
-          </h3>
-          <p className={`text-slate-500 text-sm mt-1.5 leading-relaxed max-w-xl transition-all duration-500 ${isOpen ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+          </h4>
+          <p className={`text-teaser mt-1.5 max-w-xl transition-all duration-500 ${isOpen ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
             {tip.teaser}
           </p>
         </div>
         <span
-          className="shrink-0 mt-1 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
-          style={{ color: accent, transform: isOpen ? 'rotate(135deg)' : 'rotate(0deg)' }}
+          className="shrink-0 mt-1 text-gold-base transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
+          style={{ transform: isOpen ? 'rotate(135deg)' : 'rotate(0deg)' }}
         >
-          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
             <path d="M12 5v14M5 12h14" strokeLinecap="round" />
           </svg>
         </span>
@@ -172,8 +172,9 @@ function TipRow({ tip, accent, index, isOpen, onToggle }) {
       <div className={`grid transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
         <div className="overflow-hidden">
           <div className="pl-[2.25rem] md:pl-[3.25rem] pb-7 pr-4 max-w-2xl">
-            <p className="text-slate-600 text-sm leading-relaxed">{tip.body}</p>
-            <p className="text-sm font-medium mt-4" style={{ color: accent }}>
+            {/* Paragraf otomatis bersih */}
+            <p>{tip.body}</p>
+            <p className="text-takeaway mt-4" style={{ color: accent }}>
               {tip.takeaway}
             </p>
           </div>
@@ -190,14 +191,14 @@ function CategoryBlock({ cat, idx, openKey, toggle }) {
   const reverse = idx % 2 === 1;
   return (
     <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 md:gap-16 items-start`}>
-      {/* Large editorial image */}
+      {/* Large editorial image with hover scale */}
       <div className="w-full md:w-2/5 md:sticky md:top-24">
-        <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
+        <div className="relative rounded-2xl overflow-hidden aspect-[4/5] group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={cat.img}
             alt={cat.label}
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, transparent 40%, ${cat.accent}40 100%)` }} />
         </div>
@@ -205,14 +206,16 @@ function CategoryBlock({ cat, idx, openKey, toggle }) {
 
       {/* Text + tip rows */}
       <div className="w-full md:w-3/5">
-        <span className="text-xs font-medium uppercase tracking-[0.25em]" style={{ color: cat.accent }}>
-          {String(idx + 1).padStart(2, '0')} — {cat.label}
-        </span>
-        <h2 className="mt-4 text-3xl md:text-4xl font-light text-[#00263C] leading-[1.15] tracking-tight max-w-md">
+  
+        <h3 style={{ color: cat.accent }}>
+          {String(idx + 1).padStart(2, '0')}. {cat.label}
+        </h3>
+        
+        <h2 className="mt-5 md:mt-6 max-w-md">
           {cat.intro}
         </h2>
 
-        <div className="mt-10">
+        <div className="mt-8 md:mt-10">
           {cat.tips.map((tip, i) => {
             const key = `${cat.key}-${i}`;
             return (
@@ -241,27 +244,28 @@ export default function TipsAndTricks() {
   const toggle = (key) => setOpenKey((prev) => (prev === key ? null : key));
 
   return (
-    <main className="min-h-screen font-sans bg-white text-[#00263C]">
+    <main className="min-h-screen bg-white text-brand-navy">
 
       {/* HERO  */}
-      <section className="relative min-h-[85vh] flex items-center justify-center bg-[#00263C] text-white overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2400&auto=format&fit=crop"
             alt="Calm, focused workplace"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#00263C]/75" />
+          <div className="absolute inset-0 bg-brand-navy/75" />
         </div>
 
         <div className="max-w-3xl mx-auto text-center relative z-10 px-6 md:px-12">
-            <ModernEyebrow>Tips &amp; Tricks</ModernEyebrow>
-            <h1 className="mt-8 text-3xl md:text-5xl lg:text-6xl font-light text-white leading-[1.15] tracking-tight text-balance">
-                Practical insights from{' '} {/* Tambahkan {' '} di sini untuk memaksa spasi */}
+            <span className="text-eyebrow text-brand-red">Tips &amp; Tricks</span>
+            {/* Hanya menyisakan text-white dan margin karena H1 sudah diatur terpusat */}
+            <h1 className="mt-5 md:mt-6 text-white text-balance">
+                Practical insights from{' '} 
                 <br className="hidden md:block" />
-                First HR Indonesia&apos;s consultants
+                First HR Indonesia consultants
             </h1>
-            <p className="mt-8 text-base md:text-lg text-slate-300 leading-relaxed max-w-xl mx-auto font-light">
+            <p className="mt-8 md:mt-10 text-slate-300 max-w-xl mx-auto">
             Real strategies drawn from our Executive Search, Professional Work Ethic, and Corporate Event engagements — the same expertise we bring to every client.
             </p>
         </div>
@@ -276,7 +280,7 @@ export default function TipsAndTricks() {
       <section className="px-6 md:px-12">
         <div className="max-w-6xl mx-auto flex flex-col divide-y divide-slate-100">
           {CATEGORIES.map((cat, idx) => (
-            <div key={cat.key} className="py-20 md:py-32">
+            <div key={cat.key} className="py-20 md:py-28">
               <CategoryBlock cat={cat} idx={idx} openKey={openKey} toggle={toggle} />
             </div>
           ))}
@@ -284,20 +288,22 @@ export default function TipsAndTricks() {
       </section>
 
       {/* CTA  */}
-      <section className="px-6 md:px-12 py-24 md:py-36 bg-[#F8F9FA]">
+      <section className="px-6 md:px-12 py-24 md:py-36 bg-brand-offwhite">
         <div className="max-w-2xl mx-auto text-center">
-          <ModernEyebrow color="#00263C">Ready to Put This Into Practice?</ModernEyebrow>
-          <h2 className="mt-6 text-2xl md:text-4xl font-light text-[#00263C] leading-tight tracking-tight">
+          {/* Memberikan warna khusus jika tidak ingin menggunakan merah bawaan eyebrow */}
+          <ModernEyebrow className="text-brand-red">Ready to Put This Into Practice?</ModernEyebrow>
+          
+          <h2 className="mt-5 md:mt-6 text-balance">
             From hiring the right people to
             <br />
             building the culture around them
           </h2>
-          <p className="mt-5 text-slate-500 text-sm md:text-base leading-relaxed max-w-md mx-auto">
+          <p className="mt-5 max-w-md mx-auto">
             FHRI&apos;s Executive Search, Professional Work Ethic, and Corporate Event consultants can help you apply the right program for your organization.
           </p>
           <a
             href="#cta"
-            className="group inline-flex items-center gap-4 bg-[#00263C] text-white pl-7 pr-3 py-3 rounded-full font-bold text-sm mt-9 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#DC2626] active:scale-[0.97]"
+            className="group inline-flex items-center gap-4 bg-brand-navy text-white pl-7 pr-3 py-3 rounded-full font-bold text-sm mt-9 transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-brand-red active:scale-[0.97]"
           >
             Consult Our Experts
             <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1">

@@ -15,7 +15,7 @@ export default function HsePage() {
         {/* Background Image & Gradient */}
         <div className="absolute inset-0 w-full h-full z-0">
           <img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1628147529780-36964fbb8d54?q=80&w=2000&auto=format&fit=crop" 
             alt="Safe and orderly industrial work environment in the morning" 
             className="w-full h-full object-cover"
           />
@@ -52,6 +52,25 @@ export default function HsePage() {
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl font-light">
               Comprehensive HSE solutions from incident investigation to environmental compliance. We ensure your business operations run safely, orderly, and sustainably.
             </p>
+
+            {/* CTA Button */}
+            <div className="mt-9">
+            <button
+              type="button"
+              className="group inline-flex items-center gap-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#DC2626]/30"
+            >
+              Consult Our Experts
+              <svg
+                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+              >
+                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
 
             {/* Quick Highlights */}
             <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-white/20 pt-10">
@@ -202,7 +221,7 @@ export default function HsePage() {
               <div className="rounded-[2rem] bg-slate-50 ring-1 ring-slate-100 p-2 group relative z-10">
                 <div className="relative h-72 md:h-96 rounded-[calc(2rem-0.5rem)] overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=1000&auto=format&fit=crop" 
+                    src="https://images.unsplash.com/photo-1685483749753-0dab7e144794?q=80&w=1000&auto=format&fit=crop" 
                     alt="Industrial work environment that is neat, clean, and free of fire hazards" 
                     className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-in-out"
                   />
@@ -418,104 +437,6 @@ export default function HsePage() {
 
           </div>
         </div>
-      </section>
-
-      {/* =========================================
-          SECTION 6: FINAL CTA (HSE THEME + DESAIN REFERENSI)
-          ========================================= */}
-      <section className="relative bg-[#00263C] py-24 md:py-32 px-6 md:px-12 overflow-hidden flex items-center justify-center min-h-[500px]">
-        
-        {/* Subtle Bubbles Background */}
-        <div className="absolute top-10 left-[15%] w-32 h-32 bg-white/5 rounded-full blur-xl pointer-events-none"></div>
-        <div className="absolute bottom-10 right-[20%] w-48 h-48 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
-        <div className="absolute top-1/2 left-[40%] w-16 h-16 bg-white/5 rounded-full blur-md pointer-events-none"></div>
-
-        {/* --- LEFT DECORATION (Floating Avatar 1: Safety Inspector) --- */}
-        <div className="hidden lg:block absolute left-0 top-[25%] -translate-x-4">
-          <div className="relative">
-            {/* Pill background */}
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-48 h-20 bg-white/5 rounded-full -z-10"></div>
-            
-            <div className="flex items-center gap-6 pl-10 pr-2">
-              {/* Chat Bubble (Safe Green) */}
-              <div className="bg-[#b7e4d8] px-4 py-2 rounded-full flex gap-1.5 shadow-lg relative -bottom-6">
-                <span className="w-2.5 h-2.5 bg-slate-400 rounded-full"></span>
-                <span className="w-2.5 h-2.5 bg-teal-600 rounded-full"></span>
-                <span className="w-2.5 h-2.5 bg-slate-400 rounded-full"></span>
-              </div>
-              
-              {/* Profile Avatar */}
-              <img 
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?q=80&w=200&auto=format&fit=crop" 
-                alt="HSE Inspector" 
-                className="w-20 h-20 rounded-full object-cover border-4 border-[#00263C] shadow-lg relative z-10"
-              />
-              
-              {/* Cursor Arrow (Warning Yellow) */}
-              <svg className="w-8 h-8 text-yellow-500 absolute -bottom-8 right-6 transform rotate-[-20deg]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" stroke="white" strokeWidth="1" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        {/* --- RIGHT DECORATION (Floating Avatar 2: Environmental Expert) --- */}
-        <div className="hidden lg:block absolute right-0 bottom-[25%] translate-x-4">
-          <div className="relative">
-            {/* Pill background */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-48 h-20 bg-white/5 rounded-full -z-10"></div>
-            
-            <div className="flex items-center flex-row-reverse gap-6 pr-10 pl-2">
-              {/* Chat Bubble (Credible Blue) */}
-              <div className="bg-[#e0e7ff] px-4 py-2 rounded-full flex gap-1.5 shadow-lg relative -bottom-6">
-                <span className="w-2.5 h-2.5 bg-indigo-500 rounded-full"></span>
-                <span className="w-2.5 h-2.5 bg-slate-400 rounded-full"></span>
-                <span className="w-2.5 h-2.5 bg-slate-400 rounded-full"></span>
-              </div>
-              
-              {/* Profile Avatar */}
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=200&auto=format&fit=crop" 
-                alt="Environmental Consultant" 
-                className="w-20 h-20 rounded-full object-cover border-4 border-[#00263C] shadow-lg relative z-10"
-              />
-              
-              {/* Cursor Arrow (Accent Red) */}
-              <svg className="w-8 h-8 text-[#C92A2A] absolute top-0 left-0 transform rotate-[160deg]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" stroke="white" strokeWidth="1" />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        {/* --- CENTER CONTENT (HSE Specific Copywriting) --- */}
-        <div className="relative z-10 text-center max-w-3xl mx-auto w-full">
-          
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight text-balance">
-            Create a Zero Accident <br className="hidden md:block" /> Work Environment
-          </h2>
-          
-          <p className="text-base md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Get comprehensive guidance for OHS system implementation, ISO 45001 standard compliance, and environmental audit preparation.
-          </p>
-          
-          {/* Button Container */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            
-            {/* Primary Button */}
-            <button className="w-full sm:w-auto px-8 py-4 bg-[#C92A2A] hover:bg-[#a82222] text-white font-bold rounded-lg shadow-[0_4px_20px_rgba(201,42,42,0.4)] hover:shadow-[0_6px_25px_rgba(201,42,42,0.6)] hover:-translate-y-1 transition-all duration-300 uppercase tracking-wide text-sm flex justify-center items-center gap-2">
-              SCHEDULE INITIAL AUDIT
-            </button>
-            
-            {/* Secondary Button */}
-            <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/60 text-white hover:bg-white hover:border-white hover:text-[#00263C] font-bold rounded-lg transition-all duration-300 uppercase tracking-wide text-sm flex justify-center items-center gap-2">
-              CONSULT EXPERT TEAM
-            </button>
-            
-          </div>
-          
-        </div>
-
       </section>
 
     </main>

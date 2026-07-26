@@ -6,7 +6,9 @@ import { Poppins } from 'next/font/google';
 // 1. MENGATUR TIPOGRAFI
 const poppins = Poppins({ 
   subsets: ['latin'], 
-  weight: ['400', '500', '600', '700', '800', '900'] 
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
+  display: 'swap',
 });
 
 // 2. MENAMBAHKAN SEO METADATA
@@ -25,11 +27,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      {/* Memasukkan font Poppins ke seluruh body website */}
-      <body className={poppins.className}>
+    <html lang="en" className={poppins.variable}>
+      <body className="font-sans antialiased bg-white text-[#00263C] min-h-screen flex flex-col">
         <Navbar />
-        {children}
+        <main className="flex-grow">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
