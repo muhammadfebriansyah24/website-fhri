@@ -3,10 +3,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import CTA from '@/components/CTA'; // <-- Import komponen CTA
 
-
-// DATA KONTEN ABOUT US
-
+// ==========================================
+// 1. DATA KONTEN ABOUT US
+// ==========================================
 
 const valuesData = [
   {
@@ -120,7 +121,7 @@ const leadershipTeam = [
     role: 'Senior Trainer & Senior Facilitator', 
     image: '/8.png',
     summary: [
-      "MiftakhulIkhsan, S.T. is an accomplished HSE and Environmental professional with more than a decade of experience in developing, implementing, and strengthening Health, Safety, and Environmental (HSE) management systems within large-scale manufacturing organizations. He is recognized for his ability to integrate regulatory compliance, operational excellence, and sustainability into practical business solutions that enhance organizational resilience and long-term performance.",
+      "Miftakhul Ikhsan, S.T. is an accomplished HSE and Environmental professional with more than a decade of experience in developing, implementing, and strengthening Health, Safety, and Environmental (HSE) management systems within large-scale manufacturing organizations. He is recognized for his ability to integrate regulatory compliance, operational excellence, and sustainability into practical business solutions that enhance organizational resilience and long-term performance.",
       "His expertise encompasses end-to-end HSE and environmental compliance, including environmental permitting (UKL-UPL and AMDAL), online business licensing through Indonesia's OSS Risk-Based Approach (OSS RBA), operational permits such as SIPA for generator systems, Environmental Management Systems, ISO management system integration, and comprehensive support for PROPER Blue compliance programs administered by the Ministry of Environment.",
       "With a strong understanding of Indonesian regulations and international management standards, Miftakhul partners with organizations to build robust governance frameworks, strengthen risk management, improve regulatory compliance, and foster a proactive safety culture. His approach combines technical expertise with strategic thinking, enabling businesses to transform HSE from a regulatory obligation into a driver of operational efficiency, sustainability, and competitive advantage.",
       "Committed to continuous improvement and sustainable business practices, he works closely with executive leaders and operational teams to create safer workplaces, environmentally responsible operations, and resilient organizations that are well prepared to meet evolving regulatory and stakeholder expectations."
@@ -135,7 +136,7 @@ const leadershipTeam = [
       "With an academic background in Industrial Engineering, he combines analytical thinking with a deep understanding of organizational behavior to develop integrated learning solutions that enhance workforce capability, strengthen leadership pipelines, and improve business performance. His expertise spans Learning & Development, competency framework design, leadership development, performance management, corporate academy establishment, talent development, organizational capability building, and culture transformation.",
       "As a BNSP Certified Trainer, Priadi has successfully designed and implemented competency-based learning systems, leadership development frameworks, corporate culture initiatives, succession development programs, and performance enhancement strategies that enable organizations to build high-performing teams and develop future-ready leaders. His approach emphasizes aligning learning strategies with business objectives to ensure measurable organizational impact and sustainable growth.",
       "Recognized for his collaborative leadership style and practical approach, he is highly experienced in executive coaching, mentoring, experiential learning, facilitation, and cross-functional project leadership. He partners closely with business leaders to cultivate learning organizations, accelerate talent development, and create a culture of continuous improvement that drives innovation, employee engagement, and long-term organizational success.",
-      "Driven by a passion for developing people and organizations, Priadibelieves that sustainable business growth is achieved by empowering individuals, strengthening leadership capability, and building learning ecosystems that transform human potential into lasting competitive advantage."
+      "Driven by a passion for developing people and organizations, Priadi believes that sustainable business growth is achieved by empowering individuals, strengthening leadership capability, and building learning ecosystems that transform human potential into lasting competitive advantage."
     ]
   },
   { 
@@ -204,18 +205,349 @@ const gallerySliderData = [
   { id: 6, title: 'Team Building Activities', image: '/herokonten8.jpg' },
 ];
 
-export default function AboutUsPage() {
-  const [gallerySlide, setGallerySlide] = useState(0);
-  const [galleryViews, setGalleryViews] = useState(3);
-  const [mounted, setMounted] = useState(false);
+// ==========================================
+// 2. BAGIAN KOMPONEN (SECTIONS)
+// ==========================================
 
-  // State & Ref untuk Leadership Executive Summary
+function CustomStyles() {
+  return (
+    <style dangerouslySetInnerHTML={{__html: `
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(1.5deg); }
+      }
+      @keyframes float-reverse {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-10px) rotate(-1.5deg); }
+      }
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes scaleIn {
+        from { opacity: 0; transform: scale(0.97); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
+      .animate-gradient-shift { animation: gradientShift 12s ease infinite; background-size: 200% 200%; }
+      .animate-scale-in { animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      .animate-fade-slide-up { animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #DC2626; }
+      
+      .hide-scroll-mobile::-webkit-scrollbar { display: none; }
+      .hide-scroll-mobile { -ms-overflow-style: none; scrollbar-width: none; }
+    `}} />
+  );
+}
+
+function HeroSection() {
+  return (
+    <section className="relative bg-brand-navy text-white pt-32 pb-44 md:pt-44 md:pb-48 px-6 md:px-12 overflow-hidden flex items-center min-h-[90vh]">
+      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-brand-navy/50 to-brand-navy z-10 pointer-events-none"></div>
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-brand-red/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto relative z-30 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 w-full">
+        {/* KIRI: Text Content */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left pt-10">
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl mb-6 lg:mb-8">
+            <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
+            <h5 className="font-bold text-slate-200 tracking-[0.2em] uppercase text-xs">About First HR Indonesia</h5>
+          </div>
+          
+          <h1 className="text-white mb-6 drop-shadow-2xl text-4xl md:text-5xl lg:text-6xl leading-tight">
+            One Mission, <br className="hidden lg:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">Endless Innovation</span>
+          </h1>
+          
+          <p className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light drop-shadow-md mb-8">
+            Empowering organizations through strategic human capital solutions. We connect world-class strategies with Indonesia&apos;s finest professionals to shape a better world of work.
+          </p>
+
+          {/* TOMBOL DOWNLOAD COMPANY PROFILE & EXPERT LEADERS */}
+          <div className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-6">
+            
+            {/* Tombol Download PPT */}
+            <a 
+              href="/company-profile.pptx" 
+              download="FHRI-Company-Profile.pptx"
+              className="inline-flex items-center gap-3 bg-brand-red hover:bg-red-700 text-white px-7 py-4 rounded-2xl font-bold text-sm transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.4)] hover:-translate-y-1 uppercase tracking-wider"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Profile (PPT)
+            </a>
+
+            {/* Kotak Expert Leaders */}
+            <div className="bg-gradient-to-br from-[#0B2A4A] to-brand-navy border border-slate-700/50 p-3.5 rounded-2xl flex items-center gap-4 shadow-xl">
+              <div className="flex -space-x-3">
+                <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/1.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/2.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/3.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <div className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] bg-brand-red flex items-center justify-center text-[11px] font-bold text-white z-10">+11</div>
+              </div>
+              <div className="text-left pr-3">
+                <p className="text-white font-bold text-sm">Expert Leaders</p>
+                <p className="text-xs text-slate-400 mt-0.5">Ready to assist you</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* KANAN: Video Container */}
+        <div className="w-full lg:w-1/2 relative group mt-8 lg:mt-0">
+          <div className="absolute inset-0 bg-brand-red/20 blur-3xl rounded-full scale-105 pointer-events-none transition-colors duration-700"></div>
+          <div className="relative rounded-[2rem] overflow-hidden border-[6px] border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.6)] aspect-[4/3] lg:aspect-video bg-black z-10">
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              src="/company-profile.mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function VisionMissionSection() {
+  return (
+    <section className="relative px-6 md:px-12 -mt-20 md:-mt-24 z-40 pb-24">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        
+        <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.1)] border border-slate-100 transform transition-transform hover:-translate-y-2 duration-500 flex flex-col justify-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-[100px] -z-10"></div>
+          <div className="w-14 h-14 bg-brand-navy rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-navy/20">
+            <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+          </div>
+          <h6 className="text-brand-red mb-4">Our Vision</h6>
+          <h2 className="text-brand-navy text-3xl md:text-4xl leading-tight font-medium">
+            To be the most trusted Strategic Human Capital Partner.
+          </h2>
+        </div>
+
+        <div className="bg-gradient-to-br from-[#0B2A4A] to-brand-navy text-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.25)] border border-slate-700 relative overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+          <div className="w-14 h-14 bg-brand-red rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-red/30 relative z-10">
+            <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <h6 className="text-slate-400 mb-6 relative z-10">Our Mission</h6>
+          <ul className="space-y-5 relative z-10">
+            {[
+              "Deliver strategic Human Capital solutions.",
+              "Develop people and leadership.",
+              "Build high-performing organizations.",
+              "Partner with integrity and excellence."
+            ].map((item, idx) => (
+              <li key={idx} className="flex items-start gap-4">
+                <span className="text-brand-red mt-1 drop-shadow-md text-xl">✦</span>
+                <span className="text-slate-100 text-lg md:text-xl font-normal leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
+function CoreValuesSection() {
+  return (
+    <section className="py-24 px-6 md:px-12 bg-slate-50 border-t border-slate-200/60">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+          <span className="text-eyebrow gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm">
+            Our Core Values
+          </span>
+          <h2 className="mt-6 mb-4 text-brand-navy font-bold text-3xl md:text-4xl">Values That Guide Us</h2>
+          <p className="text-slate-600 text-lg">The four pillars that define how we work, how we treat each other, and how we deliver impact.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {valuesData.map((item, idx) => (
+            <div key={idx} className={`group bg-white p-8 md:p-10 rounded-[2rem] border border-slate-100 hover:border-blue-100 hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.12)] transition-all duration-500 relative ${idx % 2 === 0 ? 'lg:translate-y-4' : 'lg:-translate-y-4'}`}>
+              <div className="w-16 h-16 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-brand-red/5 transition-all duration-500">
+                {item.icon}
+              </div>
+              <h4 className="mb-3 group-hover:text-brand-red transition-colors text-brand-navy font-bold text-xl">{item.title}</h4>
+              <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExecutiveProfilesSection() {
   const [activeLeaderIndex, setActiveLeaderIndex] = useState(0);
   const thumbnailContainerRef = useRef(null);
   const activeLeader = leadershipTeam[activeLeaderIndex];
 
+  // 👇 GANTI BAGIAN USE EFFECT INI 👇
   useEffect(() => {
-    setMounted(true);
+    if (thumbnailContainerRef.current) {
+      const container = thumbnailContainerRef.current;
+      const activeThumbnail = container.children[activeLeaderIndex];
+      
+      if (activeThumbnail) {
+        // Menghitung posisi scroll agar thumbnail selalu di tengah 
+        // secara horizontal tanpa menarik halaman ke bawah (vertikal)
+        const scrollPos = activeThumbnail.offsetLeft - (container.clientWidth / 2) + (activeThumbnail.clientWidth / 2);
+        
+        container.scrollTo({ 
+          left: scrollPos, 
+          behavior: 'smooth' 
+        });
+      }
+    }
+  }, [activeLeaderIndex]);
+
+  const nextLeader = () => setActiveLeaderIndex((prev) => (prev === leadershipTeam.length - 1 ? 0 : prev + 1));
+  const prevLeader = () => setActiveLeaderIndex((prev) => (prev === 0 ? leadershipTeam.length - 1 : prev - 1));
+
+  return (
+    <section className="py-28 px-6 md:px-12 bg-white relative overflow-hidden border-t border-slate-100">
+      <div className="max-w-6xl mx-auto relative z-10">
+        
+        <div className="text-center mb-16 md:mb-20">
+          <span className="text-eyebrow gradient-gold text-white px-5 py-2 rounded-full inline-block mb-4 shadow-sm">
+            Executive Profiles
+          </span>
+          <h2 className="text-brand-navy font-bold text-3xl md:text-4xl">Meet The Leadership Team</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-slate-600 text-lg">Driven by experienced practitioners and thought leaders passionate about transforming the future of human resources.</p>
+        </div>
+
+        <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 animate-gradient-shift border border-slate-200/80 rounded-[3rem] p-8 md:p-12 lg:p-14 shadow-[0_20px_60px_-15px_rgba(0,38,60,0.08)] transition-all duration-500 ease-in-out relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start relative z-10">
+            <div key={`img-${activeLeaderIndex}`} className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left animate-scale-in">
+              <div className="relative w-full max-w-[260px] lg:max-w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl shadow-brand-navy/10 border-[6px] border-white mb-8">
+                <Image 
+                  src={activeLeader.image} alt={activeLeader.name} fill 
+                  className="object-cover transition-opacity duration-500"
+                  onError={(e) => { e.target.style.display = 'none'; }} 
+                />
+                <div className="absolute inset-0 bg-slate-100 flex items-center justify-center -z-10">
+                  <svg className="w-16 h-16 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                </div>
+              </div>
+              <h3 className="text-brand-navy text-2xl font-bold font-sans">{activeLeader.name}</h3>
+              <p className="text-brand-red font-bold uppercase tracking-widest text-xs mt-3">{activeLeader.role}</p>
+              <div className="w-12 h-1 bg-slate-200 mt-6 rounded-full mx-auto lg:mx-0"></div>
+            </div>
+
+            <div key={`txt-${activeLeaderIndex}`} className="lg:col-span-8 animate-fade-slide-up">
+              <h4 className="text-brand-navy mb-6 flex items-center gap-3 justify-center lg:justify-start font-bold text-xl font-sans">
+                <svg className="w-6 h-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                Executive Summary
+              </h4>
+              <div className="h-[340px] md:h-[400px] overflow-y-auto pr-3 md:pr-6 custom-scrollbar text-justify space-y-5 font-sans">
+                {activeLeader.summary.map((paragraph, index) => (
+                  <p key={index} className="animate-fade-slide-up opacity-0 text-slate-600 leading-relaxed text-[15px]" style={{ animationDelay: `${index * 0.12}s` }}>
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col lg:flex-row items-center justify-between gap-6 px-4">
+          <div className="flex items-center gap-3 md:gap-5 w-full justify-center">
+            <button onClick={prevLeader} className="shrink-0 w-12 h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" /></svg>
+            </button>
+
+            <div ref={thumbnailContainerRef} className="flex overflow-x-auto gap-4 py-4 px-2 max-w-[250px] sm:max-w-[450px] md:max-w-xl custom-scrollbar hide-scroll-mobile scroll-smooth">
+              {leadershipTeam.map((leader, index) => (
+                <button 
+                  key={index} onClick={() => setActiveLeaderIndex(index)} 
+                  className={`relative w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full overflow-hidden border-[3px] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${index === activeLeaderIndex ? 'border-brand-red scale-110 shadow-md' : 'border-transparent opacity-50 hover:opacity-100 hover:scale-105'}`}
+                >
+                  <Image src={leader.image} alt={leader.name} fill className="object-cover" onError={(e) => { e.target.style.display = 'none'; }} />
+                  <div className="absolute inset-0 bg-slate-200 flex items-center justify-center -z-10 text-xs">👤</div>
+                </button>
+              ))}
+            </div>
+
+            <button onClick={nextLeader} className="shrink-0 w-12 h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" /></svg>
+            </button>
+          </div>
+          <div className="text-xs font-bold text-slate-400 tracking-widest uppercase lg:shrink-0 hidden lg:block">
+            {activeLeaderIndex + 1} / {leadershipTeam.length}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function JourneyTimelineSection() {
+  return (
+    <section className="bg-slate-50 py-24 px-6 md:px-12 relative overflow-hidden pb-32">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+          <span className="text-brand-red font-bold text-xs tracking-[0.25em] uppercase border border-brand-red/20 bg-brand-red/5 px-4 py-1.5 rounded-full inline-block mb-6">
+            The FHRI Journey
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-6 leading-tight font-sans">
+            9 Years. One Mission. <br className="hidden sm:block"/> Endless Innovation.
+          </h2>
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+            A brief timeline of our milestone moments in advancing HR practices and continuous learning.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
+          {journeyTimeline.map((item, idx) => (
+            <div key={idx} className="bg-white border border-slate-200 p-8 rounded-[2rem] flex flex-col justify-between hover:border-brand-red/40 hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.08)] transition-all duration-500 group">
+              <div>
+                <span className="inline-block bg-slate-100 text-brand-navy font-bold text-sm px-4 py-1.5 rounded-lg mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors duration-300 origin-left">
+                  {item.year}
+                </span>
+                <h3 className="text-xl font-bold text-brand-navy mb-4 leading-snug font-sans group-hover:text-brand-red transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-[15px] leading-relaxed font-sans">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GallerySection() {
+  const [gallerySlide, setGallerySlide] = useState(0);
+  const [galleryViews, setGalleryViews] = useState(3);
+  
+  useEffect(() => {
     const updateViews = () => {
       const width = window.innerWidth;
       setGalleryViews(width >= 1024 ? 3 : width >= 640 ? 2 : 1);
@@ -225,368 +557,80 @@ export default function AboutUsPage() {
     return () => window.removeEventListener('resize', updateViews);
   }, []);
 
-  // Efek untuk otomatis scroll thumbnail ke posisi aktif
-  useEffect(() => {
-    if (thumbnailContainerRef.current) {
-      const activeThumbnail = thumbnailContainerRef.current.children[activeLeaderIndex];
-      if (activeThumbnail) {
-        activeThumbnail.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      }
-    }
-  }, [activeLeaderIndex]);
-
   const maxGallerySlide = Math.max(0, gallerySliderData.length - galleryViews);
   const nextGallery = () => setGallerySlide(prev => (prev >= maxGallerySlide ? 0 : prev + 1));
   const prevGallery = () => setGallerySlide(prev => (prev <= 0 ? maxGallerySlide : prev - 1));
 
-  // Fungsi Navigasi Executive Profile
-  const nextLeader = () => setActiveLeaderIndex((prev) => (prev === leadershipTeam.length - 1 ? 0 : prev + 1));
-  const prevLeader = () => setActiveLeaderIndex((prev) => (prev === 0 ? leadershipTeam.length - 1 : prev - 1));
+  return (
+    // Padding bottom dikurangi dari pb-32 menjadi pb-12 agar mulus menyambung ke CTA
+    <section className="bg-brand-navy pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-12 overflow-hidden rounded-t-[3rem] lg:rounded-t-[5rem] -mt-16 relative z-20 shadow-[0_-20px_50px_rgba(0,38,60,0.15)]">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-14 gap-6 text-center md:text-left">
+          <div className="flex flex-col items-center md:items-start">
+            <span className="text-eyebrow text-brand-red inline-block mb-3">Gallery</span>
+            <h2 className="text-white font-bold text-3xl md:text-4xl">Behind The Scenes</h2>
+            <p className="mt-4 text-slate-400 text-lg">Step into the vibrant world of First HR Indonesia.</p>
+          </div>
+          <div className="flex gap-4 justify-center md:justify-end">
+            <button onClick={prevGallery} className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all shadow-lg">
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" /></svg>
+            </button>
+            <button onClick={nextGallery} className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all shadow-lg">
+              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" /></svg>
+            </button>
+          </div>
+        </div>
+
+        {/* BUNGKUSAN GALERI DIBEBASKAN (TIDAK ADA LAGI SHADOW-2XL & ROUNDED BOX RAKSASA) */}
+        <div className="relative">
+          {/* overflow-visible pada kontainer luar agar bayangan kartu tidak terpotong */}
+          <div className="overflow-hidden"> 
+            <div className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] gap-6" style={{ transform: `translateX(-${gallerySlide * (100 / galleryViews)}%)` }}>
+              {gallerySliderData.map((slide) => (
+                <div key={slide.id} className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] shrink-0 aspect-[4/3] md:aspect-[5/4] relative rounded-[2rem] overflow-hidden group border border-slate-700/50 shadow-xl">
+                  <Image src={slide.image} alt={slide.title} fill className="object-cover group-hover:scale-110 transition duration-700" onError={(e) => { e.target.style.display = 'none'; }} />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0B2A4A] to-slate-900 flex flex-col items-center justify-center -z-10">
+                    <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-3">
+                       <svg className="w-8 h-8 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
+                    <span className="text-brand-red text-[11px] font-bold uppercase tracking-widest mb-2 font-sans">FHRI Moment</span>
+                    <h4 className="text-white font-bold text-lg md:text-xl font-sans">{slide.title}</h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ==========================================
+// 3. MAIN PAGE EXPORT
+// ==========================================
+
+export default function AboutUsPage() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   if (!mounted) return null; 
 
   return (
-    <main className="bg-slate-50 overflow-hidden selection:bg-brand-red selection:text-white">
-      
-      {/* CSS ANIMASI & CUSTOM SCROLLBAR */}
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(2deg); }
-        }
-        @keyframes float-reverse {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-15px) rotate(-2deg); }
-        }
-        @keyframes gradientShift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        @keyframes scaleIn {
-          from { opacity: 0; transform: scale(0.95); }
-          to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(15px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-float { animation: float 6s ease-in-out infinite; }
-        .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
-        .animate-gradient-shift { animation: gradientShift 10s ease infinite; background-size: 200% 200%; }
-        .animate-scale-in { animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .animate-fade-slide-up { animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        
-        /* Custom Scrollbar untuk Executive Summary Text & Thumbnails */
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 10px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #DC2626; }
-        
-        .hide-scroll-mobile::-webkit-scrollbar { display: none; }
-        .hide-scroll-mobile { -ms-overflow-style: none; scrollbar-width: none; }
-      `}} />
-
-      {/* 1. HERO SECTION */}
-      <section className="relative bg-brand-navy text-white pt-36 pb-48 md:pt-48 md:pb-56 px-6 md:px-12 overflow-hidden flex items-center justify-center min-h-[90vh]">
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/30 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{ animationDuration: '4s' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-red/20 rounded-full blur-[120px] animate-pulse pointer-events-none" style={{ animationDuration: '6s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl h-96 bg-brand-navy rounded-full blur-[100px] pointer-events-none"></div>
-
-        <div className="hidden lg:flex absolute top-40 left-[10%] bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl animate-float items-center gap-4 shadow-2xl z-20">
-          <div className="w-12 h-12 bg-blue-500/40 rounded-full flex items-center justify-center">
-            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-          </div>
-          <div>
-            <p className="text-xs text-blue-200 font-bold uppercase tracking-wider">Trusted Partner</p>
-            <p className="text-white font-semibold text-lg">500+ Companies</p>
-          </div>
-        </div>
-
-        <div className="hidden lg:flex absolute bottom-48 right-[10%] bg-gradient-to-br from-[#0B2A4A] to-brand-navy border border-slate-700 p-4 rounded-2xl animate-float-reverse items-center gap-4 shadow-2xl z-20">
-          <div className="flex -space-x-4">
-            <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/1.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-            <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/2.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-            <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/3.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-            <div className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] bg-brand-red flex items-center justify-center text-xs font-bold text-white z-10">+11</div>
-          </div>
-          <div>
-            <p className="text-white font-bold text-sm">Expert Leaders</p>
-            <p className="text-xs text-slate-400">Ready to assist you</p>
-          </div>
-        </div>
-
-        <div className="max-w-5xl mx-auto text-center relative z-30">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-navy border border-slate-700 shadow-xl mb-8">
-            <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
-            <h5 className="font-bold text-slate-300 tracking-[0.25em] uppercase">About First HR Indonesia</h5>
-          </div>
-          <h1 className="text-white mb-8 drop-shadow-2xl">
-            One Mission, <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">Endless Innovation</span>
-          </h1>
-          <p className="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-light drop-shadow-md">
-            Empowering organizations through strategic human capital solutions. We connect world-class strategies with Indonesia&apos;s finest professionals to shape a better world of work.
-          </p>
-        </div>
-      </section>
-
-      {/* 2. VISION & MISSION */}
-      <section className="relative px-6 md:px-12 -mt-32 md:-mt-40 z-40 pb-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-          
-          <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.15)] border border-slate-100 transform transition-transform hover:-translate-y-2 duration-500 flex flex-col justify-center">
-            <div className="w-14 h-14 bg-brand-navy rounded-2xl flex items-center justify-center mb-6 shadow-lg">
-              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
-            </div>
-            {/* Menggunakan tag h6 untuk Section Label */}
-            <h4 className="text-brand-red mb-4">Our Vision</h4>
-            {/* Menggunakan H2 untuk Judul Besar Section */}
-            <h2 className="text-brand-navy">
-              To be the most trusted Strategic Human Capital Partner.
-            </h2>
-          </div>
-
-          <div className="bg-gradient-to-br from-[#0B2A4A] to-brand-navy text-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.25)] border border-slate-700 relative overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-            <div className="w-14 h-14 bg-brand-red rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-red-500/30">
-              <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-            </div>
-            {/* Menggunakan tag h6 untuk Section Label */}
-            <h4 className="text-slate-400 mb-6">Our Mission</h4>
-            <ul className="space-y-5">
-              {[
-                "Deliver strategic Human Capital solutions.",
-                "Develop people and leadership.",
-                "Build high-performing organizations.",
-                "Partner with integrity and excellence."
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <span className="text-brand-red mt-1 drop-shadow-md">✦</span>
-                  <span className="text-slate-100 text-lg md:text-xl font-medium leading-snug">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 3. OUR VALUES  */}
-      <section className="py-24 px-6 md:px-12 bg-slate-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-eyebrow gradient-gold text-white px-4 py-1.5 rounded-full inline-block shadow-sm">
-            Our Core Values
-            </span>
-            <h2 className="mt-4 mb-4 text-brand-navy">Values That Guide Us</h2>
-            <p className="mt-4">The four pillars that define how we work, how we treat each other, and how we deliver impact.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {valuesData.map((item, idx) => (
-              <div key={idx} className={`group bg-white p-8 rounded-[2rem] border border-slate-100 hover:border-blue-100 hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.12)] transition-all duration-500 relative ${idx % 2 === 0 ? 'lg:translate-y-4' : 'lg:-translate-y-4'}`}>
-                <div className="w-14 h-14 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  {item.icon}
-                </div>
-                {/* Menggunakan H4 untuk judul kartu */}
-                <h4 className="mb-3 group-hover:text-brand-red transition-colors text-brand-navy">{item.title}</h4>
-                <p>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. EXECUTIVE PROFILE / LEADERSHIP TEAM (DYNAMIC & ANIMATED) */}
-      <section className="py-24 px-6 md:px-12 bg-white relative overflow-hidden border-t border-slate-100">
-        <div className="max-w-7xl mx-auto relative z-10">
-          
-          <div className="text-center mb-16">
-            <span className="text-eyebrow gradient-gold text-white px-4 py-1.5 rounded-full inline-block mb-4 shadow-sm">
-            Executive Profiles
-            </span>
-            <h2 className="text-brand-navy">Meet The Leadership Team</h2>
-            <p className="mt-4 max-w-2xl mx-auto">Driven by experienced practitioners and thought leaders passionate about transforming the future of human resources.</p>
-          </div>
-
-          {/* Kartu Profil Utama (Master Card) dengan Background Gradien Bergerak */}
-          <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50 animate-gradient-shift border border-slate-200/60 rounded-[3rem] p-8 md:p-12 shadow-[0_20px_60px_-15px_rgba(0,38,60,0.1)] transition-all duration-500 ease-in-out relative overflow-hidden">
-            
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 items-start relative z-10">
-              
-              {/* KIRI: Foto & Nama (Ada Animasi saat diganti) */}
-              <div key={`img-${activeLeaderIndex}`} className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left animate-scale-in">
-                <div className="relative w-full max-w-[280px] lg:max-w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-xl border-4 border-white mb-6">
-                  <Image 
-                    src={activeLeader.image} 
-                    alt={activeLeader.name} 
-                    fill 
-                    className="object-cover"
-                    onError={(e) => { e.target.style.display = 'none'; }} 
-                  />
-                  <div className="absolute inset-0 bg-slate-200 flex items-center justify-center -z-10">
-                    <svg className="w-20 h-20 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                  </div>
-                </div>
-                {/* Judul H3 untuk Nama */}
-                <h3 className="text-brand-navy">{activeLeader.name}</h3>
-                {/* Menggunakan text-eyebrow karena formatnya sangat cocok */}
-                <p className="text-eyebrow mt-2">{activeLeader.role}</p>
-                <div className="w-12 h-1 bg-slate-200 mt-6 rounded-full mx-auto lg:mx-0"></div>
-              </div>
-
-              {/* KANAN: Executive Summary (Animasi Fade Slide Up bertingkat) */}
-              <div key={`txt-${activeLeaderIndex}`} className="lg:col-span-8 animate-fade-slide-up">
-                <h4 className="text-[#0B2A4A] mb-6 flex items-center gap-2 justify-center lg:justify-start">
-                  <svg className="w-5 h-5 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                  Executive Summary
-                </h4>
-                
-                {/* Text Container dengan custom scrollbar */}
-                <div className="h-[340px] md:h-[380px] overflow-y-auto pr-2 md:pr-4 custom-scrollbar text-justify space-y-5">
-                  {activeLeader.summary.map((paragraph, index) => (
-                    <p 
-                      key={index} 
-                      className="animate-fade-slide-up opacity-0" 
-                      style={{ animationDelay: `${index * 0.15}s` }} // Efek muncul satu per satu
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Navigasi Lingkaran Kecil (Thumbnail Track) yang otomatis bergeser */}
-          <div className="mt-12 flex flex-col md:flex-row items-center justify-between gap-6">
-            
-            <div className="flex items-center gap-2 md:gap-4 w-full md:w-auto justify-center">
-              <button onClick={prevLeader} className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-brand-navy hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
-                <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" /></svg>
-              </button>
-
-              {/* THUMBNAIL TRACK BISA DI-SCROLL & OTOMATIS BERGESER */}
-              <div 
-                ref={thumbnailContainerRef}
-                className="flex overflow-x-auto gap-3 py-4 px-2 max-w-[260px] sm:max-w-[400px] md:max-w-2xl lg:max-w-3xl custom-scrollbar hide-scroll-mobile scroll-smooth"
-              >
-                {leadershipTeam.map((leader, index) => (
-                  <button 
-                    key={index} 
-                    onClick={() => setActiveLeaderIndex(index)} 
-                    className={`relative w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full overflow-hidden border-4 transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${index === activeLeaderIndex ? 'border-brand-red scale-110 shadow-lg' : 'border-white opacity-60 hover:opacity-100 hover:scale-105'}`}
-                    aria-label={`View profile of ${leader.name}`}
-                  >
-                    <Image src={leader.image} alt={leader.name} fill className="object-cover" onError={(e) => { e.target.style.display = 'none'; }} />
-                    <div className="absolute inset-0 bg-slate-200 flex items-center justify-center -z-10 text-xs">👤</div>
-                  </button>
-                ))}
-              </div>
-
-              <button onClick={nextLeader} className="shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-brand-navy hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
-                <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" /></svg>
-              </button>
-            </div>
-
-            <div className="text-xs md:text-sm font-bold text-slate-400 tracking-widest uppercase">
-              {activeLeaderIndex + 1} / {leadershipTeam.length}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 5. THE FHRI JOURNEY (Timeline) */}
-      <section className="bg-slate-50 py-24 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-brand-navy">Our Journey</h2>
-            <p className="mt-4">9 Years. One Mission. Endless Innovation.</p>
-          </div>
-          <div className="grid md:grid-cols-5 gap-4">
-            {journeyTimeline.map((item, idx) => (
-              <div key={idx} className="group bg-white border border-slate-200 p-6 rounded-[2rem] hover:bg-brand-navy transition-colors duration-500 flex flex-col shadow-sm">
-                <h3 className="text-4xl font-bold text-slate-200 group-hover:text-brand-red transition-colors duration-500 mb-4">{item.year}</h3>
-                <h4 className="text-brand-navy group-hover:text-white mb-2">{item.title}</h4>
-                <p className="text-sm text-slate-500 group-hover:text-slate-300 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. BEHIND THE SCENES GALLERY  */}
-      <section className="bg-brand-navy py-24 px-6 md:px-12 overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 md:mb-16 gap-6 text-center md:text-left">
-            <div className="flex flex-col items-center md:items-start">
-              <span className="text-eyebrow inline-block">Gallery</span>
-              <h2 className="mt-2 text-white">Behind The Scenes</h2>
-              <p className="mt-4 text-slate-300">Step into the vibrant world of First HR Indonesia.</p>
-            </div>
-            <div className="flex gap-3 justify-center md:justify-end">
-              <button onClick={prevGallery} className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" /></svg>
-              </button>
-              <button onClick={nextGallery} className="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all">
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" /></svg>
-              </button>
-            </div>
-          </div>
-
-          <div className="relative">
-            <div className="overflow-hidden rounded-[2rem] shadow-2xl">
-              <div 
-                className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] gap-4 md:gap-6"
-                style={{ transform: `translateX(-${gallerySlide * (100 / galleryViews)}%)` }}
-              >
-                {gallerySliderData.map((slide) => (
-                  <div key={slide.id} className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] shrink-0 aspect-[4/3] md:aspect-[16/10] relative rounded-[2rem] overflow-hidden group">
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition duration-700"
-                      onError={(e) => { e.target.style.display = 'none'; }}
-                    />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#0B2A4A] to-slate-900 flex flex-col items-center justify-center -z-10">
-                      <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-3">
-                         <svg className="w-8 h-8 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                      </div>
-                    </div>
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8">
-                      <span className="text-brand-red text-xs font-bold uppercase tracking-[0.25em] mb-2">FHRI Moment</span>
-                      <h4 className="text-white">{slide.title}</h4>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* 7. CTA FOOTER */}
-      <section className="bg-brand-red text-white py-20 px-6 md:px-12">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-white mb-6">Partner With The Best</h2>
-          <p className="text-white/90 text-lg mb-10 max-w-2xl mx-auto">Discover how First HR Indonesia can elevate your organizational capability and drive sustainable business growth.</p>
-          <Link href="/pricing" className="inline-flex items-center gap-2 bg-white text-brand-red font-bold px-10 py-4 rounded-full transition-transform hover:scale-105 shadow-xl uppercase tracking-wide text-sm">
-            Join Us
-          </Link>
-        </div>
-      </section>
-
+    <main className="bg-slate-50 font-sans overflow-hidden selection:bg-brand-red selection:text-white">
+      <CustomStyles />
+      <HeroSection />
+      <VisionMissionSection />
+      <CoreValuesSection />
+      <ExecutiveProfilesSection />
+      <JourneyTimelineSection />
+      <GallerySection />
+      <CTA />
     </main>
   );
 }

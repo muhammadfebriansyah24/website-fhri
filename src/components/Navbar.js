@@ -376,7 +376,8 @@ export default function Navbar() {
   const activeTabData = businessTabs.find((tab) => tab.id === activeTab) || businessTabs[0];
 
   return (
-    <nav className="relative bg-white text-[#00263C] shadow-md z-50">
+    /* Diubah dari relative menjadi sticky top-0 agar menempel saat di-scroll */
+    <nav className="sticky top-0 bg-white text-[#00263C] shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 relative">
         
         {/* COMPANY LOGO */}

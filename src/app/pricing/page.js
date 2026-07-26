@@ -1,5 +1,7 @@
 "use client";
+
 import React, { useState } from "react";
+import Link from "next/link"; // Import Link untuk tombol CTA
 
 export default function PricingPage() {
   const [isYearly, setIsYearly] = useState(true);
@@ -85,7 +87,6 @@ export default function PricingPage() {
               <span className={`font-semibold text-sm ${!isYearly ? "text-white" : "text-slate-400"}`}>Billed Monthly</span>
             </div>
             
-            {/* Gap label Save 20% diperkecil dengan margin (mt-5 mb-0) */}
             <p className="text-[#C92A2A] text-xs font-bold mt-5 mb-0 italic tracking-widest bg-[#C92A2A]/10 inline-block px-4 py-1.5 rounded-full border border-[#C92A2A]/20">
               SAVE 20% WITH ANNUAL BILLING
             </p>
@@ -94,23 +95,16 @@ export default function PricingPage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             
             {/* Card 1: HR Boot Camp */}
-            {/* Ditambahkan lg:mt-5 agar card sedikit turun, memastikan card tengah jadi yang paling tinggi posisinya */}
             <div className="flex flex-col w-full lg:mt-5">
-              {/* Tinggi dipatok persis di h-[380px] */}
-              <div className="bg-white text-[#00263C] rounded-[1.75rem] p-7 md:p-8 shadow-lg h-[380px] flex flex-col relative z-10">
+              <div className="bg-white text-[#00263C] rounded-[1.75rem] p-7 md:p-8 shadow-lg h-[280px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div>
                   <h3 className="text-2xl font-bold mb-3">HR Boot Camp</h3>
                   <p className="text-[13.5px] text-slate-500 leading-relaxed">Land a promotion by learning a new skill and earning a certificate</p>
                 </div>
-                {/* Flex-grow menempatkan harga persis di tengah ruang yang tersisa */}
-                <div className="flex-grow flex flex-col justify-center my-2">
+                <div className="flex-grow flex flex-col justify-center mt-2">
                   <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{isYearly ? "8,850,000" : "850,000"}</div>
                   <p className="text-[13px] font-bold text-slate-500">{isYearly ? "1 Certificate Program" : "/ per month"}</p>
                 </div>
-                {/* Mt-auto menekan tombol selalu rata di paling bawah */}
-                <button className="mt-auto w-full py-3.5 border-2 border-[#C92A2A] text-[#C92A2A] font-bold rounded-lg hover:bg-[#C92A2A] hover:text-white transition-colors duration-300 uppercase tracking-wide text-sm">
-                  Select Program
-                </button>
               </div>
               
               <div className="mt-8 space-y-4 px-4">
@@ -126,13 +120,12 @@ export default function PricingPage() {
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#C92A2A] text-white px-6 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-md whitespace-nowrap text-center z-30">
                 Best Investment
               </div>
-              {/* Tinggi dipatok h-[420px] agar lebih panjang dari card kiri & kanan */}
-              <div className="bg-white text-[#00263C] rounded-[1.75rem] p-7 md:p-8 shadow-2xl ring-4 ring-[#C92A2A] h-[420px] flex flex-col relative z-10">
+              <div className="bg-white text-[#00263C] rounded-[1.75rem] p-7 md:p-8 shadow-2xl ring-4 ring-[#C92A2A] h-[320px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-2">
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Full Academy Access</h3>
                   <p className="text-[13.5px] text-slate-500 leading-relaxed">Become a continuous learner and stay up-to-date with in-demand HR skills</p>
                 </div>
-                <div className="flex-grow flex flex-col justify-center my-2">
+                <div className="flex-grow flex flex-col justify-center mt-2">
                   {isYearly && <span className="line-through text-slate-400 text-sm block mb-1 font-medium">Rp 18,200,000</span>}
                   <div className="text-4xl font-extrabold text-[#C92A2A] mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-[#00263C]">Rp</span>{isYearly ? "14,560,000" : "1,456,000"}</div>
                   <div className="flex items-center gap-2">
@@ -140,9 +133,6 @@ export default function PricingPage() {
                     {isYearly && <span className="text-[13px] font-bold text-[#C92A2A]">• All 16 Programs</span>}
                   </div>
                 </div>
-                <button className="mt-auto w-full py-3.5 bg-[#C92A2A] text-white font-bold rounded-lg hover:bg-[#a82222] transition-colors duration-300 uppercase tracking-wide text-sm shadow-[0_4px_14px_rgba(201,42,42,0.4)]">
-                  Enroll Now
-                </button>
               </div>
               
               <div className="mt-8 space-y-4 px-4">
@@ -160,22 +150,17 @@ export default function PricingPage() {
             </div>
 
             {/* Card 3: Team License */}
-            {/* Ditambahkan lg:mt-5, persis seperti card paling kiri */}
             <div className="flex flex-col w-full lg:mt-5">
-              {/* Tinggi dipatok persis di h-[380px] */}
-              <div className="bg-white text-[#00263C] rounded-[1.75rem] p-7 md:p-8 shadow-lg h-[380px] flex flex-col relative z-10">
+              <div className="bg-white text-[#00263C] rounded-[1.75rem] p-7 md:p-8 shadow-lg h-[280px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Team License</h3>
                   <p className="text-[13.5px] text-slate-500 leading-relaxed">Empower teams of 2+ with world-class HR skills and assessments</p>
                 </div>
-                <div className="flex-grow flex flex-col justify-center my-2">
+                <div className="flex-grow flex flex-col justify-center mt-2">
                   <div className="text-sm text-slate-400 mb-1 font-medium">Starting from</div>
                   <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>23,690,000</div>
                   <p className="text-[13px] font-bold text-slate-500">All 16 Certificate Programs</p>
                 </div>
-                <button className="mt-auto w-full py-3.5 border-2 border-[#C92A2A] text-[#C92A2A] font-bold rounded-lg hover:bg-[#C92A2A] hover:text-white transition-colors duration-300 uppercase tracking-wide text-sm">
-                  Learn More
-                </button>
               </div>
               
               <div className="mt-8 space-y-4 px-4">
@@ -208,7 +193,8 @@ export default function PricingPage() {
       {/* ========================================== */}
       {/* SECTION 2: COMPARE PLANS                   */}
       {/* ========================================== */}
-      <section id="compare" className="py-24 md:py-32 bg-white text-[#00263C] px-6 md:px-12 relative">
+      {/* PB diperbesar agar ada ruang sebelum Floating CTA */}
+      <section id="compare" className="py-24 md:py-32 bg-white text-[#00263C] px-6 md:px-12 relative pb-40">
         <div className="max-w-6xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -303,58 +289,28 @@ export default function PricingPage() {
       </section>
 
       {/* ========================================== */}
-      {/* SECTION 3: CALL TO ACTION (CTA)            */}
+      {/* SECTION 3: INLINE CTA KHUSUS UNTUK PRICING */}
       {/* ========================================== */}
-      <section className="relative bg-[#00263C] py-24 md:py-32 px-6 md:px-12 overflow-hidden text-center flex flex-col items-center justify-center">
-
-        {/* --- Background Decorative Elements --- */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 left-[15%] w-32 h-32 rounded-full bg-white/[0.03]"></div>
-          <div className="absolute bottom-10 left-[30%] w-16 h-16 rounded-full border border-white/10"></div>
-          <div className="absolute top-20 right-[15%] w-48 h-48 rounded-full bg-white/[0.02]"></div>
-          <div className="absolute bottom-16 right-[10%] w-24 h-24 rounded-full border border-white/5"></div>
-        </div>
-
-        {/* Scattered Profile Pictures (Avatars) */}
-        <img 
-          src="https://i.pravatar.cc/150?img=11" 
-          alt="Student Avatar" 
-          className="absolute top-10 left-[10%] w-20 h-20 rounded-full border-4 border-[#00263C] shadow-lg hidden md:block opacity-80" 
-        />
-        <img 
-          src="https://i.pravatar.cc/150?img=5" 
-          alt="Student Avatar" 
-          className="absolute bottom-[20%] left-[15%] w-24 h-24 rounded-full border-4 border-[#00263C] shadow-lg opacity-80" 
-        />
-        {/* Border merah dihapus, diganti menjadi biru navy agar konsisten */}
-        <img 
-          src="https://i.pravatar.cc/150?img=12" 
-          alt="Student Avatar" 
-          className="absolute top-[15%] right-[10%] w-20 h-20 rounded-full border-4 border-[#00263C] shadow-lg hidden md:block opacity-80" 
-        />
-        <img 
-          src="https://i.pravatar.cc/150?img=33" 
-          alt="Student Avatar" 
-          className="absolute bottom-[15%] right-[15%] w-20 h-20 rounded-full border-4 border-[#00263C] shadow-lg opacity-80" 
-        />
-
-        {/* --- Main Content --- */}
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-            Are you ready to transform your career?
-          </h2>
-          <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
-            Enroll and start developing in-demand HR skills today!
-          </p>
+      {/* Menggunakan background WHITE agar card floating terlihat tegas sebelum masuk ke footer yang gelap */}
+      <section className="bg-white relative py-12 md:py-24 px-6 md:px-12 -mt-16 z-20">
+        <div className="max-w-6xl mx-auto bg-gradient-to-br from-[#00263C] to-[#0B2A4A] rounded-[2.5rem] md:rounded-[3rem] text-white py-16 md:py-20 px-6 md:px-12 relative overflow-hidden shadow-2xl border border-slate-800">
           
-          <button
-            onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}
-            className="relative z-20 bg-[#C92A2A] hover:bg-[#a82222] text-white font-bold px-8 py-4 rounded-lg shadow-[0_4px_20px_rgba(201,42,42,0.4)] hover:shadow-[0_6px_25px_rgba(201,42,42,0.6)] hover:-translate-y-1 transition-all duration-300 uppercase tracking-wide text-sm"
-          >
-            Enroll Now
-          </button>
+          {/* Decorative Elements */}
+          <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
+          <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#C92A2A]/30 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="max-w-3xl mx-auto text-center relative z-10">
+            <span className="text-eyebrow text-[#C92A2A] inline-block mb-4">Start Your Journey</span>
+            <h2 className="text-white mb-6 text-3xl md:text-5xl font-bold font-sans">Ready to Transform Your Career?</h2>
+            <p className="text-slate-300 text-lg md:text-xl mb-10 leading-relaxed">
+              Don't wait to build the HR skills of tomorrow. Connect with our team to choose the right plan and begin your professional development.
+            </p>
+            <Link href="/join-us" className="inline-flex items-center justify-center bg-[#C92A2A] text-white font-bold px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:bg-[#a82222] shadow-[0_10px_25px_rgba(201,42,42,0.4)] uppercase tracking-widest text-sm font-sans">
+              Join Us
+            </Link>
+          </div>
         </div>
-        
       </section>
       
     </main>
@@ -370,7 +326,7 @@ function FeatureItem({ text, active = false }) {
           <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
         </svg>
       </div>
-      <span className={`text-[13.5px] leading-relaxed ${active ? 'text-white' : 'text-slate-300'}`}>{text}</span>
+      <span className={`text-[13.5px] leading-relaxed ${active ? 'text-[#C92A2A] font-bold' : 'text-slate-300'}`}>{text}</span>
     </div>
   );
 }
