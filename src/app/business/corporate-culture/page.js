@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import CTA from '@/components/CTA';
 
 // ============================================================
 // SHARED UI PRIMITIVES (consistent with Institutional Editorial theme)
@@ -59,23 +60,6 @@ export default function CorporateCultureEvents() {
           <p className="mt-7 text-base md:text-lg text-slate-200 leading-relaxed max-w-xl font-medium">
             From professional ethics workshops to corporate events and outbound training, we help organizations turn culture into a measurable advantage — not just a set of values on a wall.
           </p>
-          <div className="mt-9">
-            <button
-              type="button"
-              className="group inline-flex items-center gap-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#DC2626]/30"
-            >
-              Consult Our Experts
-              <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
         </div>
 
         <div className="hidden md:flex absolute bottom-8 right-8 md:right-12 items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-300 z-10">
@@ -293,6 +277,9 @@ export default function CorporateCultureEvents() {
           </div>
         </div>
       </section>
+
+      {/* SECTION 4 — CALL TO ACTION */}
+      <CTA />
 
     </main>
   );

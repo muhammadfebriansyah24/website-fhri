@@ -83,7 +83,7 @@ export default function Testimonial() {
         <div className="w-full md:w-1/2 relative flex flex-col justify-center">
           
           {/* Ikon Kutip Tunggal sebagai Aksen Dekoratif (di belakang teks, tidak tumpang tindih) */}
-          <svg className="absolute -top-8 -left-2 w-16 h-16 text-brand-red opacity-10 pointer-events-none select-none" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg className="absolute -top-8 -left-2 w-16 h-16 text-[#B91C1C] pointer-events-none select-none" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 15c0 2-1 4-2 6zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L19 15c0 2-1 4-2 6z"/>
           </svg>
           
