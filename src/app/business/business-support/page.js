@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import CTA from '@/components/CTA';
 
 // ============================================================
 // DATA & CONSTANTS (Di luar agar performa render optimal)
@@ -83,25 +84,6 @@ export default function BusinessSupportPage() {
           <p className="mt-8 text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
             Navigating local regulations and cultural integration to ensure your company thrives from day one. Expert guidance for seamless market entry in Indonesia.
           </p>
-          
-          {/* Button Consult Our Experts */}
-          <div className="mt-9">
-            <button
-              type="button"
-              className="group inline-flex items-center gap-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#DC2626]/30"
-            >
-              Consult Our Experts
-              <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
         </div>
       </section>
 
@@ -207,6 +189,11 @@ export default function BusinessSupportPage() {
           </div>
         </div>
       </section>
+
+      {/* ============================================================
+          SECTION 5 — CALL TO ACTION
+          ============================================================ */}
+      <CTA />
 
     </main>
   );

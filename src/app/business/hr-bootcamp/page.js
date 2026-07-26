@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Head from 'next/head';
+import CTA from '@/components/CTA';
 
 export default function HRBootcampPage() {
   return (
@@ -31,24 +32,6 @@ export default function HRBootcampPage() {
             <p className="text-gray-300 text-[1rem] leading-relaxed max-w-[90%]">
               Transform your career trajectory through our rigorous, result-oriented programs. Designed for forward-thinking professionals ready to master strategic HR methodologies and drive quantifiable business impact.
             </p>
-            
-            <div className="mt-9">
-            <button
-              type="button"
-              className="group inline-flex items-center gap-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#DC2626]/30"
-            >
-              Consult Our Experts
-              <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
         </div>
 
           <div className="relative w-full aspect-[4/3] flex items-center justify-center z-10">
@@ -209,6 +192,9 @@ export default function HRBootcampPage() {
             </div>
           </div>
         </section>
+
+        {/* SECTION 5: CALL TO ACTION */}
+        <CTA />
 
       </main>
     </div>

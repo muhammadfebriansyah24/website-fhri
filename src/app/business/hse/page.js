@@ -1,6 +1,7 @@
 'use client'; 
 
 import React from 'react';
+import CTA from '@/components/CTA';
 
 export default function HsePage() {
   return (
@@ -52,25 +53,6 @@ export default function HsePage() {
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl font-light">
               Comprehensive HSE solutions from incident investigation to environmental compliance. We ensure your business operations run safely, orderly, and sustainably.
             </p>
-
-            {/* CTA Button */}
-            <div className="mt-9">
-            <button
-              type="button"
-              className="group inline-flex items-center gap-2.5 bg-[#DC2626] hover:bg-[#B91C1C] text-white font-bold text-xs md:text-sm uppercase tracking-widest px-7 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-[#DC2626]/30"
-            >
-              Consult Our Experts
-              <svg
-                className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-              >
-                <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
 
             {/* Quick Highlights */}
             <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-white/20 pt-10">
@@ -438,6 +420,11 @@ export default function HsePage() {
           </div>
         </div>
       </section>
+
+      {/* =========================================
+          SECTION 6: CALL TO ACTION
+          ========================================= */}
+      <CTA />
 
     </main>
   );
