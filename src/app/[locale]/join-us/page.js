@@ -1,8 +1,13 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useLocale } from 'next-intl';
+import { getJoinData } from '@/components/joinData';
 
 export default function JoinUsPage() {
+  const locale = useLocale();
+  const data = getJoinData(locale);
+
   // Nomor WhatsApp tujuan (gunakan format 628...)
   const ADMIN_WA_NUMBER = "628995722437"; 
 
@@ -12,7 +17,7 @@ export default function JoinUsPage() {
     phone: '',
     company: '',
     email: '',
-    service: 'Business Support Services', // Nilai default sesuai opsi pertama
+    service: data.services[0], // Nilai default sesuai opsi pertama
   });
 
   // State untuk menampilkan notifikasi sukses
@@ -35,7 +40,9 @@ export default function JoinUsPage() {
     setShowSuccess(true);
 
     // Rangkai pesan WhatsApp
-    const message = `Hello First HR Indonesia,%0A%0AI would like to inquire about a business consultation. Here are my details:%0A%0A*Full Name:* ${formData.fullName}%0A*Phone Number:* ${formData.phone}%0A*Company:* ${formData.company}%0A*Email:* ${formData.email}%0A*Inquired Service:* ${formData.service}%0A%0AI would like to consult regarding this matter. Thank you.`;
+    const message = locale === 'id' 
+      ? `Halo First HR Indonesia,%0A%0ASaya ingin berkonsultasi mengenai kebutuhan bisnis. Berikut detail saya:%0A%0A*Nama Lengkap:* ${formData.fullName}%0A*Nomor Telepon:* ${formData.phone}%0A*Perusahaan:* ${formData.company}%0A*Email:* ${formData.email}%0A*Layanan yang Diminati:* ${formData.service}%0A%0ASaya ingin berkonsultasi terkait hal ini. Terima kasih.`
+      : `Hello First HR Indonesia,%0A%0AI would like to inquire about a business consultation. Here are my details:%0A%0A*Full Name:* ${formData.fullName}%0A*Phone Number:* ${formData.phone}%0A*Company:* ${formData.company}%0A*Email:* ${formData.email}%0A*Inquired Service:* ${formData.service}%0A%0AI would like to consult regarding this matter. Thank you.`;
 
     // Beri jeda sedikit (1.2 detik) agar user sempat melihat notifikasi sukses sebelum tab WA terbuka
     setTimeout(() => {
@@ -55,12 +62,12 @@ export default function JoinUsPage() {
         {/* Left Section: Text Content */}
         <div className="flex flex-col text-left">
           <h1 className="text-4xl md:text-[2.75rem] font-bold text-white leading-[1.2] mb-6">
-            Consult Your <br />
-            Business Needs <br />
-            With <span className="text-[#DC2626]">First HR Indonesia</span>
+            {data.hero.title1} <br />
+            {data.hero.title2} <br />
+            {locale === 'id' ? 'Bersama' : 'With'} <span className="text-[#DC2626]">First HR Indonesia</span>
           </h1>
           <p className="text-[#8B9CAE] text-sm md:text-base leading-relaxed max-w-md">
-            Get strategic solutions for your HR challenges. We are here as a trusted partner to accelerate business growth through superior and measurable human capital management.
+            {data.hero.description}
           </p>
         </div>
 
@@ -76,20 +83,20 @@ export default function JoinUsPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Inquiry Sent Successfully!</h3>
-                <p className="text-slate-600 text-sm">Redirecting you to our WhatsApp admin...</p>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">{data.form.successTitle}</h3>
+                <p className="text-slate-600 text-sm">{data.form.successDesc}</p>
               </div>
             )}
 
             <h2 className="text-[22px] font-bold text-[#1E293B] mb-6">
-              Business Consultation
+              {data.form.cardTitle}
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Full Name Field */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="fullName" className="text-[11px] font-bold text-slate-700">
-                  Full Name
+                  {data.form.nameLabel}
                 </label>
                 <input
                   type="text"
@@ -97,7 +104,7 @@ export default function JoinUsPage() {
                   required
                   value={formData.fullName}
                   onChange={handleChange}
-                  placeholder="Enter your name"
+                  placeholder={data.form.namePlaceholder}
                   className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400 text-slate-800"
                 />
               </div>
@@ -105,7 +112,7 @@ export default function JoinUsPage() {
               {/* Phone Number Field */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="phone" className="text-[11px] font-bold text-slate-700">
-                  Phone Number
+                  {data.form.phoneLabel}
                 </label>
                 <input
                   type="tel"
@@ -121,7 +128,7 @@ export default function JoinUsPage() {
               {/* Company Name Field */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="company" className="text-[11px] font-bold text-slate-700">
-                  Company Name
+                  {data.form.companyLabel}
                 </label>
                 <input
                   type="text"
@@ -129,7 +136,7 @@ export default function JoinUsPage() {
                   required
                   value={formData.company}
                   onChange={handleChange}
-                  placeholder="Your Company"
+                  placeholder={data.form.companyPlaceholder}
                   className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors placeholder:text-slate-400 text-slate-800"
                 />
               </div>
@@ -137,7 +144,7 @@ export default function JoinUsPage() {
               {/* Email Field */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="email" className="text-[11px] font-bold text-slate-700">
-                  Email
+                  {data.form.emailLabel}
                 </label>
                 <input
                   type="email"
@@ -153,24 +160,18 @@ export default function JoinUsPage() {
               {/* Inquired Service Field */}
               <div className="flex flex-col gap-1.5">
                 <label htmlFor="service" className="text-[11px] font-bold text-slate-700">
-                  Inquired Service
+                  {data.form.serviceLabel}
                 </label>
                 <div className="relative">
                   <select
                     id="service"
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm appearance-none bg-white focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors text-slate-800"
+                    className="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-sm appearance-none bg-white focus:outline-none focus:border-[#081828] focus:ring-1 focus:ring-[#081828] transition-colors text-slate-800 cursor-pointer"
                   >
-                    <option value="Business Support Services">Business Support Services</option>
-                    <option value="Human Capital Solutions">Human Capital Solutions</option>
-                    <option value="Payroll & Outsourcing">Payroll & Outsourcing</option>
-                    <option value="Assessment Tools">Assessment Tools</option>
-                    <option value="HR Boot Camp">HR Boot Camp</option>
-                    <option value="Industrial Relations & Legal Advisory">Industrial Relations & Legal Advisory</option>
-                    <option value="Health, Safety, and Environment">Health, Safety, and Environment</option>
-                    <option value="Corporate Culture & Events">Corporate Culture & Events</option>
-                    <option value="Professional Certification Institute">Professional Certification Institute</option>
+                    {data.services.map((srv, idx) => (
+                      <option key={idx} value={srv}>{srv}</option>
+                    ))}
                   </select>
                   {/* Custom Dropdown Arrow */}
                   <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
@@ -187,7 +188,7 @@ export default function JoinUsPage() {
                   type="submit"
                   className="w-full bg-[#B91C1C] hover:bg-[#991B1B] text-white font-bold text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-md cursor-pointer"
                 >
-                  Send Inquiry
+                  {data.form.submitBtn}
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
                   </svg>

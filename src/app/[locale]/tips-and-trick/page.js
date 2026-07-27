@@ -1,130 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import CTA from '@/components/CTA'; // <-- Import komponen CTA ditambahkan di sini
-
-// DATA
-
-const CATEGORIES = [
-  {
-    key: 'recruitment',
-    label: 'Recruitment & Hiring',
-    intro: 'How the best teams find, evaluate, and close talent before anyone else does.',
-    accent: '#DC2626',
-    img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop',
-    tips: [
-      {
-        title: 'Write Job Descriptions That Attract, Not Just List',
-        teaser: 'Most job posts read like a legal document. Yours should read like an invitation.',
-        body: 'Lead with what the person will actually do and achieve in the role, not a wall of requirements. Replace generic phrases like "team player" with concrete outcomes — "you\'ll own onboarding for 50+ new hires per quarter." Candidates skim in seconds; give them a reason to stop.',
-        takeaway: 'Cut your requirements list by a third and replace it with outcomes.',
-      },
-      {
-        title: 'Use Structured Interviews to Reduce Bias',
-        teaser: 'Unstructured "gut feel" interviews are where most bias quietly enters your process.',
-        body: 'Define the same core questions and scoring rubric for every candidate in a given role. This doesn\'t remove nuance — interviewers can still probe — but it anchors the final decision to comparable evidence instead of who happened to have better small talk.',
-        takeaway: 'Build one scorecard per role and use it for every candidate, every time.',
-      },
-      {
-        title: 'Speed Wins: Shorten Your Time-to-Hire',
-        teaser: 'Your best candidates are rarely on the market for more than two weeks.',
-        body: 'Map your current hiring timeline stage by stage and find the longest gap — usually it\'s scheduling or internal sign-off, not the interviews themselves. Fixing that one bottleneck often does more for offer-acceptance rates than any amount of employer branding.',
-        takeaway: 'Find your single longest delay and fix that one thing first.',
-      },
-      {
-        title: 'Sell the Role, Not Just the Company',
-        teaser: 'Candidates already researched your company. What they need from you is the role.',
-        body: 'By the interview stage, most candidates have read your website, Glassdoor, and LinkedIn. Spend interview time on what they can\'t find online: what a typical week looks like, who they\'ll work with, and what success looks like at 90 days.',
-        takeaway: 'Reserve 10 minutes in every interview purely for role clarity, not company pitch.',
-      },
-      {
-        title: 'Check References Beyond the Checklist',
-        teaser: 'A reference call that only confirms dates and titles is a wasted call.',
-        body: 'Ask references open questions like "what would you want their next manager to know?" This surfaces working style and blind spots that formal HR-verified references never will — and it takes the same 15 minutes.',
-        takeaway: 'Ask one open-ended question every reference call, no exceptions.',
-      },
-    ],
-  },
-  {
-    key: 'culture',
-    label: 'Culture & Leadership',
-    intro: 'Small, consistent habits that shape how people actually feel at work every day.',
-    accent: '#DC2626',
-    img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop',
-    tips: [
-      {
-        title: 'Model the Behavior You Want to See',
-        teaser: 'Culture isn\'t what\'s on the wall. It\'s what leadership does when no one\'s watching.',
-        body: 'If you want punctuality, be early. If you want candor, invite disagreement in the room, not just in surveys. Employees calibrate their behavior against leadership\'s actual actions within weeks — policy documents rarely move the needle on their own.',
-        takeaway: 'Pick one value and audit your own last 5 decisions against it.',
-      },
-      {
-        title: 'Turn Feedback Into a Weekly Habit',
-        teaser: 'Annual reviews are too late to fix anything that actually matters.',
-        body: 'Short, frequent feedback — even five minutes weekly — compounds faster than a once-a-year formal review ever could. It also removes the anxiety around feedback, because it stops being a rare, high-stakes event.',
-        takeaway: 'Block 15 minutes weekly per direct report for informal feedback.',
-      },
-      {
-        title: 'Recognize Small Wins Publicly',
-        teaser: 'Most recognition programs only celebrate the big, rare wins.',
-        body: 'Public recognition doesn\'t need a formal award ceremony. A specific, timely mention in a team channel — naming exactly what someone did and why it mattered — reinforces the behavior far more effectively than a generic "great job."',
-        takeaway: 'Be specific: name the action, not just the person.',
-      },
-      {
-        title: 'Protect Focus Time Across Teams',
-        teaser: 'Meeting culture is often the quiet killer of deep, high-value work.',
-        body: 'Set organization-wide "no meeting" blocks — even two hours a day — and hold the line on them. The productivity gain isn\'t just from the hours saved; it\'s from employees no longer fragmenting their day around interruptions.',
-        takeaway: 'Protect one two-hour block daily as a company-wide no-meeting zone.',
-      },
-      {
-        title: 'Make Onboarding a 90-Day Journey, Not a Day',
-        teaser: 'Most onboarding ends after week one. Most disengagement starts after week two.',
-        body: 'Extend structured onboarding checkpoints to 30, 60, and 90 days, with a short check-in at each. This is when new hires actually form their opinion of your culture — not on day one, when everyone is on their best behavior.',
-        takeaway: 'Schedule 30/60/90-day check-ins for every new hire before their start date.',
-      },
-    ],
-  },
-  {
-    key: 'events',
-    label: 'Events & Team Building',
-    intro: 'What separates a memorable corporate event from one everyone forgets by Monday.',
-    accent: '#DC2626',
-    img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop',
-    tips: [
-      {
-        title: 'Plan Your Run-of-Show Down to the Minute',
-        teaser: 'The events that feel effortless are almost always the most rigorously scripted.',
-        body: 'Build a minute-by-minute run-of-show and share it with every vendor, speaker, and internal stakeholder in advance. Ambiguity — not lack of budget — is the most common cause of visible chaos on event day.',
-        takeaway: 'Share your run-of-show with all stakeholders at least 48 hours before the event.',
-      },
-      {
-        title: 'Choose a Theme That Reinforces Your Message',
-        teaser: 'A theme should say something, not just look nice on a banner.',
-        body: 'Tie your event theme directly to a company priority — a strategy shift, a value, a milestone. When the theme reinforces the message leadership is already communicating, attendees retain it far longer than a generic "celebration" concept.',
-        takeaway: 'Ask: what one message should people remember a week later?',
-      },
-      {
-        title: 'Debrief Every Outbound Activity, Don\'t Skip It',
-        teaser: 'The activity builds the experience. The debrief builds the learning.',
-        body: 'Without a structured debrief connecting the activity back to real workplace behavior, outbound training risks becoming "just a fun day out." A 10-minute facilitated discussion after each activity is where the actual behavior change gets anchored.',
-        takeaway: 'Never end an activity without a facilitated 10-minute debrief.',
-      },
-      {
-        title: 'Budget 15% Extra for the Unexpected',
-        teaser: 'Weather, vendor changes, and last-minute headcount shifts are the norm, not the exception.',
-        body: 'A contingency buffer isn\'t pessimism — it\'s what lets you make fast decisions under pressure without a finance escalation mid-event. Events without a buffer tend to compromise on the wrong things when something inevitably shifts.',
-        takeaway: 'Build a 15% contingency line into every event budget from the start.',
-      },
-      {
-        title: 'Collect Feedback While the Energy Is Still High',
-        teaser: 'Post-event surveys sent a week later capture memory, not experience.',
-        body: 'A short 3-question feedback form sent within an hour of the event ending captures far more honest, useful signal than a formal survey days later — and response rates are typically much higher too.',
-        takeaway: 'Send a 3-question feedback form within 1 hour of the event ending.',
-      },
-    ],
-  },
-];
-
+import { useLocale } from 'next-intl';
+import { getTipsData } from '@/components/tipsData';
+import CTA from '@/components/CTA';
 
 function TipRow({ tip, accent, index, isOpen, onToggle }) {
   return (
@@ -140,7 +19,6 @@ function TipRow({ tip, accent, index, isOpen, onToggle }) {
           {String(index + 1).padStart(2, '0')}
         </span>
         <div className="flex-1">
-          {/* H4 langsung memanggil aturan tipografi dasar */}
           <h4 className="transition-colors duration-500">
             {tip.title}
           </h4>
@@ -161,7 +39,6 @@ function TipRow({ tip, accent, index, isOpen, onToggle }) {
       <div className={`grid transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
         <div className="overflow-hidden">
           <div className="pl-[2.25rem] md:pl-[3.25rem] pb-7 pr-4 max-w-2xl">
-            {/* Paragraf otomatis bersih */}
             <p>{tip.body}</p>
             <p className="text-takeaway mt-4" style={{ color: accent }}>
               {tip.takeaway}
@@ -173,14 +50,10 @@ function TipRow({ tip, accent, index, isOpen, onToggle }) {
   );
 }
 
-
-// CATEGORY BLOCK — large image + editorial heading + tip rows
-
 function CategoryBlock({ cat, idx, openKey, toggle }) {
   const reverse = idx % 2 === 1;
   return (
     <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 md:gap-16 items-start`}>
-      {/* Large editorial image with hover scale */}
       <div className="w-full md:w-2/5 md:sticky md:top-24">
         <div className="relative rounded-2xl overflow-hidden aspect-[4/5] group">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -193,9 +66,7 @@ function CategoryBlock({ cat, idx, openKey, toggle }) {
         </div>
       </div>
 
-      {/* Text + tip rows */}
       <div className="w-full md:w-3/5">
-  
         <h3 style={{ color: cat.accent }}>
           {String(idx + 1).padStart(2, '0')}. {cat.label}
         </h3>
@@ -224,18 +95,18 @@ function CategoryBlock({ cat, idx, openKey, toggle }) {
   );
 }
 
-
-// MAIN PAGE
-
 export default function TipsAndTricks() {
-  const [openKey, setOpenKey] = useState('recruitment-0');
+  const locale = useLocale();
+  const data = getTipsData(locale);
+  const categories = data.categories;
 
+  const [openKey, setOpenKey] = useState('recruitment-0');
   const toggle = (key) => setOpenKey((prev) => (prev === key ? null : key));
 
   return (
     <main className="min-h-screen bg-white text-brand-navy">
 
-      {/* HERO  */}
+      {/* HERO */}
       <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
@@ -247,17 +118,16 @@ export default function TipsAndTricks() {
         </div>
 
         <div className="max-w-3xl mx-auto text-center relative z-10 px-6 md:px-12">
-            <span className="text-eyebrow-lg text-brand-red">Tips &amp; Tricks</span>
-            {/* Hanya menyisakan text-white dan margin karena H1 sudah diatur terpusat */}
+            <span className="text-eyebrow-lg text-brand-red">{data.hero.eyebrow}</span>
             <h1 className="mt-5 md:mt-6 text-white text-balance">
-                Practical insights from{' '} 
+                {data.hero.title1}{' '}
                 <br className="hidden md:block" />
                 <span className="text-brand-red">First HR Indonesia</span>
                 <br className="hidden md:block" />
-                consultants
+                {data.hero.subtitle}
             </h1>
             <p className="mt-8 md:mt-10 text-slate-300 max-w-xl mx-auto">
-            Real strategies drawn from our Executive Search, Professional Work Ethic, and Corporate Event engagements — the same expertise we bring to every client.
+              {data.hero.description}
             </p>
         </div>
 
@@ -267,10 +137,10 @@ export default function TipsAndTricks() {
         </div>
       </section>
 
-      {/*CATEGORY BLOCKS */}
+      {/* CATEGORY BLOCKS */}
       <section className="px-6 md:px-12">
         <div className="max-w-6xl mx-auto flex flex-col divide-y divide-slate-100">
-          {CATEGORIES.map((cat, idx) => (
+          {categories.map((cat, idx) => (
             <div key={cat.key} className="py-20 md:py-28">
               <CategoryBlock cat={cat} idx={idx} openKey={openKey} toggle={toggle} />
             </div>
