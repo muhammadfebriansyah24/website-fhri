@@ -99,9 +99,19 @@ export default function HsePage() {
             {/* Pillar 1: Risk Assessment & Incident */}
             <article className="group rounded-[1.75rem] bg-slate-50 p-7 md:p-9 ring-1 ring-slate-100 transition-all hover:shadow-[0_30px_60px_-20px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 flex flex-col h-full">
               <div className="w-12 h-12 bg-[#00263C] rounded-xl flex items-center justify-center mb-6 shrink-0 transition-colors duration-300 group-hover:bg-[#C92A2A]">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
+                <div 
+                  className="w-5 h-5 bg-white shrink-0"
+                  style={{
+                    WebkitMaskImage: `url('/ic_check-shield-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/ic_check-shield-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <h3 className="font-bold text-[#00263C] text-lg leading-snug mb-3 group-hover:text-[#C92A2A] transition-colors duration-300">
                 Risk Assessment & Investigation
@@ -114,9 +124,19 @@ export default function HsePage() {
             {/* Pillar 2: Policy & Management Systems */}
             <article className="group rounded-[1.75rem] bg-slate-50 p-7 md:p-9 ring-1 ring-slate-100 transition-all hover:shadow-[0_30px_60px_-20px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 flex flex-col h-full">
               <div className="w-12 h-12 bg-[#00263C] rounded-xl flex items-center justify-center mb-6 shrink-0 transition-colors duration-300 group-hover:bg-[#C92A2A]">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                </svg>
+                <div 
+                  className="w-5 h-5 bg-white shrink-0"
+                  style={{
+                    WebkitMaskImage: `url('/ic_document-check-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/ic_document-check-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <h3 className="font-bold text-[#00263C] text-lg leading-snug mb-3 group-hover:text-[#C92A2A] transition-colors duration-300">
                 Policy & Management Systems
@@ -129,9 +149,19 @@ export default function HsePage() {
             {/* Pillar 3: Environmental Compliance */}
             <article className="group rounded-[1.75rem] bg-slate-50 p-7 md:p-9 ring-1 ring-slate-100 transition-all hover:shadow-[0_30px_60px_-20px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 flex flex-col h-full">
               <div className="w-12 h-12 bg-[#00263C] rounded-xl flex items-center justify-center mb-6 shrink-0 transition-colors duration-300 group-hover:bg-[#C92A2A]">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
+                <div 
+                  className="w-5 h-5 bg-white shrink-0"
+                  style={{
+                    WebkitMaskImage: `url('/ic_globe-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/ic_globe-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <h3 className="font-bold text-[#00263C] text-lg leading-snug mb-3 group-hover:text-[#C92A2A] transition-colors duration-300">
                 Environmental Compliance
@@ -146,7 +176,7 @@ export default function HsePage() {
       </section>
 
       {/* =========================================
-          SECTION 3: CLEAN & SAFE ENVIRONMENT INITIATIVE 
+          SECTION 3: OUR EXTRA INITIATIVES
           ========================================= */}
       <section className="bg-white pb-24 md:pb-32 px-6 md:px-12 relative overflow-hidden">
         <div className="max-w-6xl mx-auto">
@@ -167,9 +197,19 @@ export default function HsePage() {
               <div className="space-y-6">
                 {/* Point 1: 5S Culture */}
                 <div className="flex gap-4">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#00263C] flex items-center justify-center mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M20 6L9 17l-5-5"></path></svg>
-                  </span>
+                  <div 
+                    className="w-6 h-6 bg-[#00263C] shrink-0 mt-0.5"
+                    style={{
+                      WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_check-circle-solid.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                   <div>
                     <h4 className="font-bold text-[#00263C] text-[15px] mb-1">5S Culture Implementation</h4>
                     <p className="text-[13px] text-slate-500 leading-relaxed">
@@ -180,9 +220,19 @@ export default function HsePage() {
                 
                 {/* Point 2: Proactive Prevention */}
                 <div className="flex gap-4">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#C92A2A] flex items-center justify-center mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M20 6L9 17l-5-5"></path></svg>
-                  </span>
+                  <div 
+                    className="w-6 h-6 bg-[#C92A2A] shrink-0 mt-0.5"
+                    style={{
+                      WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_check-circle-solid.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                   <div>
                     <h4 className="font-bold text-[#00263C] text-[15px] mb-1">Proactive Hazard Prevention</h4>
                     <p className="text-[13px] text-slate-500 leading-relaxed">
@@ -335,7 +385,19 @@ export default function HsePage() {
                 </div>
                 
                 <div className="absolute left-0 lg:left-1/2 -translate-x-0 lg:-translate-x-1/2 w-14 h-14 bg-[#00263C] border-4 border-[#00263C] group-hover:bg-[#C92A2A] group-hover:border-[#C92A2A] rounded-full flex items-center justify-center shadow-lg transition-colors duration-300 z-10">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path></svg>
+                  <div 
+                    className="w-6 h-6 bg-white shrink-0"
+                    style={{
+                      WebkitMaskImage: `url('/ic_check.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_check.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                 </div>
                 
                 <div className="pl-20 lg:pl-0 lg:w-[45%] lg:text-right lg:hidden">

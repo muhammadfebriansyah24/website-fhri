@@ -201,11 +201,19 @@ export default function LSPPage() {
                   <div className="space-y-4 mb-8">
                     {item.features.map((feat, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <div className="w-6 h-6 rounded-full bg-red-50 text-[#DC0017] flex items-center justify-center shrink-0 mt-0.5">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"></path>
-                          </svg>
-                        </div>
+                        <div 
+                          className="w-6 h-6 bg-[#DC0017] shrink-0 mt-0.5"
+                          style={{
+                            WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                            WebkitMaskSize: 'contain',
+                            WebkitMaskRepeat: 'no-repeat',
+                            WebkitMaskPosition: 'center',
+                            maskImage: `url('/ic_check-circle-solid.svg')`,
+                            maskSize: 'contain',
+                            maskRepeat: 'no-repeat',
+                            maskPosition: 'center',
+                          }}
+                        />
                         <span className="text-sm md:text-base text-gray-700 font-medium">
                           {feat}
                         </span>

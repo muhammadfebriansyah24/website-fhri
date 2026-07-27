@@ -16,22 +16,6 @@ function ModernEyebrow({ children }) {
   );
 }
 
-function PremiumCTAButton({ href, children }) {
-  return (
-    <Link
-      href={href}
-      className="group inline-flex items-center gap-4 bg-[#00263C] text-white pl-7 pr-3 py-3 rounded-full font-bold text-sm transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-[#DC2626] active:scale-[0.97] shadow-[0_20px_48px_-12px_rgba(0,38,60,0.15)] hover:shadow-[0_20px_48px_-12px_rgba(220,38,38,0.3)]"
-    >
-      {children}
-      <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1 group-hover:-translate-y-[1px]">
-        <svg className="w-4.5 h-4.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </span>
-    </Link>
-  );
-}
-
 // ============================================================
 // MAIN PAGE
 // ============================================================
@@ -61,15 +45,7 @@ export default function CorporateCultureEvents() {
             From professional ethics workshops to corporate events and outbound training, we help organizations turn culture into a measurable advantage — not just a set of values on a wall.
           </p>
         </div>
-
-        <div className="hidden md:flex absolute bottom-8 right-8 md:right-12 items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-300 z-10">
-          Scroll Down
-          <span className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center animate-bounce">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M12 5v14M6 13l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
-        </div>
+        
       </section>
 
       {/* SECTION 2 — CORE SERVICES */}

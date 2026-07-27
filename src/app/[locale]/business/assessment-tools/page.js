@@ -88,13 +88,28 @@ export default function AssessmentToolsPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6 bg-white p-4 rounded-xl shadow-xl border border-gray-100 flex items-center gap-4 z-10">
-                     <div className="w-12 h-12 bg-[#00263C]/5 rounded-full flex items-center justify-center shrink-0">
-                       <svg className="w-6 h-6 text-[#C92A2A]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                     </div>
-                     <div>
-                       <h4 className="text-sm font-extrabold text-[#00263C] mb-0.5">Leadership Potential</h4>
-                       <p className="text-xs text-slate-500 font-medium">Candidate achieved a 92% score on execution strategy.</p>
-                     </div>
+                      <div className="w-12 h-12 bg-[#00263C]/5 rounded-full flex items-center justify-center shrink-0">
+                        
+                        {/* Penggunaan CSS Mask untuk file ic_trending-up.svg */}
+                        <div 
+                          className="w-6 h-6 bg-[#C92A2A]"
+                          style={{
+                            WebkitMaskImage: `url('/ic_trending-up.svg')`,
+                            WebkitMaskSize: 'contain',
+                            WebkitMaskRepeat: 'no-repeat',
+                            WebkitMaskPosition: 'center',
+                            maskImage: `url('/ic_trending-up.svg')`,
+                            maskSize: 'contain',
+                            maskRepeat: 'no-repeat',
+                            maskPosition: 'center',
+                          }}
+                        />
+                        
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-extrabold text-[#00263C] mb-0.5">Leadership Potential</h4>
+                        <p className="text-xs text-slate-500 font-medium">Candidate achieved a 92% score on execution strategy.</p>
+                      </div>
                   </div>
                 </div>
               </div>
@@ -151,35 +166,70 @@ export default function AssessmentToolsPage() {
                 </div>
 
                 <div className="space-y-6">
+                  
+                  {/* ITEM 1: Evaluation Focus */}
                   <div className="flex gap-4">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#C92A2A] flex items-center justify-center mt-0.5">
-                      <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M20 6L9 17l-5-5"></path></svg>
-                    </span>
+                    <div 
+                      className="flex-shrink-0 w-6 h-6 bg-[#C92A2A] mt-0.5"
+                      style={{
+                        WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                        WebkitMaskSize: 'contain',
+                        WebkitMaskRepeat: 'no-repeat',
+                        WebkitMaskPosition: 'center',
+                        maskImage: `url('/ic_check-circle-solid.svg')`,
+                        maskSize: 'contain',
+                        maskRepeat: 'no-repeat',
+                        maskPosition: 'center',
+                      }}
+                    />
                     <div>
                       <h4 className="font-bold text-[#00263C] text-[15px] mb-1">Evaluation Focus</h4>
                       <p className="text-[13px] text-slate-500 leading-relaxed">{assessmentData[activeTab].focus}</p>
                     </div>
                   </div>
 
+                  {/* ITEM 2: Methodology */}
                   <div className="flex gap-4">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#C92A2A] flex items-center justify-center mt-0.5">
-                      <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M20 6L9 17l-5-5"></path></svg>
-                    </span>
+                    <div 
+                      className="flex-shrink-0 w-6 h-6 bg-[#C92A2A] mt-0.5"
+                      style={{
+                        WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                        WebkitMaskSize: 'contain',
+                        WebkitMaskRepeat: 'no-repeat',
+                        WebkitMaskPosition: 'center',
+                        maskImage: `url('/ic_check-circle-solid.svg')`,
+                        maskSize: 'contain',
+                        maskRepeat: 'no-repeat',
+                        maskPosition: 'center',
+                      }}
+                    />
                     <div>
                       <h4 className="font-bold text-[#00263C] text-[15px] mb-1">Methodology</h4>
                       <p className="text-[13px] text-slate-500 leading-relaxed">{assessmentData[activeTab].methodology}</p>
                     </div>
                   </div>
 
+                  {/* ITEM 3: Final Output */}
                   <div className="flex gap-4">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#C92A2A] flex items-center justify-center mt-0.5">
-                      <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M20 6L9 17l-5-5"></path></svg>
-                    </span>
+                    <div 
+                      className="flex-shrink-0 w-6 h-6 bg-[#C92A2A] mt-0.5"
+                      style={{
+                        WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                        WebkitMaskSize: 'contain',
+                        WebkitMaskRepeat: 'no-repeat',
+                        WebkitMaskPosition: 'center',
+                        maskImage: `url('/ic_check-circle-solid.svg')`,
+                        maskSize: 'contain',
+                        maskRepeat: 'no-repeat',
+                        maskPosition: 'center',
+                      }}
+                    />
                     <div>
                       <h4 className="font-bold text-[#00263C] text-[15px] mb-1">Final Output</h4>
                       <p className="text-[13px] text-slate-500 leading-relaxed">{assessmentData[activeTab].output}</p>
                     </div>
                   </div>
+
                 </div>
               </div>
 
@@ -200,7 +250,7 @@ export default function AssessmentToolsPage() {
       </section>
 
       {/* =========================================
-          SECTION 3: IDEAL USE CASES (IMPLEMENTASI) 
+          SECTION 3: IMPLEMENTATION CONTEXT 
           ========================================= */}
       <section className="bg-[#00263C] py-24 md:py-32 px-6 md:px-12 relative">
         <div className="max-w-6xl mx-auto">
@@ -218,43 +268,97 @@ export default function AssessmentToolsPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            
+            {/* 1. Promotion & Succession */}
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(201,42,42,0.18)] transition-all duration-300 hover:-translate-y-1.5">
               <div className="w-12 h-12 rounded-xl bg-[#00263C] group-hover:bg-[#C92A2A] flex items-center justify-center mb-6 transition-colors duration-300">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                <div 
+                  className="w-5 h-5 bg-white"
+                  style={{
+                    WebkitMaskImage: `url('/ic_trending-up.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/ic_trending-up.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <h3 className="font-bold text-[#00263C] text-lg leading-snug mb-3 transition-colors group-hover:text-[#C92A2A]">Promotion & Succession</h3>
               <p className="text-[13.5px] text-slate-500 leading-relaxed">Objectively identify future leaders and prepare top talent to fill key organizational positions.</p>
             </article>
 
+            {/* 2. Restructuring */}
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(201,42,42,0.18)] transition-all duration-300 hover:-translate-y-1.5">
               <div className="w-12 h-12 rounded-xl bg-[#00263C] group-hover:bg-[#C92A2A] flex items-center justify-center mb-6 transition-colors duration-300">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                <div 
+                  className="w-5 h-5 bg-white"
+                  style={{
+                    WebkitMaskImage: `url('/ic_rectangle-group-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/ic_rectangle-group-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <h3 className="font-bold text-[#00263C] text-lg leading-snug mb-3 transition-colors group-hover:text-[#C92A2A]">Restructuring</h3>
               <p className="text-[13.5px] text-slate-500 leading-relaxed">Remap talent and capabilities during mergers, acquisitions, or corporate operational efficiency efforts.</p>
             </article>
 
+            {/* 3. Training Needs (TNA) */}
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(201,42,42,0.18)] transition-all duration-300 hover:-translate-y-1.5">
               <div className="w-12 h-12 rounded-xl bg-[#00263C] group-hover:bg-[#C92A2A] flex items-center justify-center mb-6 transition-colors duration-300">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <div 
+                  className="w-5 h-5 bg-white"
+                  style={{
+                    WebkitMaskImage: `url('/ic_search-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/ic_search-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <h3 className="font-bold text-[#00263C] text-lg leading-snug mb-3 transition-colors group-hover:text-[#C92A2A]">Training Needs (TNA)</h3>
               <p className="text-[13.5px] text-slate-500 leading-relaxed">Precisely discover skill gaps to design effective training and development programs.</p>
             </article>
 
+            {/* 4. Performance Eval. */}
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(201,42,42,0.18)] transition-all duration-300 hover:-translate-y-1.5">
               <div className="w-12 h-12 rounded-xl bg-[#00263C] group-hover:bg-[#C92A2A] flex items-center justify-center mb-6 transition-colors duration-300">
-                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                <div 
+                  className="w-5 h-5 bg-white"
+                  style={{
+                    WebkitMaskImage: `url('/ic_chart-bar-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/ic_chart-bar-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <h3 className="font-bold text-[#00263C] text-lg leading-snug mb-3 transition-colors group-hover:text-[#C92A2A]">Performance Eval.</h3>
               <p className="text-[13.5px] text-slate-500 leading-relaxed">Provide valid and objective supporting data for compensation decisions, annual bonuses, and retention.</p>
             </article>
+            
           </div>
         </div>
       </section>
 
       {/* =========================================
-          SECTION 4: METHODOLOGY & USER FLOW 
+          SECTION 4: ASSESSMENT METHODOLOGY
           ========================================= */}
       <section className="bg-white py-24 md:py-32 px-6 md:px-12 relative">
         <div className="max-w-6xl mx-auto">
@@ -339,78 +443,118 @@ export default function AssessmentToolsPage() {
       </section>
 
       {/* =========================================
-          SECTION 5: THE OUTPUT (DATA VISUALIZATION) 
+          SECTION 5: FINAL OUTPUT
           ========================================= */}
       <section className="bg-slate-50 py-24 md:py-32 px-6 md:px-12 relative overflow-hidden">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
             
-            <div className="relative w-full order-2 lg:order-1">
-              <div className="absolute top-4 -left-4 w-full h-full bg-[#00263C] rounded-[2rem] transform -rotate-2 -z-10 opacity-10"></div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#C92A2A]/10 rounded-full blur-3xl -z-10"></div>
+          <div className="relative w-full order-2 lg:order-1">
+            <div className="absolute top-4 -left-4 w-full h-full bg-[#00263C] rounded-[2rem] transform -rotate-2 -z-10 opacity-10"></div>
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#C92A2A]/10 rounded-full blur-3xl -z-10"></div>
 
-              <div className="relative rounded-[2rem] bg-white ring-1 ring-slate-200 p-2 group">
-                <div className="relative h-72 md:h-96 rounded-[calc(2rem-0.5rem)] overflow-hidden">
-                  {/* Gambar profesional perkantoran Asia untuk laporan eksekutif */}
-                  <img 
-                    src="https://images.unsplash.com/photo-1531493731235-b5c309dca387?auto=format&fit=crop&w=1000&q=80" 
-                    alt="Executive Assessment Report Analysis" 
-                    className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+            <div className="relative rounded-[2rem] bg-white ring-1 ring-slate-200 p-2 group">
+              <div className="relative h-72 md:h-96 rounded-[calc(2rem-0.5rem)] overflow-hidden">
+                {/* Gambar profesional perkantoran Asia untuk laporan eksekutif */}
+                <img 
+                  src="https://images.unsplash.com/photo-1531493731235-b5c309dca387?auto=format&fit=crop&w=1000&q=80" 
+                  alt="Executive Assessment Report Analysis" 
+                  className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#00263C]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-center order-1 lg:order-2">
+            <span className="inline-flex items-center rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] bg-[#C92A2A]/10 text-[#C92A2A] mb-5 w-max">
+              Final Output
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold text-[#00263C] mb-6 leading-tight">
+              Comprehensive Reports That Drive Decisions.
+            </h2>
+            <p className="text-lg text-slate-500 leading-relaxed mb-10">
+              We don't give you piles of confusing raw data. Every assessment process ends with sharp, structured visual reporting ready to be actioned by the executive team.
+            </p>
+
+            <div className="space-y-8">
+              
+              {/* ITEM 1: Actionable Insights */}
+              <div className="flex gap-5 items-start group">
+                <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
+                  <div 
+                    className="w-5 h-5 bg-[#00263C] group-hover:bg-[#C92A2A] transition-colors duration-300"
+                    style={{
+                      WebkitMaskImage: `url('/ic_bolt-outline.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_bolt-outline.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[#00263C]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+                <div>
+                  <h4 className="text-[15px] font-bold text-[#00263C] mb-1.5">Actionable Insights</h4>
+                  <p className="text-[13.5px] text-slate-500 leading-relaxed">
+                    Reports are equipped with concrete action plans, not just a series of numerical scores without context.
+                  </p>
                 </div>
               </div>
-            </div>
 
-            <div className="flex flex-col justify-center order-1 lg:order-2">
-              <span className="inline-flex items-center rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] bg-[#C92A2A]/10 text-[#C92A2A] mb-5 w-max">
-                Final Output
-              </span>
-              <h2 className="text-3xl md:text-5xl font-bold text-[#00263C] mb-6 leading-tight">
-                Comprehensive Reports That Drive Decisions.
-              </h2>
-              <p className="text-lg text-slate-500 leading-relaxed mb-10">
-                We don't give you piles of confusing raw data. Every assessment process ends with sharp, structured visual reporting ready to be actioned by the executive team.
-              </p>
-
-              <div className="space-y-8">
-                <div className="flex gap-5 items-start group">
-                  <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
-                    <svg className="w-5 h-5 text-[#00263C] group-hover:text-[#C92A2A] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                  </div>
-                  <div>
-                    <h4 className="text-[15px] font-bold text-[#00263C] mb-1.5">Actionable Insights</h4>
-                    <p className="text-[13.5px] text-slate-500 leading-relaxed">
-                      Reports are equipped with concrete action plans, not just a series of numerical scores without context.
-                    </p>
-                  </div>
+              {/* ITEM 2: Clear Visualizations */}
+              <div className="flex gap-5 items-start group">
+                <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
+                  <div 
+                    className="w-5 h-5 bg-[#00263C] group-hover:bg-[#C92A2A] transition-colors duration-300"
+                    style={{
+                      WebkitMaskImage: `url('/ic_presentation-chart.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_presentation-chart.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                 </div>
-
-                <div className="flex gap-5 items-start group">
-                  <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
-                    <svg className="w-5 h-5 text-[#00263C] group-hover:text-[#C92A2A] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
-                  </div>
-                  <div>
-                    <h4 className="text-[15px] font-bold text-[#00263C] mb-1.5">Clear Visualizations</h4>
-                    <p className="text-[13.5px] text-slate-500 leading-relaxed">
-                      Data presentation through radar charts, heat maps, and normative comparisons that are very easy to read at a glance.
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="text-[15px] font-bold text-[#00263C] mb-1.5">Clear Visualizations</h4>
+                  <p className="text-[13.5px] text-slate-500 leading-relaxed">
+                    Data presentation through radar charts, heat maps, and normative comparisons that are very easy to read at a glance.
+                  </p>
                 </div>
-
-                <div className="flex gap-5 items-start group">
-                  <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
-                    <svg className="w-5 h-5 text-[#00263C] group-hover:text-[#C92A2A] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                  </div>
-                  <div>
-                    <h4 className="text-[15px] font-bold text-[#00263C] mb-1.5">Confidential & Secure</h4>
-                    <p className="text-[13.5px] text-slate-500 leading-relaxed">
-                      Report distribution is guaranteed confidential with high-level encryption to comply with corporate data privacy regulations.
-                    </p>
-                  </div>
-                </div>
-
               </div>
+
+              {/* ITEM 3: Confidential & Secure */}
+              <div className="flex gap-5 items-start group">
+                <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-[#C92A2A] group-hover:shadow-[#C92A2A]/20 transition-all duration-300">
+                  <div 
+                    className="w-5 h-5 bg-[#00263C] group-hover:bg-[#C92A2A] transition-colors duration-300"
+                    style={{
+                      WebkitMaskImage: `url('/ic_lock-outline.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_lock-outline.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
+                </div>
+                <div>
+                  <h4 className="text-[15px] font-bold text-[#00263C] mb-1.5">Confidential & Secure</h4>
+                  <p className="text-[13.5px] text-slate-500 leading-relaxed">
+                    Report distribution is guaranteed confidential with high-level encryption to comply with corporate data privacy regulations.
+                  </p>
+                </div>
+              </div>
+
             </div>
+          </div>
 
         </div>
       </section>
