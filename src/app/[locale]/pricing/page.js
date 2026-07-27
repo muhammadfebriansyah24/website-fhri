@@ -2,52 +2,13 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useLocale } from "next-intl";
+import { getPricingData } from "@/components/pricingData";
 
 export default function PricingPage() {
-  // Hanya mempertahankan state toggle untuk opsi Yearly/Monthly
   const [isYearly, setIsYearly] = useState(true);
-
-  // Data array untuk Section 2 (Compare Plans)
-  const groupedFeatures = [
-    {
-      category: "Program & Learning Experience",
-      items: [
-        { name: "Curriculum", c1: "1 Certificate program", c2: "16 Certificate Programs", c3: "16 Certificate Programs", info: false },
-        { name: "Access period", c1: "12 months", c2: "12 months", c3: "12 months", info: false },
-        { name: "Fully self-paced", c1: true, c2: true, c3: true, info: true },
-        { name: "Real-world projects", c1: true, c2: true, c3: true, info: true },
-        { name: "Smartphone app", c1: true, c2: true, c3: true, info: true },
-      ]
-    },
-    {
-      category: "Tools, Resources & Analytics",
-      items: [
-        { name: "300+ Downloadable templates", c1: false, c2: true, c3: true, info: true },
-        { name: "FHRI Copilot", c1: false, c2: true, c3: true, info: true },
-        { name: "Soft Skills Hub", c1: false, c2: true, c3: true, info: false },
-        { name: "Content upgrades", c1: false, c2: true, c3: true, info: true },
-        { name: "Reporting & analytics", c1: false, c2: false, c3: true, info: true },
-      ]
-    },
-    {
-      category: "Support & Community",
-      items: [
-        { name: "Amazing support", c1: true, c2: true, c3: true, info: true },
-        { name: "Expert community & support", c1: true, c2: true, c3: true, info: true },
-        { name: "Weekly Webinars with HR experts", c1: false, c2: true, c3: true, info: false },
-        { name: "Personal coaching", c1: false, c2: true, c3: true, info: true },
-        { name: "Dedicated Learning Consultant*", c1: false, c2: false, c3: true, info: true },
-      ]
-    },
-    {
-      category: "Certification & Assurance",
-      items: [
-        { name: "Digital certificate(s)", c1: true, c2: true, c3: true, info: true },
-        { name: "Recertification credits", c1: true, c2: true, c3: true, info: true },
-        { name: "Money-back guarantee", c1: "30 days", c2: "60 days (annual)\n30 days (monthly)", c3: "60 days", info: true },
-      ]
-    }
-  ];
+  const locale = useLocale();
+  const data = getPricingData(locale);
 
   return (
     <main className="min-h-screen font-sans bg-white selection:bg-brand-red selection:text-white">
@@ -71,28 +32,27 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-8">
             
-            {/* TULISAN EYEBROW-LG & GRADIENT GOLD DI SINI */}
             <span className="text-eyebrow-lg gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-md mb-6">
-              FHRI Pricing
+              {data.hero.eyebrow}
             </span>
             
-            <h1 className="text-white mb-6 text-balance">
-              Maximize Your Career Growth <br className="hidden md:block" /> with Industry-Leading HR Training
+            <h1 className="text-white mb-6 text-balance whitespace-pre-line">
+              {data.hero.title}
             </h1>
 
             <div className="flex items-center justify-center gap-4 mt-8">
-              <span className={`font-semibold text-sm ${isYearly ? "text-white" : "text-slate-400"}`}>Billed Yearly</span>
+              <span className={`font-semibold text-sm ${isYearly ? "text-white" : "text-slate-400"}`}>{data.hero.billedYearly}</span>
               <button
                 onClick={() => setIsYearly(!isYearly)}
                 className="w-14 h-8 bg-white rounded-full flex items-center px-1 transition-colors duration-300 relative focus:outline-none shadow-inner"
               >
                 <div className={`w-6 h-6 bg-brand-navy rounded-full shadow-md transform transition-transform duration-300 ${isYearly ? "translate-x-0" : "translate-x-6"}`}></div>
               </button>
-              <span className={`font-semibold text-sm ${!isYearly ? "text-white" : "text-slate-400"}`}>Billed Monthly</span>
+              <span className={`font-semibold text-sm ${!isYearly ? "text-white" : "text-slate-400"}`}>{data.hero.billedMonthly}</span>
             </div>
             
             <p className="text-brand-red text-xs font-bold mt-5 mb-0 italic tracking-widest bg-brand-red/10 inline-block px-4 py-1.5 rounded-full border border-brand-red/20">
-              SAVE 20% WITH ANNUAL BILLING
+              {data.hero.saveBadge}
             </p>
           </div>
 
@@ -102,56 +62,46 @@ export default function PricingPage() {
             <div className="flex flex-col w-full lg:mt-5">
               <div className="bg-white text-brand-navy rounded-[1.75rem] p-7 md:p-8 shadow-lg h-[280px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div>
-                  {/* Class bersih H3 */}
-                  <h3 className="mb-3">HR Boot Camp</h3>
-                  <p className="text-[13.5px] text-slate-500 leading-relaxed">Land a promotion by learning a new skill and earning a certificate</p>
+                  <h3 className="mb-3">{data.plans.bootcamp.title}</h3>
+                  <p className="text-[13.5px] text-slate-500 leading-relaxed">{data.plans.bootcamp.desc}</p>
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
-                  <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{isYearly ? "8,850,000" : "850,000"}</div>
-                  <p className="text-[13px] font-bold text-slate-500">{isYearly ? "1 Certificate Program" : "/ per month"}</p>
+                  <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{isYearly ? data.plans.bootcamp.priceYearly : data.plans.bootcamp.priceMonthly}</div>
+                  <p className="text-[13px] font-bold text-slate-500">{isYearly ? data.plans.bootcamp.periodYearly : data.plans.bootcamp.periodMonthly}</p>
                 </div>
               </div>
               
               <div className="mt-8 space-y-4 px-4">
-                <FeatureItem text="1 Certificate Program" />
-                <FeatureItem text="12 months access" />
-                <FeatureItem text="Expert community & support" />
-                <FeatureItem text="30-day money-back guarantee" />
+                {data.plans.bootcamp.features.map((feat, idx) => (
+                  <FeatureItem key={idx} text={feat} />
+                ))}
               </div>
             </div>
 
             {/* Card 2: Full Academy Access (Highlighted) */}
             <div className="flex flex-col w-full relative z-20">
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-red text-white px-6 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-md whitespace-nowrap text-center z-30">
-                Best Investment
+                {data.plans.academy.badge}
               </div>
               <div className="bg-white text-brand-navy rounded-[1.75rem] p-7 md:p-8 shadow-2xl ring-4 ring-brand-red h-[320px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-2">
                 <div>
-                  {/* Class bersih H3 */}
-                  <h3 className="mb-3">Full Academy Access</h3>
-                  <p className="text-[13.5px] text-slate-500 leading-relaxed">Become a continuous learner and stay up-to-date with in-demand HR skills</p>
+                  <h3 className="mb-3">{data.plans.academy.title}</h3>
+                  <p className="text-[13.5px] text-slate-500 leading-relaxed">{data.plans.academy.desc}</p>
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
-                  {isYearly && <span className="line-through text-slate-400 text-sm block mb-1 font-medium">Rp 18,200,000</span>}
-                  <div className="text-4xl font-extrabold text-brand-red mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-brand-navy">Rp</span>{isYearly ? "14,560,000" : "1,456,000"}</div>
+                  {isYearly && <span className="line-through text-slate-400 text-sm block mb-1 font-medium">{data.plans.academy.originalPriceYearly}</span>}
+                  <div className="text-4xl font-extrabold text-brand-red mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-brand-navy">Rp</span>{isYearly ? data.plans.academy.priceYearly : data.plans.academy.priceMonthly}</div>
                   <div className="flex items-center gap-2">
-                    <p className="text-[13px] text-slate-500 font-medium">{isYearly ? "/ per year" : "/ per month"}</p>
-                    {isYearly && <span className="text-[13px] font-bold text-brand-red">• All 16 Programs</span>}
+                    <p className="text-[13px] text-slate-500 font-medium">{isYearly ? data.plans.academy.periodYearly : data.plans.academy.periodMonthly}</p>
+                    {isYearly && <span className="text-[13px] font-bold text-brand-red">{data.plans.academy.highlightText}</span>}
                   </div>
                 </div>
               </div>
               
               <div className="mt-8 space-y-4 px-4">
-                <FeatureItem text="All 16 Certificate Programs" active />
-                <FeatureItem text="12 months access" active />
-                <FeatureItem text="Expert community & support" active />
-                <FeatureItem text="60-day money-back guarantee" active />
-                <FeatureItem text="85+ (mini) courses" active />
-                <FeatureItem text="300+ Downloadable templates" active />
-                <FeatureItem text="Weekly Webinars" active />
-                <FeatureItem text="FHRI Copilot" active />
-                <FeatureItem text="Soft Skills Hub" active />
-                <FeatureItem text="Personal coaching" active />
+                {data.plans.academy.features.map((feat, idx) => (
+                  <FeatureItem key={idx} text={feat} active />
+                ))}
               </div>
             </div>
 
@@ -159,30 +109,20 @@ export default function PricingPage() {
             <div className="flex flex-col w-full lg:mt-5">
               <div className="bg-white text-brand-navy rounded-[1.75rem] p-7 md:p-8 shadow-lg h-[280px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div>
-                  {/* Class bersih H3 */}
-                  <h3 className="mb-3">Team License</h3>
-                  <p className="text-[13.5px] text-slate-500 leading-relaxed">Empower teams of 2+ with world-class HR skills and assessments</p>
+                  <h3 className="mb-3">{data.plans.team.title}</h3>
+                  <p className="text-[13.5px] text-slate-500 leading-relaxed">{data.plans.team.desc}</p>
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
-                  <div className="text-sm text-slate-400 mb-1 font-medium">Starting from</div>
-                  <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>23,690,000</div>
-                  <p className="text-[13px] font-bold text-slate-500">All 16 Certificate Programs</p>
+                  <div className="text-sm text-slate-400 mb-1 font-medium">{data.plans.team.startingFrom}</div>
+                  <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{data.plans.team.price}</div>
+                  <p className="text-[13px] font-bold text-slate-500">{data.plans.team.period}</p>
                 </div>
               </div>
               
               <div className="mt-8 space-y-4 px-4">
-                <FeatureItem text="All 16 Certificate Programs (per user)" />
-                <FeatureItem text="12 months access" />
-                <FeatureItem text="Expert community & support" />
-                <FeatureItem text="60-day money-back guarantee" />
-                <FeatureItem text="85+ (mini) courses" />
-                <FeatureItem text="300+ Downloadable templates" />
-                <FeatureItem text="Weekly Webinars" />
-                <FeatureItem text="FHRI Copilot" />
-                <FeatureItem text="Soft Skills Hub" />
-                <FeatureItem text="Personal coaching" />
-                <FeatureItem text="Learning Consultant*" />
-                <FeatureItem text="Team reporting & analytics*" />
+                {data.plans.team.features.map((feat, idx) => (
+                  <FeatureItem key={idx} text={feat} />
+                ))}
               </div>
             </div>
             
@@ -205,10 +145,10 @@ export default function PricingPage() {
           
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-eyebrow text-brand-red block mb-4">
-              Plan Comparison
+              {data.compare.eyebrow}
             </span>
-            <h2 className="text-brand-navy mb-6">Detailed Feature Breakdown</h2>
-            <p className="text-lg text-slate-500 leading-relaxed">Find out exactly what is included in each of our training plans and choose the one that perfectly aligns with your career goals.</p>
+            <h2 className="text-brand-navy mb-6">{data.compare.title}</h2>
+            <p className="text-lg text-slate-500 leading-relaxed">{data.compare.subtitle}</p>
           </div>
 
           <div className="w-full overflow-x-auto shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[1.75rem] ring-1 ring-slate-100">
@@ -218,37 +158,33 @@ export default function PricingPage() {
               <div className="grid grid-cols-4 border-b border-slate-100 bg-white sticky top-0 z-10">
                 <div className="p-6"></div>
                 <div className="p-6 text-center">
-                  <h4 className="text-brand-navy">HR Boot Camp</h4>
-                  <p className="text-[11px] text-slate-400 mt-1.5 uppercase tracking-widest font-bold">Single Skill</p>
+                  <h4 className="text-brand-navy">{data.compare.col1Title}</h4>
+                  <p className="text-[11px] text-slate-400 mt-1.5 uppercase tracking-widest font-bold">{data.compare.col1Sub}</p>
                 </div>
-                {/* Kolom Tengah Di-Highlight */}
                 <div className="p-6 text-center bg-red-50 border-t-4 border-brand-red">
-                  <h4 className="text-brand-red">Full Academy</h4>
-                  <p className="text-[11px] text-brand-red/70 mt-1.5 uppercase tracking-widest font-bold">Best Value</p>
+                  <h4 className="text-brand-red">{data.compare.col2Title}</h4>
+                  <p className="text-[11px] text-brand-red/70 mt-1.5 uppercase tracking-widest font-bold">{data.compare.col2Sub}</p>
                 </div>
                 <div className="p-6 text-center">
-                  <h4 className="text-brand-navy">Team License</h4>
-                  <p className="text-[11px] text-slate-400 mt-1.5 uppercase tracking-widest font-bold">For Business</p>
+                  <h4 className="text-brand-navy">{data.compare.col3Title}</h4>
+                  <p className="text-[11px] text-slate-400 mt-1.5 uppercase tracking-widest font-bold">{data.compare.col3Sub}</p>
                 </div>
               </div>
 
               {/* Looping Group Kategori */}
-              {groupedFeatures.map((group, groupIdx) => (
+              {data.compare.groupedFeatures.map((group, groupIdx) => (
                 <div key={groupIdx} className="mb-0">
-                  {/* Category Header */}
                   <div className="grid grid-cols-4 bg-slate-50 border-b border-slate-100">
                     <div className="col-span-4 p-4 pl-8 text-sm font-bold text-brand-navy uppercase tracking-[0.15em]">
                       {group.category}
                     </div>
                   </div>
 
-                  {/* Items dalam Kategori */}
                   {group.items.map((feature, featureIdx) => (
                     <div 
                       key={featureIdx} 
                       className="grid grid-cols-4 items-center border-b border-slate-100 transition-colors hover:bg-slate-50/50"
                     >
-                      {/* Nama Fitur */}
                       <div className="p-4 pl-8 font-medium text-[14px] text-slate-600 flex items-center gap-2">
                         {feature.name}
                         {feature.info && (
@@ -258,7 +194,6 @@ export default function PricingPage() {
                         )}
                       </div>
                       
-                      {/* Column 1 */}
                       <div className="p-4 text-center text-[13.5px] font-medium text-slate-500">
                         {typeof feature.c1 === 'boolean' ? (
                           feature.c1 ? <SolidCheckIcon color="var(--color-brand-navy)" /> : <MinusIcon />
@@ -266,8 +201,7 @@ export default function PricingPage() {
                           feature.c1
                         )}
                       </div>
-
-                      {/* Column 2 (Highlighted) */}
+                      
                       <div className="p-4 text-center text-[13.5px] font-bold text-brand-red bg-red-50 whitespace-pre-line leading-relaxed">
                         {typeof feature.c2 === 'boolean' ? (
                           feature.c2 ? <SolidCheckIcon color="var(--color-brand-red)" /> : <MinusIcon />
@@ -275,8 +209,7 @@ export default function PricingPage() {
                           feature.c2
                         )}
                       </div>
-
-                      {/* Column 3 */}
+                      
                       <div className="p-4 text-center text-[13.5px] font-medium text-slate-500">
                         {typeof feature.c3 === 'boolean' ? (
                           feature.c3 ? <SolidCheckIcon color="var(--color-brand-navy)" /> : <MinusIcon />
@@ -295,24 +228,22 @@ export default function PricingPage() {
       </section>
 
       {/* ========================================== */}
-      {/* SECTION 3: INLINE CTA KHUSUS UNTUK PRICING */}
+      {/* SECTION 3: INLINE CTA                      */}
       {/* ========================================== */}
       <section className="bg-white relative py-12 md:py-24 px-6 md:px-12 -mt-16 z-20">
         <div className="max-w-6xl mx-auto bg-gradient-to-br from-brand-navy to-[#0B2A4A] rounded-[2.5rem] md:rounded-[3rem] text-white py-16 md:py-20 px-6 md:px-12 relative overflow-hidden shadow-2xl border border-slate-800">
-          
-          {/* Decorative Elements */}
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-red/30 rounded-full blur-3xl pointer-events-none"></div>
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="max-w-3xl mx-auto text-center relative z-10">
-            <span className="text-eyebrow text-brand-red block mb-4">Start Your Journey</span>
-            <h2 className="text-white mb-6">Ready to Transform Your Career?</h2>
+            <span className="text-eyebrow text-brand-red block mb-4">{data.ctaBanner.eyebrow}</span>
+            <h2 className="text-white mb-6">{data.ctaBanner.title}</h2>
             <p className="text-slate-300 text-lg md:text-xl mb-10 leading-relaxed">
-              Don&apos;t wait to build the HR skills of tomorrow. Connect with our team to choose the right plan and begin your professional development.
+              {data.ctaBanner.description}
             </p>
-            <Link href="/join-us" className="inline-flex items-center justify-center bg-brand-red text-white font-bold px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:bg-[#a82222] shadow-[0_10px_25px_rgba(201,42,42,0.4)] uppercase tracking-widest text-sm font-sans">
-              Join Us
+            <Link href={`/${locale}/join-us`} className="inline-flex items-center justify-center bg-brand-red text-white font-bold px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:bg-[#a82222] shadow-[0_10px_25px_rgba(201,42,42,0.4)] uppercase tracking-widest text-sm font-sans">
+              {data.ctaBanner.button}
             </Link>
           </div>
         </div>
@@ -322,7 +253,6 @@ export default function PricingPage() {
   );
 }
 
-// Sub-components untuk UI elements
 function FeatureItem({ text, active = false }) {
   return (
     <div className="flex items-start gap-3">
@@ -336,7 +266,6 @@ function FeatureItem({ text, active = false }) {
   );
 }
 
-// Icon Solid Checkmark untuk desain tabel
 function SolidCheckIcon({ color }) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mx-auto" viewBox="0 0 20 20" fill={color}>
@@ -345,7 +274,6 @@ function SolidCheckIcon({ color }) {
   );
 }
 
-// Icon Minus (jika fitur tidak tersedia)
 function MinusIcon() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mx-auto text-slate-300" viewBox="0 0 20 20" fill="currentColor">
