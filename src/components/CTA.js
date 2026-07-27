@@ -21,21 +21,22 @@ export default function CTA() {
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        <p className="text-eyebrow mb-5 opacity-90 text-brand-red">
+        <span className="text-eyebrow block mb-5 opacity-90">
           READY TO TAKE THE NEXT STEP?
-        </p>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 md:mb-8 leading-tight">
+        </span>
+        
+        <h2 className="text-white mb-6 md:mb-8 text-balance">
           Elevate Your Career : 
           <br/>Grow Alongside Leading HR Professionals
         </h2>
-        <p className="text-slate-300 mb-10 max-w-xl mx-auto leading-relaxed">
+        
+        <p className="text-slate-300 mb-10 max-w-xl mx-auto">
           Become a part of FHRI and elevate your HR capabilities alongside the largest professional community in Indonesia.
         </p>
         
-        {/* Link diubah ke /pricing sesuai alur bisnis yang baru */}
         <Link 
           href="/pricing" 
-          className="inline-block bg-brand-red text-white px-10 py-4 rounded-full font-bold tracking-wide hover:bg-white hover:text-brand-navy transition-all duration-500 shadow-[0_10px_20px_rgba(220,38,38,0.2)] hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] hover:-translate-y-1"
+          className="inline-block bg-brand-red text-white px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-brand-navy transition-all duration-500 shadow-[0_10px_20px_rgba(220,38,38,0.2)] hover:shadow-[0_10px_20px_rgba(255,255,255,0.2)] hover:-translate-y-1"
         >
           Start Your Journey
         </Link>

@@ -263,17 +263,16 @@ function HeroSection() {
       <div className="max-w-7xl mx-auto relative z-30 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 w-full">
         {/* KIRI: Text Content */}
         <div className="w-full lg:w-1/2 text-center lg:text-left pt-10">
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 shadow-xl mb-6 lg:mb-8">
-            <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
-            <h5 className="font-bold text-slate-200 tracking-[0.2em] uppercase text-xs">About First HR Indonesia</h5>
-          </div>
+          <span className="text-eyebrow-lg text-brand-red block mb-6 lg:mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+            About First HR Indonesia
+          </span>
           
-          <h1 className="text-white mb-6 drop-shadow-2xl text-4xl md:text-5xl lg:text-6xl leading-tight">
+          <h1 className="text-white mb-6 drop-shadow-2xl text-balance">
             One Mission, <br className="hidden lg:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">Endless Innovation</span>
           </h1>
           
-          <p className="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light drop-shadow-md mb-8">
+          <p className="text-slate-300 text-lg max-w-2xl mx-auto lg:mx-0 drop-shadow-md mb-8">
             Empowering organizations through strategic human capital solutions. We connect world-class strategies with Indonesia&apos;s finest professionals to shape a better world of work.
           </p>
 
@@ -284,7 +283,7 @@ function HeroSection() {
             <a 
               href="/company-profile.pptx" 
               download="FHRI-Company-Profile.pptx"
-              className="inline-flex items-center gap-3 bg-brand-red hover:bg-red-700 text-white px-7 py-4 rounded-2xl font-bold text-sm transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.4)] hover:-translate-y-1 uppercase tracking-wider"
+              className="inline-flex items-center gap-3 bg-brand-red hover:bg-red-700 text-white px-7 py-4 rounded-2xl font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.4)] hover:-translate-y-1 uppercase tracking-widest text-sm"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -341,8 +340,8 @@ function VisionMissionSection() {
           <div className="w-14 h-14 bg-brand-navy rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-navy/20">
             <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
           </div>
-          <h6 className="text-brand-red mb-4">Our Vision</h6>
-          <h2 className="text-brand-navy text-3xl md:text-4xl leading-tight font-medium">
+          <span className="text-eyebrow block mb-4">Our Vision</span>
+          <h2 className="text-brand-navy mb-4 text-balance">
             To be the most trusted Strategic Human Capital Partner.
           </h2>
         </div>
@@ -352,7 +351,7 @@ function VisionMissionSection() {
           <div className="w-14 h-14 bg-brand-red rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-red/30 relative z-10">
             <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
           </div>
-          <h6 className="text-slate-400 mb-6 relative z-10">Our Mission</h6>
+          <span className="text-eyebrow text-slate-400 block mb-6 relative z-10">Our Mission</span>
           <ul className="space-y-5 relative z-10">
             {[
               "Deliver strategic Human Capital solutions.",
@@ -362,7 +361,7 @@ function VisionMissionSection() {
             ].map((item, idx) => (
               <li key={idx} className="flex items-start gap-4">
                 <span className="text-brand-red mt-1 drop-shadow-md text-xl">✦</span>
-                <span className="text-slate-100 text-lg md:text-xl font-normal leading-relaxed">{item}</span>
+                <span className="text-slate-100 text-lg font-normal">{item}</span>
               </li>
             ))}
           </ul>
@@ -378,10 +377,10 @@ function CoreValuesSection() {
     <section className="py-24 px-6 md:px-12 bg-slate-50 border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-eyebrow gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm">
+          <span className="text-eyebrow gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             Our Core Values
           </span>
-          <h2 className="mt-6 mb-4 text-brand-navy font-bold text-3xl md:text-4xl">Values That Guide Us</h2>
+          <h2 className="text-brand-navy mb-4">Values That Guide Us</h2>
           <p className="text-slate-600 text-lg">The four pillars that define how we work, how we treat each other, and how we deliver impact.</p>
         </div>
 
@@ -391,8 +390,8 @@ function CoreValuesSection() {
               <div className="w-16 h-16 bg-slate-50 rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-brand-red/5 transition-all duration-500">
                 {item.icon}
               </div>
-              <h4 className="mb-3 group-hover:text-brand-red transition-colors text-brand-navy font-bold text-xl">{item.title}</h4>
-              <p className="text-slate-600 leading-relaxed text-sm">{item.desc}</p>
+              <h4 className="mb-3 group-hover:text-brand-red transition-colors text-brand-navy">{item.title}</h4>
+              <p className="text-slate-600 text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -406,15 +405,12 @@ function ExecutiveProfilesSection() {
   const thumbnailContainerRef = useRef(null);
   const activeLeader = leadershipTeam[activeLeaderIndex];
 
-  // 👇 GANTI BAGIAN USE EFFECT INI 👇
   useEffect(() => {
     if (thumbnailContainerRef.current) {
       const container = thumbnailContainerRef.current;
       const activeThumbnail = container.children[activeLeaderIndex];
       
       if (activeThumbnail) {
-        // Menghitung posisi scroll agar thumbnail selalu di tengah 
-        // secara horizontal tanpa menarik halaman ke bawah (vertikal)
         const scrollPos = activeThumbnail.offsetLeft - (container.clientWidth / 2) + (activeThumbnail.clientWidth / 2);
         
         container.scrollTo({ 
@@ -433,10 +429,10 @@ function ExecutiveProfilesSection() {
       <div className="max-w-6xl mx-auto relative z-10">
         
         <div className="text-center mb-16 md:mb-20">
-          <span className="text-eyebrow gradient-gold text-white px-5 py-2 rounded-full inline-block mb-4 shadow-sm">
+          <span className="text-eyebrow gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             Executive Profiles
           </span>
-          <h2 className="text-brand-navy font-bold text-3xl md:text-4xl">Meet The Leadership Team</h2>
+          <h2 className="text-brand-navy mb-4">Meet The Leadership Team</h2>
           <p className="mt-4 max-w-2xl mx-auto text-slate-600 text-lg">Driven by experienced practitioners and thought leaders passionate about transforming the future of human resources.</p>
         </div>
 
@@ -453,19 +449,19 @@ function ExecutiveProfilesSection() {
                   <svg className="w-16 h-16 text-slate-300" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                 </div>
               </div>
-              <h3 className="text-brand-navy text-2xl font-bold font-sans">{activeLeader.name}</h3>
+              <h3 className="text-brand-navy">{activeLeader.name}</h3>
               <p className="text-brand-red font-bold uppercase tracking-widest text-xs mt-3">{activeLeader.role}</p>
               <div className="w-12 h-1 bg-slate-200 mt-6 rounded-full mx-auto lg:mx-0"></div>
             </div>
 
             <div key={`txt-${activeLeaderIndex}`} className="lg:col-span-8 animate-fade-slide-up">
-              <h4 className="text-brand-navy mb-6 flex items-center gap-3 justify-center lg:justify-start font-bold text-xl font-sans">
+              <h4 className="text-brand-navy mb-6 flex items-center gap-3 justify-center lg:justify-start">
                 <svg className="w-6 h-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 Executive Summary
               </h4>
-              <div className="h-[340px] md:h-[400px] overflow-y-auto pr-3 md:pr-6 custom-scrollbar text-justify space-y-5 font-sans">
+              <div className="h-[340px] md:h-[400px] overflow-y-auto pr-3 md:pr-6 custom-scrollbar text-justify space-y-5">
                 {activeLeader.summary.map((paragraph, index) => (
-                  <p key={index} className="animate-fade-slide-up opacity-0 text-slate-600 leading-relaxed text-[15px]" style={{ animationDelay: `${index * 0.12}s` }}>
+                  <p key={index} className="animate-fade-slide-up opacity-0 text-slate-600 md:text-base" style={{ animationDelay: `${index * 0.12}s` }}>
                     {paragraph}
                   </p>
                 ))}
@@ -507,39 +503,56 @@ function ExecutiveProfilesSection() {
 
 function JourneyTimelineSection() {
   return (
-    <section className="bg-slate-50 py-24 px-6 md:px-12 relative overflow-hidden pb-32">
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-brand-red font-bold text-xs tracking-[0.25em] uppercase border border-brand-red/20 bg-brand-red/5 px-4 py-1.5 rounded-full inline-block mb-6">
-            The FHRI Journey
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mb-6 leading-tight font-sans">
-            9 Years. One Mission. <br className="hidden sm:block"/> Endless Innovation.
-          </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
-            A brief timeline of our milestone moments in advancing HR practices and continuous learning.
-          </p>
-        </div>
+   <section className="bg-slate-50 py-24 px-6 md:px-12 relative overflow-hidden pb-32">
+  {/* Ambient background glow */}
+  <div className="absolute -left-32 top-0 w-96 h-96 rounded-full bg-brand-red/5 blur-3xl pointer-events-none" />
+  <div className="absolute -right-32 bottom-0 w-96 h-96 rounded-full bg-brand-navy/5 blur-3xl pointer-events-none" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-center">
-          {journeyTimeline.map((item, idx) => (
-            <div key={idx} className="bg-white border border-slate-200 p-8 rounded-[2rem] flex flex-col justify-between hover:border-brand-red/40 hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.08)] transition-all duration-500 group">
-              <div>
-                <span className="inline-block bg-slate-100 text-brand-navy font-bold text-sm px-4 py-1.5 rounded-lg mb-6 group-hover:bg-brand-red group-hover:text-white transition-colors duration-300 origin-left">
-                  {item.year}
-                </span>
-                <h3 className="text-xl font-bold text-brand-navy mb-4 leading-snug font-sans group-hover:text-brand-red transition-colors duration-300">
+  <div className="max-w-7xl mx-auto relative z-10">
+    <div className="text-center max-w-3xl mx-auto mb-20 md:mb-24">
+      <span className="text-eyebrow-lg text-brand-red block mb-6">
+        The FHRI Journey
+      </span>
+      <h2 className="text-brand-navy mb-6 text-balance">
+        9 Years. One Mission. <br className="hidden sm:block" /> Endless Innovation.
+      </h2>
+      <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+        A brief timeline of our milestone moments in advancing HR practices and continuous learning.
+      </p>
+    </div>
+
+    <div className="flex flex-col gap-y-14">
+      {Array.from({ length: Math.ceil(journeyTimeline.length / 3) }, (_, rowIdx) =>
+        journeyTimeline.slice(rowIdx * 3, rowIdx * 3 + 3)
+      ).map((row, rowIdx) => (
+        <div key={rowIdx} className="flex flex-wrap justify-center items-start gap-y-14">
+          {row.map((item, idx) => (
+            <React.Fragment key={idx}>
+              <div className="group flex flex-col items-center w-[240px] px-4">
+                {/* Node — displays the year */}
+                <div className="w-[72px] h-[72px] rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-sm mb-7 shadow-[0_15px_35px_-10px_rgba(0,38,60,0.5)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-brand-red group-hover:scale-105">
+                  <span className="text-center leading-tight">{item.year}</span>
+                </div>
+
+                <h3 className="mb-3 text-center text-brand-navy group-hover:text-brand-red transition-colors duration-500">
                   {item.title}
                 </h3>
-                <p className="text-slate-600 text-[15px] leading-relaxed font-sans">
+                <p className="text-justify text-slate-600">
                   {item.desc}
                 </p>
               </div>
-            </div>
+
+              {/* Connector segment — only between adjacent nodes within the same row, desktop only */}
+              {idx < row.length - 1 && (
+                <div className="hidden lg:block w-16 border-t-2 border-dashed border-slate-300 mt-9 shrink-0" />
+              )}
+            </React.Fragment>
           ))}
         </div>
-      </div>
-    </section>
+      ))}
+    </div>
+  </div>
+</section>
   );
 }
 
@@ -562,13 +575,12 @@ function GallerySection() {
   const prevGallery = () => setGallerySlide(prev => (prev <= 0 ? maxGallerySlide : prev - 1));
 
   return (
-    // Padding bottom dikurangi dari pb-32 menjadi pb-12 agar mulus menyambung ke CTA
     <section className="bg-brand-navy pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-12 overflow-hidden rounded-t-[3rem] lg:rounded-t-[5rem] -mt-16 relative z-20 shadow-[0_-20px_50px_rgba(0,38,60,0.15)]">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-14 gap-6 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start">
-            <span className="text-eyebrow text-brand-red inline-block mb-3">Gallery</span>
-            <h2 className="text-white font-bold text-3xl md:text-4xl">Behind The Scenes</h2>
+            <span className="text-eyebrow-lg text-brand-red block mb-3">Gallery</span>
+            <h2 className="text-white mb-4">Behind The Scenes</h2>
             <p className="mt-4 text-slate-400 text-lg">Step into the vibrant world of First HR Indonesia.</p>
           </div>
           <div className="flex gap-4 justify-center md:justify-end">
@@ -581,9 +593,7 @@ function GallerySection() {
           </div>
         </div>
 
-        {/* BUNGKUSAN GALERI DIBEBASKAN (TIDAK ADA LAGI SHADOW-2XL & ROUNDED BOX RAKSASA) */}
         <div className="relative">
-          {/* overflow-visible pada kontainer luar agar bayangan kartu tidak terpotong */}
           <div className="overflow-hidden"> 
             <div className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] gap-6" style={{ transform: `translateX(-${gallerySlide * (100 / galleryViews)}%)` }}>
               {gallerySliderData.map((slide) => (
@@ -595,8 +605,8 @@ function GallerySection() {
                     </div>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
-                    <span className="text-brand-red text-[11px] font-bold uppercase tracking-widest mb-2 font-sans">FHRI Moment</span>
-                    <h4 className="text-white font-bold text-lg md:text-xl font-sans">{slide.title}</h4>
+                    <span className="text-brand-red text-xs font-bold uppercase tracking-widest block mb-2">FHRI Moment</span>
+                    <h4 className="text-white">{slide.title}</h4>
                   </div>
                 </div>
               ))}
@@ -622,7 +632,7 @@ export default function AboutUsPage() {
   if (!mounted) return null; 
 
   return (
-    <main className="bg-slate-50 font-sans overflow-hidden selection:bg-brand-red selection:text-white">
+    <main className="bg-slate-50 overflow-hidden selection:bg-brand-red selection:text-white">
       <CustomStyles />
       <HeroSection />
       <VisionMissionSection />

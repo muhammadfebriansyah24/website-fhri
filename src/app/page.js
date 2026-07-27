@@ -107,7 +107,7 @@ function Hero() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16 relative z-10 w-full">
         
         <div className="md:w-1/2">
-          <span className="text-eyebrow text-brand-red">
+          <span className="text-eyebrow-lg text-brand-red">
             First HR Indonesia
           </span>
           <h1 className="mt-5 md:mt-6 text-white">
@@ -260,7 +260,7 @@ function News() {
       <div className="max-w-7xl mx-auto">
         <h2 className="text-white mb-8 md:mb-10">FHRI News</h2>
         
-        {/* 👇 MENGGUNAKAN newsData DARI FILE TERPUSAT */}
+        {/* MENGGUNAKAN newsData DARI FILE TERPUSAT */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {newsData.map((news, idx) => (
             <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group">
@@ -314,7 +314,7 @@ function Programs() {
           <div
             className="bg-brand-navy mx-4 md:mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] px-5 md:px-12 pt-10 pb-32 md:pt-4 md:pb-44 text-center relative flex flex-col items-center md:-mt-[2px]"
           >
-            <span className="relative z-20 inline-flex items-center px-6 md:px-10 py-2 md:py-3 text-eyebrow text-white rounded-full border-2 md:border-3 border-brand-red md:-mt-8 shadow-sm uppercase tracking-widest">
+            <span className="relative z-20 inline-flex items-center px-6 md:px-10 py-2 md:py-3 text-eyebrow text-white rounded-full border-2 md:border-[3px] border-brand-red md:-mt-8 shadow-sm">
               Our Business Services
             </span>
 

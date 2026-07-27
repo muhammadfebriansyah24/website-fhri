@@ -37,15 +37,15 @@ function ArticleReader({ article }) {
 
       {/* Article Header */}
       <header className="mb-10 text-center md:text-left">
-        <div className="flex items-center justify-center md:justify-start text-slate-400 text-sm font-semibold uppercase tracking-widest mb-4">
+        <h4 className="text-slate-400 mb-4 flex items-center justify-center md:justify-start uppercase tracking-widest">
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
           </svg>
           {article.publishedAt}
-        </div>
-        <h1 className="text-3xl md:text-5xl font-bold text-brand-navy leading-tight mb-6">
+        </h4>
+        <h2 className="text-brand-navy mb-6 text-balance">
           {article.title}
-        </h1>
+        </h2>
       </header>
 
       {/* Main Cover Image */}
@@ -65,37 +65,90 @@ function ArticleReader({ article }) {
         dangerouslySetInnerHTML={{ __html: article.content }}
       />
       
-      {/* ======================================================== */}
-      {/* INSTAGRAM REEL EMBED DI DALAM ARTIKEL */}
-      {/* ======================================================== */}
-      <div className="my-16 p-8 md:p-12 bg-slate-50 rounded-[2.5rem] border border-slate-100 flex flex-col items-center text-center">
-        <h4 className="text-brand-navy font-bold text-2xl mb-2">See It In Action</h4>
-        <p className="text-slate-500 mb-8 max-w-md text-[15px] leading-relaxed">Watch this short highlight reel from our Instagram to dive deeper into the experience.</p>
-        
-        {/* Iframe Instagram Reels */}
-        <div className="w-full max-w-[320px] aspect-[9/16] bg-white rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
-          <iframe 
-            className="w-full h-full" 
-            src="https://www.instagram.com/reel/DakiZyCxcAh/embed" 
-            frameBorder="0" 
-            scrolling="no" 
-            allowTransparency="true"
-          ></iframe>
-        </div>
-      </div>
       
+      {/* INSTAGRAM REEL EMBED DI DALAM ARTIKEL */}
+      <div className="my-16 relative p-8 md:p-14 bg-brand-navy rounded-[2.5rem] overflow-hidden flex flex-col items-center text-center">
+
+        {/* Ambient decorative glow (Instagram-esque warm gradient) */}
+        <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-pink-500/20 via-purple-500/10 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-red/10 blur-3xl pointer-events-none" />
+
+        <span className="relative z-10 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/10 backdrop-blur-md text-white mb-6">
+          <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <rect x="2" y="2" width="20" height="20" rx="5" />
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+            <path d="M17.5 6.5h.01" strokeLinecap="round" />
+          </svg>
+          From Our Instagram
+        </span>
+
+        <h4 className="relative z-10 text-white mb-3">See It In Action</h4>
+        <p className="relative z-10 text-slate-300 mb-10 max-w-md">
+          Watch this short highlight reel from our Instagram to dive deeper into the experience.
+        </p>
+
+        {/* Phone-mockup frame — double-bezel with Instagram gradient ring */}
+        <div className="relative z-10 group">
+          <div className="absolute -inset-1.5 rounded-[2.25rem] bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 opacity-80 blur-[2px] transition-opacity duration-700 group-hover:opacity-100" />
+          <div className="relative w-full max-w-[300px] aspect-[9/16] bg-white rounded-[2rem] overflow-hidden shadow-[0_30px_70px_-20px_rgba(0,0,0,0.5)] border-4 border-white">
+            <iframe
+              className="w-full h-full"
+              src="https://www.instagram.com/reel/DakiZyCxcAh/embed"
+              frameBorder="0"
+              scrolling="no"
+              allowTransparency="true"
+            ></iframe>
+          </div>
+        </div>
+
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative z-10 group/link inline-flex items-center gap-2 mt-8 text-sm font-bold text-white transition-colors duration-500 hover:text-brand-red"
+        >
+          Follow us on Instagram
+          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/link:translate-x-1">
+            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </a>
+      </div>
+
       {/* Article Footer & Share Button */}
       <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="text-sm font-bold text-brand-navy uppercase tracking-widest">
+        <div className="text-sms font-bold text-brand-navy uppercase tracking-widest">
           Published by FHRI Editorial Team
         </div>
-        <button 
-          onClick={handleShare}
-          className={`px-8 py-3 font-bold text-sm rounded-full transition-all shadow-md ${copySuccess ? 'bg-green-500 text-white shadow-green-500/30' : 'bg-slate-100 text-brand-navy hover:bg-brand-red hover:text-white hover:shadow-brand-red/30'}`}
-        >
-          {copySuccess ? 'Link Copied!' : 'Share Article'}
-        </button>
+        <button
+        onClick={handleShare}
+        className={`group inline-flex items-center gap-3 pl-8 pr-2 py-2 font-bold text-sm rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] uppercase tracking-wide ${
+          copySuccess
+            ? 'bg-green-500 text-white shadow-[0_10px_25px_rgba(34,197,94,0.3)]'
+            : 'bg-slate-100 text-brand-navy hover:bg-brand-red hover:text-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]'
+        }`}
+      >
+        {copySuccess ? 'Link Copied!' : 'Share Article'}
+        <span className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${copySuccess ? 'bg-white/20' : 'bg-brand-navy/5 group-hover:bg-white/15'}`}>
+          {/* SVG Icon */}
+          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {copySuccess ? (
+              <path d="M20 6L9 17l-5-5" />
+            ) : (
+              <>
+                <circle cx="18" cy="5" r="3" />
+                <circle cx="6" cy="12" r="3" />
+                <circle cx="18" cy="19" r="3" />
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+              </>
+            )}
+          </svg>
+        </span>
+      </button>
       </div>
+
     </article>
   );
 }
@@ -128,18 +181,18 @@ function NewsContentWrapper() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/20 rounded-full blur-[120px] pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <span className="text-eyebrow text-brand-red inline-block mb-6 uppercase tracking-widest font-bold text-sm">
-            Featured Highlight
+          <span className="text-eyebrow-lg text-brand-red block mb-8">
+          Featured Highlight
           </span>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Kiri: Teks Highlight */}
             <div>
-              <div className="flex items-center text-slate-400 text-xs font-bold uppercase tracking-widest mb-4">
+              <div className="text-eyebrow text-slate-400 mb-4 flex items-center">
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                 {highlightedNews.publishedAt}
               </div>
-              <h1 className="text-white text-4xl md:text-5xl font-bold leading-tight mb-6">
+              <h1 className="text-white mb-6 text-balance">
                 {highlightedNews.title}
               </h1>
               <p className="text-slate-300 text-lg leading-relaxed mb-10 max-w-lg">
@@ -173,7 +226,7 @@ function NewsContentWrapper() {
       <section className="py-24 px-6 md:px-12 bg-slate-50 min-h-[50vh]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 border-b border-slate-200 pb-6 flex items-end justify-between">
-            <h2 className="text-3xl font-bold text-brand-navy">Latest Articles</h2>
+            <h2 className="text-brand-navy mb-0">Latest Articles</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -189,13 +242,13 @@ function NewsContentWrapper() {
                   />
                 </div>
                 <div className="p-6 md:p-8 flex flex-col flex-grow">
-                  <div className="flex items-center text-slate-400 text-xs font-bold uppercase tracking-widest mb-3">
-                    {news.publishedAt.split('•')[0].trim()} {/* Hanya ambil tanggal */}
-                  </div>
-                  <h3 className="font-bold text-brand-navy text-xl mb-3 line-clamp-2 group-hover:text-brand-red transition-colors">
+                  <h5 className="text-slate-400 mb-3 uppercase tracking-wider">
+                  {news.publishedAt.split('•')[0].trim()} {/* Hanya ambil tanggal */}
+                  </h5>
+                  <h4 className="mb-3 line-clamp-2 group-hover:text-brand-red transition-colors text-brand-navy">
                     {news.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+                  </h4>
+                  <p className="text-slate-500 leading-relaxed mb-6 flex-grow line-clamp-3">
                     {news.description}
                   </p>
                   <Link 
@@ -218,7 +271,7 @@ function NewsContentWrapper() {
 // Komponen Export Utama
 export default function NewsletterPage() {
   return (
-    <main className="bg-white min-h-screen">
+    <main className="bg-white min-h-screen selection:bg-brand-red selection:text-white">
       <Suspense fallback={
         <div className="min-h-screen flex items-center justify-center text-brand-navy font-bold text-xl uppercase tracking-widest">
           <div className="flex flex-col items-center gap-4">
