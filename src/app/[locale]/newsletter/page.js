@@ -4,38 +4,31 @@ import React, { Suspense, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-
-// ==========================================
-// 1. IMPORT NEWS DATA DARI FILE GLOBAL
-// ==========================================
-// Memanggil data dari file yang sudah kita buat agar sinkron dengan halaman Home
-import { newsData } from '@/components/newsData';
+import { useLocale, useTranslations } from 'next-intl';
+import { getNewsData } from '@/components/newsData';
 
 // ==========================================
 // 2. SUB-COMPONENTS
 // ==========================================
 
-// Komponen Pembaca Artikel (Mode Detail)
-function ArticleReader({ article }) {
+function ArticleReader({ article, locale, t }) {
   const [copySuccess, setCopySuccess] = useState(false);
 
   const handleShare = () => {
     navigator.clipboard.writeText(window.location.href);
     setCopySuccess(true);
-    setTimeout(() => setCopySuccess(false), 2000); // Hilang setelah 2 detik
+    setTimeout(() => setCopySuccess(false), 2000);
   };
 
   return (
     <article className="max-w-4xl mx-auto px-6 pt-6 pb-20 md:pt-10 md:pb-32 min-h-[70vh]">
-      {/* Back Button */}
-      <Link href="/newsletter" className="inline-flex items-center text-sm font-bold text-slate-500 hover:text-brand-red transition mb-10 group">
+      <Link href={`/${locale}/newsletter`} className="inline-flex items-center text-sm font-bold text-slate-500 hover:text-brand-red transition mb-10 group">
         <svg className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
         </svg>
-        Back to News Hub
+        {t('backToNews')}
       </Link>
 
-      {/* Article Header */}
       <header className="mb-10 text-center md:text-left">
         <h4 className="text-slate-400 mb-4 flex items-center justify-center md:justify-start uppercase tracking-widest">
           <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,7 +41,6 @@ function ArticleReader({ article }) {
         </h2>
       </header>
 
-      {/* Main Cover Image */}
       <div className="relative w-full aspect-[21/9] rounded-[2rem] overflow-hidden mb-12 shadow-xl border border-slate-100">
         <Image 
           src={article.image} 
@@ -59,17 +51,13 @@ function ArticleReader({ article }) {
         />
       </div>
 
-      {/* Text Content */}
       <div 
         className="prose prose-lg max-w-none text-slate-600 leading-relaxed prose-p:mb-6 prose-strong:text-brand-navy prose-a:text-brand-red"
         dangerouslySetInnerHTML={{ __html: article.content }}
       />
       
-      
-      {/* INSTAGRAM REEL EMBED DI DALAM ARTIKEL */}
+      {/* INSTAGRAM REEL EMBED */}
       <div className="my-16 relative p-8 md:p-14 bg-brand-navy rounded-[2.5rem] overflow-hidden flex flex-col items-center text-center">
-
-        {/* Ambient decorative glow (Instagram-esque warm gradient) */}
         <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-pink-500/20 via-purple-500/10 to-transparent blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-red/10 blur-3xl pointer-events-none" />
 
@@ -79,15 +67,14 @@ function ArticleReader({ article }) {
             <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
             <path d="M17.5 6.5h.01" strokeLinecap="round" />
           </svg>
-          From Our Instagram
+          {t('fromInstagram')}
         </span>
 
-        <h4 className="relative z-10 text-white mb-3">See It In Action</h4>
+        <h4 className="relative z-10 text-white mb-3">{t('seeInAction')}</h4>
         <p className="relative z-10 text-slate-300 mb-10 max-w-md">
-          Watch this short highlight reel from our Instagram to dive deeper into the experience.
+          {t('watchReelDesc')}
         </p>
 
-        {/* Phone-mockup frame — double-bezel with Instagram gradient ring */}
         <div className="relative z-10 group">
           <div className="absolute -inset-1.5 rounded-[2.25rem] bg-gradient-to-br from-yellow-400 via-pink-500 to-purple-600 opacity-80 blur-[2px] transition-opacity duration-700 group-hover:opacity-100" />
           <div className="relative w-full max-w-[300px] aspect-[9/16] bg-white rounded-[2rem] overflow-hidden shadow-[0_30px_70px_-20px_rgba(0,0,0,0.5)] border-4 border-white">
@@ -96,7 +83,6 @@ function ArticleReader({ article }) {
               src="https://www.instagram.com/reel/DakiZyCxcAh/embed"
               frameBorder="0"
               scrolling="no"
-              allowTransparency="true"
             ></iframe>
           </div>
         </div>
@@ -107,7 +93,7 @@ function ArticleReader({ article }) {
           rel="noopener noreferrer"
           className="relative z-10 group/link inline-flex items-center gap-2 mt-8 text-sm font-bold text-white transition-colors duration-500 hover:text-brand-red"
         >
-          Follow us on Instagram
+          {t('followInstagram')}
           <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/link:translate-x-1">
             <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
@@ -116,62 +102,60 @@ function ArticleReader({ article }) {
         </a>
       </div>
 
-      {/* Article Footer & Share Button */}
       <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="text-sms font-bold text-brand-navy uppercase tracking-widest">
-          Published by FHRI Editorial Team
+        <div className="text-sm font-bold text-brand-navy uppercase tracking-widest">
+          {t('publishedBy')}
         </div>
         <button
-        onClick={handleShare}
-        className={`group inline-flex items-center gap-3 pl-8 pr-2 py-2 font-bold text-sm rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] uppercase tracking-wide ${
-          copySuccess
-            ? 'bg-green-500 text-white shadow-[0_10px_25px_rgba(34,197,94,0.3)]'
-            : 'bg-slate-100 text-brand-navy hover:bg-brand-red hover:text-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]'
-        }`}
-      >
-        {copySuccess ? 'Link Copied!' : 'Share Article'}
-        <span className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${copySuccess ? 'bg-white/20' : 'bg-brand-navy/5 group-hover:bg-white/15'}`}>
-          {/* SVG Icon */}
-          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {copySuccess ? (
-              <path d="M20 6L9 17l-5-5" />
-            ) : (
-              <>
-                <circle cx="18" cy="5" r="3" />
-                <circle cx="6" cy="12" r="3" />
-                <circle cx="18" cy="19" r="3" />
-                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-              </>
-            )}
-          </svg>
-        </span>
-      </button>
+          onClick={handleShare}
+          className={`group inline-flex items-center gap-3 pl-8 pr-2 py-2 font-bold text-sm rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] uppercase tracking-wide ${
+            copySuccess
+              ? 'bg-green-500 text-white shadow-[0_10px_25px_rgba(34,197,94,0.3)]'
+              : 'bg-slate-100 text-brand-navy hover:bg-brand-red hover:text-white shadow-[0_10px_25px_rgba(0,0,0,0.06)]'
+          }`}
+        >
+          {copySuccess ? t('linkCopied') : t('shareArticle')}
+          <span className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${copySuccess ? 'bg-white/20' : 'bg-brand-navy/5 group-hover:bg-white/15'}`}>
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {copySuccess ? (
+                <path d="M20 6L9 17l-5-5" />
+              ) : (
+                <>
+                  <circle cx="18" cy="5" r="3" />
+                  <circle cx="6" cy="12" r="3" />
+                  <circle cx="18" cy="19" r="3" />
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+                </>
+              )}
+            </svg>
+          </span>
+        </button>
       </div>
-
     </article>
   );
 }
-
 
 // ==========================================
 // 3. MAIN PAGE HANDLER
 // ==========================================
 function NewsContentWrapper() {
+  const locale = useLocale();
+  const t = useTranslations('NewsletterPage');
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
 
-  // Jika ada parameter ID di URL, tampilkan mode Baca Artikel
+  const newsData = getNewsData(locale);
+
   if (id) {
     const article = newsData.find((item) => item.id === id);
     if (article) {
-      return <ArticleReader article={article} />;
+      return <ArticleReader article={article} locale={locale} t={t} />;
     }
   }
 
-  // JIKA TIDAK ADA ID, TAMPILKAN HALAMAN UTAMA (NEWS HUB)
-  const highlightedNews = newsData[0]; // Ambil berita pertama sebagai highlight
-  const latestNewsList = newsData.slice(1); // Sisanya masuk ke daftar berita bawah
+  const highlightedNews = newsData[0]; 
+  const latestNewsList = newsData.slice(1); 
 
   return (
     <>
@@ -182,11 +166,10 @@ function NewsContentWrapper() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           <span className="text-eyebrow-lg text-brand-red block mb-8">
-          Featured Highlight
+            {t('featured')}
           </span>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Kiri: Teks Highlight */}
             <div>
               <div className="text-eyebrow text-slate-400 mb-4 flex items-center">
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -199,15 +182,14 @@ function NewsContentWrapper() {
                 {highlightedNews.description}
               </p>
               <Link 
-                href={`/newsletter?id=${highlightedNews.id}`}
+                href={`/${locale}/newsletter?id=${highlightedNews.id}`}
                 className="inline-flex items-center justify-center bg-brand-red hover:bg-[#a82222] text-white font-bold px-8 py-3.5 rounded-full transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 uppercase tracking-wide text-sm gap-2"
               >
-                Read Full Story
+                {t('readFullStory')}
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </Link>
             </div>
 
-            {/* Kanan: Gambar Highlight */}
             <div className="relative w-full aspect-[4/3] lg:aspect-video rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl group">
               <Image 
                 src={highlightedNews.image} 
@@ -226,7 +208,7 @@ function NewsContentWrapper() {
       <section className="py-24 px-6 md:px-12 bg-slate-50 min-h-[50vh]">
         <div className="max-w-7xl mx-auto">
           <div className="mb-12 border-b border-slate-200 pb-6 flex items-end justify-between">
-            <h2 className="text-brand-navy mb-0">Latest Articles</h2>
+            <h2 className="text-brand-navy mb-0">{t('latestArticles')}</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -243,7 +225,7 @@ function NewsContentWrapper() {
                 </div>
                 <div className="p-6 md:p-8 flex flex-col flex-grow">
                   <h5 className="text-slate-400 mb-3 uppercase tracking-wider">
-                  {news.publishedAt.split('•')[0].trim()} {/* Hanya ambil tanggal */}
+                    {news.publishedAt.split('•')[0].trim()}
                   </h5>
                   <h4 className="mb-3 line-clamp-2 group-hover:text-brand-red transition-colors text-brand-navy">
                     {news.title}
@@ -252,10 +234,10 @@ function NewsContentWrapper() {
                     {news.description}
                   </p>
                   <Link 
-                    href={`/newsletter?id=${news.id}`} 
+                    href={`/${locale}/newsletter?id=${news.id}`} 
                     className="mt-auto inline-flex items-center text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors gap-2"
                   >
-                    Read More 
+                    {t('readMore')} 
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
                 </div>
@@ -268,7 +250,6 @@ function NewsContentWrapper() {
   );
 }
 
-// Komponen Export Utama
 export default function NewsletterPage() {
   return (
     <main className="bg-white min-h-screen selection:bg-brand-red selection:text-white">

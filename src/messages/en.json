@@ -1,0 +1,108 @@
+{
+  "Navbar": {
+    "business": "Business",
+    "tips": "Tips and Trick HR",
+    "pricing": "Pricing",
+    "recruitment": "Recruitment",
+    "about": "About Us",
+    "news": "FHRI News",
+    "join": "Join Us"
+  },
+  "HomePage": {
+    "Hero": {
+      "eyebrow": "First HR Indonesia",
+      "title": "Strategic Partner for Outstanding Talent",
+      "description": "FHRI helps companies and HR professionals build capacity, accelerate careers, and transform HR practices through practical learning and innovation.",
+      "cta": "DISCOVER MORE"
+    },
+    "Network": {
+      "eyebrow": "Our Network",
+      "title": "Strategic Partners"
+    },
+    "News": {
+      "title": "FHRI News",
+      "viewMore": "View More"
+    },
+    "Programs": {
+      "eyebrow": "Our Business Services",
+      "title": "Explore Our Comprehensive HR & Business Solutions",
+      "description": "A complete suite of professional services designed to optimize your HR operations, ensure regulatory compliance, and drive long-term organizational growth.",
+      "readMore": "Read More"
+    },
+    "CorporateEvents": {
+      "title": "Corporate & Culture Events",
+      "description": "Discover various internal events and cultural activities designed to foster team building, engagement, and alignment with our core values."
+    },
+    "ProgramsList": {
+      "support": { "title": "Business Support Services", "desc": "Operational support for market entry, covering company establishment, regulatory compliance, and cultural integration." },
+      "hc": { "title": "Human Capital Solutions", "desc": "End-to-end talent acquisition from entry-level to C-suite, including executive search and talent assessment." },
+      "payroll": { "title": "Payroll & Outsourcing", "desc": "Comprehensive HR administrative management, accurate payroll processing, and flexible workforce solutions." },
+      "assessment": { "title": "Assessment Tools", "desc": "Evaluation tools including 360-degree feedback and personality assessments to identify capabilities and drive employee development." },
+      "bootcamp": { "title": "HR Boot Camp", "desc": "Intensive, results-oriented training programs designed to accelerate HR team development and strategic business partnering." },
+      "ir": { "title": "Industrial Relations & Legal Advisory", "desc": "Expert labor law consulting, dispute management, and union partnership strategies to maintain a harmonious workplace." },
+      "hse": { "title": "Health, Safety and Environment (HSE)", "desc": "Comprehensive solutions for a safe workplace, environmental compliance, risk assessment, and safety management systems." },
+      "certification": { "title": "Professional Certification Institute", "desc": "Recognized certification programs designed to elevate professional standards and validate HR competencies." }
+    },
+    "EventsList": {
+      "townhall": { "title": "Town Hall Meeting", "desc": "Quarterly company update and performance review sessions." },
+      "csr": { "title": "Corporate Social Responsibility", "desc": "Community outreach and environmental sustainability programs." },
+      "outbound": { "title": "Outbound Training (OBT)", "desc": "Team building and leadership development in outdoor settings." }
+    }
+  },
+  "CTA": {
+    "eyebrow": "READY TO TAKE THE NEXT STEP?",
+    "title": "Elevate Your Career : \nGrow Alongside Leading HR Professionals",
+    "description": "Become a part of FHRI and elevate your HR capabilities alongside the largest professional community in Indonesia.",
+    "button": "Start Your Journey"
+  },
+  "Testimonial": {
+    "list": {
+      "item1": {
+        "quote": "FHRI helped our HR team transform from an operational function to a strategic partner. The impact on our business has been immediate and profound.",
+        "name": "Sarah Cantika",
+        "role": "HR Director, TechVision Inc"
+      },
+      "item2": {
+        "quote": "The programs from FHRI are incredibly practical. Our team was able to implement new recruitment strategies within just a few weeks.",
+        "name": "Indah Permata",
+        "role": "Talent Acquisition Lead, Kencana Group"
+      },
+      "item3": {
+        "quote": "The audit and compliance materials provided are extremely comprehensive, giving our company peace of mind and confidence in our decision-making.",
+        "name": "Anita Wijaya",
+        "role": "HR Manager, Global Logistics"
+      }
+    }
+  },
+  "NewsletterPage": {
+    "featured": "Featured Highlight",
+    "readFullStory": "Read Full Story",
+    "latestArticles": "Latest Articles",
+    "readMore": "Read More",
+    "backToNews": "Back to News Hub",
+    "fromInstagram": "From Our Instagram",
+    "seeInAction": "See It In Action",
+    "watchReelDesc": "Watch this short highlight reel from our Instagram to dive deeper into the experience.",
+    "followInstagram": "Follow us on Instagram",
+    "publishedBy": "Published by FHRI Editorial Team",
+    "shareArticle": "Share Article",
+    "linkCopied": "Link Copied!"
+  },
+  "Footer": {
+    "tagline": "Trusted partner for HR solutions and human resource development in Indonesia.",
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "contactTitle": "Contact",
+    "address": "Jakarta, Indonesia",
+    "whatsappBtn": "Contact Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "nav": {
+      "home": "Home",
+      "tips": "Tips & Trick HR",
+      "pricing": "Pricing",
+      "recruitment": "Recruitment",
+      "about": "About Us"
+    }
+  }
+}
