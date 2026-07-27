@@ -8,18 +8,30 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
 
+// Komponen template icon
+const DynamicIcon = ({ name, className }) => (
+  <div 
+    className={`bg-current ${className}`}
+    style={{
+      WebkitMaskImage: `url('/${name}')`,
+      WebkitMaskSize: 'contain',
+      WebkitMaskRepeat: 'no-repeat',
+      WebkitMaskPosition: 'center',
+      maskImage: `url('/${name}')`,
+      maskSize: 'contain',
+      maskRepeat: 'no-repeat',
+      maskPosition: 'center',
+    }}
+  />
+);
+
 // DATA MENU BUSINESS (Tetap sama)
 const businessTabs = [
   {
     id: 'Business Support Services',
     path: '/business/business-support',
     subtitle: 'Comprehensive support to strengthen your business operations and strategy.',
-    icon: (
-      <>
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-        <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16" />
-      </>
-    ),
+    icon: 'ic_briefcase-outline.svg',
     subMenus: [
       { title: 'Company Establishment', desc: 'Expert guidance through local regulatory compliance, licensing, and legal requirements for new market entrants.' },
       { title: 'Cultural Fit Solutions', desc: 'Workshops and coaching sessions designed to bridge cultural gaps and create harmonious team integration.' },
@@ -33,12 +45,7 @@ const businessTabs = [
     id: 'Human Capital Solutions',
     path: '/business/humancapital-solutions',
     subtitle: 'Strategic solutions to optimize and develop your human capital assets.',
-    icon: (
-      <>
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </>
-    ),
+    icon: 'ic_search-outline.svg',
     subMenus: [
       { title: 'Executive Search', desc: 'A proactive, targeted approach to recruiting passive C-suite talents and senior leaders.' },
       { title: 'Recruitment Services', desc: 'End-to-end recruitment process management for mid-level positions and specialists across industries.' },
@@ -52,13 +59,7 @@ const businessTabs = [
     id: 'Payroll & Outsourcing',
     path: '/business/payroll',
     subtitle: 'End-to-end payroll management and business process outsourcing solutions.',
-    icon: (
-      <>
-        <ellipse cx="12" cy="5" rx="9" ry="3" />
-        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-      </>
-    ),
+    icon: 'ic_circle-stack-outline.svg',
     subMenus: [
       { title: 'Payroll Processing', desc: 'Accurate, timely payroll processing aligned with Indonesian labor and PPh 21 tax regulations.' },
       { title: 'Staff Outsourcing', desc: 'Flexible workforce solutions that scale with your business and reduce administrative burden.' },
@@ -72,12 +73,7 @@ const businessTabs = [
     id: 'Assessment Tools',
     path: '/business/assessment-tools',
     subtitle: 'Advanced assessment tools to evaluate employee competencies and potential.',
-    icon: (
-      <>
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-        <path d="M6 12v5c3 3 9 3 12 0v-5" />
-      </>
-    ),
+    icon: 'ic_education-outline.svg',
     subMenus: [
       { title: 'Skill & Performance', desc: 'Evaluate technical readiness and work target achievements with measurable metrics.' },
       { title: '360-Degree Feedback', desc: 'Gain a comprehensive view from the entire professional interaction structure via anonymous feedback.' },
@@ -91,13 +87,7 @@ const businessTabs = [
     id: 'HR Boot Camp',
     path: '/business/hr-bootcamp',
     subtitle: 'Intensive training programs to build HR excellence and strategic capabilities.',
-    icon: (
-      <>
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </>
-    ),
+    icon: 'ic_computer-outline.svg',
     subMenus: [
       { title: 'HRBP Boot Camp', desc: 'Intensive cohort-based program to transition traditional HR practitioners into strategic business partners.' },
       { title: 'Live Case Studies', desc: 'Practical case study analysis and real-world business resolution sessions with peer collaboration.' },
@@ -111,11 +101,7 @@ const businessTabs = [
     id: 'Industrial Relations & Legal Advisory',
     path: '/business/industrial-relations',
     subtitle: 'Expert guidance on labor relations, employment law, and dispute resolution.',
-    icon: (
-      <>
-        <path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11m16-11v11" />
-      </>
-    ),
+    icon: 'ic_building-library-outline.svg',
     subMenus: [
       { title: 'Labor Law Compliance', desc: 'Development and review of Company Regulations (PP) and Collective Labor Agreements (PKB).' },
       { title: 'Risk Management', desc: 'Mitigate employment risks related to restructuring, contracts, and legally compliant termination.' },
@@ -129,12 +115,7 @@ const businessTabs = [
     id: 'Health, Safety, and Environment',
     path: '/business/hse',
     subtitle: 'Comprehensive HSE programs to ensure workplace safety and employee wellbeing.',
-    icon: (
-      <>
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
-      </>
-    ),
+    icon: 'ic_check-shield-outline.svg',
     subMenus: [
       { title: 'Risk Assessment', desc: 'Proactively identify workplace hazards, conduct incident investigations, and determine corrective actions.' },
       { title: 'Policy & SOP Creation', desc: 'Creation of safety manuals and guidance for implementing standard ISO 45001 management systems.' },
@@ -148,13 +129,7 @@ const businessTabs = [
     id: 'Corporate Culture & Events',
     path: '/business/corporate-culture',
     subtitle: 'Build a thriving corporate culture through strategic programs and events.',
-    icon: (
-      <>
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 00-3-3.87 M16 3.13a4 4 0 010 7.75" />
-      </>
-    ),
+    icon: 'ic_users-outline.svg',
     subMenus: [
       { title: 'Professional Work Ethic', desc: 'Workshops instilling accountability, integrity, collaboration, and service excellence standards.' },
       { title: 'Corporate Event Organizing', desc: 'End-to-end planning of town halls and annual recognition events to strengthen cohesion.' },
@@ -168,12 +143,7 @@ const businessTabs = [
     id: 'Professional Certification Institute',
     path: '/business/lsp',
     subtitle: 'Professional certification programs to validate and enhance HR competencies.',
-    icon: (
-      <>
-        <circle cx="12" cy="8" r="7" />
-        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-      </>
-    ),
+    icon: 'ic_star-outline.svg',
     subMenus: [
       { title: 'HR Certification', desc: 'Recognized professional certifications for HR specialists and practitioners.' },
       { title: 'Competency Standards', desc: 'Industry-standard competency frameworks and assessment criteria.' },
@@ -280,9 +250,7 @@ export default function Navbar() {
                             className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-left text-[13px] font-semibold transition ${activeTab === tab.id ? 'bg-[#0B2A4A] text-white shadow-md' : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'}`}
                           >
                             <span className="flex items-center gap-3">
-                              <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                {tab.icon}
-                              </svg>
+                              <DynamicIcon name={tab.icon} className="w-4 h-4 shrink-0" />
                               <span className="truncate">{tab.id}</span>
                             </span>
                             <span className="text-xs ml-2 shrink-0">›</span>
@@ -305,7 +273,7 @@ export default function Navbar() {
                       <div>
                         <div className="flex items-center gap-3.5 mb-5">
                           <div className="w-11 h-11 bg-[#0B2A4A] rounded-xl flex items-center justify-center text-white shadow-sm shrink-0">
-                            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{activeTabData.icon}</svg>
+                            <DynamicIcon name={activeTabData.icon} className="w-6 h-6" />
                           </div>
                           <div>
                             <h3 className="text-lg font-bold text-[#0B2A4A] leading-tight">{activeTabData.id}</h3>
@@ -410,7 +378,7 @@ export default function Navbar() {
                     <button onClick={() => setExpandedBizTab(isOpen ? null : tab.id)} className="w-full flex items-center justify-between rounded-[1rem] bg-white px-3.5 py-3 text-left">
                       <span className="flex items-center gap-3">
                         <span className="w-8 h-8 rounded-lg bg-[#0B2A4A]/5 flex items-center justify-center shrink-0">
-                          <svg className="w-4 h-4 text-[#0B2A4A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">{tab.icon}</svg>
+                          <DynamicIcon name={tab.icon} className="w-4 h-4 text-[#0B2A4A]" />
                         </span>
                         <span className="text-[13px] font-bold text-[#0B2A4A]">{tab.id}</span>
                       </span>
