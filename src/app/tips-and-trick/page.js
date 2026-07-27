@@ -247,12 +247,14 @@ export default function TipsAndTricks() {
         </div>
 
         <div className="max-w-3xl mx-auto text-center relative z-10 px-6 md:px-12">
-            <span className="text-eyebrow text-brand-red">Tips &amp; Tricks</span>
+            <span className="text-eyebrow-lg text-brand-red">Tips &amp; Tricks</span>
             {/* Hanya menyisakan text-white dan margin karena H1 sudah diatur terpusat */}
             <h1 className="mt-5 md:mt-6 text-white text-balance">
                 Practical insights from{' '} 
                 <br className="hidden md:block" />
-                First HR Indonesia consultants
+                <span className="text-brand-red">First HR Indonesia</span>
+                <br className="hidden md:block" />
+                consultants
             </h1>
             <p className="mt-8 md:mt-10 text-slate-300 max-w-xl mx-auto">
             Real strategies drawn from our Executive Search, Professional Work Ethic, and Corporate Event engagements — the same expertise we bring to every client.
