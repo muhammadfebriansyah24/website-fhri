@@ -51,22 +51,22 @@ export default function PayrollOutsourcingPage() {
     { 
       title: 'Payroll Management', 
       desc: 'Accurate, timely processing aligned with Indonesian labour regulations and tax requirements.',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+      icon: '/ic_money-cash-outline.svg'
     },
     { 
       title: 'Staff Outsourcing', 
       desc: 'Flexible workforce solutions that scale with your business needs and reduce administrative burden.',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      icon: '/ic_user-group-outline.svg'
     },
     { 
       title: 'Full Compliance', 
       desc: 'Complete statutory compliance and comprehensive social security (BPJS) administration.',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      icon: '/ic_check-shield-outline.svg'
     },
     { 
       title: 'Transparent Reporting', 
       desc: 'Clear, accurate, and structured reporting to provide better financial oversight for your management.',
-      icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      icon: '/ic_document-chart-bar-outline.svg'
     }
   ];
 
@@ -168,16 +168,36 @@ export default function PayrollOutsourcingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <Eyebrow tone="dark">Core Services</Eyebrow>
-            <h2 className="mt-5 text-3xl md:text-5xl font-bold text-[#00263C] leading-tight">Structured Solutions for Peace of Mind</h2>
-            <p className="mt-5 text-slate-500 text-lg">Let us manage the complexity so you can focus on growth. Our solutions ensure compliance, accuracy, and operational excellence.</p>
+            <h2 className="mt-5 text-3xl md:text-5xl font-bold text-[#00263C] leading-tight">
+              Structured Solutions for Peace of Mind
+            </h2>
+            <p className="mt-5 text-slate-500 text-lg">
+              Let us manage the complexity so you can focus on growth. Our solutions ensure compliance, accuracy, and operational excellence.
+            </p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {coreModules.map((item) => (
               <article key={item.title} className="group rounded-[1.75rem] bg-slate-50 p-7 md:p-9 ring-1 ring-slate-100 transition-all hover:shadow-[0_30px_60px_-20px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 flex flex-col h-full">
+                
                 <div className="w-14 h-14 rounded-2xl bg-[#00263C] flex items-center justify-center mb-6 shadow-md">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">{item.icon}</svg>
+                  
+                  <div 
+                    className="w-6 h-6 bg-white" 
+                    style={{
+                      WebkitMaskImage: `url('${item.icon}')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('${item.icon}')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
+
                 </div>
+                
                 <h3 className="font-bold text-[#00263C] text-lg leading-snug group-hover:text-[#DC2626] transition-colors">{item.title}</h3>
                 <p className="text-[13.5px] text-slate-500 leading-relaxed mt-3 flex-grow">{item.desc}</p>
               </article>
@@ -218,10 +238,22 @@ export default function PayrollOutsourcingPage() {
                   
                   <div className="mt-8 space-y-5">
                     {feature.bullets.map((bullet, i) => (
-                      <div key={i} className="flex gap-4">
-                        <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#DC2626] flex items-center justify-center mt-0.5 shadow-sm">
-                          <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                        </span>
+                      <div key={i} className="flex items-center gap-4">
+                        
+                        <div 
+                          className="flex-shrink-0 w-6 h-6 bg-[#DC2626] shadow-sm"
+                          style={{
+                            WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                            WebkitMaskSize: 'contain',
+                            WebkitMaskRepeat: 'no-repeat',
+                            WebkitMaskPosition: 'center',
+                            maskImage: `url('/ic_check-circle-solid.svg')`,
+                            maskSize: 'contain',
+                            maskRepeat: 'no-repeat',
+                            maskPosition: 'center',
+                          }}
+                        />
+                        
                         <p className="text-[14px] font-medium text-[#00263C] leading-relaxed">{bullet}</p>
                       </div>
                     ))}

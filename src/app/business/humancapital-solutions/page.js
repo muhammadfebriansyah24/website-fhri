@@ -101,10 +101,22 @@ export default function HumanCapitalSolutions() {
                       'Discrete multi-tier background verification',
                       'Cultural & leadership alignment checks'
                     ].map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs font-semibold text-[#00263C]/90">
-                        <span className="w-4 h-4 rounded-full bg-[#DC2626]/10 text-[#DC2626] flex items-center justify-center shrink-0 mt-0.5">
-                          ✓
-                        </span>
+                      <li key={idx} className="flex items-center gap-2.5 text-xs font-semibold text-[#00263C]/90">
+                        
+                        <div 
+                          className="shrink-0 w-4 h-4 bg-[#DC2626]"
+                          style={{
+                            WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                            WebkitMaskSize: 'contain',
+                            WebkitMaskRepeat: 'no-repeat',
+                            WebkitMaskPosition: 'center',
+                            maskImage: `url('/ic_check-circle-solid.svg')`,
+                            maskSize: 'contain',
+                            maskRepeat: 'no-repeat',
+                            maskPosition: 'center',
+                          }}
+                        />
+                        
                         {item}
                       </li>
                     ))}
@@ -253,43 +265,41 @@ export default function HumanCapitalSolutions() {
                 n: '01',
                 title: 'Targeted Market Mapping',
                 text: 'Mapping the industry to identify prospective leaders who fit your exact structural objectives.',
-                icon: (
-                  <svg viewBox="0 0 48 48" fill="none" className="w-8 h-8 md:w-9 md:h-9">
-                    <path d="M8 30 L18 22 L26 27 L40 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                    <path d="M40 12 L40 20 M40 12 L32 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                    <circle cx="18" cy="22" r="2" fill="currentColor" />
-                    <circle cx="26" cy="27" r="2" fill="currentColor" />
-                    <path d="M6 38h36" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                  </svg>
-                ),
+                icon: '/ic_trending-up.svg', 
               },
               {
                 n: '02',
                 title: 'Discreet Outreach & Pitching',
                 text: 'Personal, highly confidential conversations presenting your value proposition directly to leaders.',
-                icon: (
-                  <svg viewBox="0 0 48 48" fill="none" className="w-8 h-8 md:w-9 md:h-9">
-                    <path d="M8 20v14a2 2 0 0 0 2 2h9l7 7v-7h14a2 2 0 0 0 2-2V20a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-                    <path d="M15 26h18M15 32h11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                  </svg>
-                ),
+                icon: '/ic_chat-text-outline.svg', 
               },
               {
                 n: '03',
                 title: 'Rigorous Calibration',
                 text: 'Behavioral testing, reference checks, and cultural calibration for full management-style alignment.',
-                icon: (
-                  <svg viewBox="0 0 48 48" fill="none" className="w-8 h-8 md:w-9 md:h-9">
-                    <path d="M24 5 L40 11 V22 C40 32 33 39 24 43 C15 39 8 32 8 22 V11 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-                    <path d="M17 23 L22 28 L31 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                ),
+                icon: '/ic_check-shield-outline.svg', 
               },
             ].map((step) => (
               <div key={step.n} className="flex flex-col items-start">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#00263C]/5 text-[#00263C] flex items-center justify-center mb-6 border border-[#00263C]/10">
-                  {step.icon}
+                
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-[#00263C]/5 flex items-center justify-center mb-6 border border-[#00263C]/10">
+                
+                  <div 
+                    className="w-8 h-8 md:w-9 md:h-9 bg-[#00263C]" 
+                    style={{
+                      WebkitMaskImage: `url('${step.icon}')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('${step.icon}')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
+                  
                 </div>
+
                 <span className="text-[11px] font-black text-[#DC2626] uppercase tracking-[0.2em] mb-2">Step {step.n}</span>
                 <h3 className="text-xl font-extrabold text-[#00263C] mb-2">{step.title}</h3>
                 <p className="text-slate-500 text-xs md:text-sm leading-relaxed max-w-xs">{step.text}</p>

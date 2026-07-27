@@ -15,12 +15,12 @@ const coreCapabilities = [
   {
     title: 'Company Establishment',
     description: 'Expert guidance through local regulatory compliance, licensing, and legal requirements for new market entrants. We ensure your foundational structures are sound and compliant from day one.',
-    icon: <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2M9 12h6M9 16h6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    icon: '/ic_clipboard-outline.svg'
   },
   {
     title: 'Cultural Fit Solutions',
     description: 'Workshops and coaching sessions designed to bridge cultural gaps and create harmonious team integration. Build a cohesive corporate culture that respects local nuance while maintaining global standards.',
-    icon: <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    icon: '/ic_users-outline.svg'
   },
 ];
 
@@ -100,7 +100,19 @@ export default function BusinessSupportPage() {
             {coreCapabilities.map((item) => (
               <article key={item.title} className="group rounded-[1.75rem] bg-slate-50 p-7 md:p-9 ring-1 ring-slate-100 transition-all hover:shadow-[0_30px_60px_-20px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 flex flex-col items-start">
                 <div className="w-12 h-12 rounded-xl bg-[#00263C] flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-[#DC2626]">
-                  <svg className="w-5 h-5 text-white" viewBox="0 0 24 24">{item.icon}</svg>
+                  <div 
+                    className="w-5 h-5 bg-[#FFFFFF]"
+                    style={{
+                      WebkitMaskImage: `url(${item.icon})`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url(${item.icon})`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                 </div>
                 <h3 className="font-bold text-[#00263C] text-lg leading-snug group-hover:text-[#DC2626] transition-colors">{item.title}</h3>
                 <p className="text-[13.5px] text-slate-500 leading-relaxed mt-3">{item.description}</p>
@@ -136,9 +148,21 @@ export default function BusinessSupportPage() {
             <div className="mt-9 space-y-6">
               {structuralList.map((item) => (
                 <div key={item.title} className="flex gap-4">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#DC2626] flex items-center justify-center mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </span>
+                  
+                  <div 
+                    className="flex-shrink-0 w-6 h-6 bg-[#DC2626] mt-0.5" 
+                    style={{
+                      WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_check-circle-solid.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
+
                   <div>
                     <h4 className="font-bold text-[#00263C] text-[15px] mb-1">{item.title}</h4>
                     <p className="text-[13px] text-slate-500 leading-relaxed">{item.description}</p>
@@ -163,11 +187,23 @@ export default function BusinessSupportPage() {
               A successful business entry is as much about people as it is about paperwork. We specialize in aligning global corporate culture with local Indonesian professional dynamics, ensuring your team operates synergistically from the moment doors open.
             </p>
             <div className="mt-9 space-y-6">
-              {culturalList.map((item) => (
+              {structuralList.map((item) => (
                 <div key={item.title} className="flex gap-4">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-[#DC2626] flex items-center justify-center mt-0.5">
-                    <svg className="w-3.5 h-3.5 text-white" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
-                  </span>
+                  
+                  <div 
+                    className="flex-shrink-0 w-6 h-6 bg-[#DC2626] mt-0.5" 
+                    style={{
+                      WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_check-circle-solid.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
+
                   <div>
                     <h4 className="font-bold text-[#00263C] text-[15px] mb-1">{item.title}</h4>
                     <p className="text-[13px] text-slate-500 leading-relaxed">{item.description}</p>
