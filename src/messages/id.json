@@ -1,0 +1,108 @@
+{
+  "Navbar": {
+    "business": "Layanan Bisnis",
+    "tips": "Tips dan Trik HR",
+    "pricing": "Harga",
+    "recruitment": "Rekrutmen",
+    "about": "Tentang Kami",
+    "news": "Berita FHRI",
+    "join": "Bergabung"
+  },
+  "HomePage": {
+    "Hero": {
+      "eyebrow": "First HR Indonesia",
+      "title": "Mitra Strategis untuk Talenta Luar Biasa",
+      "description": "FHRI membantu perusahaan dan profesional HR membangun kapasitas, mengakselerasi karir, dan bertransformasi melalui pembelajaran praktis dan inovasi.",
+      "cta": "TEMUKAN LEBIH LANJUT"
+    },
+    "Network": {
+      "eyebrow": "Jaringan Kami",
+      "title": "Mitra Strategis"
+    },
+    "News": {
+      "title": "Berita FHRI",
+      "viewMore": "Lihat Selengkapnya"
+    },
+    "Programs": {
+      "eyebrow": "Layanan Bisnis Kami",
+      "title": "Jelajahi Solusi HR & Bisnis Komprehensif Kami",
+      "description": "Rangkaian layanan profesional lengkap yang dirancang untuk mengoptimalkan operasional HR Anda, memastikan kepatuhan regulasi, dan mendorong pertumbuhan organisasi jangka panjang.",
+      "readMore": "Baca Selengkapnya"
+    },
+    "CorporateEvents": {
+      "title": "Acara Korporat & Budaya",
+      "description": "Temukan berbagai acara internal dan kegiatan budaya yang dirancang untuk mendorong pembentukan tim, keterlibatan, dan keselarasan dengan nilai-nilai inti kami."
+    },
+    "ProgramsList": {
+      "support": { "title": "Layanan Dukungan Bisnis", "desc": "Dukungan operasional untuk masuk ke pasar baru, mencakup pendirian perusahaan, kepatuhan regulasi, dan integrasi budaya." },
+      "hc": { "title": "Solusi Human Capital", "desc": "Akuisisi talenta menyeluruh dari tingkat pemula hingga eksekutif (C-suite), termasuk pencarian eksekutif dan penilaian talenta." },
+      "payroll": { "title": "Penggajian & Alih Daya", "desc": "Manajemen administrasi HR komprehensif, pemrosesan penggajian yang akurat, dan solusi tenaga kerja yang fleksibel." },
+      "assessment": { "title": "Alat Penilaian", "desc": "Alat evaluasi termasuk umpan balik 360 derajat dan penilaian kepribadian untuk mengidentifikasi kemampuan dan mendorong pengembangan karyawan." },
+      "bootcamp": { "title": "Boot Camp HR", "desc": "Program pelatihan intensif berorientasi hasil yang dirancang untuk mempercepat pengembangan tim HR dan kemitraan bisnis strategis." },
+      "ir": { "title": "Hubungan Industrial & Penasihat Hukum", "desc": "Konsultasi hukum ketenagakerjaan ahli, manajemen perselisihan, dan strategi kemitraan serikat pekerja untuk menjaga keharmonisan tempat kerja." },
+      "hse": { "title": "Kesehatan, Keselamatan & Lingkungan (HSE)", "desc": "Solusi komprehensif untuk tempat kerja yang aman, kepatuhan lingkungan, penilaian risiko, dan sistem manajemen keselamatan." },
+      "certification": { "title": "Lembaga Sertifikasi Profesi", "desc": "Program sertifikasi yang diakui dan dirancang untuk meningkatkan standar profesional serta memvalidasi kompetensi HR." }
+    },
+    "EventsList": {
+      "townhall": { "title": "Pertemuan Town Hall", "desc": "Sesi pembaruan perusahaan kuartalan dan tinjauan kinerja." },
+      "csr": { "title": "Tanggung Jawab Sosial Perusahaan", "desc": "Program penjangkauan masyarakat dan keberlanjutan lingkungan." },
+      "outbound": { "title": "Pelatihan Outbound (OBT)", "desc": "Pembentukan tim dan pengembangan kepemimpinan di luar ruangan." }
+    }
+  },
+  "CTA": {
+    "eyebrow": "SIAP MENGAMBIL LANGKAH BERIKUTNYA?",
+    "title": "Tingkatkan Karier Anda :\nTumbuh Bersama Profesional HR Terkemuka",
+    "description": "Jadilah bagian dari FHRI dan tingkatkan kapabilitas HR Anda bersama komunitas profesional terbesar di Indonesia.",
+    "button": "Mulai Perjalanan Anda"
+  },
+  "Testimonial": {
+    "list": {
+      "item1": {
+        "quote": "FHRI membantu tim HR kami bertransformasi dari fungsi operasional menjadi mitra strategis. Dampaknya bagi bisnis kami sangat instan dan mendalam.",
+        "name": "Sarah Cantika",
+        "role": "HR Director, TechVision Inc"
+      },
+      "item2": {
+        "quote": "Program-program dari FHRI sangat praktis. Tim kami mampu menerapkan strategi rekrutmen baru dalam waktu hanya beberapa minggu.",
+        "name": "Indah Permata",
+        "role": "Talent Acquisition Lead, Kencana Group"
+      },
+      "item3": {
+        "quote": "Materi audit dan kepatuhan yang disediakan sangat komprehensif, memberikan ketenangan serta kepercayaan diri bagi perusahaan kami dalam mengambil keputusan.",
+        "name": "Anita Wijaya",
+        "role": "HR Manager, Global Logistics"
+      }
+    }
+  },
+  "NewsletterPage": {
+    "featured": "Sorotan Utama",
+    "readFullStory": "Baca Cerita Lengkap",
+    "latestArticles": "Artikel Terbaru",
+    "readMore": "Baca Selengkapnya",
+    "backToNews": "Kembali ke Pusat Berita",
+    "fromInstagram": "Dari Instagram Kami",
+    "seeInAction": "Lihat Langsung Aksinya",
+    "watchReelDesc": "Tonton video sorotan singkat dari Instagram kami untuk menyelami pengalaman lebih mendalam.",
+    "followInstagram": "Ikuti kami di Instagram",
+    "publishedBy": "Dipublikasikan oleh Tim Editorial FHRI",
+    "shareArticle": "Bagikan Artikel",
+    "linkCopied": "Tautan Disalin!"
+  },
+  "Footer": {
+    "tagline": "Mitra terpercaya untuk solusi HR dan pengembangan sumber daya manusia di Indonesia.",
+    "servicesTitle": "Layanan",
+    "companyTitle": "Perusahaan",
+    "contactTitle": "Kontak",
+    "address": "Jakarta, Indonesia",
+    "whatsappBtn": "Hubungi Kami",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Syarat Layanan",
+    "nav": {
+      "home": "Beranda",
+      "tips": "Tips & Trick HR",
+      "pricing": "Pricing",
+      "recruitment": "Recruitment",
+      "about": "About Us"
+    }
+  }
+}
