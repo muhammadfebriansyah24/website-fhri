@@ -47,8 +47,10 @@ export default function AssessmentToolsPage() {
       {/* =========================================
           SECTION 1: HERO SECTION
           ========================================= */}
-      <section className="relative bg-[#00263C] pt-16 pb-20 md:pt-24 md:pb-28 px-6 md:px-12 overflow-hidden min-h-[70vh] flex items-center">
-        <div className="max-w-6xl mx-auto relative z-10 grid lg:grid-cols-2 gap-14 items-center w-full">
+      <section className="relative min-h-[92vh] flex items-center bg-[#00263C] overflow-hidden">
+        
+        {/* Kontainer Konten - Standardisasi Lebar dan Padding */}
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-20 pt-32 relative z-10 grid lg:grid-cols-2 gap-14 items-center">
             
             {/* LEFT COLUMN: Copywriting */}
             <div className="flex flex-col justify-center relative z-10">
@@ -64,7 +66,7 @@ export default function AssessmentToolsPage() {
               <p className="text-lg text-slate-300 leading-relaxed max-w-lg mb-10">
                 Bring precision to talent development. Objectively evaluate leadership potential, technical capabilities, and cultural fit through industry-standard assessment tools.
               </p>
-        </div>
+            </div>
             
             {/* RIGHT COLUMN: Visual Mockup */}
             <div className="relative w-full h-full min-h-[400px] lg:min-h-[550px] flex items-center justify-center mt-10 lg:mt-0">

@@ -101,11 +101,10 @@ export default function LSPPage() {
   return (
     <main className="bg-white min-h-screen pb-20">
 
-      {/* HEADER UTAMA INSTITUT - NAVY BG + FOTO SEMINAR/TRAINING SEBAGAI GAMBAR LATAR */}
-      {/* Foto: "crowd of people sitting on chairs inside room" (audiens seminar/training) oleh Headway, gratis & open-source dari Unsplash
-          (https://unsplash.com/photos/crowd-of-people-sitting-on-chairs-inside-room-F2KRf_QfCqw) - sesuai tema sertifikasi & training HR.
-          Tambahkan images.unsplash.com ke remotePatterns di next.config.js agar next/image bisa memuatnya. */}
-      <section className="relative overflow-hidden bg-[#00263C]">
+      {/* SECTION 1 : HEADER UTAMA INSTITUT */}
+      <section className="relative min-h-[92vh] flex items-center justify-center bg-[#00263C] overflow-hidden">
+        
+        {/* Background Image & Effects (Dipertahankan 100% Asli) */}
         <div className="absolute inset-0" aria-hidden="true">
           <Image
             src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?fm=jpg&q=80&w=2400&auto=format&fit=crop"
@@ -120,18 +119,24 @@ export default function LSPPage() {
           <div className="absolute bottom-0 left-10 w-72 h-72 bg-[#DC2626]/20 rounded-full blur-3xl pointer-events-none" />
         </div>
 
-        {/* Konten teks diposisikan center vertikal & horizontal agar simetris, tidak menggantung ke bawah */}
-        <div className="relative z-10 min-h-[480px] md:min-h-[560px] flex items-center justify-center px-6 py-16">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-[#DC0017] text-xs font-extrabold tracking-widest uppercase mb-4">
+        {/* Kontainer Konten Utama - Standar Lebar dan Padding */}
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 py-16 md:py-20 relative z-10 flex justify-center">
+          
+          {/* Wrapper Teks (Membatasi lebar teks maksimal di 3xl agar tetap simetris) */}
+          <div className="max-w-3xl text-center flex flex-col items-center">
+            
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-[#DC0017] text-xs font-extrabold tracking-widest uppercase mb-6">
               Professional Certification Institute
             </div>
+            
             <h1 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
               Validating Excellence & Elevating HR Competencies
             </h1>
-            <p className="text-slate-300 mt-4 text-base md:text-lg leading-relaxed">
+            
+            <p className="text-slate-300 mt-6 text-base md:text-lg leading-relaxed">
               Explore our comprehensive, world-class programs designed to benchmark skills, accredit training, and accelerate professional career paths.
             </p>
+            
           </div>
         </div>
       </section>
