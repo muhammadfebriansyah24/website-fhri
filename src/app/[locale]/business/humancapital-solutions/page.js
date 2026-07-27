@@ -19,7 +19,8 @@ export default function HumanCapitalSolutions() {
     <main className="min-h-screen font-sans bg-[#F8F9FA] text-[#00263C] selection:bg-[#DC2626] selection:text-white">
       
       {/* SECTION 1 — HERO SECTION */}
-      <section className="relative min-h-[90vh] flex items-end bg-[#00263C] text-white overflow-hidden">
+      <section className="relative min-h-[92vh] flex items-end bg-[#00263C] text-white overflow-hidden">
+        
         {/* Latar Belakang: Tim Profesional Indonesia di Kantor Modern */}
         <div className="absolute inset-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -31,7 +32,9 @@ export default function HumanCapitalSolutions() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#00263C] via-[#00263C]/85 to-[#00263C]/40" />
         </div>
 
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 pt-36 pb-20 md:pb-28 relative z-10">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-20 pt-32 relative z-10">
+          
+          {/* Badge Eyebrow Asli */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 mb-6">
             <span className="w-2 h-2 rounded-full bg-[#DC2626]" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-white">
@@ -39,22 +42,14 @@ export default function HumanCapitalSolutions() {
             </span>
           </div>
 
+          {/* Font & Teks Asli */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.05] tracking-tight max-w-4xl text-balance">
             Connecting Your Business with Exceptional Talent
           </h1>
           <p className="mt-6 text-base md:text-lg text-slate-300 leading-relaxed max-w-xl font-medium">
             Fulfilling human resource needs from entry-level to top executives. We deliver strategic talent solutions designed to support your company's growth and operational stability.
           </p>
-        </div>
-
-        {/* Scroll Cue */}
-        <div className="hidden md:flex absolute bottom-8 right-8 md:right-12 items-center gap-3 text-[10px] font-black uppercase tracking-widest text-slate-300/80 z-10">
-          Scroll Down
-          <span className="w-9 h-9 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm flex items-center justify-center animate-bounce">
-            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M12 5v14M6 13l6 6 6-6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </span>
+          
         </div>
       </section>
 

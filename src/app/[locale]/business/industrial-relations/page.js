@@ -462,55 +462,65 @@ export default function IndustrialRelationsPage() {
     <main className="min-h-screen bg-[#F8FAFC] font-sans">
       
       {/* SECTION 1 : HERO SECTION */}
-      <section className="relative bg-[#00263C] pt-28 pb-32 px-6 md:px-12 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#DC2626]/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+<section className="relative min-h-[92vh] flex items-center bg-[#00263C] overflow-hidden">
+  
+  {/* Background Effects (Blur Circles Asli) */}
+  <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+  <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#DC2626]/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
 
-        <div className="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-          
-          <div className="md:w-1/2 flex flex-col items-start text-left">
-            <Eyebrow tone="light">Legal & Compliance</Eyebrow>
-            <h1 className="mt-6 text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
-              Industrial Relations <br/> <span className="text-white/70">& Legal Advisory</span>
-            </h1>
-            <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-lg">
-              Providing expert guidance on labor compliance, risk mitigation, and harmonized workplace relations to protect corporate assets while ensuring a fair working environment.
-            </p>
+  {/* Kontainer Konten - Standar Lebar dan Padding Seimbang untuk Vertically Centered */}
+  <div className="max-w-7xl mx-auto w-full px-6 md:px-12 py-16 md:py-20 relative z-10 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+    
+    {/* Kolom Kiri: Copywriting */}
+    <div className="md:w-1/2 flex flex-col items-start text-left">
+      <Eyebrow tone="light">Legal & Compliance</Eyebrow>
+      <h1 className="mt-6 text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
+        Industrial Relations <br/> <span className="text-white/70">& Legal Advisory</span>
+      </h1>
+      <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-lg">
+        Providing expert guidance on labor compliance, risk mitigation, and harmonized workplace relations to protect corporate assets while ensuring a fair working environment.
+      </p>
+    </div>
+
+    {/* Kolom Kanan: Visual dengan Animasi Border & Status Badge */}
+    <div className="md:w-1/2 relative w-full flex justify-center lg:justify-end">
+      <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px]">
+        {/* Animated Dashed Border */}
+        <div className="absolute inset-0 border-[2px] border-white/20 rounded-full animate-[spin_20s_linear_infinite] border-dashed"></div>
+        
+        {/* Main Image Container */}
+        <div className="absolute inset-4 rounded-full overflow-hidden border-8 border-[#00263C] shadow-2xl">
+          <Image src="/herokonten2.jpg" alt="Legal Advisory Meeting" fill className="object-cover" />
         </div>
-
-          <div className="md:w-1/2 relative w-full flex justify-center lg:justify-end">
-            <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px]">
-              <div className="absolute inset-0 border-[2px] border-white/20 rounded-full animate-[spin_20s_linear_infinite] border-dashed"></div>
-              <div className="absolute inset-4 rounded-full overflow-hidden border-8 border-[#00263C] shadow-2xl">
-                <Image src="/herokonten2.jpg" alt="Legal Advisory Meeting" fill className="object-cover" />
-              </div>
-              <div className="absolute bottom-8 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  
-                  <div 
-                    className="w-6 h-6 bg-green-600 shrink-0"
-                    style={{
-                      WebkitMaskImage: `url('/ic_check.svg')`,
-                      WebkitMaskSize: 'contain',
-                      WebkitMaskRepeat: 'no-repeat',
-                      WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_check.svg')`,
-                      maskSize: 'contain',
-                      maskRepeat: 'no-repeat',
-                      maskPosition: 'center',
-                    }}
-                  />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Status</p>
-                  <p className="text-sm font-black text-[#00263C]">100% Compliant</p>
-                </div>
-              </div>
-            </div>
+        
+        {/* Floating Badge Status */}
+        <div className="absolute bottom-8 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4">
+          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+            {/* SVG Mask untuk Icon Check */}
+            <div 
+              className="w-6 h-6 bg-green-600 shrink-0"
+              style={{
+                WebkitMaskImage: `url('/ic_check.svg')`,
+                WebkitMaskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskImage: `url('/ic_check.svg')`,
+                maskSize: 'contain',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'center',
+              }}
+            />
           </div>
-
+          <div>
+            <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Status</p>
+            <p className="text-sm font-black text-[#00263C]">100% Compliant</p>
+          </div>
         </div>
-      </section>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       {/* SECTION 2 : AREA OF EXPERTISE */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative -mt-16 z-20">

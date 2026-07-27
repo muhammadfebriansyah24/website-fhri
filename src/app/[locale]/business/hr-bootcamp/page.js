@@ -19,30 +19,38 @@ export default function HRBootcampPage() {
       <main className="w-full">
         
         {/* SECTION 1: HERO SECTION */}
-        <section className="bg-[#00263C] px-8 lg:px-20 py-20 lg:py-28 grid lg:grid-cols-2 gap-12 items-center relative">
-          <div className="flex flex-col items-start gap-6 z-10">
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-gray-500/40 bg-white/5 text-gray-200 text-xs font-medium tracking-wide">
-              <span className="mr-2 text-white">EXECUTIVE EDUCATION SERIES</span>
+        <section className="relative min-h-[92vh] flex items-center bg-[#00263C] overflow-hidden">
+          
+          {/* Kontainer Konten - Standardisasi Lebar, Padding, dan Layout Grid */}
+          <div className="max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-20 pt-32 relative z-10 grid lg:grid-cols-2 gap-14 items-center">
+            
+            {/* LEFT COLUMN: Copywriting (Teks, Font, dan Gap 100% Asli) */}
+            <div className="flex flex-col items-start gap-6 z-10">
+              <div className="inline-flex items-center px-4 py-1.5 rounded-full border border-gray-500/40 bg-white/5 text-gray-200 text-xs font-medium tracking-wide">
+                <span className="mr-2 text-white">EXECUTIVE EDUCATION SERIES</span>
+              </div>
+              
+              <h1 className="text-[2.5rem] lg:text-[3.5rem] leading-[1.2] font-bold text-white tracking-tight">
+                Accelerate Your HR Excellence with Intensive Boot Camps
+              </h1>
+              
+              <p className="text-gray-300 text-[1rem] leading-relaxed max-w-[90%]">
+                Transform your career trajectory through our rigorous, result-oriented programs. Designed for forward-thinking professionals ready to master strategic HR methodologies and drive quantifiable business impact.
+              </p>
             </div>
-            
-            <h1 className="text-[2.5rem] lg:text-[3.5rem] leading-[1.2] font-bold text-white tracking-tight">
-              Accelerate Your HR Excellence with Intensive Boot Camps
-            </h1>
-            
-            <p className="text-gray-300 text-[1rem] leading-relaxed max-w-[90%]">
-              Transform your career trajectory through our rigorous, result-oriented programs. Designed for forward-thinking professionals ready to master strategic HR methodologies and drive quantifiable business impact.
-            </p>
-        </div>
 
-          <div className="relative w-full aspect-[4/3] flex items-center justify-center z-10">
-            <div className="absolute inset-0 rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
-              {/* Gambar Hero: Peserta Duduk di Ruang Pelatihan Eksekutif (Relevan dengan "Intensive Boot Camps") */}
-              <img 
-                src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1200&auto=format&fit=crop" 
-                alt="Participants Seated in an Executive Training Room" 
-                className="w-full h-full object-cover"
-              />
+            {/* RIGHT COLUMN: Visual (Gambar dan Frame Asli) */}
+            <div className="relative w-full aspect-[4/3] flex items-center justify-center z-10">
+              <div className="absolute inset-0 rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
+                {/* Gambar Hero: Peserta Duduk di Ruang Pelatihan Eksekutif */}
+                <img 
+                  src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1200&auto=format&fit=crop" 
+                  alt="Participants Seated in an Executive Training Room" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
+            
           </div>
         </section>
 

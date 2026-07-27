@@ -124,14 +124,19 @@ export default function PayrollOutsourcingPage() {
       {/* ============================================================
           SECTION 1 — HERO SECTION
           ============================================================ */}
-      <section className="relative bg-[#00263C] pt-16 pb-16 md:pt-24 md:pb-24 px-6 md:px-12 overflow-hidden flex items-center min-h-[75vh]">
-        {/* Background Effects */}
-        <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        <div className="absolute -left-32 -top-32 w-[480px] h-[480px] rounded-full bg-[#DC2626]/10 blur-3xl" />
+      <section className="relative min-h-[92vh] flex items-center bg-[#00263C] text-white overflow-hidden">
         
-        <div className="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-2 gap-14 items-center w-full">
+        {/* ================= BACKGROUND TEXTURES & EFFECTS ================= */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
+        <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
+        <div className="absolute -left-32 -top-32 w-[600px] h-[600px] rounded-full bg-[#DC2626]/10 blur-[120px] pointer-events-none z-0" />
+        <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] rounded-full bg-blue-400/10 blur-[120px] pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#00263C] via-transparent to-[#00263C]/80 pointer-events-none z-0" />
+     
+        {/* Kontainer Konten - Padding & Lebar disamakan dengan standar referensi */}
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-20 pt-32 relative z-10 grid lg:grid-cols-2 gap-14 items-center">
           
-          {/* Left: Text */}
+          {/* Left: Text (Penulisan dan Font 100% Asli) */}
           <div>
             <Eyebrow tone="light">Payroll & Outsourcing</Eyebrow>
             <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] text-balance">
@@ -141,9 +146,9 @@ export default function PayrollOutsourcingPage() {
             <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-lg">
               Comprehensive administrative and HR operational management. Empower your company to focus entirely on core business growth while we expertly manage the complexity.
             </p>
-        </div>
+          </div>
 
-          {/* Right: Image */}
+          {/* Right: Image (Asli) */}
           <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto">
             <div className="bg-white/5 p-2 md:p-3 rounded-[2rem] w-full shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
               <div className="relative w-full h-[320px] md:h-[420px] rounded-[1.5rem] overflow-hidden">

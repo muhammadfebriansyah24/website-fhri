@@ -8,71 +8,70 @@ export default function HsePage() {
     <main className="min-h-screen font-sans bg-white">
       
       {/* =========================================
-          SECTION 1: HERO BANNER (HSE) 
-          Desain: Full-Bleed Image dengan Navy Gradient (Potongan Rata)
-          ========================================= */}
-      <section className="relative w-full min-h-[90vh] flex items-center pt-20 pb-24 overflow-hidden">
-        
-        {/* Background Image & Gradient */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1628147529780-36964fbb8d54?q=80&w=2000&auto=format&fit=crop" 
-            alt="Safe and orderly industrial work environment in the morning" 
-            className="w-full h-full object-cover"
-          />
-          {/* Overlay Gradient: Solid Navy on the left for text readability, transparent on the right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#00263C] via-[#00263C]/90 to-transparent"></div>
-          {/* Additional dark overlay for mobile devices to maintain text contrast */}
-          <div className="absolute inset-0 bg-[#00263C]/50 md:hidden"></div>
+    SECTION 1: HERO BANNER (HSE) 
+    Desain: Full-Bleed Image dengan Navy Gradient (Potongan Rata)
+    ========================================= */}
+<section className="relative w-full min-h-[92vh] flex items-center bg-[#00263C] overflow-hidden">
+  
+  {/* Background Image & Gradient */}
+  <div className="absolute inset-0 w-full h-full z-0">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img 
+      src="https://images.unsplash.com/photo-1628147529780-36964fbb8d54?q=80&w=2000&auto=format&fit=crop" 
+      alt="Safe and orderly industrial work environment in the morning" 
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-gradient-to-r from-[#00263C] via-[#00263C]/90 to-transparent"></div>
+    <div className="absolute inset-0 bg-[#00263C]/50 md:hidden"></div>
+  </div>
+
+  {/* Main Content (Above background) - Padding atas dan bawah diseimbangkan */}
+  <div className="max-w-7xl mx-auto w-full px-6 md:px-12 py-16 md:py-20 relative z-10">
+    
+    <div className="max-w-2xl">
+      
+      {/* Glassmorphism Badge */}
+      <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-lg">
+        <span className="relative flex h-3 w-3">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C92A2A] opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-3 w-3 bg-[#C92A2A]"></span>
+        </span>
+        <span className="text-white text-[10px] font-bold uppercase tracking-[0.2em]">
+          Health, Safety & Environment
+        </span>
+      </div>
+
+      {/* Headline */}
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] text-balance mb-6">
+        Protect Workers, <br/>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Comply with Regulations,</span> <br/>
+        Preserve the Environment.
+      </h1>
+
+      {/* Sub-headline */}
+      <p className="text-base md:text-lg text-slate-300 leading-relaxed font-light">
+        Comprehensive HSE solutions from incident investigation to environmental compliance. We ensure your business operations run safely, orderly, and sustainably.
+      </p>
+
+      {/* Quick Highlights */}
+      <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-white/20 pt-8">
+        <div>
+          <h4 className="text-2xl md:text-3xl font-black text-white mb-1">ISO 45001</h4>
+          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Global Safety Standards</p>
         </div>
-
-        {/* Main Content (Above background) */}
-        {/* Pengecualian: Padding diperkecil (px-4 md:px-8) & max-width diperlebar ke 7xl */}
-        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10 w-full">
-          <div className="max-w-3xl">
-            
-            {/* Glassmorphism Badge */}
-            <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-8 shadow-lg">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C92A2A] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#C92A2A]"></span>
-              </span>
-              <span className="text-white text-[10px] font-bold uppercase tracking-[0.2em]">
-                Health, Safety & Environment
-              </span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-[1.05] text-balance mb-6">
-              Protect Workers, <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Comply with Regulations,</span> <br/>
-              Preserve the Environment.
-            </h1>
-
-            {/* Sub-headline */}
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl font-light">
-              Comprehensive HSE solutions from incident investigation to environmental compliance. We ensure your business operations run safely, orderly, and sustainably.
-            </p>
-
-            {/* Quick Highlights */}
-            <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-white/20 pt-10">
-              <div>
-                <h4 className="text-3xl font-black text-white mb-1">ISO 45001</h4>
-                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Global Safety Standards</p>
-              </div>
-              <div>
-                <h4 className="text-3xl font-black text-white mb-1">PROPER</h4>
-                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Environmental Compliance</p>
-              </div>
-              <div className="hidden md:block">
-                <h4 className="text-3xl font-black text-white mb-1">Zero</h4>
-                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Incident Target</p>
-              </div>
-            </div>
-
-          </div>
+        <div>
+          <h4 className="text-2xl md:text-3xl font-black text-white mb-1">PROPER</h4>
+          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Environmental Compliance</p>
         </div>
-      </section>
+        <div className="hidden md:block">
+          <h4 className="text-2xl md:text-3xl font-black text-white mb-1">Zero</h4>
+          <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Incident Target</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* =========================================
           SECTION 2: CORE HSE PILLARS 

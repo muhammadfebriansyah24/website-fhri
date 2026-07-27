@@ -59,31 +59,38 @@ export default function BusinessSupportPage() {
       {/* ============================================================
           SECTION 1 — HERO 
           ============================================================ */}
-      <section className="relative bg-[#00263C] pt-24 pb-28 md:pt-32 md:pb-40 px-6 md:px-12 overflow-hidden flex items-center justify-center min-h-[60vh]">
+      <section className="relative bg-[#00263C] min-h-[92vh] flex items-center justify-center overflow-hidden">
         
-        {/* Latar Belakang Gambar & Overlay */}
+        {/* Latar Belakang Gambar & Overlay (Diperluas menjadi 92vh) */}
         <div className="absolute inset-0 z-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img 
             src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000&auto=format&fit=crop" 
             alt="Modern Corporate Office Environment" 
             className="w-full h-full object-cover"
           />
-          {/* Solid color overlay untuk memastikan teks tetap terbaca */}
+          {/* Solid overlay aslimu */}
           <div className="absolute inset-0 bg-[#00263C]/85"></div>
         </div>
 
-        {/* Background Patterns & Glow (opsional untuk menambah estetika) */}
+        {/* Background Patterns & Glow (Asli) */}
         <div className="absolute inset-0 opacity-[0.07] z-0" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#DC2626]/20 blur-[100px] pointer-events-none z-0" />
         
-        <div className="max-w-4xl mx-auto relative z-10 text-center flex flex-col items-center">
+        {/* Kontainer Konten - Padding horizontal disamakan dengan standar, penulisan font asli */}
+        <div className="max-w-4xl mx-auto w-full px-6 md:px-12 py-20 relative z-10 text-center flex flex-col items-center">
+          
+          {/* Penulisan & Kelas Font 100% Asli */}
           <Eyebrow tone="light">Business Support Services</Eyebrow>
+          
           <h1 className="mt-8 text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] text-balance">
             Operational Excellence for Your Business Entry
           </h1>
+          
           <p className="mt-8 text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl">
             Navigating local regulations and cultural integration to ensure your company thrives from day one. Expert guidance for seamless market entry in Indonesia.
           </p>
+
         </div>
       </section>
 
