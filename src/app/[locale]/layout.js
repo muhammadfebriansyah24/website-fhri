@@ -3,7 +3,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Poppins } from 'next/font/google';
 
-// 1. MENGATUR TIPOGRAFI
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+
 const poppins = Poppins({ 
   subsets: ['latin'], 
   weight: ['400', '500', '600', '700', '800', '900'],
@@ -11,7 +13,6 @@ const poppins = Poppins({
   display: 'swap',
 });
 
-// 2. MENAMBAHKAN SEO METADATA
 export const metadata = {
   title: 'First HR Indonesia | Strategic Partner for Outstanding Talent',
   description: 'First HR Indonesia (FHRI) membantu perusahaan dan profesional HR membangun kapasitas, mengakselerasi karir, dan bertransformasi melalui pembelajaran praktis.',
@@ -25,15 +26,23 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children, params }) {
+  // Wajib menggunakan await di Next.js 15
+  const { locale } = await params;
+  
+  // Mengambil data teks dari file en.json atau id.json
+  const messages = await getMessages();
+
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang={locale} className={poppins.variable}>
       <body className="font-sans antialiased bg-white text-[#00263C] min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

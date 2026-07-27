@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 
 // DATA DUMMY LOWONGAN PEKERJAAN
 const jobOpenings = [
@@ -100,70 +101,44 @@ export default function RecruitmentPage() {
   return (
     <main className="min-h-screen bg-brand-offwhite font-sans selection:bg-brand-red selection:text-white">
       
-      { /* SECTION 1 — HERO AREA (DARK THEME) */ }
-      <section className="relative pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden bg-brand-navy">
-        {/* Dekorasi Background */}
-        <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-        <div className="absolute -right-32 -top-32 w-[600px] h-[600px] rounded-full bg-brand-red/10 blur-3xl" />
-        
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            
-            {/* Teks Hero */}
-            <div>
-              {/* OPSI 1: Aksen Garis Editorial & Eyebrow */}
-              <div className="flex items-center gap-4 mb-6 md:mb-8">
-                <span className="text-eyebrow text-brand-red font-bold uppercase tracking-widest text-sm">
-                  Careers at FHRI
-                </span>
-              </div>
+      {/* SECTION 1 — HERO AREA (DARK THEME) */}
+      <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy text-white overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+             src="https://images.unsplash.com/photo-1560264280-88b68371db39?q=80&w=2400&auto=format&fit=crop"
+            alt="Job interview at First HR Indonesia"
+            fill
+            unoptimized
+            priority
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-brand-navy/75" />
+        </div>
 
-              {/* Ukuran dan ketebalan sudah diatur di @layer base h1 */}
-              <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Build Your Future with <br className="hidden md:block" />
-                <span className="text-brand-red">First HR Indonesia</span>
-              </h1>
-              
-              {/* Ukuran paragraf mengikuti @layer base p */}
-              <p className="text-slate-300 text-lg mb-8 max-w-lg leading-relaxed">
-                We are more than a consulting firm — we are a community of innovators united by a shared drive to grow, lead, and transform the HR landscape in Indonesia.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <a 
-                  href="#open-positions" 
-                  className="inline-flex items-center justify-center gap-2.5 bg-brand-red hover:bg-[#a82222] text-white px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 uppercase tracking-wide text-sm"
-                >
-                  View Open Positions
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                  </svg>
-                </a>
-              </div>
-            </div>
+        <div className="max-w-3xl mx-auto text-center relative z-10 px-6 md:px-12">
+          <span className="text-eyebrow-lg text-brand-red">Careers at FHRI</span>
 
-            {/* Gambar Hero (Menggunakan tag <img> standar React) */}
-            <div className="relative w-full h-[400px] lg:h-[500px]">
-              <div className="absolute inset-4 rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl z-10 bg-white">
-                <img 
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
-                  alt="First HR Team Collaboration" 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-              </div>
-              {/* Badge Dekoratif */}
-              <div className="absolute bottom-12 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 z-20 animate-bounce" style={{ animationDuration: '3s' }}>
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-brand-navy">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                </div>
-                <div>
-                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Hiring Now</p>
-                  <p className="text-sm font-bold text-brand-navy">Multiple Roles</p>
-                </div>
-              </div>
-            </div>
+          <h1 className="mt-5 md:mt-6 text-white text-balance">
+            Build Your Future with <br className="hidden md:block" />
+            <span className="text-brand-red">First HR Indonesia</span>
+          </h1>
+
+          <p className="mt-8 md:mt-10 text-slate-300 max-w-xl mx-auto leading-relaxed">
+            We are more than a consulting firm, we are a community of innovators united by a shared drive to grow, lead, and transform the HR landscape in Indonesia.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-4 mt-10">
+            <a href="#open-positions" className="inline-flex items-center justify-center gap-2.5 bg-brand-red hover:bg-[#a82222] text-white px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 uppercase tracking-wide text-sm">
+              View Open Positions
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+            </a>
           </div>
+        </div>
+
+        <div>
+          <span className="w-px h-10 bg-white/20" />
         </div>
       </section>
 
@@ -171,8 +146,8 @@ export default function RecruitmentPage() {
       <section className="py-24 px-6 md:px-12 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-eyebrow text-brand-red block mb-4 font-bold uppercase tracking-widest text-sm">Why Join Us</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-navy">More Than Just a Workplace</h2>
+            <span className="text-eyebrow text-brand-red block mb-4">Why Join Us</span>
+            <h2 className="text-brand-navy">More Than Just a Workplace</h2>
             <p className="mt-4 text-slate-600 text-lg leading-relaxed">
               We invest heavily in our people because we believe that organizational excellence starts from within.
             </p>
@@ -183,21 +158,21 @@ export default function RecruitmentPage() {
               <div className="w-14 h-14 bg-brand-navy text-white rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
               </div>
-              <h4 className="mb-3 text-xl font-bold text-brand-navy">Continuous Learning</h4>
+              <h4 className="mb-3 text-brand-navy">Continuous Learning</h4>
               <p className="text-slate-600 leading-relaxed text-sm">Access to premium HR training, certifications, and mentorship from industry veterans to accelerate your professional growth.</p>
             </div>
             <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
               <div className="w-14 h-14 bg-brand-red text-white rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
               </div>
-              <h4 className="mb-3 text-xl font-bold text-brand-navy">Impactful Work</h4>
+              <h4 className="mb-3 text-brand-navy">Impactful Work</h4>
               <p className="text-slate-600 leading-relaxed text-sm">Work on strategic projects that directly influence the organizational culture and business performance of top companies in Indonesia.</p>
             </div>
             <div className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 hover:shadow-lg transition-shadow">
               <div className="w-14 h-14 bg-brand-navy text-white rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
               </div>
-              <h4 className="mb-3 text-xl font-bold text-brand-navy">Collaborative Culture</h4>
+              <h4 className="mb-3 text-brand-navy">Collaborative Culture</h4>
               <p className="text-slate-600 leading-relaxed text-sm">Join a supportive, agile team where transparency, trust, and proactive problem-solving are celebrated daily.</p>
             </div>
           </div>
@@ -209,8 +184,8 @@ export default function RecruitmentPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <span className="text-eyebrow text-brand-red block mb-3 font-bold uppercase tracking-widest text-sm">Join The Team</span>
-              <h2 className="text-3xl md:text-4xl font-bold text-brand-navy">Current Openings</h2>
+              <span className="text-eyebrow text-brand-red block mb-3">Join The Team</span>
+              <h2 className="text-brand-navy">Current Openings</h2>
               <p className="mt-4 text-slate-600 text-lg">Discover your next career move with First HR Indonesia.</p>
             </div>
             <div className="text-sm font-bold text-brand-navy bg-white px-5 py-2.5 rounded-full shadow-sm border border-slate-200">
@@ -231,7 +206,7 @@ export default function RecruitmentPage() {
                 </div>
                 
                 {/* Job Title & Desc */}
-                <h4 className="mb-3 text-xl font-bold text-brand-navy group-hover:text-brand-red transition-colors leading-tight">
+                <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors leading-tight">
                   {job.title}
                 </h4>
                 <p className="mb-8 flex-grow text-slate-600 text-[15px] leading-relaxed">
@@ -272,11 +247,10 @@ export default function RecruitmentPage() {
             
             {/* Bagian Kiri: Teks */}
             <div className="flex flex-col justify-center">
-              {/* Eyebrow khusus form */}
-              <span className="text-eyebrow text-brand-red mb-4 block font-bold uppercase tracking-widest text-sm">
+              <span className="text-eyebrow text-brand-red mb-4 block">
                 Ready to Apply?
               </span>
-              <h2 className="text-white mb-6 text-4xl md:text-5xl font-bold leading-tight">
+              <h2 className="text-white mb-6">
                 Submit Your <br/> Application
               </h2>
               <p className="text-slate-300 mb-10 text-lg leading-relaxed">
@@ -306,7 +280,7 @@ export default function RecruitmentPage() {
                     <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">Full Name *</label>
                     <input 
                       type="text" 
-                      name="name" // Tambahkan nama untuk state
+                      name="name"
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="John Doe" 
@@ -318,7 +292,7 @@ export default function RecruitmentPage() {
                     <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">Email Address *</label>
                     <input 
                       type="email" 
-                      name="email" // Tambahkan nama untuk state
+                      name="email"
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="name@email.com" 
@@ -332,7 +306,7 @@ export default function RecruitmentPage() {
                   <div className="space-y-2">
                     <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">Select Position *</label>
                     <select 
-                      name="position" // Tambahkan nama untuk state
+                      name="position"
                       value={formData.position}
                       onChange={handleChange}
                       className="w-full bg-[#051C35] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors appearance-none cursor-pointer"
@@ -349,7 +323,7 @@ export default function RecruitmentPage() {
                     <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">LinkedIn URL / Portfolio</label>
                     <input 
                       type="url" 
-                      name="linkedin" // Tambahkan nama untuk state
+                      name="linkedin"
                       value={formData.linkedin}
                       onChange={handleChange}
                       placeholder="https://linkedin.com/in/..." 
@@ -361,8 +335,8 @@ export default function RecruitmentPage() {
                 <div className="space-y-2">
                   <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">Brief Cover Letter</label>
                   <textarea 
-                    rows="4" 
-                    name="coverLetter" // Tambahkan nama untuk state
+                    rows={4} 
+                    name="coverLetter"
                     value={formData.coverLetter}
                     onChange={handleChange}
                     placeholder="Tell us why you are a great fit for this role..." 
@@ -371,7 +345,7 @@ export default function RecruitmentPage() {
                 </div>
 
                 <button 
-                  type="submit" // Pastikan tipe submit
+                  type="submit"
                   className="w-full bg-brand-red hover:bg-[#a82222] text-white font-bold py-4 rounded-xl transition-all shadow-[0_5px_15px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 mt-4 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
                 >
                   Submit Application
