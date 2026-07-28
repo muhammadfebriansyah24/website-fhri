@@ -62,7 +62,14 @@ function Hero({ t, locale }) {
         </div>
         <div className="md:w-1/2 w-full">
           <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative border border-slate-700/50 group shadow-2xl">
-            <Image src="https://images.unsplash.com/photo-1746021535489-00edc5efb203?auto=format&fit=crop&w=1200&q=80" alt="Modern HR Consulting Workspace" fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+            {/* Tag Image yang sudah diperbarui */}
+            <Image 
+              src="/images/home-hero.jpg" 
+              alt="Modern HR Consulting Workspace" 
+              fill 
+              sizes="(max-width: 768px) 100vw, 50vw" 
+              className="object-cover object-center transition-transform duration-500 group-hover:scale-105" 
+            />
           </div>
         </div>
       </div>
@@ -134,9 +141,19 @@ function News({ t, locale, newsData }) {
               </div>
               <div className="p-6 md:p-8 flex flex-col flex-grow">
                 <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center">
-                  <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                  </svg>
+                  <div 
+                    className="w-4 h-4 mr-1.5 bg-current shrink-0"
+                    style={{
+                      WebkitMaskImage: `url('/ic_calendar-outline.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_calendar-outline.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                   {news.publishedAt}
                 </div>
                 <h4 className="text-brand-navy mb-3 line-clamp-2 group-hover:text-brand-red transition-colors">{news.title}</h4>
