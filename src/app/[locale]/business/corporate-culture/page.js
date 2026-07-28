@@ -2,12 +2,13 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
+import { getCorporateCultureData } from '@/components/corporateCultureData';
 
 // ============================================================
-// SHARED UI PRIMITIVES (consistent with Institutional Editorial theme)
+// SHARED UI PRIMITIVES
 // ============================================================
-
 function ModernEyebrow({ children }) {
   return (
     <span className="text-xs md:text-sm font-black uppercase tracking-[0.3em] text-[#DC2626]">
@@ -20,13 +21,15 @@ function ModernEyebrow({ children }) {
 // MAIN PAGE
 // ============================================================
 export default function CorporateCultureEvents() {
+  const locale = useLocale();
+  const data = getCorporateCultureData(locale);
+
   return (
     <main className="min-h-screen font-sans bg-[#F8F9FA] text-[#00263C] selection:bg-[#DC2626] selection:text-white">
 
       {/* SECTION 1 — HERO (Full-bleed) */}
       <section className="relative min-h-[92vh] flex items-end bg-[#00263C] text-white overflow-hidden">
         <div className="absolute inset-0">
-          {/* Gambar Hero: Kolaborasi tim profesional Indonesia yang santai (Relevan dengan "Work Culture") */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://images.unsplash.com/photo-1531547977107-a5f0f32d6d87?q=80&w=2400&auto=format&fit=crop"
@@ -37,93 +40,41 @@ export default function CorporateCultureEvents() {
         </div>
 
         <div className="max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-20 pt-32 relative z-10">
-          <ModernEyebrow>Corporate Culture &amp; Events</ModernEyebrow>
+          <ModernEyebrow>{data.hero.eyebrow}</ModernEyebrow>
           <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.03] tracking-tight max-w-4xl text-balance">
-            Building a Work Culture That Performs
+            {data.hero.title}
           </h1>
           <p className="mt-7 text-base md:text-lg text-slate-200 leading-relaxed max-w-xl font-medium">
-            From professional ethics workshops to corporate events and outbound training, we help organizations turn culture into a measurable advantage — not just a set of values on a wall.
+            {data.hero.description}
           </p>
         </div>
-        
       </section>
 
       {/* SECTION 2 — CORE SERVICES */}
       <section className="py-20 md:py-28 max-w-7xl mx-auto px-6 md:px-12">
         <div className="max-w-3xl mb-16">
-          <ModernEyebrow>What We Deliver</ModernEyebrow>
+          <ModernEyebrow>{data.services.eyebrow}</ModernEyebrow>
           <h2 className="mt-6 text-3xl md:text-5xl lg:text-6xl font-black text-[#00263C] leading-[1.02] tracking-tight">
-            Culture, Events &amp; Team Development
+            {data.services.title}
           </h2>
           <p className="mt-6 text-slate-500 text-base md:text-lg leading-relaxed">
-            Three connected programs designed to strengthen how your people work, gather, and grow together.
+            {data.services.description}
           </p>
         </div>
 
         <div className="flex flex-col gap-16 md:gap-20">
-          {[
-            {
-              n: '01',
-              tag: 'Workshop',
-              accent: '#DC2626',
-              title: 'Professional Work Ethic',
-              desc: 'A workshop that instills accountability, integrity, discipline, collaboration, and time management — anchored by a customer-centric standard of service excellence.',
-              tags: ['Accountability', 'Integrity', 'Discipline', 'Collaboration', 'Time Management', 'Customer-Centric Service'],
-              meta: [
-                { label: 'Format', value: 'In-house or On-site' },
-                { label: 'Duration', value: '1–2 Day Intensive' },
-                { label: 'Best For', value: 'Frontline & Mid-Management' },
-              ],
-              // Gambar: Mentoring dan kolaborasi profesional kantor Indonesia
-              img: 'https://images.unsplash.com/photo-1558698972-c50e325e6799?q=80&w=1400&auto=format&fit=crop',
-              rotate: '-rotate-2',
-            },
-            {
-              n: '02',
-              tag: 'Events',
-              accent: '#00263C',
-              title: 'Corporate Event Organizer',
-              desc: 'End-to-end planning and execution of corporate gatherings — from theme design and vendor logistics to run-of-show production — for town halls and annual recognition events that strengthen identity and cohesion.',
-              tags: ['Concept & Theme Design', 'Vendor & Logistics', 'Run-of-Show Production', 'On-site Coordination'],
-              meta: [
-                { label: 'Format', value: 'Full-Service or Day-Of' },
-                { label: 'Scale', value: '50–2,000+ Attendees' },
-                { label: 'Best For', value: 'HR & Corporate Comms Teams' },
-              ],
-              // Gambar: Audiens di acara konferensi/town hall korporat
-              img: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?q=80&w=1400&auto=format&fit=crop',
-              rotate: 'rotate-2',
-            },
-            {
-              n: '03',
-              tag: 'Team Building',
-              accent: '#DC2626',
-              title: 'Outbound Training',
-              desc: 'Activity-based outdoor programs that build trust, teamwork, and leadership through direct, shared experience — from wilderness challenges to structured debrief sessions linking every activity back to real workplace behavior.',
-              tags: ['Trust & Team Exercises', 'Leadership Simulations', 'Structured Debrief', 'Custom Venue Scouting'],
-              meta: [
-                { label: 'Format', value: '1–3 Day Program' },
-                { label: 'Location', value: 'Nationwide Venues' },
-                { label: 'Best For', value: 'Cross-Functional & Leadership' },
-              ],
-              // Gambar: Aktivitas team building luar ruangan (menyatukan tangan)
-              img: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?q=80&w=1400&auto=format&fit=crop',
-              rotate: '-rotate-2',
-            },
-          ].map((row, idx) => (
+          {data.services.items.map((row, idx) => (
             <div
               key={row.n}
               className={`flex flex-col ${idx % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16`}
             >
-              {/* Image — double-bezel with offset color panel behind (Z-axis depth) */}
+              {/* Image */}
               <div className="w-full md:w-5/12 shrink-0">
                 <div className="relative group">
-                  {/* Offset color panel peeking from behind */}
                   <div
                     className={`hidden sm:block absolute -inset-3 rounded-[2.5rem] ${row.rotate} transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:rotate-0`}
                     style={{ backgroundColor: row.accent, opacity: 0.14 }}
                   />
-                  {/* Double-bezel frame */}
                   <div className="relative bg-white p-2.5 rounded-[2.5rem] shadow-[0_30px_80px_-25px_rgba(0,38,60,0.35)] border border-slate-100">
                     <div className="relative rounded-[2rem] overflow-hidden aspect-[4/3] bg-slate-100">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -137,7 +88,7 @@ export default function CorporateCultureEvents() {
                         className="absolute bottom-5 left-5 text-[10px] font-black uppercase tracking-widest text-white px-4 py-2 rounded-full backdrop-blur-md border border-white/20"
                         style={{ backgroundColor: `${row.accent}CC` }}
                       >
-                        {String(idx + 1).padStart(2, '0')} · {row.tag}
+                        {row.n} · {row.tag}
                       </span>
                     </div>
                   </div>
@@ -167,7 +118,6 @@ export default function CorporateCultureEvents() {
                   ))}
                 </div>
 
-                {/* Perbaikan layout meta-data (Format, Scale, Best For) menjadi flex-row sejajar di satu baris */}
                 <div className="flex flex-col sm:flex-row gap-y-4 sm:gap-x-4 lg:gap-x-6 mt-8 pt-8 border-t border-slate-100 w-full">
                   {row.meta.map((m, mi) => (
                     <div key={m.label} className={`flex-1 ${mi > 0 ? 'sm:pl-4 lg:pl-6 sm:border-l border-slate-100' : ''}`}>
@@ -176,51 +126,27 @@ export default function CorporateCultureEvents() {
                     </div>
                   ))}
                 </div>
-
-                {/* Button Request Program Brief telah dihapus sepenuhnya dari sini */}
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* SECTION 3 — PROCESS (Icon-in-circle steps) */}
+      {/* SECTION 3 — PROCESS */}
       <section className="bg-[#F8F9FA] py-20 md:py-28 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="max-w-3xl mb-16 md:mb-20">
-            <ModernEyebrow>Our Approach</ModernEyebrow>
+            <ModernEyebrow>{data.approach.eyebrow}</ModernEyebrow>
             <h2 className="mt-5 text-3xl md:text-5xl font-black text-[#00263C] leading-[1.02] tracking-tight">
-              A Program Built Around Your Culture
+              {data.approach.title}
             </h2>
             <p className="mt-6 text-slate-500 text-base md:text-lg leading-relaxed">
-              Every engagement starts with your organization&apos;s reality, not a generic template — so the outcome actually sticks.
+              {data.approach.description}
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-stretch">
-            {[
-              {
-                n: '01',
-                title: 'Culture Needs Assessment',
-                text: 'We diagnose current work culture gaps through interviews, surveys, and stakeholder alignment sessions.',
-                dark: true,
-                rotate: 'md:-rotate-2',
-              },
-              {
-                n: '02',
-                title: 'Program Design',
-                text: 'A tailored curriculum or event concept is built around your team\'s size, industry, and specific behavioral goals.',
-                dark: false,
-                rotate: 'md:rotate-2',
-              },
-              {
-                n: '03',
-                title: 'Facilitation & Execution',
-                text: 'Our facilitators run the workshop, event, or outbound program on-site, with measurable outcomes tracked post-engagement.',
-                dark: true,
-                rotate: 'md:-rotate-2',
-              },
-            ].map((step, idx) => (
+            {data.approach.steps.map((step, idx) => (
               <div
                 key={step.n}
                 className={`group relative w-full md:w-1/3 ${idx > 0 ? 'md:-ml-8' : ''} mb-6 md:mb-0`}
@@ -231,7 +157,6 @@ export default function CorporateCultureEvents() {
                     step.dark ? 'bg-[#00263C] text-white' : 'bg-white text-[#00263C] border border-slate-100'
                   }`}
                 >
-                  {/* Watermark number */}
                   <span
                     className={`absolute top-4 right-6 text-8xl font-black leading-none select-none pointer-events-none ${
                       step.dark ? 'text-white/[0.06]' : 'text-[#00263C]/[0.05]'

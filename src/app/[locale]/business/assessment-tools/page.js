@@ -2,42 +2,16 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
+import { getAssessmentData } from '@/components/assessmentData';
 
 export default function AssessmentToolsPage() {
+  const locale = useLocale();
+  const data = getAssessmentData(locale);
+
   // --- STATE FOR INTERACTIVE TABS (SECTION 2) ---
   const [activeTab, setActiveTab] = useState(0);
-
-  // --- ASSESSMENT TOOLS CONTENT DATA ---
-  const assessmentData = [
-    {
-      id: 'skill',
-      title: 'Skill & Performance Appraisal',
-      shortDesc: 'Evaluate technical readiness and work target achievements with measurable metrics.',
-      focus: 'Measuring technical competency gaps & Key Performance Indicators (KPI) achievements.',
-      methodology: 'Functional tests, practical simulations, and industry-specific case studies.',
-      output: 'Quantitative scores of employee technical readiness and performance matrices.',
-      image: 'https://images.unsplash.com/photo-1701980889802-55ff39e2e973?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: '360',
-      title: '360-Degree Feedback',
-      shortDesc: 'Gain a comprehensive view from the entire professional interaction structure.',
-      focus: 'Evaluating collaboration effectiveness, communication styles, and leadership.',
-      methodology: 'Calibrated anonymous questionnaires from superiors, peers, and subordinates.',
-      output: 'Interpersonal blind spot mapping and collaboration effectiveness reports.',
-      image: 'https://images.unsplash.com/photo-1530099486328-e021101a494a?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 'potential',
-      title: 'Potential & Personality',
-      shortDesc: 'Map the psychological DNA of your employees for future succession readiness.',
-      focus: 'Succession readiness, learning agility, and working styles.',
-      methodology: 'Psychometric tests, personality inventories, and cultural fit evaluations.',
-      output: 'Comprehensive psychological profiles and precise career path recommendations.',
-      image: 'https://images.unsplash.com/photo-1581065178047-8ee15951ede6?auto=format&fit=crop&w=800&q=80',
-    }
-  ];
 
   return (
     <main className="min-h-screen bg-white text-brand-navy selection:bg-brand-red selection:text-white overflow-hidden">
@@ -53,15 +27,15 @@ export default function AssessmentToolsPage() {
             <div className="flex flex-col justify-center items-center lg:items-start relative z-10 text-center lg:text-left mt-0 lg:-mt-8">
               <div className="mb-4 md:mb-5">
                 <span className="text-eyebrow-lg text-brand-red block drop-shadow-md">
-                  Assessment Tools
+                  {data.hero.eyebrow}
                 </span>
               </div>
               <h1 className="text-white text-balance mb-6 md:mb-8">
-                Measure Capabilities, <br className="hidden md:block" />
-                Eliminate Assumptions in Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">HR Decisions</span>
+                {data.hero.title1} <br className="hidden md:block" />
+                {data.hero.title2} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">{data.hero.titleHighlight}</span>
               </h1>
               <p className="text-slate-300 max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md text-lg">
-                Bring precision to talent development. Objectively evaluate leadership potential, technical capabilities, and cultural fit through industry-standard assessment tools.
+                {data.hero.description}
               </p>
             </div>
             
@@ -76,7 +50,7 @@ export default function AssessmentToolsPage() {
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
                   <div className="mx-auto text-brand-navy/60 text-[10px] font-bold tracking-widest uppercase pr-6">
-                    Assessment Analytics
+                    {data.hero.badge}
                   </div>
                 </div>
                 <div className="p-1 bg-white aspect-[4/3] relative group">
@@ -105,8 +79,8 @@ export default function AssessmentToolsPage() {
                         />
                       </div>
                       <div>
-                        <h4 className="text-brand-navy mb-0.5">Leadership Potential</h4>
-                        <p className="text-xs text-slate-500 font-medium">Candidate achieved a 92% score on execution strategy.</p>
+                        <h4 className="text-brand-navy mb-0.5">{data.hero.mockupTitle}</h4>
+                        <p className="text-xs text-slate-500 font-medium">{data.hero.mockupDesc}</p>
                       </div>
                   </div>
                 </div>
@@ -124,18 +98,18 @@ export default function AssessmentToolsPage() {
           
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-eyebrow-lg block mb-4">
-              Core Portfolio
+              {data.portfolio.eyebrow}
             </span>
             <h2 className="text-brand-navy mb-6 text-balance">
-              Data-Driven Assessment Tools
+              {data.portfolio.title}
             </h2>
             <p className="text-slate-500 leading-relaxed text-lg">
-              We use a multidimensional approach to measure what truly impacts the performance and growth of your organization.
+              {data.portfolio.description}
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-12">
-            {assessmentData.map((tab, index) => (
+            {data.portfolio.tabs.map((tab, index) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(index)}
@@ -156,10 +130,10 @@ export default function AssessmentToolsPage() {
               <div className="space-y-8 animate-fadeIn">
                 <div>
                   <h3 className="text-brand-navy mb-4">
-                    {assessmentData[activeTab].title}
+                    {data.portfolio.tabs[activeTab].title}
                   </h3>
                   <p className="text-slate-500 text-lg leading-relaxed">
-                    {assessmentData[activeTab].shortDesc}
+                    {data.portfolio.tabs[activeTab].shortDesc}
                   </p>
                 </div>
 
@@ -181,8 +155,8 @@ export default function AssessmentToolsPage() {
                       }}
                     />
                     <div>
-                      <h4 className="text-brand-navy mb-1">Evaluation Focus</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed">{assessmentData[activeTab].focus}</p>
+                      <h4 className="text-brand-navy mb-1">{data.portfolio.labels.focus}</h4>
+                      <p className="text-sm text-slate-500 leading-relaxed">{data.portfolio.tabs[activeTab].focus}</p>
                     </div>
                   </div>
 
@@ -202,8 +176,8 @@ export default function AssessmentToolsPage() {
                       }}
                     />
                     <div>
-                      <h4 className="text-brand-navy mb-1">Methodology</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed">{assessmentData[activeTab].methodology}</p>
+                      <h4 className="text-brand-navy mb-1">{data.portfolio.labels.methodology}</h4>
+                      <p className="text-sm text-slate-500 leading-relaxed">{data.portfolio.tabs[activeTab].methodology}</p>
                     </div>
                   </div>
 
@@ -223,8 +197,8 @@ export default function AssessmentToolsPage() {
                       }}
                     />
                     <div>
-                      <h4 className="text-brand-navy mb-1">Final Output</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed">{assessmentData[activeTab].output}</p>
+                      <h4 className="text-brand-navy mb-1">{data.portfolio.labels.output}</h4>
+                      <p className="text-sm text-slate-500 leading-relaxed">{data.portfolio.tabs[activeTab].output}</p>
                     </div>
                   </div>
 
@@ -234,8 +208,8 @@ export default function AssessmentToolsPage() {
               <div className="rounded-[2rem] bg-slate-50 ring-1 ring-slate-100 p-2 group shadow-sm">
                 <div className="relative h-72 md:h-96 rounded-[calc(2rem-0.5rem)] overflow-hidden">
                   <Image 
-                    src={assessmentData[activeTab].image} 
-                    alt={assessmentData[activeTab].title}
+                    src={data.portfolio.tabs[activeTab].image} 
+                    alt={data.portfolio.tabs[activeTab].title}
                     fill
                     unoptimized
                     className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
@@ -257,19 +231,18 @@ export default function AssessmentToolsPage() {
           
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-eyebrow-lg text-brand-red block mb-4 md:mb-5 drop-shadow-md">
-              Implementation Context
+              {data.context.eyebrow}
             </span>
             <h2 className="text-white mb-6 text-balance">
-              Strategic Implementation Scenarios
+              {data.context.title}
             </h2>
             <p className="text-slate-300 leading-relaxed text-lg">
-              Our assessment tools are designed to support crucial decisions throughout the HR management lifecycle in your company.
+              {data.context.description}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             
-            {/* 1. Promotion & Succession */}
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(220,38,38,0.18)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-brand-navy group-hover:bg-brand-red flex items-center justify-center mb-6 transition-colors duration-300">
                 <div 
@@ -286,11 +259,10 @@ export default function AssessmentToolsPage() {
                   }}
                 />
               </div>
-              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">Promotion & Succession</h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm">Objectively identify future leaders and prepare top talent to fill key organizational positions.</p>
+              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[0].title}</h3>
+              <p className="text-slate-500 leading-relaxed flex-grow text-sm">{data.context.cards[0].desc}</p>
             </article>
 
-            {/* 2. Restructuring */}
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(220,38,38,0.18)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-brand-navy group-hover:bg-brand-red flex items-center justify-center mb-6 transition-colors duration-300">
                 <div 
@@ -307,11 +279,10 @@ export default function AssessmentToolsPage() {
                   }}
                 />
               </div>
-              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">Restructuring</h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm">Remap talent and capabilities during mergers, acquisitions, or corporate operational efficiency efforts.</p>
+              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[1].title}</h3>
+              <p className="text-slate-500 leading-relaxed flex-grow text-sm">{data.context.cards[1].desc}</p>
             </article>
 
-            {/* 3. Training Needs (TNA) */}
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(220,38,38,0.18)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-brand-navy group-hover:bg-brand-red flex items-center justify-center mb-6 transition-colors duration-300">
                 <div 
@@ -328,11 +299,10 @@ export default function AssessmentToolsPage() {
                   }}
                 />
               </div>
-              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">Training Needs (TNA)</h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm">Precisely discover skill gaps to design effective training and development programs.</p>
+              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[2].title}</h3>
+              <p className="text-slate-500 leading-relaxed flex-grow text-sm">{data.context.cards[2].desc}</p>
             </article>
 
-            {/* 4. Performance Eval. */}
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(220,38,38,0.18)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full">
               <div className="w-12 h-12 rounded-xl bg-brand-navy group-hover:bg-brand-red flex items-center justify-center mb-6 transition-colors duration-300">
                 <div 
@@ -349,8 +319,8 @@ export default function AssessmentToolsPage() {
                   }}
                 />
               </div>
-              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">Performance Eval.</h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm">Provide valid and objective supporting data for compensation decisions, annual bonuses, and retention.</p>
+              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[3].title}</h3>
+              <p className="text-slate-500 leading-relaxed flex-grow text-sm">{data.context.cards[3].desc}</p>
             </article>
             
           </div>
@@ -365,13 +335,13 @@ export default function AssessmentToolsPage() {
           
           <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
             <span className="text-eyebrow-lg text-brand-red block mb-4">
-              Assessment Methodology
+              {data.methodology.eyebrow}
             </span>
             <h2 className="text-brand-navy mb-6 text-balance">
-              Structured Process, Measurable Results
+              {data.methodology.title}
             </h2>
             <p className="text-slate-500 leading-relaxed text-lg">
-              We ensure every assessment stage runs transparently, efficiently, and provides data that is truly relevant to your business objectives.
+              {data.methodology.description}
             </p>
           </div>
 
@@ -380,61 +350,21 @@ export default function AssessmentToolsPage() {
 
             <div className="space-y-12 md:space-y-16">
               
-              <div className="relative pl-16 md:pl-24 group">
-                <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-brand-red rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 z-10">
-                   <span className="text-brand-navy group-hover:text-white font-bold text-sm transition-colors">1</span>
+              {data.methodology.steps.map((step, index) => (
+                <div key={index} className="relative pl-16 md:pl-24 group">
+                  <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-brand-red rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 z-10">
+                     <span className="text-brand-navy group-hover:text-white font-bold text-sm transition-colors">{index + 1}</span>
+                  </div>
+                  
+                  <div className="bg-white p-7 md:p-9 rounded-[1.75rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
+                    <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-slate-100 rotate-45 hidden md:block"></div>
+                    <h3 className="text-brand-navy mb-3">{step.title}</h3>
+                    <p className="text-slate-500 leading-relaxed text-sm">
+                      {step.desc}
+                    </p>
+                  </div>
                 </div>
-                
-                <div className="bg-white p-7 md:p-9 rounded-[1.75rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
-                  <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-slate-100 rotate-45 hidden md:block"></div>
-                  <h3 className="text-brand-navy mb-3">Discovery & Alignment</h3>
-                  <p className="text-slate-500 leading-relaxed text-sm">
-                    In-depth discussion sessions with stakeholders to determine competency indicators, success criteria, and success metrics aligned with your company's culture and strategic goals.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative pl-16 md:pl-24 group">
-                <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-brand-red rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 z-10">
-                   <span className="text-brand-navy group-hover:text-white font-bold text-sm transition-colors">2</span>
-                </div>
-                
-                <div className="bg-white p-7 md:p-9 rounded-[1.75rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
-                  <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-slate-100 rotate-45 hidden md:block"></div>
-                  <h3 className="text-brand-navy mb-3">Secure Deployment</h3>
-                  <p className="text-slate-500 leading-relaxed text-sm">
-                    Distribution of test tools and questionnaires to all participants through a secure digital platform, minimizing technical issues, and equipped with clear instructions.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative pl-16 md:pl-24 group">
-                <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-brand-red rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 z-10">
-                   <span className="text-brand-navy group-hover:text-white font-bold text-sm transition-colors">3</span>
-                </div>
-                
-                <div className="bg-white p-7 md:p-9 rounded-[1.75rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
-                  <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-slate-100 rotate-45 hidden md:block"></div>
-                  <h3 className="text-brand-navy mb-3">Multi-Dimensional Analysis</h3>
-                  <p className="text-slate-500 leading-relaxed text-sm">
-                    Processing raw data using calibrated analytical systems to minimize bias (maintaining 100% objectivity) and map competency patterns across individuals and teams.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative pl-16 md:pl-24 group">
-                <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-brand-red rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 z-10">
-                   <span className="text-brand-navy group-hover:text-white font-bold text-sm transition-colors">4</span>
-                </div>
-                
-                <div className="bg-white p-7 md:p-9 rounded-[1.75rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
-                  <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-slate-100 rotate-45 hidden md:block"></div>
-                  <h3 className="text-brand-navy mb-3">Executive Reporting & Debriefing</h3>
-                  <p className="text-slate-500 leading-relaxed text-sm">
-                    Delivery of comprehensive visual reports (complete with charts and executive summaries), followed by presentation sessions with our expert consultants to discuss actionable insights.
-                  </p>
-                </div>
-              </div>
+              ))}
 
             </div>
           </div>
@@ -468,20 +398,19 @@ export default function AssessmentToolsPage() {
 
           <div className="flex flex-col justify-center order-1 lg:order-2">
             <span className="text-eyebrow-lg text-brand-red block mb-4">
-              Final Output
+              {data.output.eyebrow}
             </span>
             
             <h2 className="text-brand-navy text-balance mb-6">
-              Comprehensive Reports That Drive Decisions.
+              {data.output.title}
             </h2>
 
             <p className="text-slate-500 leading-relaxed mb-10 text-lg">
-              We don't give you piles of confusing raw data. Every assessment process ends with sharp, structured visual reporting ready to be actioned by the executive team.
+              {data.output.description}
             </p>
 
             <div className="space-y-8">
               
-              {/* ITEM 1: Actionable Insights */}
               <div className="flex gap-5 items-start group">
                 <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-brand-red/20 transition-all duration-300">
                   <div 
@@ -499,14 +428,13 @@ export default function AssessmentToolsPage() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-brand-navy mb-1.5">Actionable Insights</h4>
+                  <h4 className="text-brand-navy mb-1.5">{data.output.items[0].title}</h4>
                   <p className="text-sm text-slate-500 leading-relaxed">
-                    Reports are equipped with concrete action plans, not just a series of numerical scores without context.
+                    {data.output.items[0].desc}
                   </p>
                 </div>
               </div>
 
-              {/* ITEM 2: Clear Visualizations */}
               <div className="flex gap-5 items-start group">
                 <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-brand-red/20 transition-all duration-300">
                   <div 
@@ -524,14 +452,13 @@ export default function AssessmentToolsPage() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-brand-navy mb-1.5">Clear Visualizations</h4>
+                  <h4 className="text-brand-navy mb-1.5">{data.output.items[1].title}</h4>
                   <p className="text-sm text-slate-500 leading-relaxed">
-                    Data presentation through radar charts, heat maps, and normative comparisons that are very easy to read at a glance.
+                    {data.output.items[1].desc}
                   </p>
                 </div>
               </div>
 
-              {/* ITEM 3: Confidential & Secure */}
               <div className="flex gap-5 items-start group">
                 <div className="w-12 h-12 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0 group-hover:border-brand-red group-hover:shadow-brand-red/20 transition-all duration-300">
                   <div 
@@ -549,9 +476,9 @@ export default function AssessmentToolsPage() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-brand-navy mb-1.5">Confidential & Secure</h4>
+                  <h4 className="text-brand-navy mb-1.5">{data.output.items[2].title}</h4>
                   <p className="text-sm text-slate-500 leading-relaxed">
-                    Report distribution is guaranteed confidential with high-level encryption to comply with corporate data privacy regulations.
+                    {data.output.items[2].desc}
                   </p>
                 </div>
               </div>

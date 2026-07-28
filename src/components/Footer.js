@@ -4,18 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
-
-const layanan = [
-  { label: 'Business Support Services', href: '/business/business-support' },
-  { label: 'Human Capital Solutions', href: '/business/humancapital-solutions' },
-  { label: 'Payroll & Outsourcing', href: '/business/payroll' },
-  { label: 'Assessment Tools', href: '/business/assessment-tools' },
-  { label: 'HR Boot Camp', href: '/business/hr-bootcamp' },
-  { label: 'Industrial Relations & Legal', href: '/business/industrial-relations' },
-  { label: 'Health, Safety & Environment', href: '/business/hse' },
-  { label: 'Corporate Culture & Events', href: '/business/corporate-culture' },
-  { label: 'Professional Certification (LSP)', href: '/business/lsp' },
-];
+import { getFooterData } from '@/components/footerData'; // 👇 Import data footer
 
 const kontak = {
   email: 'info@firsthrindonesia.com',
@@ -25,18 +14,13 @@ const kontak = {
 export default function Footer() {
   const t = useTranslations('Footer');
   const locale = useLocale();
-
-  const navigasi = [
-    { label: t('nav.home'), href: '/' },
-    { label: t('nav.tips'), href: '/tips-and-trick' },
-    { label: t('nav.pricing'), href: '/pricing' },
-    { label: t('nav.recruitment'), href: '/recruitment' },
-    { label: t('nav.about'), href: '/about' },
-  ];
+  
+  // 👇 Ambil data layanan & navigasi sesuai bahasa
+  const data = getFooterData(locale);
 
   return (
     <footer
-      className="relative overflow-hidden text-white"
+      className="relative overflow-hidden text-white font-sans"
       style={{
         background: 'linear-gradient(135deg, #00263C 0%, #001824 55%, #00111a 100%)',
       }}
@@ -114,7 +98,7 @@ export default function Footer() {
               {t('servicesTitle')}
             </h4>
             <ul className="flex flex-col gap-2.5">
-              {layanan.map((item) => (
+              {data.layanan.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={`/${locale}${item.href}`}
@@ -133,7 +117,7 @@ export default function Footer() {
               {t('companyTitle')}
             </h4>
             <ul className="flex flex-col gap-2.5">
-              {navigasi.map((item, idx) => (
+              {data.navigasi.map((item, idx) => (
                 <li key={idx}>
                   <Link
                     href={`/${locale}${item.href === '/' ? '' : item.href}`}

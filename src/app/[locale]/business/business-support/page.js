@@ -2,46 +2,25 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
+import { getBusinessSupportData } from '@/components/businessSupportData';
 
-// DATA & CONSTANTS
-
+// CONSTANTS (Images remain static)
 const IMG = {
   structural: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop',
   cultural: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop',
 };
 
-const coreCapabilities = [
-  {
-    title: 'Company Establishment',
-    description: 'Expert guidance through local regulatory compliance, licensing, and legal requirements for new market entrants. We ensure your foundational structures are sound and compliant from day one.',
-    icon: '/ic_clipboard-outline.svg'
-  },
-  {
-    title: 'Cultural Fit Solutions',
-    description: 'Workshops and coaching sessions designed to bridge cultural gaps and create harmonious team integration. Build a cohesive corporate culture that respects local nuance while maintaining global standards.',
-    icon: '/ic_users-outline.svg'
-  },
-];
-
-const structuralList = [
-  { title: 'Local Licensing Procurement', description: 'Expedited handling of all necessary operational and sector-specific permits.' },
-  { title: 'Legal Entity Structuring', description: 'Strategic advice on PMA (Foreign Direct Investment) setups and compliance frameworks.' },
-];
-
-const culturalList = [
-  { title: 'Bridging Cultural Differences', description: 'Interactive workshops designed to foster mutual understanding and day-one harmony.' },
-  { title: 'Tailored Leadership Coaching', description: 'Equipping expatriate and local leaders with strategies for cross-cultural team management.' },
-];
-
-
 // MAIN COMPONENT
-
 export default function BusinessSupportPage() {
+  const locale = useLocale();
+  const data = getBusinessSupportData(locale);
+
   return (
     <main className="min-h-screen bg-white selection:bg-brand-red selection:text-white overflow-hidden">
       
-      {/* SECTION 1 — HERO (RATA KIRI) */}
+      {/* SECTION 1 — HERO */}
       <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy overflow-hidden">
         
         <div className="absolute inset-0 z-0">
@@ -59,19 +38,18 @@ export default function BusinessSupportPage() {
         <div className="absolute inset-0 opacity-[0.07] z-0" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-brand-red/20 blur-[100px] pointer-events-none z-0" />
         
-        {/* Kontainer dengan max-w-7xl agar rata kiri sejajar dengan section bawahnya */}
         <div className="max-w-7xl mx-auto w-full px-6 md:px-12 relative z-10 text-left -mt-4 md:-mt-8">
           
           <span className="text-eyebrow-lg text-brand-red block mb-4 md:mb-5 drop-shadow-md">
-            Business Support Services
+            {data.hero.eyebrow}
           </span>
           
           <h1 className="text-white max-w-4xl text-balance mb-6 md:mb-8">
-            Operational Excellence for Your Business Entry
+            {data.hero.title}
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 max-w-2xl drop-shadow-md mb-10">
-            Navigating local regulations and cultural integration to ensure your company thrives from day one. Expert guidance for seamless market entry in Indonesia.
+            {data.hero.description}
           </p>
 
         </div>
@@ -82,15 +60,15 @@ export default function BusinessSupportPage() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mx-auto text-center mb-16">
             <span className="text-eyebrow-lg text-brand-red block mb-4">
-              Core Capabilities
+              {data.core.eyebrow}
             </span>
             <h2 className="text-brand-navy text-balance">
-              Foundational Services for Market Success
+              {data.core.title}
             </h2>
           </div>
           
           <div className="grid sm:grid-cols-2 gap-6 md:gap-8">
-            {coreCapabilities.map((item) => (
+            {data.core.capabilities.map((item) => (
               <article key={item.title} className="group rounded-[1.75rem] bg-white p-8 md:p-10 border border-slate-100 transition-all duration-300 hover:shadow-xl hover:border-brand-red/20 hover:-translate-y-1.5 flex flex-col items-start">
                 <div className="w-14 h-14 rounded-xl bg-brand-navy flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-brand-red">
                   <div 
@@ -138,17 +116,17 @@ export default function BusinessSupportPage() {
           
           <div className="order-1 lg:order-2">
             <span className="text-eyebrow-lg text-brand-red block mb-4">
-              Structural Integrity
+              {data.structural.eyebrow}
             </span>
             <h2 className="text-brand-navy mb-6 text-balance">
-              Flawless Company Establishment
+              {data.structural.title}
             </h2>
             <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              Entering a new market requires meticulous attention to detail. Our dedicated team navigates the complexities of Indonesian corporate law, ensuring your entity is structured optimally for operational efficiency and full regulatory compliance.
+              {data.structural.description}
             </p>
             
             <div className="space-y-6">
-              {structuralList.map((item) => (
+              {data.structural.list.map((item) => (
                 <div key={item.title} className="flex gap-4 items-start">
                   <div 
                     className="flex-shrink-0 w-6 h-6 bg-brand-red mt-0.5" 
@@ -181,17 +159,17 @@ export default function BusinessSupportPage() {
           
           <div className="order-1">
             <span className="text-eyebrow-lg text-brand-red block mb-4">
-              Organizational Harmony
+              {data.cultural.eyebrow}
             </span>
             <h2 className="text-brand-navy mb-6 text-balance">
-              The Cultural Fit Challenge
+              {data.cultural.title}
             </h2>
             <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              A successful business entry is as much about people as it is about paperwork. We specialize in aligning global corporate culture with local Indonesian professional dynamics, ensuring your team operates synergistically from the moment doors open.
+              {data.cultural.description}
             </p>
             
             <div className="space-y-6">
-              {culturalList.map((item) => (
+              {data.cultural.list.map((item) => (
                 <div key={item.title} className="flex gap-4 items-start">
                   <div 
                     className="flex-shrink-0 w-6 h-6 bg-brand-red mt-0.5" 
