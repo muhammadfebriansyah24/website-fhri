@@ -2,48 +2,9 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import CTA from '@/components/CTA';
 
-// ============================================================
-// REUSABLE COMPONENTS
-// ============================================================
-function CTAButton({ href, children, variant = 'solid' }) {
-  const styles =
-    variant === 'solid'
-      ? 'bg-[#DC2626] hover:bg-[#B91C1C] text-white'
-      : 'bg-white/10 hover:bg-white/15 text-white ring-1 ring-white/15';
-      
-  return (
-    <Link
-      href={href}
-      className={`group inline-flex items-center gap-2.5 ${styles} pl-6 pr-2 py-2 rounded-full font-semibold text-sm transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98]`}
-    >
-      {children}
-      <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/15 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-px">
-        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none">
-          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </span>
-    </Link>
-  );
-}
-
-function Eyebrow({ children, tone = 'light' }) {
-  return (
-    <span
-      className={`inline-flex items-center rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] ${
-        tone === 'light' ? 'bg-white/10 text-white' : 'bg-[#DC2626]/10 text-[#DC2626]'
-      }`}
-    >
-      {children}
-    </span>
-  );
-}
-
-// ============================================================
 // MAIN COMPONENT
-// ============================================================
 export default function PayrollOutsourcingPage() {
 
   // --- DATA KONTEN PAYROLL ---
@@ -113,50 +74,50 @@ export default function PayrollOutsourcingPage() {
         "Accessible reports for auditing and financial planning.",
         "Data-driven insights to monitor workforce efficiency."
       ],
-      // Menggunakan gambar analytics/reporting baru yang relevan dengan data & insights
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
     }
   ];
 
   return (
-    <main className="min-h-screen font-sans bg-white">
+    <main className="min-h-screen bg-white selection:bg-brand-red selection:text-white overflow-hidden">
       
-      {/* ============================================================
-          SECTION 1 — HERO SECTION
-          ============================================================ */}
-      <section className="relative min-h-[92vh] flex items-center bg-[#00263C] text-white overflow-hidden">
+      {/* SECTION 1 — HERO SECTION */}
+      <section className="relative min-h-0 py-20 md:min-h-[85vh] md:py-0 flex items-center bg-brand-navy text-white overflow-hidden">
         
-        {/* ================= BACKGROUND TEXTURES & EFFECTS ================= */}
+        {/*  BACKGROUND TEXTURES & EFFECTS  */}
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-        <div className="absolute -left-32 -top-32 w-[600px] h-[600px] rounded-full bg-[#DC2626]/10 blur-[120px] pointer-events-none z-0" />
-        <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] rounded-full bg-blue-400/10 blur-[120px] pointer-events-none z-0" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-[#00263C] via-transparent to-[#00263C]/80 pointer-events-none z-0" />
-     
-        {/* Kontainer Konten - Padding & Lebar disamakan dengan standar referensi */}
-        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 pb-16 md:pb-20 pt-32 relative z-10 grid lg:grid-cols-2 gap-14 items-center">
+        <div className="absolute -left-32 -top-32 w-[600px] h-[600px] rounded-full bg-brand-red/10 blur-[120px] pointer-events-none z-0" />
+        <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy via-transparent to-brand-navy/80 pointer-events-none z-0" />
+
+        {/* Kontainer Konten (Mempertahankan Lebar Asli, Menyesuaikan Margin Sesuai Standar) */}
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           
-          {/* Left: Text (Penulisan dan Font 100% Asli) */}
-          <div>
-            <Eyebrow tone="light">Payroll & Outsourcing</Eyebrow>
-            <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] text-balance">
+          {/* Left: Text */}
+          <div className="text-center lg:text-left">
+            <span className="text-eyebrow-lg text-brand-red block mb-4 md:mb-5 drop-shadow-md">
+              Payroll & Outsourcing
+            </span>
+            <h1 className="text-white text-balance mb-6 md:mb-8">
               Focus on Growth, <br className="hidden md:block" />
               We Handle the Rest
             </h1>
-            <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-lg">
+            <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md">
               Comprehensive administrative and HR operational management. Empower your company to focus entirely on core business growth while we expertly manage the complexity.
             </p>
           </div>
 
-          {/* Right: Image (Asli) */}
+          {/* Right: Image */}
           <div className="relative w-full max-w-[600px] mx-auto lg:ml-auto">
-            <div className="bg-white/5 p-2 md:p-3 rounded-[2rem] w-full shadow-2xl ring-1 ring-white/10 backdrop-blur-sm">
-              <div className="relative w-full h-[320px] md:h-[420px] rounded-[1.5rem] overflow-hidden">
+            <div className="bg-white/5 p-2 md:p-3 rounded-[2rem] w-full shadow-2xl border border-white/10 backdrop-blur-sm group">
+              <div className="relative w-full h-[240px] sm:h-[320px] md:h-[420px] rounded-[1.5rem] overflow-hidden">
                 <Image 
                   src="/herokonten6.jpg" 
                   alt="Payroll and Outsourcing Services" 
                   fill
-                  className="object-cover" 
+                  unoptimized
+                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
                   priority
                 />
               </div>
@@ -166,27 +127,27 @@ export default function PayrollOutsourcingPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          SECTION 2 — CORE CAPABILITIES (MODULES)
-          ============================================================ */}
-      <section className="bg-white py-24 md:py-32 px-6 md:px-12">
+      {/* SECTION 2 — CORE CAPABILITIES (MODULES) */}
+      <section className="bg-slate-50 py-24 md:py-32 px-6 md:px-12 relative z-10 border-b border-slate-100">
         <div className="max-w-7xl mx-auto">
-          <div className="max-w-2xl mx-auto text-center mb-16">
-            <Eyebrow tone="dark">Core Services</Eyebrow>
-            <h2 className="mt-5 text-3xl md:text-5xl font-bold text-[#00263C] leading-tight">
+          
+          <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20">
+            <span className="text-eyebrow-lg text-brand-red block mb-4">
+              Core Services
+            </span>
+            <h2 className="text-brand-navy mb-6 text-balance">
               Structured Solutions for Peace of Mind
             </h2>
-            <p className="mt-5 text-slate-500 text-lg">
+            <p className="text-lg text-slate-600 leading-relaxed">
               Let us manage the complexity so you can focus on growth. Our solutions ensure compliance, accuracy, and operational excellence.
             </p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {coreModules.map((item) => (
-              <article key={item.title} className="group rounded-[1.75rem] bg-slate-50 p-7 md:p-9 ring-1 ring-slate-100 transition-all hover:shadow-[0_30px_60px_-20px_rgba(0,38,60,0.18)] hover:-translate-y-1.5 flex flex-col h-full">
+              <article key={item.title} className="group rounded-[2rem] bg-white p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-xl hover:border-brand-red/20 hover:-translate-y-2 transition-all duration-500 flex flex-col h-full">
                 
-                <div className="w-14 h-14 rounded-2xl bg-[#00263C] flex items-center justify-center mb-6 shadow-md">
-                  
+                <div className="w-14 h-14 rounded-2xl bg-brand-navy flex items-center justify-center mb-6 shadow-md transition-colors duration-300 group-hover:bg-brand-red">
                   <div 
                     className="w-6 h-6 bg-white" 
                     style={{
@@ -200,22 +161,21 @@ export default function PayrollOutsourcingPage() {
                       maskPosition: 'center',
                     }}
                   />
-
                 </div>
                 
-                <h3 className="font-bold text-[#00263C] text-lg leading-snug group-hover:text-[#DC2626] transition-colors">{item.title}</h3>
-                <p className="text-[13.5px] text-slate-500 leading-relaxed mt-3 flex-grow">{item.desc}</p>
+                <h4 className="text-brand-navy mb-3 group-hover:text-brand-red transition-colors">{item.title}</h4>
+                <p className="text-sm text-slate-500 leading-relaxed flex-grow">{item.desc}</p>
+                
               </article>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* ============================================================
-          SECTION 3 — ZIG-ZAG FEATURES
-          ============================================================ */}
-      <section className="bg-white pb-24 md:pb-32 px-6 md:px-12">
-        <div className="max-w-6xl mx-auto space-y-24 md:space-y-32">
+      {/* SECTION 3 — ZIG-ZAG FEATURES */}
+      <section className="bg-white py-24 md:py-32 px-6 md:px-12">
+        <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
           
           {zigZagFeatures.map((feature, index) => {
             const isEven = index % 2 === 0;
@@ -223,30 +183,37 @@ export default function PayrollOutsourcingPage() {
               <div key={index} className="grid lg:grid-cols-2 gap-14 items-center">
                 
                 {/* Image Side */}
-                <div className={`rounded-[2rem] bg-slate-50 ring-1 ring-slate-100 p-2 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="relative h-72 md:h-[420px] rounded-[calc(2rem-0.5rem)] overflow-hidden">
-                    <img 
+                <div className={`rounded-[2rem] bg-slate-50 border border-slate-100 p-2 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
+                  <div className="relative h-72 md:h-96 rounded-[calc(2rem-0.5rem)] overflow-hidden group shadow-md">
+                    <Image 
                       src={feature.image} 
                       alt={feature.title} 
-                      className="absolute inset-0 w-full h-full object-cover" 
+                      fill
+                      unoptimized
+                      className="object-cover transition-transform duration-700 group-hover:scale-105" 
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
                 </div>
 
                 {/* Text Side */}
                 <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <Eyebrow tone="dark">{feature.eyebrow}</Eyebrow>
-                  <h2 className="mt-5 text-3xl md:text-[2.5rem] font-bold text-[#00263C] leading-tight">{feature.title}</h2>
-                  <p className="mt-6 text-slate-500 leading-relaxed text-[15px]">
+                  <span className="text-eyebrow-lg text-brand-red block mb-4">
+                    {feature.eyebrow}
+                  </span>
+                  <h2 className="text-brand-navy mb-6 text-balance">
+                    {feature.title}
+                  </h2>
+                  <p className="text-lg text-slate-600 mb-10 leading-relaxed">
                     {feature.desc}
                   </p>
                   
-                  <div className="mt-8 space-y-5">
+                  <div className="space-y-6">
                     {feature.bullets.map((bullet, i) => (
-                      <div key={i} className="flex items-center gap-4">
+                      <div key={i} className="flex items-start gap-4">
                         
                         <div 
-                          className="flex-shrink-0 w-6 h-6 bg-[#DC2626] shadow-sm"
+                          className="flex-shrink-0 w-6 h-6 bg-brand-red mt-0.5"
                           style={{
                             WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
                             WebkitMaskSize: 'contain',
@@ -259,7 +226,7 @@ export default function PayrollOutsourcingPage() {
                           }}
                         />
                         
-                        <p className="text-[14px] font-medium text-[#00263C] leading-relaxed">{bullet}</p>
+                        <p className="text-base font-semibold text-brand-navy leading-relaxed">{bullet}</p>
                       </div>
                     ))}
                   </div>
@@ -272,9 +239,7 @@ export default function PayrollOutsourcingPage() {
         </div>
       </section>
 
-      {/* ============================================================
-          SECTION 4 — CALL TO ACTION
-          ============================================================ */}
+      {/* SECTION 4 — CALL TO ACTION */}
       <CTA />
 
     </main>

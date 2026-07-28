@@ -46,13 +46,13 @@ export default function RecruitmentPage() {
   };
 
   return (
-    <main className="min-h-screen bg-brand-offwhite font-sans selection:bg-brand-red selection:text-white">
+    <main className="min-h-screen bg-white selection:bg-brand-red selection:text-white">
       
       {/* SECTION 1 — HERO AREA (DARK THEME) */}
       <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
-             src="https://images.unsplash.com/photo-1560264280-88b68371db39?q=80&w=2400&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1560264280-88b68371db39?q=80&w=2400&auto=format&fit=crop"
             alt="Job interview at First HR Indonesia"
             fill
             unoptimized
@@ -63,19 +63,21 @@ export default function RecruitmentPage() {
         </div>
 
         <div className="max-w-3xl mx-auto text-center relative z-10 px-6 md:px-12">
-          <span className="text-eyebrow-lg text-brand-red">{data.hero.eyebrow}</span>
+          <span className="text-eyebrow-lg text-brand-red block mb-4 md:mb-5 drop-shadow-md">
+            {data.hero.eyebrow}
+          </span>
 
-          <h1 className="mt-5 md:mt-6 text-white text-balance">
+          <h1 className="text-white text-balance mb-6 md:mb-8">
             {data.hero.title1} <br className="hidden md:block" />
-            <span className="text-brand-red">{data.hero.title2}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">{data.hero.title2}</span>
           </h1>
 
-          <p className="mt-8 md:mt-10 text-slate-300 max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-300 max-w-xl mx-auto mb-10">
             {data.hero.description}
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <a href="#open-positions" className="inline-flex items-center justify-center gap-2.5 bg-brand-red hover:bg-[#a82222] text-white px-8 py-3.5 rounded-full font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 uppercase tracking-wide text-sm">
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="#open-positions" className="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-[#a82222] text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-1">
               {data.hero.viewPositions}
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -89,9 +91,13 @@ export default function RecruitmentPage() {
       <section className="py-24 px-6 md:px-12 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-eyebrow text-brand-red block mb-4">{data.perks.eyebrow}</span>
-            <h2 className="text-brand-navy">{data.perks.title}</h2>
-            <p className="mt-4 text-slate-600 text-lg leading-relaxed">
+            <span className="text-eyebrow-lg text-brand-red block mb-4">
+              {data.perks.eyebrow}
+            </span>
+            <h2 className="text-brand-navy mb-6">
+              {data.perks.title}
+            </h2>
+            <p className="text-slate-600 text-lg">
               {data.perks.subtitle}
             </p>
           </div>
@@ -105,7 +111,7 @@ export default function RecruitmentPage() {
                   {idx === 2 && <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>}
                 </div>
                 <h4 className="mb-3 text-brand-navy">{card.title}</h4>
-                <p className="text-slate-600 leading-relaxed text-sm">{card.desc}</p>
+                <p className="text-slate-600 text-sm">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -117,12 +123,18 @@ export default function RecruitmentPage() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
-              <span className="text-eyebrow text-brand-red block mb-3">{data.jobsSection.eyebrow}</span>
-              <h2 className="text-brand-navy">{data.jobsSection.title}</h2>
-              <p className="mt-4 text-slate-600 text-lg">{data.jobsSection.subtitle}</p>
+              <span className="text-eyebrow-lg text-brand-red block mb-4">
+                {data.jobsSection.eyebrow}
+              </span>
+              <h2 className="text-brand-navy mb-4">
+                {data.jobsSection.title}
+              </h2>
+              <p className="text-slate-600 text-lg">
+                {data.jobsSection.subtitle}
+              </p>
             </div>
-            <div className="text-sm font-bold text-brand-navy bg-white px-5 py-2.5 rounded-full shadow-sm border border-slate-200">
-              {data.jobsSection.showingText} {jobOpenings.length} {data.jobsSection.positionsText}
+            <div className="text-xs font-bold uppercase tracking-widest text-brand-navy bg-white px-6 py-3 rounded-full shadow-sm border border-slate-200">
+              {data.jobsSection.showingText} <span className="text-brand-red">{jobOpenings.length}</span> {data.jobsSection.positionsText}
             </div>
           </div>
 
@@ -130,21 +142,21 @@ export default function RecruitmentPage() {
             {jobOpenings.map((job) => (
               <div key={job.id} className="bg-white rounded-[1.5rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl hover:border-blue-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
                 <div className="mb-5">
-                  <span className="inline-flex px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-navy bg-brand-navy/10 rounded-md">
+                  <span className="inline-flex px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-navy bg-brand-navy/5 rounded-md">
                     {job.department}
                   </span>
                 </div>
                 
-                <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors leading-tight">
+                <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors">
                   {job.title}
                 </h4>
-                <p className="mb-8 flex-grow text-slate-600 text-[15px] leading-relaxed">
+                <p className="mb-8 flex-grow text-slate-600 text-sm">
                   {job.desc}
                 </p>
                 
                 <div className="pt-6 border-t border-slate-100 flex items-center justify-between mt-auto">
                   <div className="flex flex-col gap-1.5">
-                    <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-slate-400 flex items-center gap-1.5">
                       <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                       {job.location}
                     </span>
@@ -171,23 +183,23 @@ export default function RecruitmentPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 relative z-10 items-center">
             <div className="flex flex-col justify-center">
-              <span className="text-eyebrow text-brand-red mb-4 block">
+              <span className="text-eyebrow-lg text-brand-red mb-4 block">
                 {data.form.eyebrow}
               </span>
               <h2 className="text-white mb-6">
                 {data.form.title}
               </h2>
-              <p className="text-slate-300 mb-10 text-lg leading-relaxed">
+              <p className="text-slate-300 mb-10 text-lg">
                 {data.form.description}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
                 <div>
-                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1.5">{data.form.officeLocation}</p>
+                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">{data.form.officeLocation}</p>
                   <p className="text-white font-medium text-lg">{data.form.officeLocationVal}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-1.5">{data.form.generalInquiry}</p>
+                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">{data.form.generalInquiry}</p>
                   <p className="text-white font-medium text-lg">recruitment@firsthr.co.id</p>
                 </div>
               </div>
@@ -198,7 +210,7 @@ export default function RecruitmentPage() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.nameLabel}</label>
+                    <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.nameLabel}</label>
                     <input 
                       type="text" 
                       name="name"
@@ -210,7 +222,7 @@ export default function RecruitmentPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.emailLabel}</label>
+                    <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.emailLabel}</label>
                     <input 
                       type="email" 
                       name="email"
@@ -225,12 +237,12 @@ export default function RecruitmentPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.posLabel}</label>
+                    <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.posLabel}</label>
                     <select 
                       name="position"
                       value={formData.position}
                       onChange={handleChange}
-                      className="w-full bg-[#051C35] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors appearance-none cursor-pointer"
+                      className="w-full bg-[#051C35] border border-white/10 rounded-xl px-4 py-3.5 text-sm text-slate-300 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-colors appearance-none cursor-pointer"
                       required
                     >
                       <option value="" disabled>{data.form.posPlaceholder}</option>
@@ -241,7 +253,7 @@ export default function RecruitmentPage() {
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.linkedinLabel}</label>
+                    <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.linkedinLabel}</label>
                     <input 
                       type="url" 
                       name="linkedin"
@@ -254,7 +266,7 @@ export default function RecruitmentPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[11px] text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.coverLabel}</label>
+                  <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.coverLabel}</label>
                   <textarea 
                     rows={4} 
                     name="coverLetter"
@@ -267,7 +279,7 @@ export default function RecruitmentPage() {
 
                 <button 
                   type="submit"
-                  className="w-full bg-brand-red hover:bg-[#a82222] text-white font-bold py-4 rounded-xl transition-all shadow-[0_5px_15px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 mt-4 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
+                  className="w-full bg-brand-red hover:bg-[#a82222] text-white py-4 rounded-xl transition-all shadow-[0_5px_15px_rgba(220,38,38,0.3)] hover:-translate-y-1 mt-4 text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-3"
                 >
                   {data.form.submitBtn}
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
