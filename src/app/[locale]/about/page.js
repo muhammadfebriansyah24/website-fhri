@@ -7,9 +7,8 @@ import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
 import { getAboutData } from '@/components/aboutData';
 
-// ==========================================
+
 // 1. BAGIAN KOMPONEN (SECTIONS)
-// ==========================================
 
 function CustomStyles() {
   return (
@@ -107,7 +106,7 @@ function HeroSection({ data }) {
               </div>
               <div className="text-left pr-3">
                 <p className="text-white font-bold text-sm">{data.hero.expertLeaders}</p>
-                <p className="text-xs text-slate-400 mt-0.5">{data.hero.readyToAssist}</p>
+                <p className="text-xs text-slate-400 mt-0.5 uppercase tracking-widest font-bold">{data.hero.readyToAssist}</p>
               </div>
             </div>
           </div>
@@ -151,7 +150,7 @@ function VisionMissionSection({ data }) {
             />
 
           </div>
-          <span className="text-eyebrow block mb-4">{data.visionMission.visionTitle}</span>
+          <span className="text-eyebrow-lg text-brand-red block mb-4">{data.visionMission.visionTitle}</span>
           <h2 className="text-brand-navy mb-4 text-balance">
             {data.visionMission.visionText}
           </h2>
@@ -177,12 +176,12 @@ function VisionMissionSection({ data }) {
             />
 
           </div>
-          <span className="text-eyebrow text-slate-400 block mb-6 relative z-10">{data.visionMission.missionTitle}</span>
+          <span className="text-eyebrow-lg text-slate-400 block mb-6 relative z-10">{data.visionMission.missionTitle}</span>
           <ul className="space-y-5 relative z-10">
             {data.visionMission.missions.map((item, idx) => (
               <li key={idx} className="flex items-start gap-4">
                 <span className="text-brand-red mt-1 drop-shadow-md text-xl">✦</span>
-                <span className="text-slate-100 text-lg font-normal">{item}</span>
+                <span className="text-slate-100 text-lg leading-relaxed">{item}</span>
               </li>
             ))}
           </ul>
@@ -261,7 +260,7 @@ function CoreValuesSection({ data }) {
     <section className="py-24 px-6 md:px-12 bg-slate-50 border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-eyebrow gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
+          <span className="text-eyebrow-lg gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             {data.coreValues.eyebrow}
           </span>
           <h2 className="text-brand-navy mb-4">{data.coreValues.title}</h2>
@@ -275,7 +274,7 @@ function CoreValuesSection({ data }) {
                 {icons[idx]}
               </div>
               <h4 className="mb-3 group-hover:text-brand-red transition-colors text-brand-navy">{item.title}</h4>
-              <p className="text-slate-600 text-sm">{item.desc}</p>
+              <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -309,7 +308,7 @@ function ExecutiveProfilesSection({ data }) {
       <div className="max-w-6xl mx-auto relative z-10">
         
         <div className="text-center mb-16 md:mb-20">
-          <span className="text-eyebrow gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
+          <span className="text-eyebrow-lg gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             {data.executive.eyebrow}
           </span>
           <h2 className="text-brand-navy mb-4">{data.executive.title}</h2>
@@ -334,7 +333,7 @@ function ExecutiveProfilesSection({ data }) {
               </h4>
               <div className="h-[340px] md:h-[400px] overflow-y-auto pr-3 md:pr-6 custom-scrollbar text-justify space-y-5">
                 {activeLeader.summary.map((paragraph, index) => (
-                  <p key={index} className="animate-fade-slide-up opacity-0 text-slate-600 md:text-base" style={{ animationDelay: `${index * 0.12}s` }}>
+                  <p key={index} className="animate-fade-slide-up opacity-0 text-slate-600 leading-relaxed" style={{ animationDelay: `${index * 0.12}s` }}>
                     {paragraph}
                   </p>
                 ))}
@@ -420,36 +419,49 @@ function JourneyTimelineSection({ data }) {
          </p>
        </div>
 
-       <div className="flex flex-col gap-y-14">
+       <div className="flex flex-col gap-y-16">
          {Array.from({ length: Math.ceil(journeyTimeline.length / 3) }, (_, rowIdx) =>
            journeyTimeline.slice(rowIdx * 3, rowIdx * 3 + 3)
-         ).map((row, rowIdx) => (
-           <div key={rowIdx} className="flex flex-wrap justify-center items-start gap-y-14">
-             {row.map((item, idx) => (
-               <React.Fragment key={idx}>
-                 <div className="group flex flex-col items-center w-[240px] px-4">
-                   <div className="w-[72px] h-[72px] rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-sm mb-7 shadow-[0_15px_35px_-10px_rgba(0,38,60,0.5)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-brand-red group-hover:scale-105">
-                     <span className="text-center leading-tight">{item.year}</span>
+         ).map((row, rowIdx) => {
+           const isFullRow = row.length === 3;
+           return (
+             <div
+               key={rowIdx}
+               className={`flex flex-wrap items-start gap-y-14 justify-center ${
+                 isFullRow ? 'lg:flex-nowrap lg:justify-between' : 'lg:gap-x-16'
+               }`}
+             >
+               {row.map((item, idx) => (
+                 <React.Fragment key={idx}>
+                   <div className="group flex flex-col items-center w-72 px-2 shrink-0">
+                     <div className="w-[72px] h-[72px] rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-sm mb-7 shadow-[0_15px_35px_-10px_rgba(0,38,60,0.5)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-brand-red group-hover:scale-105">
+                       <span className="text-center leading-tight">{item.year}</span>
+                     </div>
+                     <h4 className="mb-3 text-center text-brand-navy group-hover:text-brand-red transition-colors duration-500">
+                       {item.title}
+                     </h4>
+                     <p className="text-justify text-slate-600 text-sm leading-relaxed">
+                       {item.desc}
+                     </p>
                    </div>
-                   <h3 className="mb-3 text-center text-brand-navy group-hover:text-brand-red transition-colors duration-500">
-                     {item.title}
-                   </h3>
-                   <p className="text-justify text-slate-600">
-                     {item.desc}
-                   </p>
-                 </div>
-                 {idx < row.length - 1 && (
-                   <div className="hidden lg:block w-16 border-t-2 border-dashed border-slate-300 mt-9 shrink-0" />
-                 )}
-               </React.Fragment>
-             ))}
-           </div>
-         ))}
+                   {idx < row.length - 1 && (
+                     <div
+                       className={`hidden lg:flex border-t-2 border-dashed border-slate-300 mt-9 shrink-0 ${
+                         isFullRow ? 'flex-1 mx-2 min-w-[2rem]' : 'w-16'
+                       }`}
+                     />
+                   )}
+                 </React.Fragment>
+               ))}
+             </div>
+           );
+         })}
        </div>
      </div>
    </section>
   );
 }
+
 
 function GallerySection({ data }) {
   const gallerySliderData = data.gallery.slides;
@@ -545,9 +557,8 @@ function GallerySection({ data }) {
   );
 }
 
-// ==========================================
+
 // 2. MAIN PAGE EXPORT
-// ==========================================
 
 export default function AboutUsPage() {
   const [mounted, setMounted] = useState(false);
@@ -561,7 +572,7 @@ export default function AboutUsPage() {
   if (!mounted) return null; 
 
   return (
-    <main className="bg-slate-50 overflow-hidden selection:bg-brand-red selection:text-white">
+    <main className="bg-white overflow-hidden selection:bg-brand-red selection:text-white">
       <CustomStyles />
       <HeroSection data={aboutData} />
       <VisionMissionSection data={aboutData} />

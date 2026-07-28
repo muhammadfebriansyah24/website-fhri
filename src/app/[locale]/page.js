@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// 👇 1. Import hooks dan fungsi data berita multibahasa
+// 1. Import hooks dan fungsi data berita multibahasa
 import { useTranslations, useLocale } from 'next-intl';
 import { getNewsData } from '@/components/newsData';
 
@@ -44,24 +44,24 @@ function Hero({ t, locale }) {
     <section className="relative bg-brand-navy min-h-[85vh] flex items-center pt-24 pb-36 md:pb-44 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16 relative z-10 w-full">
         <div className="md:w-1/2">
-          <span className="text-eyebrow-lg text-brand-red">
+          <span className="text-eyebrow-lg text-brand-red block mb-4 md:mb-5">
             {t('Hero.eyebrow')}
           </span>
-          <h1 className="mt-5 md:mt-6 text-white">
+          <h1 className="text-white text-balance">
             {t('Hero.title')}
           </h1>
-          <p className="mt-8 text-slate-300 max-w-md">
+          <p className="mt-6 md:mt-8 text-slate-300 max-w-md">
             {t('Hero.description')}
           </p>
           <Link 
             href={`/${locale}/about`} 
-            className="mt-8 inline-block bg-brand-red text-white px-8 py-3 rounded-full font-semibold text-sm transition duration-700 hover:bg-white hover:text-brand-navy"
+            className="mt-8 inline-flex items-center justify-center bg-brand-red text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-700 hover:bg-white hover:text-brand-navy shadow-lg hover:shadow-xl hover:-translate-y-1"
           >
             {t('Hero.cta')}
           </Link>
         </div>
         <div className="md:w-1/2 w-full">
-          <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative border border-slate-700/50 group">
+          <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative border border-slate-700/50 group shadow-2xl">
             <Image src="https://images.unsplash.com/photo-1746021535489-00edc5efb203?auto=format&fit=crop&w=1200&q=80" alt="Modern HR Consulting Workspace" fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
           </div>
         </div>
@@ -103,7 +103,8 @@ function Network({ t }) {
         }
       `}</style>
       <span className="text-eyebrow block mb-5 md:mb-6">{t('Network.eyebrow')}</span>
-      <h2>{t('Network.title')}</h2>
+      <h2 className="text-brand-navy">{t('Network.title')}</h2>
+      
       <div className="marquee-container relative max-w-6xl mx-auto mt-8 md:mt-10 overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
@@ -124,23 +125,24 @@ function News({ t, locale, newsData }) {
     <section className="bg-brand-navy py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-white mb-8 md:mb-10">{t('News.title')}</h2>
+        
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {newsData.map((news, idx) => (
-            <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group">
+            <div key={idx} className="bg-white rounded-[1.5rem] overflow-hidden border border-gray-100 flex flex-col group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
                 <Image src={news.image} alt={news.title} fill unoptimized sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <div className="p-5 flex flex-col flex-grow">
-                <div className="flex items-center text-slate-400 text-xs font-normal mb-2">
-                  <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-6 md:p-8 flex flex-col flex-grow">
+                <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center">
+                  <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                   </svg>
                   {news.publishedAt}
                 </div>
-                <h4 className="text-brand-red mb-2 line-clamp-1">{news.title}</h4>
-                <p className="text-sm text-slate-500 mb-4 flex-grow line-clamp-3">{news.description}</p>
-                {/* Tautan ke halaman newsletter dengan locale */}
-                <Link href={`/${locale}/newsletter?id=${news.id}`} className="text-brand-red text-sm font-bold hover:underline inline-flex items-center gap-1">
+                <h4 className="text-brand-navy mb-3 line-clamp-2 group-hover:text-brand-red transition-colors">{news.title}</h4>
+                <p className="text-slate-500 mb-6 flex-grow line-clamp-3 leading-relaxed">{news.description}</p>
+                
+                <Link href={`/${locale}/newsletter?id=${news.id}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors inline-flex items-center gap-2 mt-auto">
                   {t('News.viewMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                 </Link>
               </div>
@@ -162,13 +164,14 @@ function Programs({ t, locale }) {
             <path d={NAVY_TAB_PATH} fill="#00263C" />
           </svg>
           <div className="bg-brand-navy mx-4 md:mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] px-5 md:px-12 pt-10 pb-32 md:pt-4 md:pb-44 text-center relative flex flex-col items-center md:-mt-[2px]">
-            <span className="relative z-20 inline-flex items-center px-6 md:px-10 py-2 md:py-3 text-eyebrow text-white rounded-full border-2 md:border-[3px] border-brand-red md:-mt-8 shadow-sm">
+            {/* Pill Eyebrow sesuai request pertama Anda */}
+            <span className="relative z-20 inline-flex items-center px-6 md:px-10 py-2 md:py-3 text-eyebrow-lg text-white rounded-full border-2 md:border-[3px] border-brand-red md:-mt-8 shadow-sm">
               {t('Programs.eyebrow')}
             </span>
-            <h2 className="mt-5 md:mt-6 text-white max-w-4xl text-balance">
+            <h2 className="mt-6 text-white max-w-4xl text-balance">
               {t('Programs.title')}
             </h2>
-            <p className="mt-8 md:mt-10 text-slate-300 max-w-2xl mx-auto text-balance leading-relaxed">
+            <p className="mt-6 md:mt-8 text-slate-300 max-w-4xl mx-auto">
               {t('Programs.description')}
             </p>
           </div>
@@ -183,14 +186,14 @@ function Programs({ t, locale }) {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {programsKeys.map((item, idx) => (
-                <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group">
+                <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                   <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
                     <Image src={item.image} alt={t(`ProgramsList.${item.key}.title`)} fill unoptimized sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                   </div>
-                  <div className="p-5 flex flex-col flex-grow">
-                    <h4 className="mb-2">{t(`ProgramsList.${item.key}.title`)}</h4>
-                    <p className="text-sm text-slate-500 mb-4 flex-grow">{t(`ProgramsList.${item.key}.desc`)}</p>
-                    <Link href={`/${locale}${item.link}`} className="text-brand-red text-sm font-bold hover:underline inline-flex items-center gap-1">
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`ProgramsList.${item.key}.title`)}</h4>
+                    <p className="text-slate-500 mb-6 flex-grow">{t(`ProgramsList.${item.key}.desc`)}</p>
+                    <Link href={`/${locale}${item.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors inline-flex items-center gap-2 mt-auto">
                       {t('Programs.readMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                     </Link>
                   </div>
@@ -199,21 +202,21 @@ function Programs({ t, locale }) {
             </div>
 
             <div className="mt-24 text-center">
-              <h2 className="mb-8">{t('CorporateEvents.title')}</h2>
+              <h2 className="mb-6 text-brand-navy">{t('CorporateEvents.title')}</h2>
               <p className="text-slate-500 mb-10 max-w-2xl mx-auto">
                 {t('CorporateEvents.description')}
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
                 {eventsKeys.map((event, idx) => (
-                  <div key={idx} className="flex flex-col cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 p-3 group">
-                    <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-4 bg-gray-100">
+                  <div key={idx} className="flex flex-col cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 p-4 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                    <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-5 bg-gray-100">
                       <Image src={event.image} alt={t(`EventsList.${event.key}.title`)} fill unoptimized sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                     </div>
-                    <div className="px-1 flex flex-col flex-grow">
-                      <h4 className="mb-1">{t(`EventsList.${event.key}.title`)}</h4>
-                      <p className="text-sm text-slate-500 mb-3 flex-grow">{t(`EventsList.${event.key}.desc`)}</p>
-                      <Link href={`/${locale}${event.link}`} className="text-brand-red text-sm font-bold hover:underline mt-auto inline-flex items-center gap-1">
+                    <div className="px-2 flex flex-col flex-grow">
+                      <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`EventsList.${event.key}.title`)}</h4>
+                      <p className="text-slate-500 mb-5 flex-grow">{t(`EventsList.${event.key}.desc`)}</p>
+                      <Link href={`/${locale}${event.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors mt-auto inline-flex items-center gap-2">
                         {t('Programs.readMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                       </Link>
                     </div>
@@ -241,7 +244,7 @@ export default function Home() {
   const newsData = getNewsData(locale);
 
   return (
-    <main className="w-full overflow-hidden">
+    <main className="w-full overflow-hidden bg-white selection:bg-brand-red selection:text-white">
       <Hero t={t} locale={locale} />
       <Network t={t} />
       <Testimonial />

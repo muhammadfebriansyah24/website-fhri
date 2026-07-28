@@ -45,7 +45,7 @@ export default function Testimonial() {
   const currentItem = testimonialKeys[active];
 
   return (
-    <section className="bg-[#F8FAFC] py-20 md:py-28 px-6 md:px-12 overflow-hidden">
+    <section className="bg-slate-50 py-20 md:py-28 px-6 md:px-12 overflow-hidden">
       
       {/* Inject Custom CSS Animation */}
       <style dangerouslySetInnerHTML={{__html: `
@@ -61,7 +61,7 @@ export default function Testimonial() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
         
         {/* Kolom Kiri: Gambar */}
-        <div key={`img-${active}`} className="w-full md:w-1/2 aspect-[4/3] relative rounded-[2rem] overflow-hidden bg-gray-100 shadow-[0_20px_50px_-15px_rgba(0,38,60,0.2)] group animate-fade-slide">
+        <div key={`img-${active}`} className="w-full md:w-1/2 aspect-[4/3] relative rounded-[2rem] overflow-hidden bg-slate-100 shadow-[0_20px_50px_-15px_rgba(0,38,60,0.2)] group animate-fade-slide">
           <Image
             src={currentItem.image}
             alt={t(`list.${currentItem.key}.name`)}
@@ -70,26 +70,26 @@ export default function Testimonial() {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#00263C]/30 to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/30 to-transparent pointer-events-none"></div>
         </div>
 
         {/* Kolom Kanan: Teks Testimonial */}
         <div className="w-full md:w-1/2 relative flex flex-col justify-center">
           
-          <svg className="absolute -top-8 -left-2 w-16 h-16 text-[#B91C1C] pointer-events-none select-none" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg className="absolute -top-8 -left-2 w-16 h-16 text-brand-red pointer-events-none select-none" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 15c0 2-1 4-2 6zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L19 15c0 2-1 4-2 6z"/>
           </svg>
           
           <div key={`text-${active}`} className="relative z-10 pt-8 animate-fade-slide">
             <div className="min-h-[140px] relative z-10">
-              <p className="text-2xl md:text-3xl font-sans font-normal leading-relaxed text-brand-navy">
+              <p className="text-2xl md:text-3xl text-brand-navy leading-relaxed text-balance">
                 {t(`list.${currentItem.key}.quote`)}
               </p>
             </div>
             
             <div className="mt-6 md:mt-8 border-l-4 border-brand-red pl-4">
-              <h3 className="text-xl font-sans font-bold text-brand-navy">{t(`list.${currentItem.key}.name`)}</h3>
-              <p className="text-sm font-sans text-slate-500 font-medium mt-1">{t(`list.${currentItem.key}.role`)}</p>
+              <h4 className="text-brand-navy mb-1">{t(`list.${currentItem.key}.name`)}</h4>
+              <p className="text-sm text-slate-500 mt-1">{t(`list.${currentItem.key}.role`)}</p>
             </div>
           </div>
 
