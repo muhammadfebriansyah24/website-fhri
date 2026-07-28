@@ -143,7 +143,7 @@ const businessTabs = [
     id: 'Professional Certification Institute',
     path: '/business/lsp',
     subtitle: 'Professional certification programs to validate and enhance HR competencies.',
-    icon: 'ic_star-outline.svg',
+    icon: 'ic_check-badge-outline.svg',
     subMenus: [
       { title: 'HR Certification', desc: 'Recognized professional certifications for HR specialists and practitioners.' },
       { title: 'Competency Standards', desc: 'Industry-standard competency frameworks and assessment criteria.' },

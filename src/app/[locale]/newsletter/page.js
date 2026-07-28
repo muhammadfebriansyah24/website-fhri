@@ -22,18 +22,40 @@ function ArticleReader({ article, locale, t }) {
 
   return (
     <article className="max-w-4xl mx-auto px-6 pt-6 pb-20 md:pt-10 md:pb-32 min-h-[70vh]">
+      {/* 1. BACK TO NEWS*/}
       <Link href={`/${locale}/newsletter`} className="inline-flex items-center text-sm font-bold text-slate-500 hover:text-brand-red transition mb-10 group">
-        <svg className="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-        </svg>
+        <div 
+          className="w-4 h-4 mr-2 bg-current shrink-0 transform rotate-180 group-hover:-translate-x-1 transition-transform"
+          style={{
+            WebkitMaskImage: `url('/ic_arrow-right.svg')`,
+            WebkitMaskSize: 'contain',
+            WebkitMaskRepeat: 'no-repeat',
+            WebkitMaskPosition: 'center',
+            maskImage: `url('/ic_arrow-right.svg')`,
+            maskSize: 'contain',
+            maskRepeat: 'no-repeat',
+            maskPosition: 'center',
+          }}
+        />
         {t('backToNews')}
       </Link>
 
       <header className="mb-10 text-center md:text-left">
+        {/* 2. IKON KALENDER */}
         <h4 className="text-slate-400 mb-4 flex items-center justify-center md:justify-start uppercase tracking-widest">
-          <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
+          <div 
+            className="w-4 h-4 mr-2 bg-current shrink-0"
+            style={{
+              WebkitMaskImage: `url('/ic_calendar-outline.svg')`,
+              WebkitMaskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskImage: `url('/ic_calendar-outline.svg')`,
+              maskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              maskPosition: 'center',
+            }}
+          />
           {article.publishedAt}
         </h4>
         <h2 className="text-brand-navy mb-6 text-balance">
@@ -61,12 +83,21 @@ function ArticleReader({ article, locale, t }) {
         <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-pink-500/20 via-purple-500/10 to-transparent blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-red/10 blur-3xl pointer-events-none" />
 
+        {/* 3. IKON INSTAGRAM */}
         <span className="relative z-10 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/10 backdrop-blur-md text-white mb-6">
-          <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <rect x="2" y="2" width="20" height="20" rx="5" />
-            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
-            <path d="M17.5 6.5h.01" strokeLinecap="round" />
-          </svg>
+          <div 
+            className="w-3 h-3 bg-current shrink-0"
+            style={{
+              WebkitMaskImage: `url('/ic_instagram-outline.svg')`,
+              WebkitMaskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskImage: `url('/ic_instagram-outline.svg')`,
+              maskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              maskPosition: 'center',
+            }}
+          />
           {t('fromInstagram')}
         </span>
 
@@ -87,6 +118,7 @@ function ArticleReader({ article, locale, t }) {
           </div>
         </div>
 
+        {/* 4. FOLLOW US ON INSTAGRAM */}
         <a
           href="https://www.instagram.com/"
           target="_blank"
@@ -95,9 +127,19 @@ function ArticleReader({ article, locale, t }) {
         >
           {t('followInstagram')}
           <span className="flex items-center justify-center w-6 h-6 rounded-full bg-white/10 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover/link:translate-x-1">
-            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <div 
+              className="w-3 h-3 bg-current shrink-0"
+              style={{
+                WebkitMaskImage: `url('/ic_arrow-right.svg')`,
+                WebkitMaskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskImage: `url('/ic_arrow-right.svg')`,
+                maskSize: 'contain',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'center',
+              }}
+            />
           </span>
         </a>
       </div>
@@ -106,6 +148,8 @@ function ArticleReader({ article, locale, t }) {
         <div className="text-sm font-bold text-brand-navy uppercase tracking-widest">
           {t('publishedBy')}
         </div>
+        
+        {/* 5. SHARE*/}
         <button
           onClick={handleShare}
           className={`group inline-flex items-center gap-3 pl-8 pr-2 py-2 font-bold text-sm rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] active:scale-[0.98] uppercase tracking-wide ${
@@ -116,19 +160,37 @@ function ArticleReader({ article, locale, t }) {
         >
           {copySuccess ? t('linkCopied') : t('shareArticle')}
           <span className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] ${copySuccess ? 'bg-white/20' : 'bg-brand-navy/5 group-hover:bg-white/15'}`}>
-            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              {copySuccess ? (
-                <path d="M20 6L9 17l-5-5" />
-              ) : (
-                <>
-                  <circle cx="18" cy="5" r="3" />
-                  <circle cx="6" cy="12" r="3" />
-                  <circle cx="18" cy="19" r="3" />
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                </>
-              )}
-            </svg>
+            {copySuccess ? (
+              // Ikon Check
+              <div 
+                className="w-4 h-4 bg-current shrink-0"
+                style={{
+                  WebkitMaskImage: `url('/ic_check.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/ic_check.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
+            ) : (
+              // Ikon Share
+              <div 
+                className="w-4 h-4 bg-current shrink-0"
+                style={{
+                  WebkitMaskImage: `url('/ic_share-outline.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/ic_share-outline.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
+            )}
           </span>
         </button>
       </div>
