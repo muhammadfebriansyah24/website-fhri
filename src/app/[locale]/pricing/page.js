@@ -137,8 +137,8 @@ export default function PricingPage() {
       </section>
 
 
-      {/* SECTION 2: COMPARE PLANS */}
 
+      {/* SECTION 2: COMPARE PLANS */}
       <section id="compare" className="py-24 md:py-32 bg-white text-brand-navy px-6 md:px-12 relative pb-40">
         <div className="max-w-6xl mx-auto">
           
@@ -255,28 +255,69 @@ export default function PricingPage() {
 function FeatureItem({ text, active = false }) {
   return (
     <div className="flex items-start gap-3">
-      <div className={`mt-[3px] flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center ${active ? 'bg-brand-red' : 'bg-slate-300'}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-[10px] w-[10px] text-white" viewBox="0 0 20 20" fill="currentColor">
-          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-        </svg>
+      
+      <div className="mt-[3px] flex-shrink-0 w-4 h-4 relative flex items-center justify-center">
+        
+        {active && (
+          <div className="absolute w-2.5 h-2.5 bg-white rounded-full z-0"></div>
+        )}
+        
+        <div 
+          className={`absolute inset-0 z-10 ${active ? 'bg-brand-red' : 'bg-slate-300'}`}
+          style={{
+            WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+            WebkitMaskSize: 'contain',
+            WebkitMaskRepeat: 'no-repeat',
+            WebkitMaskPosition: 'center',
+            maskImage: `url('/ic_check-circle-solid.svg')`,
+            maskSize: 'contain',
+            maskRepeat: 'no-repeat',
+            maskPosition: 'center',
+          }}
+        />
       </div>
-      <span className={`text-sm leading-relaxed ${active ? 'text-brand-red font-bold' : 'text-slate-500'}`}>{text}</span>
+
+      <span className={`text-[13.5px] leading-relaxed ${active ? 'text-white' : 'text-slate-400'}`}>
+        {text}
+      </span>
+
     </div>
   );
 }
 
 function SolidCheckIcon({ color }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mx-auto" viewBox="0 0 20 20" fill={color}>
-      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-    </svg>
+    <div 
+      className="h-5 w-5 mx-auto"
+      style={{
+        backgroundColor: color,
+        WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+        WebkitMaskSize: 'contain',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskImage: `url('/ic_check-circle-solid.svg')`,
+        maskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+      }}
+    />
   );
 }
 
 function MinusIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mx-auto text-slate-300" viewBox="0 0 20 20" fill="currentColor">
-      <path fillRule="evenodd" d="M5 10a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z" clipRule="evenodd" />
-    </svg>
+    <div 
+      className="h-5 w-5 mx-auto bg-slate-300"
+      style={{
+        WebkitMaskImage: `url('/ic_minus.svg')`,
+        WebkitMaskSize: 'contain',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskImage: `url('/ic_minus.svg')`,
+        maskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+      }}
+    />
   );
 }

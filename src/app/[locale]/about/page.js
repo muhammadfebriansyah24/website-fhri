@@ -81,9 +81,19 @@ function HeroSection({ data }) {
               download="FHRI-Company-Profile.pptx"
               className="inline-flex items-center gap-3 bg-brand-red hover:bg-red-700 text-white px-7 py-4 rounded-2xl font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.4)] hover:-translate-y-1 uppercase tracking-widest text-sm"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
+              <div 
+                className="w-5 h-5 bg-current"
+                style={{
+                  WebkitMaskImage: `url('/ic_download.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/ic_download.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
               {data.hero.downloadBtn}
             </a>
 
@@ -119,10 +129,26 @@ function VisionMissionSection({ data }) {
   return (
     <section className="relative px-6 md:px-12 -mt-20 md:-mt-24 z-40 pb-24">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        
+        {/* VISION CARD */}
         <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.1)] border border-slate-100 transform transition-transform hover:-translate-y-2 duration-500 flex flex-col justify-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-[100px] -z-10"></div>
           <div className="w-14 h-14 bg-brand-navy rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-navy/20">
-            <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+            
+            <div 
+              className="w-7 h-7 bg-white"
+              style={{
+                WebkitMaskImage: `url('/ic_eye-outline.svg')`,
+                WebkitMaskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskImage: `url('/ic_eye-outline.svg')`,
+                maskSize: 'contain',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'center',
+              }}
+            />
+
           </div>
           <span className="text-eyebrow-lg text-brand-red block mb-4">{data.visionMission.visionTitle}</span>
           <h2 className="text-brand-navy mb-4 text-balance">
@@ -130,10 +156,25 @@ function VisionMissionSection({ data }) {
           </h2>
         </div>
 
+        {/* MISSION CARD */}
         <div className="bg-gradient-to-br from-[#0B2A4A] to-brand-navy text-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.25)] border border-slate-700 relative overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
           <div className="w-14 h-14 bg-brand-red rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-red/30 relative z-10">
-            <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            
+            <div 
+              className="w-7 h-7 bg-white"
+              style={{
+                WebkitMaskImage: `url('/ic_bolt-outline.svg')`,
+                WebkitMaskSize: 'contain',
+                WebkitMaskRepeat: 'no-repeat',
+                WebkitMaskPosition: 'center',
+                maskImage: `url('/ic_bolt-outline.svg')`,
+                maskSize: 'contain',
+                maskRepeat: 'no-repeat',
+                maskPosition: 'center',
+              }}
+            />
+
           </div>
           <span className="text-eyebrow-lg text-slate-400 block mb-6 relative z-10">{data.visionMission.missionTitle}</span>
           <ul className="space-y-5 relative z-10">
@@ -145,6 +186,7 @@ function VisionMissionSection({ data }) {
             ))}
           </ul>
         </div>
+        
       </div>
     </section>
   );
@@ -152,10 +194,66 @@ function VisionMissionSection({ data }) {
 
 function CoreValuesSection({ data }) {
   const icons = [
-    <svg key="1" className="w-6 h-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>,
-    <svg key="2" className="w-6 h-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7" /><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" /></svg>,
-    <svg key="3" className="w-6 h-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 00-3-3.87" /><path d="M16 3.13a4 4 0 010 7.75" /></svg>,
-    <svg key="4" className="w-6 h-6 text-brand-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" /><polyline points="17 6 23 6 23 12" /></svg>
+    
+    <div 
+      key="1" 
+      className="w-6 h-6 bg-brand-red"
+      style={{
+        WebkitMaskImage: `url('/ic_check-shield-outline.svg')`,
+        WebkitMaskSize: 'contain',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskImage: `url('/ic_check-shield-outline.svg')`,
+        maskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+      }}
+    />,
+    
+    <div 
+      key="2" 
+      className="w-6 h-6 bg-brand-red"
+      style={{
+        WebkitMaskImage: `url('/ic_star-outline.svg')`,
+        WebkitMaskSize: 'contain',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskImage: `url('/ic_star-outline.svg')`,
+        maskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+      }}
+    />,
+
+    <div 
+      key="3" 
+      className="w-6 h-6 bg-brand-red"
+      style={{
+        WebkitMaskImage: `url('/ic_users-outline.svg')`,
+        WebkitMaskSize: 'contain',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskImage: `url('/ic_users-outline.svg')`,
+        maskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+      }}
+    />,
+
+    <div 
+      key="4" 
+      className="w-6 h-6 bg-brand-red"
+      style={{
+        WebkitMaskImage: `url('/ic_trending-up.svg')`,
+        WebkitMaskSize: 'contain',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskImage: `url('/ic_trending-up.svg')`,
+        maskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+      }}
+    />
   ];
 
   return (
@@ -247,7 +345,20 @@ function ExecutiveProfilesSection({ data }) {
         <div className="mt-14 flex flex-col lg:flex-row items-center justify-between gap-6 px-4">
           <div className="flex items-center gap-3 md:gap-5 w-full justify-center">
             <button onClick={prevLeader} className="shrink-0 w-12 h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" /></svg>
+              <div 
+                className="w-5 h-5 bg-current"
+                style={{
+                  transform: 'rotate(90deg)',
+                  WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/ic_arrow-short-down.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
             </button>
 
             <div ref={thumbnailContainerRef} className="flex overflow-x-auto gap-4 py-4 px-2 max-w-[250px] sm:max-w-[450px] md:max-w-xl custom-scrollbar hide-scroll-mobile scroll-smooth">
@@ -262,7 +373,20 @@ function ExecutiveProfilesSection({ data }) {
             </div>
 
             <button onClick={nextLeader} className="shrink-0 w-12 h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" /></svg>
+              <div 
+                className="w-5 h-5 bg-current"
+                style={{
+                  transform: 'rotate(-90deg)',
+                  WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/ic_arrow-short-down.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
             </button>
           </div>
           <div className="text-xs font-bold text-slate-400 tracking-widest uppercase lg:shrink-0 hidden lg:block">
@@ -368,12 +492,43 @@ function GallerySection({ data }) {
             <p className="mt-4 text-slate-400 text-lg">{data.gallery.subtitle}</p>
           </div>
           <div className="flex gap-4 justify-center md:justify-end">
+            
+            {/* Tombol Previous */}
             <button onClick={prevGallery} className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all shadow-lg">
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M15 18l-6-6 6-6" /></svg>
+              <div 
+                className="w-6 h-6 bg-current"
+                style={{
+                  transform: 'rotate(90deg)',
+                  WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/ic_arrow-short-down.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
             </button>
+
+            {/* Tombol Next */}
             <button onClick={nextGallery} className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all shadow-lg">
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 18l6-6-6-6" /></svg>
+              <div 
+                className="w-6 h-6 bg-current"
+                style={{
+                  transform: 'rotate(-90deg)',
+                  WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/ic_arrow-short-down.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
             </button>
+
           </div>
         </div>
 

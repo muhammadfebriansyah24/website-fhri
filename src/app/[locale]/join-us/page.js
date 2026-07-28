@@ -79,9 +79,19 @@ export default function JoinUsPage() {
             {showSuccess && (
               <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-30 flex flex-col items-center justify-center text-center p-6 animate-fade-slide-up">
                 <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4 shadow-inner">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="3">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
+                  <div 
+                    className="w-8 h-8 bg-current shrink-0"
+                    style={{
+                      WebkitMaskImage: `url('/ic_check.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_check.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">{data.form.successTitle}</h3>
                 <p className="text-slate-600 text-sm">{data.form.successDesc}</p>
@@ -175,9 +185,19 @@ export default function JoinUsPage() {
                   </select>
                   {/* Custom Dropdown Arrow */}
                   <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none">
-                    <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                    </svg>
+                    <div 
+                      className="w-4 h-4 text-slate-500 bg-current shrink-0"
+                      style={{
+                        WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                        WebkitMaskSize: 'contain',
+                        WebkitMaskRepeat: 'no-repeat',
+                        WebkitMaskPosition: 'center',
+                        maskImage: `url('/ic_arrow-short-down.svg')`,
+                        maskSize: 'contain',
+                        maskRepeat: 'no-repeat',
+                        maskPosition: 'center',
+                      }}
+                    />
                   </div>
                 </div>
               </div>
@@ -189,9 +209,19 @@ export default function JoinUsPage() {
                   className="w-full bg-[#B91C1C] hover:bg-[#991B1B] text-white font-bold text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-md cursor-pointer"
                 >
                   {data.form.submitBtn}
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
-                  </svg>
+                  <div 
+                    className="w-4 h-4 bg-current shrink-0"
+                    style={{
+                      WebkitMaskImage: `url('/ic_send-solid.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_send-solid.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                 </button>
               </div>
             </form>

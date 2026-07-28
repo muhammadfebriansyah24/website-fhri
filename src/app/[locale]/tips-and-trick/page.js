@@ -26,13 +26,26 @@ function TipRow({ tip, accent, index, isOpen, onToggle }) {
             {tip.teaser}
           </p>
         </div>
+        
         <span
           className="shrink-0 mt-1 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)]"
           style={{ color: isOpen ? accent : '#94a3b8', transform: isOpen ? 'rotate(135deg)' : 'rotate(0deg)' }}
         >
-          <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 5v14M5 12h14" strokeLinecap="round" />
-          </svg>
+
+          <div 
+            className="w-5 h-5 md:w-6 md:h-6 bg-current"
+            style={{
+              WebkitMaskImage: `url('/ic_plus.svg')`,
+              WebkitMaskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskImage: `url('/ic_plus.svg')`,
+              maskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              maskPosition: 'center',
+            }}
+          />
+
         </span>
       </button>
 
