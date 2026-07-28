@@ -2,81 +2,14 @@
 
 import React from 'react';
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
+import { getPayrollData } from '@/components/payrollData';
 
 // MAIN COMPONENT
 export default function PayrollOutsourcingPage() {
-
-  // --- DATA KONTEN PAYROLL ---
-  const coreModules = [
-    { 
-      title: 'Payroll Management', 
-      desc: 'Accurate, timely processing aligned with Indonesian labour regulations and tax requirements.',
-      icon: '/ic_money-cash-outline.svg'
-    },
-    { 
-      title: 'Staff Outsourcing', 
-      desc: 'Flexible workforce solutions that scale with your business needs and reduce administrative burden.',
-      icon: '/ic_user-group-outline.svg'
-    },
-    { 
-      title: 'Full Compliance', 
-      desc: 'Complete statutory compliance and comprehensive social security (BPJS) administration.',
-      icon: '/ic_check-shield-outline.svg'
-    },
-    { 
-      title: 'Transparent Reporting', 
-      desc: 'Clear, accurate, and structured reporting to provide better financial oversight for your management.',
-      icon: '/ic_document-chart-bar-outline.svg'
-    }
-  ];
-
-  const zigZagFeatures = [
-    {
-      eyebrow: "Precision & Timeliness",
-      title: "Accurate Payroll Management",
-      desc: "Accurate and timely payroll processing, perfectly aligned with Indonesian labor regulations and tax obligations (PPh 21).",
-      bullets: [
-        "Ensure on-time and error-free salary disbursements.",
-        "Strict compliance with Indonesian tax laws (PPh 21).",
-        "Minimize manual calculations and administrative errors."
-      ],
-      image: "/herokonten3.jpg"
-    },
-    {
-      eyebrow: "Workforce Flexibility",
-      title: "Flexible Staff Outsourcing",
-      desc: "Flexible workforce solutions designed to scale with your specific business needs while significantly reducing your administrative burden.",
-      bullets: [
-        "Scale your workforce dynamically based on business demands.",
-        "Reduce internal recruitment and administrative overhead.",
-        "Gain immediate access to pre-screened, qualified talent."
-      ],
-      image: "/herokonten4.jpg"
-    },
-    {
-      eyebrow: "Risk Mitigation",
-      title: "Full Statutory Compliance",
-      desc: "Comprehensive management of social security administration and full legal compliance to protect your corporate assets.",
-      bullets: [
-        "End-to-end management of BPJS and social securities.",
-        "Guarantee full compliance with the latest labor laws.",
-        "Mitigate legal risks associated with employment."
-      ],
-      image: "/herokonten5.jpg"
-    },
-    {
-      eyebrow: "Data-Driven Insights",
-      title: "Transparent Reporting",
-      desc: "Clear, structured, and transparent reporting to provide your management team with the financial and operational insights they need.",
-      bullets: [
-        "Detailed breakdown of payroll and tax expenditures.",
-        "Accessible reports for auditing and financial planning.",
-        "Data-driven insights to monitor workforce efficiency."
-      ],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
-    }
-  ];
+  const locale = useLocale();
+  const data = getPayrollData(locale);
 
   return (
     <main className="min-h-screen bg-white selection:bg-brand-red selection:text-white overflow-hidden">
@@ -91,20 +24,20 @@ export default function PayrollOutsourcingPage() {
         <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0" />
         <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy via-transparent to-brand-navy/80 pointer-events-none z-0" />
 
-        {/* Kontainer Konten (Mempertahankan Lebar Asli, Menyesuaikan Margin Sesuai Standar) */}
+        {/* Kontainer Konten */}
         <div className="max-w-7xl mx-auto w-full px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
           
           {/* Left: Text */}
           <div className="text-center lg:text-left">
             <span className="text-eyebrow-lg text-brand-red block mb-4 md:mb-5 drop-shadow-md">
-              Payroll & Outsourcing
+              {data.hero.eyebrow}
             </span>
             <h1 className="text-white text-balance mb-6 md:mb-8">
-              Focus on Growth, <br className="hidden md:block" />
-              We Handle the Rest
+              {data.hero.title1} <br className="hidden md:block" />
+              {data.hero.title2}
             </h1>
             <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md">
-              Comprehensive administrative and HR operational management. Empower your company to focus entirely on core business growth while we expertly manage the complexity.
+              {data.hero.description}
             </p>
           </div>
 
@@ -133,18 +66,18 @@ export default function PayrollOutsourcingPage() {
           
           <div className="max-w-2xl mx-auto text-center mb-16 md:mb-20">
             <span className="text-eyebrow-lg text-brand-red block mb-4">
-              Core Services
+              {data.core.eyebrow}
             </span>
             <h2 className="text-brand-navy mb-6 text-balance">
-              Structured Solutions for Peace of Mind
+              {data.core.title}
             </h2>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Let us manage the complexity so you can focus on growth. Our solutions ensure compliance, accuracy, and operational excellence.
+              {data.core.description}
             </p>
           </div>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-            {coreModules.map((item) => (
+            {data.core.modules.map((item) => (
               <article key={item.title} className="group rounded-[2rem] bg-white p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-xl hover:border-brand-red/20 hover:-translate-y-2 transition-all duration-500 flex flex-col h-full">
                 
                 <div className="w-14 h-14 rounded-2xl bg-brand-navy flex items-center justify-center mb-6 shadow-md transition-colors duration-300 group-hover:bg-brand-red">
@@ -177,7 +110,7 @@ export default function PayrollOutsourcingPage() {
       <section className="bg-white py-24 md:py-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto space-y-24 md:space-y-32">
           
-          {zigZagFeatures.map((feature, index) => {
+          {data.zigZag.map((feature, index) => {
             const isEven = index % 2 === 0;
             return (
               <div key={index} className="grid lg:grid-cols-2 gap-14 items-center">
@@ -211,7 +144,6 @@ export default function PayrollOutsourcingPage() {
                   <div className="space-y-6">
                     {feature.bullets.map((bullet, i) => (
                       <div key={i} className="flex items-start gap-4">
-                        
                         <div 
                           className="flex-shrink-0 w-6 h-6 bg-brand-red mt-0.5"
                           style={{
@@ -225,7 +157,6 @@ export default function PayrollOutsourcingPage() {
                             maskPosition: 'center',
                           }}
                         />
-                        
                         <p className="text-base font-semibold text-brand-navy leading-relaxed">{bullet}</p>
                       </div>
                     ))}

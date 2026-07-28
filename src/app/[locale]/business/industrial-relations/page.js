@@ -2,7 +2,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
+import { getLegalData } from '@/components/legalData';
 
 // ============================================================
 // REUSABLE UI COMPONENTS
@@ -22,66 +24,30 @@ function Eyebrow({ children, tone = 'light' }) {
 }
 
 // ============================================================
-// KOMPONEN CHATBOT LEGAL (Menerima props isOpen & setIsOpen)
+// KOMPONEN CHATBOT LEGAL 
 // ============================================================
-function LegalChatbotWidget({ isOpen, setIsOpen }) {
+function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
   const [step, setStep] = useState(1); 
-  // Step 1: Pilih Tipe (Baru / Top-Up / FAQ)
-  // Step 2: Input Teks (Masalah / Nama Instansi)
-  // Step 3: Pilih Paket Token
-  // Step 4: Menampilkan Menu FAQ
-  
   const [chatType, setChatType] = useState(''); // 'new' | 'topup' | 'faq'
   const [userMessage, setUserMessage] = useState('');
   const [inputText, setInputText] = useState('');
   const chatEndRef = useRef(null);
 
-  // Nomor WA Admin FHRI
   const ADMIN_WA_NUMBER = "628995722437"; 
 
-  // Daftar Paket Token
-  const tokenPackages = [
-    { id: 1, title: 'Quick Advice', token: '1 Token', desc: 'Konsultasi 1 pertanyaan spesifik.', price: 'Rp 250.000' },
-    { id: 2, title: 'Deep Dive', token: '3 Tokens', desc: 'Bahas tuntas masalah kompleks.', price: 'Rp 600.000' },
-    { id: 3, title: 'Doc Review', token: 'Unlimited (1 Jam)', desc: 'Review dokumen & konsultasi intensif.', price: 'Rp 1.500.000' },
-  ];
-
-  // Data FAQ 
-  const faqList = [
-    { 
-      q: "Apa saja layanan legal yang disediakan FHRI?", 
-      a: "Kami menangani pembuatan PKB, Peraturan Perusahaan (PP), pendampingan bipartit, audit kepatuhan ketenagakerjaan, hingga konsultasi penyelesaian sengketa." 
-    },
-    { 
-      q: "Berapa lama proses pembuatan Peraturan Perusahaan (PP)?", 
-      a: "Proses drafting hingga pengesahan biasanya memakan waktu 14 hingga 30 hari kerja, tergantung kelengkapan data dari perusahaan Anda." 
-    },
-    { 
-      q: "Apakah FHRI bisa mendampingi ke Pengadilan (PHI)?", 
-      a: "Tentu. Kami memiliki tim ahli yang akan mendampingi, memberikan arahan strategis, dan memediasi proses di Pengadilan Hubungan Industrial." 
-    },
-    { 
-      q: "Bagaimana sistem penggunaan Token Konsultasi?", 
-      a: "1 Token berlaku untuk 1 topik pertanyaan/sesi. Anda bebas menggunakannya kapan saja selama kuota paket Anda belum habis." 
-    }
-  ];
-
-  // Auto-scroll ke bawah saat ada pesan baru
   useEffect(() => {
     if (chatEndRef.current) chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
   }, [step, isOpen]);
 
-  // Handle Pilihan Step 1
   const handleSelectType = (type) => {
     setChatType(type);
     if (type === 'faq') {
-      setStep(4); // Langsung lompat ke layar FAQ
+      setStep(4);
     } else {
-      setStep(2); // Lanjut ke input teks
+      setStep(2);
     }
   };
 
-  // Handle Input Step 2
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (!inputText.trim()) return;
@@ -94,20 +60,18 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
     }, 600);
   };
 
-  // Handle Klik Paket & Redirect WA
   const handleSelectPackage = (selectedPackage) => {
     let waText = '';
 
     if (chatType === 'new') {
-      waText = `Halo Admin Legal FHRI,%0A%0ASaya ingin *Konsultasi Baru* mengenai:%0A_"${userMessage}"_%0A%0ASaya ingin mengambil paket:%0A*${selectedPackage.title} (${selectedPackage.token}) - ${selectedPackage.price}*%0A%0AMohon panduannya untuk proses administrasi selanjutnya. Terima kasih.`;
+      waText = `${botData.waNewIntro}%0A_"${userMessage}"_%0A%0A${botData.waPackageSelect}%0A*${selectedPackage.title} (${selectedPackage.token}) - ${selectedPackage.price}*%0A%0A${botData.waClosingNew}`;
     } else {
-      waText = `Halo Admin Legal FHRI,%0A%0AToken konsultasi saya sudah habis. Saya ingin melakukan *Top-Up Token*.%0A%0ANama / Instansi terdaftar:%0A*${userMessage}*%0A%0APaket Top-Up yang dipilih:%0A*${selectedPackage.title} (${selectedPackage.token}) - ${selectedPackage.price}*%0A%0AMohon panduannya untuk pembayaran. Terima kasih.`;
+      waText = `${botData.waTopUpIntro}%0A*${userMessage}*%0A%0A${botData.waPackageSelectTopUp}%0A*${selectedPackage.title} (${selectedPackage.token}) - ${selectedPackage.price}*%0A%0A${botData.waClosingTopUp}`;
     }
     
     window.open(`https://wa.me/${ADMIN_WA_NUMBER}?text=${waText}`, '_blank');
   };
 
-  // Reset chat saat ditutup atau menekan tombol kembali
   const resetChat = () => {
     setStep(1);
     setChatType('');
@@ -123,15 +87,12 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end font-sans">
       
-      {/* KOTAK ANIMASI INJECT */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
         .animate-fade-slide-up { animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .custom-scrollbar::-webkit-scrollbar { width: 5px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        
-        /* Hilangkan panah default pada detail summary (Accordion) */
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
       `}} />
@@ -143,7 +104,6 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
           <div className="bg-[#00263C] text-white p-4 flex items-center justify-between shadow-md z-10">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white/10 border border-white/20 rounded-full flex items-center justify-center backdrop-blur-sm shadow-inner">
-                
                 <div 
                   className="w-5 h-5 bg-white shrink-0"
                   style={{
@@ -157,16 +117,14 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                     maskPosition: 'center',
                   }}
                 />
-
               </div>
               <div>
-                <h3 className="font-bold text-sm">FHRI Legal Bot</h3>
-                <p className="text-[10px] text-green-400 flex items-center gap-1 font-medium"><span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> Online</p>
+                <h3 className="font-bold text-sm">{botData.header}</h3>
+                <p className="text-[10px] text-green-400 flex items-center gap-1 font-medium"><span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> {botData.online}</p>
               </div>
             </div>
             
             <button onClick={closeChat} className="text-white/60 hover:text-white transition-colors bg-white/10 p-1.5 rounded-lg group">
-              
               <div 
                 className="w-5 h-5 bg-current shrink-0 transition-colors"
                 style={{
@@ -180,7 +138,6 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                   maskPosition: 'center',
                 }}
               />
-              
             </button>
           </div>
 
@@ -190,16 +147,15 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
             {/* Step 1: Pesan Pembuka & Pilih Jalur */}
             <div className="flex flex-col gap-2 w-[90%]">
               <div className="bg-white border border-slate-200 text-slate-700 p-3.5 rounded-2xl rounded-tl-sm text-[13.5px] shadow-sm leading-relaxed">
-                Halo! Selamat datang di Layanan Bantuan Legal & Hubungan Industrial FHRI. 
+                {botData.welcome}
               </div>
               <div className="bg-white border border-slate-200 text-slate-700 p-3.5 rounded-2xl rounded-tl-sm text-[13.5px] shadow-sm leading-relaxed">
-                Ada yang bisa kami bantu hari ini? Silakan pilih menu di bawah:
+                {botData.prompt}
               </div>
               
               {/* Tombol Pilihan Step 1 */}
               {step === 1 && (
                 <div className="flex flex-col gap-2 mt-2 animate-fade-slide-up">
-                  
                   <button onClick={() => handleSelectType('new')} className="bg-[#00263C] text-white py-3 px-4 rounded-xl text-sm font-semibold hover:bg-blue-900 transition-colors shadow-sm text-left flex items-center">
                     <div 
                       className="w-4 h-4 mr-2 bg-yellow-400 shrink-0"
@@ -214,7 +170,7 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                         maskPosition: 'center',
                       }}
                     />
-                    Konsultasi Baru
+                    {botData.btnNew}
                   </button>
                   
                   <button onClick={() => handleSelectType('topup')} className="bg-white text-[#DC2626] border-2 border-[#DC2626] py-2.5 px-4 rounded-xl text-sm font-semibold hover:bg-red-50 transition-colors shadow-sm text-left flex items-center">
@@ -231,7 +187,7 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                         maskPosition: 'center',
                       }}
                     />
-                    Top-Up Token (Beli Lagi)
+                    {botData.btnTopUp}
                   </button>
                   
                   <button onClick={() => handleSelectType('faq')} className="bg-white text-slate-600 border border-slate-300 py-2.5 px-4 rounded-xl text-sm font-semibold hover:bg-slate-100 transition-colors shadow-sm text-left flex items-center">
@@ -248,9 +204,8 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                         maskPosition: 'center',
                       }}
                     />
-                    Tanya Jawab (FAQ)
+                    {botData.btnFaq}
                   </button>
-                  
                 </div>
               )}
             </div>
@@ -258,21 +213,20 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
             {/* Bubble Pilihan User Umum */}
             {step >= 2 && (
               <div className="bg-[#DC2626] text-white p-3 rounded-2xl rounded-tr-sm text-[13px] shadow-sm max-w-[85%] self-end">
-                {chatType === 'new' ? 'Konsultasi Baru' : chatType === 'topup' ? 'Top-Up Token' : 'Tanya Jawab (FAQ)'}
+                {chatType === 'new' ? botData.userSelectionNew : chatType === 'topup' ? botData.userSelectionTopUp : botData.userSelectionFaq}
               </div>
             )}
 
-            {/* Step 4: KHUSUS TAMPILAN FAQ (ACCORDION) */}
+            {/* Step 4: KHUSUS TAMPILAN FAQ */}
             {step === 4 && chatType === 'faq' && (
               <div className="bg-white border border-slate-200 text-slate-700 p-4 rounded-2xl rounded-tl-sm text-[13.5px] shadow-sm w-full animate-fade-slide-up">
-                <p className="mb-3 font-semibold text-[#00263C]">Berikut adalah pertanyaan yang sering diajukan kepada kami:</p>
+                <p className="mb-3 font-semibold text-[#00263C]">{botData.faqTitle}</p>
                 
                 <div className="space-y-2">
-                  {faqList.map((faq, index) => (
+                  {botData.faqs.map((faq, index) => (
                     <details key={index} className="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
                       <summary className="text-[12.5px] font-bold p-3 cursor-pointer text-[#00263C] hover:text-[#DC2626] flex justify-between items-center bg-white transition-colors">
                         <span className="pr-4">{faq.q}</span>
-                        
                         <div 
                           className="w-4 h-4 shrink-0 bg-slate-400 group-open:rotate-180 transition-transform"
                           style={{
@@ -286,7 +240,6 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                             maskPosition: 'center',
                           }}
                         />
-                        
                       </summary>
                       <div className="p-3 pt-1 text-[12px] text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50">
                         {faq.a}
@@ -295,10 +248,9 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                   ))}
                 </div>
 
-                <p className="mt-4 mb-2 text-center text-[12px] text-slate-500">Punya pertanyaan lain atau ingin lanjut konsultasi?</p>
+                <p className="mt-4 mb-2 text-center text-[12px] text-slate-500">{botData.faqMore}</p>
                 
                 <button onClick={resetChat} className="w-full bg-[#00263C] text-white py-2.5 rounded-xl text-[12px] font-bold hover:bg-blue-900 transition-colors flex items-center justify-center gap-2">
-                  
                   <div 
                     className="w-4 h-4 bg-current shrink-0 rotate-180"
                     style={{
@@ -312,8 +264,7 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                       maskPosition: 'center',
                     }}
                   />
-                  
-                  Kembali ke Menu Utama
+                  {botData.btnBack}
                 </button>
               </div>
             )}
@@ -321,9 +272,7 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
             {/* Step 2: Form Pertanyaan */}
             {step === 2 && chatType !== 'faq' && (
               <div className="bg-white border border-slate-200 text-slate-700 p-3.5 rounded-2xl rounded-tl-sm text-[13.5px] shadow-sm w-[90%] animate-fade-slide-up">
-                {chatType === 'new' 
-                  ? "Baik. Silakan ceritakan secara singkat masalah Anda (misal: Sengketa PHK, Pembuatan PKB, dll)." 
-                  : "Siap membantu! Silakan ketik Nama Lengkap atau Nama Perusahaan Anda yang terdaftar sebelumnya."}
+                {chatType === 'new' ? botData.inputPromptNew : botData.inputPromptTopUp}
               </div>
             )}
 
@@ -338,13 +287,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
             {step === 3 && chatType !== 'faq' && (
               <div className="bg-white border border-slate-200 text-slate-700 p-4 rounded-2xl rounded-tl-sm text-[13.5px] shadow-sm w-full animate-fade-slide-up">
                 <p className="mb-4">
-                  {chatType === 'new' 
-                    ? "Masalah Anda membutuhkan penanganan presisi. Silakan pilih paket konsultasi di bawah ini untuk terhubung dengan pakar kami:" 
-                    : "Terima kasih. Silakan pilih paket Top-Up Token yang Anda inginkan:"}
+                  {chatType === 'new' ? botData.packagePromptNew : botData.packagePromptTopUp}
                 </p>
                 
                 <div className="space-y-2.5">
-                  {tokenPackages.map((pkg) => (
+                  {botData.packages.map((pkg) => (
                     <button 
                       key={pkg.id}
                       onClick={() => handleSelectPackage(pkg)}
@@ -372,12 +319,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                 type="text" 
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder={chatType === 'new' ? "Ketik masalah..." : "Ketik nama/perusahaan..."}
+                placeholder={chatType === 'new' ? botData.inputPlaceholderNew : botData.inputPlaceholderTopUp}
                 className="flex-1 bg-slate-100 rounded-xl px-4 py-2.5 text-[13px] focus:outline-none focus:ring-2 focus:ring-[#00263C] transition-all"
                 autoFocus
               />
               <button type="submit" disabled={!inputText.trim()} className="bg-[#00263C] hover:bg-blue-900 text-white w-11 h-11 rounded-xl flex items-center justify-center disabled:opacity-50 transition-colors">
-                
                 <div 
                   className="w-5 h-5 bg-current shrink-0"
                   style={{
@@ -391,7 +337,6 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
                     maskPosition: 'center',
                   }}
                 />
-                
               </button>
             </form>
           )}
@@ -428,111 +373,76 @@ function LegalChatbotWidget({ isOpen, setIsOpen }) {
 // MAIN PAGE COMPONENT
 // ============================================================
 export default function IndustrialRelationsPage() {
-  // Pindahkan State chat widget ke komponen utama (Parent)
   const [isChatOpen, setIsChatOpen] = useState(false);
-
-  const services = [
-    {
-      id: "01",
-      title: "Labor Law Compliance",
-      desc: "Ensure compliance with the latest labor regulations through the development and review of Company Regulations (PP) and Collective Labor Agreements (PKB).",
-      icon: 'ic_document-text-outline.svg'
-    },
-    {
-      id: "02",
-      title: "Risk Management",
-      desc: "Mitigate employment risks related to organizational restructuring, employment status (fixed-term & permanent), and legally compliant termination processes.",
-      icon: 'ic_check-shield-outline.svg'
-    },
-    {
-      id: "03",
-      title: "Dispute Resolution & Litigation",
-      desc: "Strengthen capabilities through effective bipartite negotiations and guidance on mediation, conciliation, and Industrial Relations Court (PHI) proceedings.",
-      icon: 'ic_scale.svg'
-    },
-    {
-      id: "04",
-      title: "Trade Union Partnership",
-      desc: "Build constructive and collaborative relationships with labor unions to foster positive industrial relations and a productive work environment.",
-      icon: 'ic_user-group-outline.svg'
-    }
-  ];
+  
+  const locale = useLocale();
+  const data = getLegalData(locale);
 
   return (
     <main className="min-h-screen bg-[#F8FAFC] font-sans">
       
       {/* SECTION 1 : HERO SECTION */}
-<section className="relative min-h-[92vh] flex items-center bg-[#00263C] overflow-hidden">
-  
-  {/* Background Effects (Blur Circles Asli) */}
-  <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-  <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#DC2626]/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
+      <section className="relative min-h-[92vh] flex items-center bg-[#00263C] overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#DC2626]/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4"></div>
 
-  {/* Kontainer Konten - Standar Lebar dan Padding Seimbang untuk Vertically Centered */}
-  <div className="max-w-7xl mx-auto w-full px-6 md:px-12 py-16 md:py-20 relative z-10 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
-    
-    {/* Kolom Kiri: Copywriting */}
-    <div className="md:w-1/2 flex flex-col items-start text-left">
-      <Eyebrow tone="light">Legal & Compliance</Eyebrow>
-      <h1 className="mt-6 text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
-        Industrial Relations <br/> <span className="text-white/70">& Legal Advisory</span>
-      </h1>
-      <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-lg">
-        Providing expert guidance on labor compliance, risk mitigation, and harmonized workplace relations to protect corporate assets while ensuring a fair working environment.
-      </p>
-    </div>
-
-    {/* Kolom Kanan: Visual dengan Animasi Border & Status Badge */}
-    <div className="md:w-1/2 relative w-full flex justify-center lg:justify-end">
-      <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px]">
-        {/* Animated Dashed Border */}
-        <div className="absolute inset-0 border-[2px] border-white/20 rounded-full animate-[spin_20s_linear_infinite] border-dashed"></div>
-        
-        {/* Main Image Container */}
-        <div className="absolute inset-4 rounded-full overflow-hidden border-8 border-[#00263C] shadow-2xl">
-          <Image src="/herokonten2.jpg" alt="Legal Advisory Meeting" fill className="object-cover" />
-        </div>
-        
-        {/* Floating Badge Status */}
-        <div className="absolute bottom-8 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4">
-          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-            {/* SVG Mask untuk Icon Check */}
-            <div 
-              className="w-6 h-6 bg-green-600 shrink-0"
-              style={{
-                WebkitMaskImage: `url('/ic_check.svg')`,
-                WebkitMaskSize: 'contain',
-                WebkitMaskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'center',
-                maskImage: `url('/ic_check.svg')`,
-                maskSize: 'contain',
-                maskRepeat: 'no-repeat',
-                maskPosition: 'center',
-              }}
-            />
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-12 py-16 md:py-20 relative z-10 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+          
+          <div className="md:w-1/2 flex flex-col items-start text-left">
+            <Eyebrow tone="light">{data.hero.eyebrow}</Eyebrow>
+            <h1 className="mt-6 text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight">
+              {data.hero.title1} <br/> <span className="text-white/70">{data.hero.title2}</span>
+            </h1>
+            <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-lg">
+              {data.hero.description}
+            </p>
           </div>
-          <div>
-            <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Status</p>
-            <p className="text-sm font-black text-[#00263C]">100% Compliant</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
-  </div>
-</section>
+          <div className="md:w-1/2 relative w-full flex justify-center lg:justify-end">
+            <div className="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px]">
+              <div className="absolute inset-0 border-[2px] border-white/20 rounded-full animate-[spin_20s_linear_infinite] border-dashed"></div>
+              
+              <div className="absolute inset-4 rounded-full overflow-hidden border-8 border-[#00263C] shadow-2xl">
+                <Image src="/herokonten2.jpg" alt="Legal Advisory Meeting" fill className="object-cover" unoptimized />
+              </div>
+              
+              <div className="absolute bottom-8 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                  <div 
+                    className="w-6 h-6 bg-green-600 shrink-0"
+                    style={{
+                      WebkitMaskImage: `url('/ic_check.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/ic_check.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">{data.hero.badgeStatus}</p>
+                  <p className="text-sm font-black text-[#00263C]">{data.hero.badgeText}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       {/* SECTION 2 : AREA OF EXPERTISE */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative -mt-16 z-20">
-        
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#00263C] bg-white inline-block px-10 py-4 rounded-full shadow-md border border-slate-100">
-            Our Area of Expertise
+            {data.expertise.title}
           </h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, idx) => (
+          {data.expertise.services.map((service, idx) => (
             <div key={idx} className="group bg-white p-8 md:p-10 rounded-[2rem] shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_50px_-15px_rgba(0,38,60,0.15)] transition-all duration-300 border border-slate-100 relative overflow-hidden">
               <div className="absolute -right-4 -top-8 text-[120px] font-black text-slate-50/50 group-hover:text-blue-50/50 transition-colors pointer-events-none select-none">
                 {service.id}
@@ -540,8 +450,6 @@ export default function IndustrialRelationsPage() {
               
               <div className="relative z-10 flex flex-col h-full">
                 <div className="w-16 h-16 bg-[#F1F5F6] group-hover:bg-[#00263C] rounded-2xl flex items-center justify-center transition-colors duration-300 mb-8">
-                  
-                  {/* CSS Mask Icon Dinamis */}
                   <div 
                     className="w-8 h-8 bg-[#00263C] group-hover:bg-white transition-colors duration-300 shrink-0"
                     style={{
@@ -555,7 +463,6 @@ export default function IndustrialRelationsPage() {
                       maskPosition: 'center',
                     }}
                   />
-                  
                 </div>
                 <h3 className="text-2xl font-bold text-[#00263C] mb-4 leading-snug">{service.title}</h3>
                 <p className="text-slate-500 leading-relaxed mb-auto">{service.desc}</p>
@@ -570,22 +477,17 @@ export default function IndustrialRelationsPage() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           
           <div className="space-y-8">
-            <Eyebrow tone="light">Why Partner With Us?</Eyebrow>
+            <Eyebrow tone="light">{data.whyMatters.eyebrow}</Eyebrow>
             <h2 className="text-3xl md:text-5xl font-bold leading-tight">
-              Mitigating Risks, <br/>
-              <span className="text-[#DC2626]">Protecting Assets.</span>
+              {data.whyMatters.title1} <br/>
+              <span className="text-[#DC2626]">{data.whyMatters.title2}</span>
             </h2>
             <p className="text-slate-300 text-lg leading-relaxed">
-              In a dynamic regulatory environment, missteps in industrial relations can lead to costly disputes and reputational damage. We provide proactive strategies to ensure your business remains compliant and harmonious.
+              {data.whyMatters.description}
             </p>
             
             <div className="space-y-6 pt-4">
-              {[
-                "Proactive risk identification and mitigation.",
-                "Expert representation in bipartit and PHI negotiations.",
-                "Tailored compliance strategies for your specific industry.",
-                "Fostering a productive, union-friendly environment."
-              ].map((item, i) => (
+              {data.whyMatters.bullets.map((item, i) => (
                 <div key={i} className="flex items-start gap-4 bg-white/5 p-4 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors">
                   <div className="w-8 h-8 shrink-0 rounded-full bg-[#DC2626] flex items-center justify-center font-bold text-sm">
                     {i + 1}
@@ -597,7 +499,7 @@ export default function IndustrialRelationsPage() {
           </div>
 
           <div className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden">
-            <Image src="/herokonten6.jpg" alt="Professional Consultation" fill className="object-cover opacity-90 hover:scale-105 transition-transform duration-700" />
+            <Image src="/herokonten6.jpg" alt="Professional Consultation" fill className="object-cover opacity-90 hover:scale-105 transition-transform duration-700" unoptimized />
             <div className="absolute inset-0 bg-gradient-to-t from-[#00263C] via-transparent to-transparent"></div>
           </div>
 
@@ -607,8 +509,8 @@ export default function IndustrialRelationsPage() {
       {/* 4. CALL TO ACTION */}
       <CTA />
 
-      {/* === MEMANGGIL WIDGET CHATBOT (Meneruskan Props State) === */}
-      <LegalChatbotWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} />
+      {/* === WIDGET CHATBOT === */}
+      <LegalChatbotWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} botData={data.chatbot} />
 
     </main>
   );

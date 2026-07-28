@@ -3,10 +3,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-// 👇 1. Import hooks untuk bahasa dan routing
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
+import { getNavbarData } from '@/components/navbarData'; // 👇 Import Data
 
 // Komponen template icon
 const DynamicIcon = ({ name, className }) => (
@@ -25,151 +24,24 @@ const DynamicIcon = ({ name, className }) => (
   />
 );
 
-// DATA MENU BUSINESS (Tetap sama)
-const businessTabs = [
-  {
-    id: 'Business Support Services',
-    path: '/business/business-support',
-    subtitle: 'Comprehensive support to strengthen your business operations and strategy.',
-    icon: 'ic_briefcase-outline.svg',
-    subMenus: [
-      { title: 'Company Establishment', desc: 'Expert guidance through local regulatory compliance, licensing, and legal requirements for new market entrants.' },
-      { title: 'Cultural Fit Solutions', desc: 'Workshops and coaching sessions designed to bridge cultural gaps and create harmonious team integration.' },
-      { title: 'Licensing Procurement', desc: 'Expedited handling of all necessary operational and sector-specific permits for your business.' },
-      { title: 'Entity Structuring', desc: 'Strategic advice on PMA (Foreign Direct Investment) setups and compliance frameworks.' },
-      { title: 'Cross-Cultural Harmony', desc: 'Interactive workshops designed to foster mutual understanding and day-one harmony among teams.' },
-      { title: 'Leadership Coaching', desc: 'Equipping expatriate and local leaders with strategies for cross-cultural team management.' },
-    ]
-  },
-  {
-    id: 'Human Capital Solutions',
-    path: '/business/humancapital-solutions',
-    subtitle: 'Strategic solutions to optimize and develop your human capital assets.',
-    icon: 'ic_search-outline.svg',
-    subMenus: [
-      { title: 'Executive Search', desc: 'A proactive, targeted approach to recruiting passive C-suite talents and senior leaders.' },
-      { title: 'Recruitment Services', desc: 'End-to-end recruitment process management for mid-level positions and specialists across industries.' },
-      { title: 'Talent Assessment', desc: 'Rigorous psychometric evaluations, competency mapping, and culture compatibility tests.' },
-      { title: 'Elite Talent Pool', desc: 'Exclusive access to a curated network of high-performing passive candidates in Indonesia.' },
-      { title: 'Market Mapping', desc: 'Industry-wide analysis to identify prospective leaders who fit your exact structural objectives.' },
-      { title: 'Candidate Calibration', desc: 'Structured behavioral testing and reference checks for full management-style alignment.' },
-    ]
-  },
-  {
-    id: 'Payroll & Outsourcing',
-    path: '/business/payroll',
-    subtitle: 'End-to-end payroll management and business process outsourcing solutions.',
-    icon: 'ic_circle-stack-outline.svg',
-    subMenus: [
-      { title: 'Payroll Processing', desc: 'Accurate, timely payroll processing aligned with Indonesian labor and PPh 21 tax regulations.' },
-      { title: 'Staff Outsourcing', desc: 'Flexible workforce solutions that scale with your business and reduce administrative burden.' },
-      { title: 'Statutory Compliance', desc: 'Complete social security (BPJS Kesehatan & Ketenagakerjaan) administration and compliance.' },
-      { title: 'Transparent Reporting', desc: 'Structured reporting to provide clear financial and operational oversight for management.' },
-      { title: 'Tax Administration', desc: 'Strict compliance with local tax obligations, withholding, and annual PPh 21 reporting.' },
-      { title: 'HR Administration', desc: 'Streamlining employee documents, contracts, and manual calculations to reduce overhead.' },
-    ]
-  },
-  {
-    id: 'Assessment Tools',
-    path: '/business/assessment-tools',
-    subtitle: 'Advanced assessment tools to evaluate employee competencies and potential.',
-    icon: 'ic_education-outline.svg',
-    subMenus: [
-      { title: 'Skill & Performance', desc: 'Evaluate technical readiness and work target achievements with measurable metrics.' },
-      { title: '360-Degree Feedback', desc: 'Gain a comprehensive view from the entire professional interaction structure via anonymous feedback.' },
-      { title: 'Potential & Personality', desc: 'Map the psychological DNA of your employees for future succession readiness.' },
-      { title: 'Promotion & Succession', desc: 'Objectively identify future leaders and prepare top talent for key organizational positions.' },
-      { title: 'Restructuring Support', desc: 'Remap talent and capabilities during corporate mergers, acquisitions, or efficiency drives.' },
-      { title: 'Training Needs (TNA)', desc: 'Precisely discover skill gaps to design effective training and development programs.' },
-    ]
-  },
-  {
-    id: 'HR Boot Camp',
-    path: '/business/hr-bootcamp',
-    subtitle: 'Intensive training programs to build HR excellence and strategic capabilities.',
-    icon: 'ic_computer-outline.svg',
-    subMenus: [
-      { title: 'HRBP Boot Camp', desc: 'Intensive cohort-based program to transition traditional HR practitioners into strategic business partners.' },
-      { title: 'Live Case Studies', desc: 'Practical case study analysis and real-world business resolution sessions with peer collaboration.' },
-      { title: 'CHRO Mentorship', desc: 'Direct coaching and real-world guidance from experienced corporate human capital leaders.' },
-      { title: 'People Analytics', desc: 'Learn to harness organizational data to predict turnover and quantify the business ROI of HR.' },
-      { title: 'AI-Powered Decisions', desc: 'Integrate AI tools into your HR workflows to automate administration and boost execution velocity.' },
-      { title: 'Stakeholder Management', desc: 'Master advanced frameworks for consulting, managing change, and influencing without authority.' },
-    ]
-  },
-  {
-    id: 'Industrial Relations & Legal Advisory',
-    path: '/business/industrial-relations',
-    subtitle: 'Expert guidance on labor relations, employment law, and dispute resolution.',
-    icon: 'ic_building-library-outline.svg',
-    subMenus: [
-      { title: 'Labor Law Compliance', desc: 'Development and review of Company Regulations (PP) and Collective Labor Agreements (PKB).' },
-      { title: 'Risk Management', desc: 'Mitigate employment risks related to restructuring, contracts, and legally compliant termination.' },
-      { title: 'Dispute Resolution', desc: 'Effective bipartite negotiations and professional mediation services for workplace conflicts.' },
-      { title: 'Court Advocacy Guidance', desc: 'Expert guidance on preparing for mediation, conciliation, and Industrial Relations Court (PHI) cases.' },
-      { title: 'Union Partnerships', desc: 'Build collaborative, constructive relationships with labor unions to foster workplace harmony.' },
-      { title: 'IR Compliance Audits', desc: 'Proactive audits to ensure complete alignment with the latest Indonesian manpower regulations.' },
-    ]
-  },
-  {
-    id: 'Health, Safety, and Environment',
-    path: '/business/hse',
-    subtitle: 'Comprehensive HSE programs to ensure workplace safety and employee wellbeing.',
-    icon: 'ic_check-shield-outline.svg',
-    subMenus: [
-      { title: 'Risk Assessment', desc: 'Proactively identify workplace hazards, conduct incident investigations, and determine corrective actions.' },
-      { title: 'Policy & SOP Creation', desc: 'Creation of safety manuals and guidance for implementing standard ISO 45001 management systems.' },
-      { title: 'Environmental Compliance', desc: 'Processing environmental permits (UKL-UPL, AMDAL) and preparation for ministry PROPER audits.' },
-      { title: '5S Culture', desc: 'Systematic field implementation to keep work areas Sorted, Organized, and Sustained.' },
-      { title: 'Proactive Prevention', desc: 'Eliminate potential hazards early to prevent critical fire, electrical, or operational incidents.' },
-      { title: 'Roadmap to Certification', desc: 'Guided steps from initial gap analysis to official safety and environmental compliance.' },
-    ]
-  },
-  {
-    id: 'Corporate Culture & Events',
-    path: '/business/corporate-culture',
-    subtitle: 'Build a thriving corporate culture through strategic programs and events.',
-    icon: 'ic_users-outline.svg',
-    subMenus: [
-      { title: 'Professional Work Ethic', desc: 'Workshops instilling accountability, integrity, collaboration, and service excellence standards.' },
-      { title: 'Corporate Event Organizing', desc: 'End-to-end planning of town halls and annual recognition events to strengthen cohesion.' },
-      { title: 'Outbound Training', desc: 'Outdoor activities building trust, teamwork, and leadership through shared challenges.' },
-      { title: 'Culture Assessment', desc: 'Diagnosing behavioral patterns and cultural gaps to identify development opportunities.' },
-      { title: 'Curriculum Customization', desc: 'Tailoring custom culture transformation programs and event formats for alignment.' },
-      { title: 'Dynamic Facilitation', desc: 'High-energy execution of interactive workshops and events to drive organizational change.' },
-    ]
-  },
-  {
-    id: 'Professional Certification Institute',
-    path: '/business/lsp',
-    subtitle: 'Professional certification programs to validate and enhance HR competencies.',
-    icon: 'ic_check-badge-outline.svg',
-    subMenus: [
-      { title: 'HR Certification', desc: 'Recognized professional certifications for HR specialists and practitioners.' },
-      { title: 'Competency Standards', desc: 'Industry-standard competency frameworks and assessment criteria.' },
-      { title: 'Training Accreditation', desc: 'Official accreditation of training programs and training providers.' },
-      { title: 'Credential Verification', desc: 'Verification and validation of professional credentials and certifications.' },
-      { title: 'Career Pathways', desc: 'Structured career progression paths with clear certification milestones.' },
-      { title: 'Continuing Education', desc: 'Ongoing professional development programs for credential maintenance.' },
-    ]
-  }
-];
-
 export default function Navbar() {
-  // 👇 2. Inisialisasi hook bahasa dan fungsi terjemahan
   const locale = useLocale();
-  const t = useTranslations('Navbar'); // Mengambil data dari en.json & id.json
+  const t = useTranslations('Navbar'); 
   const pathname = usePathname();
   const router = useRouter();
+  
+  // Ambil data navbar dinamis berdasarkan bahasa
+  const data = getNavbarData(locale);
+  const businessTabs = data.businessTabs;
 
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('Business Support Services');
+  // Gunakan 'support' sebagai ID default yang aman lintas bahasa
+  const [activeTabId, setActiveTabId] = useState('support'); 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [expandedBizTab, setExpandedBizTab] = useState(null);
   
   const dropdownRef = useRef(null);
 
-  // DATA LINK NAVBAR (Sekarang menggunakan fungsi 't' agar bahasanya otomatis berubah)
   const navLinks = [
     { label: t('business'), dropdown: true, href: '/business' },
     { label: t('tips'), href: '/tips-and-trick' },
@@ -190,12 +62,10 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [dropdownOpen]);
 
-  const activeTabData = businessTabs.find((tab) => tab.id === activeTab) || businessTabs[0];
+  const activeTabData = businessTabs.find((tab) => tab.id === activeTabId) || businessTabs[0];
 
-  // 👇 3. Fungsi untuk mengganti bahasa saat tombol EN/ID diklik
   const handleLanguageChange = (newLocale) => {
     if (locale === newLocale) return;
-    // Mengganti /en/ menjadi /id/ di URL
     const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
     router.push(newPath);
   };
@@ -204,7 +74,7 @@ export default function Navbar() {
     <nav className="sticky top-0 bg-white text-[#00263C] shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 relative">
         
-        {/* COMPANY LOGO - Tambahkan locale di tautannya */}
+        {/* COMPANY LOGO */}
         <Link href={`/${locale}`} className="flex items-center gap-2 select-none -ml-3">
           <div className="relative w-36 h-9 flex items-center">
             <Image
@@ -246,12 +116,12 @@ export default function Navbar() {
                         {businessTabs.map((tab) => (
                           <button 
                             key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-left text-[13px] font-semibold transition ${activeTab === tab.id ? 'bg-[#0B2A4A] text-white shadow-md' : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'}`}
+                            onClick={() => setActiveTabId(tab.id)}
+                            className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-left text-[13px] font-semibold transition ${activeTabId === tab.id ? 'bg-[#0B2A4A] text-white shadow-md' : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'}`}
                           >
                             <span className="flex items-center gap-3">
                               <DynamicIcon name={tab.icon} className="w-4 h-4 shrink-0" />
-                              <span className="truncate">{tab.id}</span>
+                              <span className="truncate">{tab.title}</span> {/* Gunakan title */}
                             </span>
                             <span className="text-xs ml-2 shrink-0">›</span>
                           </button>
@@ -259,9 +129,8 @@ export default function Navbar() {
                       </div>
 
                       <div className="pt-4 mt-2 border-t border-gray-100">
-                        {/* Tambahkan locale pada tautan */}
                         <Link href={`/${locale}/business`} onClick={() => setDropdownOpen(false)} className="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 font-bold text-sm px-1 transition">
-                          Schedule Demo
+                          {data.ui.scheduleDemo}
                           <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
@@ -276,7 +145,7 @@ export default function Navbar() {
                             <DynamicIcon name={activeTabData.icon} className="w-6 h-6" />
                           </div>
                           <div>
-                            <h3 className="text-lg font-bold text-[#0B2A4A] leading-tight">{activeTabData.id}</h3>
+                            <h3 className="text-lg font-bold text-[#0B2A4A] leading-tight">{activeTabData.title}</h3>
                             <p className="text-xs text-gray-500 mt-0.5">{activeTabData.subtitle}</p>
                           </div>
                         </div>
@@ -300,13 +169,12 @@ export default function Navbar() {
                       </div>
 
                       <div className="mt-6">
-                        {/* Tambahkan locale pada tautan Learn More */}
                         <Link 
                           href={`/${locale}${activeTabData.path}`} 
                           onClick={() => setDropdownOpen(false)}
                           className="inline-flex items-center gap-2 bg-[#0B2A4A] hover:bg-blue-950 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition duration-200 shadow-sm"
                         >
-                          Learn More
+                          {data.ui.learnMore}
                           <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                           </svg>
@@ -317,7 +185,6 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              // 👇 4. Tambahkan locale pada semua link biasa (seperti About Us, dll)
               <Link key={link.label} href={`/${locale}${link.href}`} className="hover:text-[#DC0017] transition-colors py-2">
                 {link.label}
               </Link>
@@ -325,7 +192,6 @@ export default function Navbar() {
           )}
           
           <div className="flex items-center gap-6 ml-2">
-            
             {/* BUTTON LANGUAGE SWITCHER */}
             <div className="flex items-center bg-slate-100/80 rounded-full p-1 border border-slate-200/60 shadow-inner">
               <button 
@@ -346,7 +212,6 @@ export default function Navbar() {
               </button>
             </div>
 
-            {/* Tombol Join Us diterjemahkan dengan fungsi t() */}
             <Link href={`/${locale}/join-us`} className="bg-[#E60000] hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5">
               {t('join')}
             </Link>
@@ -380,7 +245,7 @@ export default function Navbar() {
                         <span className="w-8 h-8 rounded-lg bg-[#0B2A4A]/5 flex items-center justify-center shrink-0">
                           <DynamicIcon name={tab.icon} className="w-4 h-4 text-[#0B2A4A]" />
                         </span>
-                        <span className="text-[13px] font-bold text-[#0B2A4A]">{tab.id}</span>
+                        <span className="text-[13px] font-bold text-[#0B2A4A]">{tab.title}</span>
                       </span>
                       <svg className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] shrink-0 ${isOpen ? 'rotate-180' : ''}`} viewBox="0 0 12 8" fill="none">
                         <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -396,7 +261,7 @@ export default function Navbar() {
                             </Link>
                           ))}
                           <Link href={`/${locale}${tab.path}`} onClick={() => setMobileOpen(false)} className="text-xs font-bold text-[#DC0017] py-2 px-2">
-                            View All →
+                            {data.ui.viewAll}
                           </Link>
                         </div>
                       </div>
@@ -407,7 +272,6 @@ export default function Navbar() {
             </div>
           </div>
           
-          {/* Menu Mobile dengan terjemahan */}
           <Link href={`/${locale}/tips-and-trick`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('tips')}</Link>
           <Link href={`/${locale}/pricing`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('pricing')}</Link>
           <Link href={`/${locale}/recruitment`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('recruitment')}</Link>
@@ -415,7 +279,6 @@ export default function Navbar() {
           <Link href={`/${locale}/newsletter`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('news')}</Link>
           
           <div className="flex items-center justify-between pt-4 mt-2 border-t border-gray-100">
-            
             <div className="flex items-center bg-slate-100/80 rounded-full p-1 border border-slate-200/60 shadow-inner">
               <button 
                 onClick={() => handleLanguageChange('en')}
