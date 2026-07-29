@@ -44,7 +44,7 @@ export const getPayrollData = (locale) => {
             "Kepatuhan ketat terhadap undang-undang pajak Indonesia (PPh 21).",
             "Meminimalkan perhitungan manual dan kesalahan administratif."
           ],
-          image: "/herokonten3.jpg"
+          image: "/images/business-po-precision.jpg"
         },
         {
           eyebrow: "Fleksibilitas Tenaga Kerja",
@@ -55,7 +55,7 @@ export const getPayrollData = (locale) => {
             "Kurangi rekrutmen internal dan biaya administratif overhead.",
             "Dapatkan akses langsung ke talenta yang memenuhi syarat dan telah disaring sebelumnya."
           ],
-          image: "/herokonten4.jpg"
+          image: "/images/business-po-workforce.jpg"
         },
         {
           eyebrow: "Mitigasi Risiko",
@@ -66,7 +66,7 @@ export const getPayrollData = (locale) => {
             "Menjamin kepatuhan penuh terhadap undang-undang ketenagakerjaan terbaru.",
             "Memitigasi risiko hukum yang terkait dengan ketenagakerjaan."
           ],
-          image: "/herokonten5.jpg"
+          image: "/images/business-po-risk.jpg"
         },
         {
           eyebrow: "Wawasan Berbasis Data",
@@ -77,7 +77,7 @@ export const getPayrollData = (locale) => {
             "Laporan yang dapat diakses untuk audit dan perencanaan keuangan.",
             "Wawasan berbasis data untuk memantau efisiensi tenaga kerja."
           ],
-          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
+          image: "/images/business-po-data.jpg"
         }
       ]
     };
@@ -128,7 +128,7 @@ export const getPayrollData = (locale) => {
           "Strict compliance with Indonesian tax laws (PPh 21).",
           "Minimize manual calculations and administrative errors."
         ],
-        image: "/herokonten3.jpg"
+        image: "/images/business-po-precision.jpg"
       },
       {
         eyebrow: "Workforce Flexibility",
@@ -139,7 +139,7 @@ export const getPayrollData = (locale) => {
           "Reduce internal recruitment and administrative overhead.",
           "Gain immediate access to pre-screened, qualified talent."
         ],
-        image: "/herokonten4.jpg"
+        image: "/images/business-po-workforce.jpg"
       },
       {
         eyebrow: "Risk Mitigation",
@@ -150,7 +150,7 @@ export const getPayrollData = (locale) => {
           "Guarantee full compliance with the latest labor laws.",
           "Mitigate legal risks associated with employment."
         ],
-        image: "/herokonten5.jpg"
+        image: "/images/business-po-risk.jpg"
       },
       {
         eyebrow: "Data-Driven Insights",
@@ -161,7 +161,7 @@ export const getPayrollData = (locale) => {
           "Accessible reports for auditing and financial planning.",
           "Data-driven insights to monitor workforce efficiency."
         ],
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop"
+        image: "/images/business-po-data.jpg"
       }
     ]
   };

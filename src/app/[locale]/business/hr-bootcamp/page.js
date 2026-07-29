@@ -39,10 +39,9 @@ export default function HRBootcampPage() {
             <div className="relative w-full max-w-sm mx-auto lg:max-w-none aspect-[4/3] flex items-center justify-center z-10 group mt-6 lg:mt-0">
               <div className="absolute inset-0 rounded-2xl overflow-hidden border-4 border-white/10 shadow-2xl">
                 <Image 
-                  src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?q=80&w=1200&auto=format&fit=crop" 
-                  alt="Participants Seated in an Executive Training Room" 
+                  src="/images/business-hrbc-hero.jpg" 
+                  alt="Executive Education Series" 
                   fill
-                  unoptimized
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
@@ -61,28 +60,25 @@ export default function HRBootcampPage() {
           <div className="grid grid-cols-2 gap-4 lg:gap-6">
             <div className="col-span-2 rounded-2xl overflow-hidden aspect-video bg-slate-100 shadow-lg relative group">
               <Image 
-                src="https://images.unsplash.com/photo-1531538512164-e6c51ea63d20?q=80&w=1000&auto=format&fit=crop" 
-                alt="Asian HRBP Cohort Collaborating on Strategic Planning" 
+                src="/images/business-hrbc-flagship1.jpg" 
+                alt="HRBP Boot Camp 1" 
                 fill
-                unoptimized
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
             <div className="rounded-2xl overflow-hidden aspect-square bg-slate-100 shadow-md relative group">
               <Image 
-                src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?q=80&w=600&auto=format&fit=crop" 
-                alt="Indonesian HR Professionals in Mentoring Discussion" 
+                src="/images/business-hrbc-flagship2.jpg" 
+                alt="HRBP Boot Camp 2" 
                 fill
-                unoptimized
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
             <div className="rounded-2xl overflow-hidden aspect-square bg-slate-100 shadow-md relative group">
               <Image 
-                src="https://images.unsplash.com/photo-1776512377708-6b4eb702505e?q=80&w=600&auto=format&fit=crop" 
-                alt="Case Study Notes During Live Seminar Session" 
+                src="/images/business-hrbc-flagship3.jpg" 
+                alt="HRBP Boot Camp 3" 
                 fill
-                unoptimized
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -302,10 +298,9 @@ export default function HRBootcampPage() {
                     {data.outcomes.testimonial.badge}
                   </div>
                   <Image 
-                    src="https://images.unsplash.com/photo-1543132220-3ec99c6094dc?q=80&w=800&auto=format&fit=crop" 
-                    alt="Asian Business Leaders Shaking Hands After Strategic Alignment" 
+                    src="/images/business-hrbc-result.jpg" 
+                    alt="Result-Oriented Development" 
                     fill
-                    unoptimized
                     className="object-cover opacity-80"
                   />
               </div>

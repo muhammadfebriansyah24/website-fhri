@@ -403,7 +403,10 @@ export default function IndustrialRelationsPage() {
               <div className="absolute inset-0 border-[2px] border-white/20 rounded-full animate-[spin_20s_linear_infinite] border-dashed"></div>
               
               <div className="absolute inset-4 rounded-full overflow-hidden border-8 border-[#00263C] shadow-2xl">
-                <Image src="/herokonten2.jpg" alt="Legal Advisory Meeting" fill className="object-cover" unoptimized />
+                <Image src="/images/business-irla-hero.jpg" 
+                alt="Industrial Relations & Legal Advisory" 
+                fill className="object-cover"
+                />
               </div>
               
               <div className="absolute bottom-8 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4">
@@ -499,7 +502,11 @@ export default function IndustrialRelationsPage() {
           </div>
 
           <div className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden">
-            <Image src="/herokonten6.jpg" alt="Professional Consultation" fill className="object-cover opacity-90 hover:scale-105 transition-transform duration-700" unoptimized />
+            <Image src="/images/business-irla-mitigating.jpg" 
+            alt="Professional Consultation" 
+            fill className="object-cover opacity-90 hover:scale-105 transition-transform duration-700" 
+            />
+
             <div className="absolute inset-0 bg-gradient-to-t from-[#00263C] via-transparent to-transparent"></div>
           </div>
 
