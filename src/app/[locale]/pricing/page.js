@@ -187,7 +187,8 @@ export default function PricingPage() {
                         {feature.info && (
                           <div 
                             className="w-4 h-4 bg-slate-400 shrink-0 cursor-help"
-                            title={feature.info}
+                            // PERBAIKAN: Memastikan value title adalah string
+                            title={typeof feature.info === 'string' ? feature.info : 'Informasi'}
                             style={{
                               WebkitMaskImage: `url('/icons/ic_information-outline.svg')`,
                               WebkitMaskSize: 'contain',
