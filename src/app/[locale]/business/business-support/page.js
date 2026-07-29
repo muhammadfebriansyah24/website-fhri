@@ -8,8 +8,8 @@ import { getBusinessSupportData } from '@/components/businessSupportData';
 
 // CONSTANTS (Images remain static)
 const IMG = {
-  structural: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1200&auto=format&fit=crop',
-  cultural: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=1200&auto=format&fit=crop',
+  structural: '/images/business-bss-structural.jpg',
+  cultural: '/images/business-bss-cultural.jpg',
 };
 
 // MAIN COMPONENT
@@ -25,10 +25,9 @@ export default function BusinessSupportPage() {
         
         <div className="absolute inset-0 z-0">
           <Image 
-            src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000&auto=format&fit=crop" 
+            src="/images/business-bss-hero.jpg" 
             alt="Modern Corporate Office Environment" 
             fill
-            unoptimized
             priority
             className="object-cover"
           />
