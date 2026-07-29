@@ -12,7 +12,7 @@ export const getNavbarData = (locale) => {
           title: 'Layanan Dukungan Bisnis',
           path: '/business/business-support',
           subtitle: 'Dukungan komprehensif untuk memperkuat operasi dan strategi bisnis Anda.',
-          icon: 'ic_briefcase-outline.svg',
+          icon: 'icons/ic_briefcase-outline.svg',
           subMenus: [
             { title: 'Pendirian Perusahaan', desc: 'Panduan ahli melalui kepatuhan peraturan lokal dan perizinan.' },
             { title: 'Solusi Kesesuaian Budaya', desc: 'Lokakarya untuk menjembatani kesenjangan budaya dan integrasi tim.' },
@@ -27,7 +27,7 @@ export const getNavbarData = (locale) => {
           title: 'Solusi Human Capital',
           path: '/business/humancapital-solutions',
           subtitle: 'Solusi strategis untuk mengoptimalkan dan mengembangkan aset SDM Anda.',
-          icon: 'ic_search-outline.svg',
+          icon: 'icons/ic_search-outline.svg',
           subMenus: [
             { title: 'Pencarian Eksekutif', desc: 'Pendekatan proaktif untuk merekrut talenta C-suite pasif.' },
             { title: 'Layanan Rekrutmen', desc: 'Manajemen rekrutmen menyeluruh untuk posisi menengah & spesialis.' },
@@ -42,7 +42,7 @@ export const getNavbarData = (locale) => {
           title: 'Penggajian & Alih Daya',
           path: '/business/payroll',
           subtitle: 'Manajemen penggajian terpadu dan solusi alih daya proses bisnis.',
-          icon: 'ic_circle-stack-outline.svg',
+          icon: 'icons/ic_circle-stack-outline.svg',
           subMenus: [
             { title: 'Pemrosesan Penggajian', desc: 'Pemrosesan gaji yang akurat selaras dengan peraturan tenaga kerja & PPh 21.' },
             { title: 'Alih Daya Staf', desc: 'Solusi tenaga kerja fleksibel yang mengurangi beban administratif.' },
@@ -57,7 +57,7 @@ export const getNavbarData = (locale) => {
           title: 'Alat Asesmen',
           path: '/business/assessment-tools',
           subtitle: 'Alat penilaian canggih untuk mengevaluasi kompetensi dan potensi karyawan.',
-          icon: 'ic_education-outline.svg',
+          icon: 'icons/ic_education-outline.svg',
           subMenus: [
             { title: 'Keterampilan & Kinerja', desc: 'Evaluasi kesiapan teknis dan pencapaian target kerja.' },
             { title: 'Umpan Balik 360-Derajat', desc: 'Dapatkan pandangan komprehensif dari struktur interaksi profesional.' },
@@ -72,7 +72,7 @@ export const getNavbarData = (locale) => {
           title: 'Boot Camp HR',
           path: '/business/hr-bootcamp',
           subtitle: 'Program pelatihan intensif untuk membangun keunggulan HR strategis.',
-          icon: 'ic_computer-outline.svg',
+          icon: 'icons/ic_computer-outline.svg',
           subMenus: [
             { title: 'Boot Camp HRBP', desc: 'Program transisi intensif untuk menjadi HR Business Partner strategis.' },
             { title: 'Studi Kasus Langsung', desc: 'Analisis studi kasus praktis dan sesi resolusi bisnis dunia nyata.' },
@@ -87,7 +87,7 @@ export const getNavbarData = (locale) => {
           title: 'Hubungan Industrial & Hukum',
           path: '/business/industrial-relations',
           subtitle: 'Panduan ahli tentang hubungan kerja, hukum ketenagakerjaan, & sengketa.',
-          icon: 'ic_building-library-outline.svg',
+          icon: 'icons/ic_building-library-outline.svg',
           subMenus: [
             { title: 'Kepatuhan Hukum', desc: 'Pengembangan dan tinjauan Peraturan Perusahaan (PP) & PKB.' },
             { title: 'Manajemen Risiko', desc: 'Mitigasi risiko restrukturisasi, kontrak, dan pemutusan hubungan kerja.' },
@@ -102,7 +102,7 @@ export const getNavbarData = (locale) => {
           title: 'Kesehatan & Keselamatan Lingkungan',
           path: '/business/hse',
           subtitle: 'Program K3L komprehensif untuk keselamatan tempat kerja.',
-          icon: 'ic_check-shield-outline.svg',
+          icon: 'icons/ic_check-shield-outline.svg',
           subMenus: [
             { title: 'Penilaian Risiko', desc: 'Identifikasi bahaya, investigasi insiden, dan tindakan korektif.' },
             { title: 'Pembuatan Kebijakan & SOP', desc: 'Pembuatan manual dan panduan sistem manajemen ISO 45001.' },
@@ -117,7 +117,7 @@ export const getNavbarData = (locale) => {
           title: 'Budaya & Acara Perusahaan',
           path: '/business/corporate-culture',
           subtitle: 'Bangun budaya perusahaan berkembang melalui program strategis.',
-          icon: 'ic_users-outline.svg',
+          icon: 'icons/ic_users-outline.svg',
           subMenus: [
             { title: 'Etika Kerja Profesional', desc: 'Lokakarya penanaman akuntabilitas, integritas, dan kolaborasi.' },
             { title: 'Penyelenggara Acara Korporat', desc: 'Perencanaan town hall dan acara penghargaan tahunan.' },
@@ -132,7 +132,7 @@ export const getNavbarData = (locale) => {
           title: 'Lembaga Sertifikasi Profesi',
           path: '/business/lsp',
           subtitle: 'Program sertifikasi untuk memvalidasi dan meningkatkan kompetensi HR.',
-          icon: 'ic_check-badge-outline.svg',
+          icon: 'icons/ic_check-badge-outline.svg',
           subMenus: [
             { title: 'Sertifikasi HR', desc: 'Sertifikasi profesional yang diakui untuk spesialis & praktisi HR.' },
             { title: 'Standar Kompetensi', desc: 'Kerangka kerja kompetensi dan kriteria penilaian standar industri.' },
@@ -159,7 +159,7 @@ export const getNavbarData = (locale) => {
         title: 'Business Support Services',
         path: '/business/business-support',
         subtitle: 'Comprehensive support to strengthen your business operations and strategy.',
-        icon: 'ic_briefcase-outline.svg',
+        icon: 'icons/ic_briefcase-outline.svg',
         subMenus: [
           { title: 'Company Establishment', desc: 'Expert guidance through local regulatory compliance, licensing, and legal requirements for new market entrants.' },
           { title: 'Cultural Fit Solutions', desc: 'Workshops and coaching sessions designed to bridge cultural gaps and create harmonious team integration.' },
@@ -174,7 +174,7 @@ export const getNavbarData = (locale) => {
         title: 'Human Capital Solutions',
         path: '/business/humancapital-solutions',
         subtitle: 'Strategic solutions to optimize and develop your human capital assets.',
-        icon: 'ic_search-outline.svg',
+        icon: 'icons/ic_search-outline.svg',
         subMenus: [
           { title: 'Executive Search', desc: 'A proactive, targeted approach to recruiting passive C-suite talents and senior leaders.' },
           { title: 'Recruitment Services', desc: 'End-to-end recruitment process management for mid-level positions and specialists across industries.' },
@@ -189,7 +189,7 @@ export const getNavbarData = (locale) => {
         title: 'Payroll & Outsourcing',
         path: '/business/payroll',
         subtitle: 'End-to-end payroll management and business process outsourcing solutions.',
-        icon: 'ic_circle-stack-outline.svg',
+        icon: 'icons/ic_circle-stack-outline.svg',
         subMenus: [
           { title: 'Payroll Processing', desc: 'Accurate, timely payroll processing aligned with Indonesian labor and PPh 21 tax regulations.' },
           { title: 'Staff Outsourcing', desc: 'Flexible workforce solutions that scale with your business and reduce administrative burden.' },
@@ -204,7 +204,7 @@ export const getNavbarData = (locale) => {
         title: 'Assessment Tools',
         path: '/business/assessment-tools',
         subtitle: 'Advanced assessment tools to evaluate employee competencies and potential.',
-        icon: 'ic_education-outline.svg',
+        icon: 'icons/ic_education-outline.svg',
         subMenus: [
           { title: 'Skill & Performance', desc: 'Evaluate technical readiness and work target achievements with measurable metrics.' },
           { title: '360-Degree Feedback', desc: 'Gain a comprehensive view from the entire professional interaction structure via anonymous feedback.' },
@@ -219,7 +219,7 @@ export const getNavbarData = (locale) => {
         title: 'HR Boot Camp',
         path: '/business/hr-bootcamp',
         subtitle: 'Intensive training programs to build HR excellence and strategic capabilities.',
-        icon: 'ic_computer-outline.svg',
+        icon: 'icons/ic_computer-outline.svg',
         subMenus: [
           { title: 'HRBP Boot Camp', desc: 'Intensive cohort-based program to transition traditional HR practitioners into strategic business partners.' },
           { title: 'Live Case Studies', desc: 'Practical case study analysis and real-world business resolution sessions with peer collaboration.' },
@@ -234,7 +234,7 @@ export const getNavbarData = (locale) => {
         title: 'Industrial Relations & Legal Advisory',
         path: '/business/industrial-relations',
         subtitle: 'Expert guidance on labor relations, employment law, and dispute resolution.',
-        icon: 'ic_building-library-outline.svg',
+        icon: 'icons/ic_building-library-outline.svg',
         subMenus: [
           { title: 'Labor Law Compliance', desc: 'Development and review of Company Regulations (PP) and Collective Labor Agreements (PKB).' },
           { title: 'Risk Management', desc: 'Mitigate employment risks related to restructuring, contracts, and legally compliant termination.' },
@@ -249,7 +249,7 @@ export const getNavbarData = (locale) => {
         title: 'Health, Safety, and Environment',
         path: '/business/hse',
         subtitle: 'Comprehensive HSE programs to ensure workplace safety and employee wellbeing.',
-        icon: 'ic_check-shield-outline.svg',
+        icon: 'icons/ic_check-shield-outline.svg',
         subMenus: [
           { title: 'Risk Assessment', desc: 'Proactively identify workplace hazards, conduct incident investigations, and determine corrective actions.' },
           { title: 'Policy & SOP Creation', desc: 'Creation of safety manuals and guidance for implementing standard ISO 45001 management systems.' },
@@ -264,7 +264,7 @@ export const getNavbarData = (locale) => {
         title: 'Corporate Culture & Events',
         path: '/business/corporate-culture',
         subtitle: 'Build a thriving corporate culture through strategic programs and events.',
-        icon: 'ic_users-outline.svg',
+        icon: 'icons/ic_users-outline.svg',
         subMenus: [
           { title: 'Professional Work Ethic', desc: 'Workshops instilling accountability, integrity, collaboration, and service excellence standards.' },
           { title: 'Corporate Event Organizing', desc: 'End-to-end planning of town halls and annual recognition events to strengthen cohesion.' },
@@ -279,7 +279,7 @@ export const getNavbarData = (locale) => {
         title: 'Professional Certification Institute',
         path: '/business/lsp',
         subtitle: 'Professional certification programs to validate and enhance HR competencies.',
-        icon: 'ic_check-badge-outline.svg',
+        icon: 'icons/ic_check-badge-outline.svg',
         subMenus: [
           { title: 'HR Certification', desc: 'Recognized professional certifications for HR specialists and practitioners.' },
           { title: 'Competency Standards', desc: 'Industry-standard competency frameworks and assessment criteria.' },

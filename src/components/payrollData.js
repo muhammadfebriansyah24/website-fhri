@@ -15,22 +15,22 @@ export const getPayrollData = (locale) => {
           { 
             title: 'Manajemen Penggajian', 
             desc: 'Pemrosesan yang akurat dan tepat waktu yang diselaraskan dengan peraturan ketenagakerjaan dan persyaratan pajak Indonesia.',
-            icon: '/ic_money-cash-outline.svg'
+            icon: '/icons/ic_money-cash-outline.svg'
           },
           { 
             title: 'Alih Daya Staf', 
             desc: 'Solusi tenaga kerja fleksibel yang menyesuaikan skala kebutuhan bisnis Anda dan mengurangi beban administratif.',
-            icon: '/ic_user-group-outline.svg'
+            icon: '/icons/ic_user-group-outline.svg'
           },
           { 
             title: 'Kepatuhan Penuh', 
             desc: 'Kepatuhan hukum lengkap dan administrasi jaminan sosial (BPJS) komprehensif.',
-            icon: '/ic_check-shield-outline.svg'
+            icon: '/icons/ic_check-shield-outline.svg'
           },
           { 
             title: 'Pelaporan Transparan', 
             desc: 'Pelaporan yang jelas, akurat, dan terstruktur untuk memberikan pengawasan keuangan yang lebih baik bagi manajemen Anda.',
-            icon: '/ic_document-chart-bar-outline.svg'
+            icon: '/icons/ic_document-chart-bar-outline.svg'
           }
         ]
       },
@@ -99,22 +99,22 @@ export const getPayrollData = (locale) => {
         { 
           title: 'Payroll Management', 
           desc: 'Accurate, timely processing aligned with Indonesian labour regulations and tax requirements.',
-          icon: '/ic_money-cash-outline.svg'
+          icon: '/icons/ic_money-cash-outline.svg'
         },
         { 
           title: 'Staff Outsourcing', 
           desc: 'Flexible workforce solutions that scale with your business needs and reduce administrative burden.',
-          icon: '/ic_user-group-outline.svg'
+          icon: '/icons/ic_user-group-outline.svg'
         },
         { 
           title: 'Full Compliance', 
           desc: 'Complete statutory compliance and comprehensive social security (BPJS) administration.',
-          icon: '/ic_check-shield-outline.svg'
+          icon: '/icons/ic_check-shield-outline.svg'
         },
         { 
           title: 'Transparent Reporting', 
           desc: 'Clear, accurate, and structured reporting to provide better financial oversight for your management.',
-          icon: '/ic_document-chart-bar-outline.svg'
+          icon: '/icons/ic_document-chart-bar-outline.svg'
         }
       ]
     },

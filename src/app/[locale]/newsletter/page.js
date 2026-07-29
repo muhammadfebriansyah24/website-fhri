@@ -27,11 +27,11 @@ function ArticleReader({ article, locale, t }) {
         <div 
           className="w-4 h-4 mr-2 bg-current shrink-0 transform rotate-180 group-hover:-translate-x-1 transition-transform"
           style={{
-            WebkitMaskImage: `url('/ic_arrow-right.svg')`,
+            WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
             WebkitMaskSize: 'contain',
             WebkitMaskRepeat: 'no-repeat',
             WebkitMaskPosition: 'center',
-            maskImage: `url('/ic_arrow-right.svg')`,
+            maskImage: `url('/icons/ic_arrow-right.svg')`,
             maskSize: 'contain',
             maskRepeat: 'no-repeat',
             maskPosition: 'center',
@@ -46,11 +46,11 @@ function ArticleReader({ article, locale, t }) {
           <div 
             className="w-4 h-4 mr-2 bg-current shrink-0"
             style={{
-              WebkitMaskImage: `url('/ic_calendar-outline.svg')`,
+              WebkitMaskImage: `url('/icons/ic_calendar-outline.svg')`,
               WebkitMaskSize: 'contain',
               WebkitMaskRepeat: 'no-repeat',
               WebkitMaskPosition: 'center',
-              maskImage: `url('/ic_calendar-outline.svg')`,
+              maskImage: `url('/icons/ic_calendar-outline.svg')`,
               maskSize: 'contain',
               maskRepeat: 'no-repeat',
               maskPosition: 'center',
@@ -88,11 +88,11 @@ function ArticleReader({ article, locale, t }) {
           <div 
             className="w-3 h-3 bg-current shrink-0"
             style={{
-              WebkitMaskImage: `url('/ic_instagram-outline.svg')`,
+              WebkitMaskImage: `url('/icons/ic_instagram-outline.svg')`,
               WebkitMaskSize: 'contain',
               WebkitMaskRepeat: 'no-repeat',
               WebkitMaskPosition: 'center',
-              maskImage: `url('/ic_instagram-outline.svg')`,
+              maskImage: `url('/icons/ic_instagram-outline.svg')`,
               maskSize: 'contain',
               maskRepeat: 'no-repeat',
               maskPosition: 'center',
@@ -130,11 +130,11 @@ function ArticleReader({ article, locale, t }) {
             <div 
               className="w-3 h-3 bg-current shrink-0"
               style={{
-                WebkitMaskImage: `url('/ic_arrow-right.svg')`,
+                WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
                 WebkitMaskSize: 'contain',
                 WebkitMaskRepeat: 'no-repeat',
                 WebkitMaskPosition: 'center',
-                maskImage: `url('/ic_arrow-right.svg')`,
+                maskImage: `url('/icons/ic_arrow-right.svg')`,
                 maskSize: 'contain',
                 maskRepeat: 'no-repeat',
                 maskPosition: 'center',
@@ -165,11 +165,11 @@ function ArticleReader({ article, locale, t }) {
               <div 
                 className="w-4 h-4 bg-current shrink-0"
                 style={{
-                  WebkitMaskImage: `url('/ic_check.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_check.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_check.svg')`,
+                  maskImage: `url('/icons/ic_check.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',
@@ -180,11 +180,11 @@ function ArticleReader({ article, locale, t }) {
               <div 
                 className="w-4 h-4 bg-current shrink-0"
                 style={{
-                  WebkitMaskImage: `url('/ic_share-outline.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_share-outline.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_share-outline.svg')`,
+                  maskImage: `url('/icons/ic_share-outline.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',
@@ -234,7 +234,19 @@ function NewsContentWrapper() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <div className="text-eyebrow text-slate-400 mb-4 flex items-center">
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                <div 
+                  className="w-4 h-4 mr-2 bg-current shrink-0"
+                  style={{
+                    WebkitMaskImage: `url('/icons/ic_calendar-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/icons/ic_calendar-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
                 {highlightedNews.publishedAt}
               </div>
               <h1 className="text-white mb-6 text-balance">
@@ -248,7 +260,19 @@ function NewsContentWrapper() {
                 className="inline-flex items-center justify-center bg-brand-red hover:bg-[#a82222] text-white font-bold px-8 py-3.5 rounded-full transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 uppercase tracking-wide text-sm gap-2"
               >
                 {t('readFullStory')}
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                <div 
+                  className="w-4 h-4 bg-current shrink-0"
+                  style={{
+                    WebkitMaskImage: `url('/icons/ic_arrow-right-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/icons/ic_arrow-right-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </Link>
             </div>
 
@@ -300,7 +324,21 @@ function NewsContentWrapper() {
                     className="mt-auto inline-flex items-center text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors gap-2"
                   >
                     {t('readMore')} 
-                    <span className="group-hover:translate-x-1 transition-transform">→</span>
+                    <span className="group-hover:translate-x-1 transition-transform flex items-center justify-center">
+                      <div 
+                        className="w-4 h-4 bg-current shrink-0"
+                        style={{
+                          WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
+                          WebkitMaskSize: 'contain',
+                          WebkitMaskRepeat: 'no-repeat',
+                          WebkitMaskPosition: 'center',
+                          maskImage: `url('/icons/ic_arrow-right.svg')`,
+                          maskSize: 'contain',
+                          maskRepeat: 'no-repeat',
+                          maskPosition: 'center',
+                        }}
+                      />
+                    </span>
                   </Link>
                 </div>
               </div>

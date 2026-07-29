@@ -143,11 +143,11 @@ function News({ t, locale, newsData }) {
                   <div 
                     className="w-4 h-4 mr-1.5 bg-current shrink-0"
                     style={{
-                      WebkitMaskImage: `url('/ic_calendar-outline.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_calendar-outline.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_calendar-outline.svg')`,
+                      maskImage: `url('/icons/ic_calendar-outline.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',

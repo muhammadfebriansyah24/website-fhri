@@ -67,11 +67,11 @@ export default function AssessmentToolsPage() {
                         <div 
                           className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-red"
                           style={{
-                            WebkitMaskImage: `url('/ic_trending-up.svg')`,
+                            WebkitMaskImage: `url('/icons/ic_trending-up.svg')`,
                             WebkitMaskSize: 'contain',
                             WebkitMaskRepeat: 'no-repeat',
                             WebkitMaskPosition: 'center',
-                            maskImage: `url('/ic_trending-up.svg')`,
+                            maskImage: `url('/icons/ic_trending-up.svg')`,
                             maskSize: 'contain',
                             maskRepeat: 'no-repeat',
                             maskPosition: 'center',
@@ -144,11 +144,11 @@ export default function AssessmentToolsPage() {
                     <div 
                       className="flex-shrink-0 w-6 h-6 bg-brand-red mt-0.5"
                       style={{
-                        WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_check-circle-solid.svg')`,
+                        maskImage: `url('/icons/ic_check-circle-solid.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -165,11 +165,11 @@ export default function AssessmentToolsPage() {
                     <div 
                       className="flex-shrink-0 w-6 h-6 bg-brand-red mt-0.5"
                       style={{
-                        WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_check-circle-solid.svg')`,
+                        maskImage: `url('/icons/ic_check-circle-solid.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -186,11 +186,11 @@ export default function AssessmentToolsPage() {
                     <div 
                       className="flex-shrink-0 w-6 h-6 bg-brand-red mt-0.5"
                       style={{
-                        WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_check-circle-solid.svg')`,
+                        maskImage: `url('/icons/ic_check-circle-solid.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -248,11 +248,11 @@ export default function AssessmentToolsPage() {
                 <div 
                   className="w-5 h-5 bg-white"
                   style={{
-                    WebkitMaskImage: `url('/ic_trending-up.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_trending-up.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_trending-up.svg')`,
+                    maskImage: `url('/icons/ic_trending-up.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -268,11 +268,11 @@ export default function AssessmentToolsPage() {
                 <div 
                   className="w-5 h-5 bg-white"
                   style={{
-                    WebkitMaskImage: `url('/ic_rectangle-group-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_rectangle-group-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_rectangle-group-outline.svg')`,
+                    maskImage: `url('/icons/ic_rectangle-group-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -288,11 +288,11 @@ export default function AssessmentToolsPage() {
                 <div 
                   className="w-5 h-5 bg-white"
                   style={{
-                    WebkitMaskImage: `url('/ic_search-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_search-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_search-outline.svg')`,
+                    maskImage: `url('/icons/ic_search-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -308,11 +308,11 @@ export default function AssessmentToolsPage() {
                 <div 
                   className="w-5 h-5 bg-white"
                   style={{
-                    WebkitMaskImage: `url('/ic_chart-bar-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_chart-bar-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_chart-bar-outline.svg')`,
+                    maskImage: `url('/icons/ic_chart-bar-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -416,11 +416,11 @@ export default function AssessmentToolsPage() {
                   <div 
                     className="w-5 h-5 bg-brand-navy group-hover:bg-brand-red transition-colors duration-300"
                     style={{
-                      WebkitMaskImage: `url('/ic_bolt-outline.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_bolt-outline.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_bolt-outline.svg')`,
+                      maskImage: `url('/icons/ic_bolt-outline.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
@@ -440,11 +440,11 @@ export default function AssessmentToolsPage() {
                   <div 
                     className="w-5 h-5 bg-brand-navy group-hover:bg-brand-red transition-colors duration-300"
                     style={{
-                      WebkitMaskImage: `url('/ic_presentation-chart.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_presentation-chart.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_presentation-chart.svg')`,
+                      maskImage: `url('/icons/ic_presentation-chart.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
@@ -464,11 +464,11 @@ export default function AssessmentToolsPage() {
                   <div 
                     className="w-5 h-5 bg-brand-navy group-hover:bg-brand-red transition-colors duration-300"
                     style={{
-                      WebkitMaskImage: `url('/ic_lock-outline.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_lock-outline.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_lock-outline.svg')`,
+                      maskImage: `url('/icons/ic_lock-outline.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',

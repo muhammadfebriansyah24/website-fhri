@@ -60,21 +60,21 @@ export const getHumanCapitalData = (locale) => {
             stepLabel: 'Langkah 01',
             title: 'Pemetaan Pasar Tertarget',
             text: 'Memetakan industri untuk mengidentifikasi calon pemimpin yang sesuai dengan tujuan struktural pasti Anda.',
-            icon: '/ic_trending-up.svg'
+            icon: '/icons/ic_trending-up.svg'
           },
           {
             n: '02',
             stepLabel: 'Langkah 02',
             title: 'Penjangkauan & Penawaran Rahasia',
             text: 'Percakapan pribadi yang sangat rahasia untuk menyajikan proposisi nilai Anda langsung kepada para pemimpin.',
-            icon: '/ic_chat-text-outline.svg'
+            icon: '/icons/ic_chat-text-outline.svg'
           },
           {
             n: '03',
             stepLabel: 'Langkah 03',
             title: 'Kalibrasi Ketat',
             text: 'Pengujian perilaku, pemeriksaan referensi, dan kalibrasi budaya untuk keselarasan gaya manajemen yang utuh.',
-            icon: '/ic_check-shield-outline.svg'
+            icon: '/icons/ic_check-shield-outline.svg'
           }
         ]
       }
@@ -142,21 +142,21 @@ export const getHumanCapitalData = (locale) => {
           stepLabel: 'Step 01',
           title: 'Targeted Market Mapping',
           text: 'Mapping the industry to identify prospective leaders who fit your exact structural objectives.',
-          icon: '/ic_trending-up.svg'
+          icon: '/icons/ic_trending-up.svg'
         },
         {
           n: '02',
           stepLabel: 'Step 02',
           title: 'Discreet Outreach & Pitching',
           text: 'Personal, highly confidential conversations presenting your value proposition directly to leaders.',
-          icon: '/ic_chat-text-outline.svg'
+          icon: '/icons/ic_chat-text-outline.svg'
         },
         {
           n: '03',
           stepLabel: 'Step 03',
           title: 'Rigorous Calibration',
           text: 'Behavioral testing, reference checks, and cultural calibration for full management-style alignment.',
-          icon: '/ic_check-shield-outline.svg'
+          icon: '/icons/ic_check-shield-outline.svg'
         }
       ]
     }

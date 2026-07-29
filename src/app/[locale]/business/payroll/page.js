@@ -147,11 +147,11 @@ export default function PayrollOutsourcingPage() {
                         <div 
                           className="flex-shrink-0 w-6 h-6 bg-brand-red mt-0.5"
                           style={{
-                            WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                            WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
                             WebkitMaskSize: 'contain',
                             WebkitMaskRepeat: 'no-repeat',
                             WebkitMaskPosition: 'center',
-                            maskImage: `url('/ic_check-circle-solid.svg')`,
+                            maskImage: `url('/icons/ic_check-circle-solid.svg')`,
                             maskSize: 'contain',
                             maskRepeat: 'no-repeat',
                             maskPosition: 'center',

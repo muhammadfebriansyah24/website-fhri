@@ -108,11 +108,11 @@ export default function HRBootcampPage() {
                   <div 
                     className="w-5 h-5 bg-brand-red shrink-0"
                     style={{
-                      WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_check-circle-solid.svg')`,
+                      maskImage: `url('/icons/ic_check-circle-solid.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
@@ -152,11 +152,11 @@ export default function HRBootcampPage() {
                 <div 
                   className="w-6 h-6 bg-white"
                   style={{
-                    WebkitMaskImage: `url('/ic_chart-bar-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_chart-bar-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_chart-bar-outline.svg')`,
+                    maskImage: `url('/icons/ic_chart-bar-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -180,11 +180,11 @@ export default function HRBootcampPage() {
                 <div 
                   className="w-6 h-6 bg-white"
                   style={{
-                    WebkitMaskImage: `url('/ic_computer-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_computer-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_computer-outline.svg')`,
+                    maskImage: `url('/icons/ic_computer-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -208,11 +208,11 @@ export default function HRBootcampPage() {
                 <div 
                   className="w-6 h-6 bg-white"
                   style={{
-                    WebkitMaskImage: `url('/ic_user-group-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_user-group-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_user-group-outline.svg')`,
+                    maskImage: `url('/icons/ic_user-group-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -256,11 +256,11 @@ export default function HRBootcampPage() {
                 <div 
                   className="w-6 h-6 bg-brand-red shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/ic_trending-up.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_trending-up.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_trending-up.svg')`,
+                    maskImage: `url('/icons/ic_trending-up.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -277,11 +277,11 @@ export default function HRBootcampPage() {
                 <div 
                   className="w-6 h-6 bg-brand-red shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/ic_clock-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_clock-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_clock-outline.svg')`,
+                    maskImage: `url('/icons/ic_clock-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',

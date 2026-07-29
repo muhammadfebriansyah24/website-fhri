@@ -187,9 +187,20 @@ export default function PricingPage() {
                       <div className="p-4 pl-8 font-bold text-sm text-slate-600 flex items-center gap-2">
                         {feature.name}
                         {feature.info && (
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-slate-400 cursor-help" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                          </svg>
+                          <div 
+                            className="w-4 h-4 bg-slate-400 shrink-0 cursor-help"
+                            title={feature.info} /* Menampilkan teks info saat di-hover */
+                            style={{
+                              WebkitMaskImage: `url('/icons/ic_information-outline.svg')`,
+                              WebkitMaskSize: 'contain',
+                              WebkitMaskRepeat: 'no-repeat',
+                              WebkitMaskPosition: 'center',
+                              maskImage: `url('/icons/ic_information-outline.svg')`,
+                              maskSize: 'contain',
+                              maskRepeat: 'no-repeat',
+                              maskPosition: 'center',
+                            }}
+                          />
                         )}
                       </div>
                       
@@ -265,11 +276,11 @@ function FeatureItem({ text, active = false }) {
         <div 
           className={`absolute inset-0 z-10 ${active ? 'bg-brand-red' : 'bg-slate-300'}`}
           style={{
-            WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+            WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
             WebkitMaskSize: 'contain',
             WebkitMaskRepeat: 'no-repeat',
             WebkitMaskPosition: 'center',
-            maskImage: `url('/ic_check-circle-solid.svg')`,
+            maskImage: `url('/icons/ic_check-circle-solid.svg')`,
             maskSize: 'contain',
             maskRepeat: 'no-repeat',
             maskPosition: 'center',
@@ -291,11 +302,11 @@ function SolidCheckIcon({ color }) {
       className="h-5 w-5 mx-auto"
       style={{
         backgroundColor: color,
-        WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+        WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
         WebkitMaskSize: 'contain',
         WebkitMaskRepeat: 'no-repeat',
         WebkitMaskPosition: 'center',
-        maskImage: `url('/ic_check-circle-solid.svg')`,
+        maskImage: `url('/icons/ic_check-circle-solid.svg')`,
         maskSize: 'contain',
         maskRepeat: 'no-repeat',
         maskPosition: 'center',
@@ -309,11 +320,11 @@ function MinusIcon() {
     <div 
       className="h-5 w-5 mx-auto bg-slate-300"
       style={{
-        WebkitMaskImage: `url('/ic_minus.svg')`,
+        WebkitMaskImage: `url('/icons/ic_minus.svg')`,
         WebkitMaskSize: 'contain',
         WebkitMaskRepeat: 'no-repeat',
         WebkitMaskPosition: 'center',
-        maskImage: `url('/ic_minus.svg')`,
+        maskImage: `url('/icons/ic_minus.svg')`,
         maskSize: 'contain',
         maskRepeat: 'no-repeat',
         maskPosition: 'center',

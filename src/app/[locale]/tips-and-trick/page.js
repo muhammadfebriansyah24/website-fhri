@@ -36,11 +36,11 @@ function TipRow({ tip, accent, index, isOpen, onToggle }) {
           <div 
             className="w-5 h-5 md:w-6 md:h-6 bg-current"
             style={{
-              WebkitMaskImage: `url('/ic_plus.svg')`,
+              WebkitMaskImage: `url('/icons/ic_plus.svg')`,
               WebkitMaskSize: 'contain',
               WebkitMaskRepeat: 'no-repeat',
               WebkitMaskPosition: 'center',
-              maskImage: `url('/ic_plus.svg')`,
+              maskImage: `url('/icons/ic_plus.svg')`,
               maskSize: 'contain',
               maskRepeat: 'no-repeat',
               maskPosition: 'center',

@@ -82,11 +82,11 @@ export default function RecruitmentPage() {
               <div 
                 className="w-4 h-4 bg-white rotate-90 transition-transform"
                 style={{
-                  WebkitMaskImage: `url('/ic_arrow-right.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_arrow-right.svg')`,
+                  maskImage: `url('/icons/ic_arrow-right.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',
@@ -122,11 +122,11 @@ export default function RecruitmentPage() {
                     <div 
                       className="w-7 h-7 bg-white"
                       style={{
-                        WebkitMaskImage: `url('/ic_book-outline.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_book-outline.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_book-outline.svg')`,
+                        maskImage: `url('/icons/ic_book-outline.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -139,11 +139,11 @@ export default function RecruitmentPage() {
                     <div 
                       className="w-7 h-7 bg-white"
                       style={{
-                        WebkitMaskImage: `url('/ic_briefcase-outline.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_briefcase-outline.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_briefcase-outline.svg')`,
+                        maskImage: `url('/icons/ic_briefcase-outline.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -156,11 +156,11 @@ export default function RecruitmentPage() {
                     <div 
                       className="w-7 h-7 bg-white"
                       style={{
-                        WebkitMaskImage: `url('/ic_user-group-outline.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_user-group-outline.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_user-group-outline.svg')`,
+                        maskImage: `url('/icons/ic_user-group-outline.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -222,11 +222,11 @@ export default function RecruitmentPage() {
                       <div 
                         className="w-3.5 h-3.5 bg-current"
                         style={{
-                          WebkitMaskImage: `url('/ic_location-outline.svg')`,
+                          WebkitMaskImage: `url('/icons/ic_location-outline.svg')`,
                           WebkitMaskSize: 'contain',
                           WebkitMaskRepeat: 'no-repeat',
                           WebkitMaskPosition: 'center',
-                          maskImage: `url('/ic_location-outline.svg')`,
+                          maskImage: `url('/icons/ic_location-outline.svg')`,
                           maskSize: 'contain',
                           maskRepeat: 'no-repeat',
                           maskPosition: 'center',
@@ -242,11 +242,11 @@ export default function RecruitmentPage() {
                       <div 
                         className="w-3.5 h-3.5 bg-current"
                         style={{
-                          WebkitMaskImage: `url('/ic_clock-outline.svg')`,
+                          WebkitMaskImage: `url('/icons/ic_clock-outline.svg')`,
                           WebkitMaskSize: 'contain',
                           WebkitMaskRepeat: 'no-repeat',
                           WebkitMaskPosition: 'center',
-                          maskImage: `url('/ic_clock-outline.svg')`,
+                          maskImage: `url('/icons/ic_clock-outline.svg')`,
                           maskSize: 'contain',
                           maskRepeat: 'no-repeat',
                           maskPosition: 'center',
@@ -262,11 +262,11 @@ export default function RecruitmentPage() {
                     <div 
                       className="w-5 h-5 bg-current transition-colors duration-300"
                       style={{
-                        WebkitMaskImage: `url('/ic_arrow-right.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_arrow-right.svg')`,
+                        maskImage: `url('/icons/ic_arrow-right.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -392,11 +392,11 @@ export default function RecruitmentPage() {
                 <div 
                   className="w-5 h-5 bg-current"
                   style={{
-                    WebkitMaskImage: `url('/ic_arrow-right.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_arrow-right.svg')`,
+                    maskImage: `url('/icons/ic_arrow-right.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
