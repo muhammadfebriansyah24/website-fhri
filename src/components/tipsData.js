@@ -13,7 +13,7 @@ export const getTipsData = (locale) => {
           label: 'Rekrutmen & Perekrutan',
           intro: 'Bagaimana tim terbaik menemukan, mengevaluasi, dan merekrut talenta sebelum orang lain melakukannya.',
           accent: '#DC2626',
-          img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop',
+          img: '/images/tthr-recruitment.jpg',
           tips: [
             {
               title: 'Tulis Deskripsi Pekerjaan yang Menarik, Bukan Sekadar Daftar',
@@ -52,7 +52,7 @@ export const getTipsData = (locale) => {
           label: 'Budaya & Kepemimpinan',
           intro: 'Kebiasaan kecil dan konsisten yang membentuk bagaimana perasaan orang di tempat kerja setiap hari.',
           accent: '#DC2626',
-          img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop',
+          img: '/images/tthr-culture.jpg',
           tips: [
             {
               title: 'Teladani Perilaku yang Ingin Anda Lihat',
@@ -91,7 +91,7 @@ export const getTipsData = (locale) => {
           label: 'Acara & Team Building',
           intro: 'Apa yang membedakan acara perusahaan yang berkesan dari acara yang dilupakan semua orang pada hari Senin.',
           accent: '#DC2626',
-          img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop',
+          img: '/images/tthr-events.jpg',
           tips: [
             {
               title: 'Rencanakan Susunan Acara Hingga ke Detik',
@@ -144,7 +144,7 @@ export const getTipsData = (locale) => {
         label: 'Recruitment & Hiring',
         intro: 'How the best teams find, evaluate, and close talent before anyone else does.',
         accent: '#DC2626',
-        img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop',
+        img: '/images/tthr-recruitment.jpg',
         tips: [
           {
             title: 'Write Job Descriptions That Attract, Not Just List',
@@ -183,7 +183,7 @@ export const getTipsData = (locale) => {
         label: 'Culture & Leadership',
         intro: 'Small, consistent habits that shape how people actually feel at work every day.',
         accent: '#DC2626',
-        img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop',
+        img: '/images/tthr-culture.jpg',
         tips: [
           {
             title: 'Model the Behavior You Want to See',
@@ -222,7 +222,7 @@ export const getTipsData = (locale) => {
         label: 'Events & Team Building',
         intro: 'What separates a memorable corporate event from one everyone forgets by Monday.',
         accent: '#DC2626',
-        img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1600&auto=format&fit=crop',
+        img: '/images/tthr-events.jpg',
         tips: [
           {
             title: 'Plan Your Run-of-Show Down to the Minute',

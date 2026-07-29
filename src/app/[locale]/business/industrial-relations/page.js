@@ -107,11 +107,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
                 <div 
                   className="w-5 h-5 bg-white shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/ic_check-shield-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_check-shield-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_check-shield-outline.svg')`,
+                    maskImage: `url('/icons/ic_check-shield-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -128,11 +128,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
               <div 
                 className="w-5 h-5 bg-current shrink-0 transition-colors"
                 style={{
-                  WebkitMaskImage: `url('/ic_x-mark.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_x-mark.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_x-mark.svg')`,
+                  maskImage: `url('/icons/ic_x-mark.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',
@@ -160,11 +160,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
                     <div 
                       className="w-4 h-4 mr-2 bg-yellow-400 shrink-0"
                       style={{
-                        WebkitMaskImage: `url('/ic_bolt-outline.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_bolt-outline.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_bolt-outline.svg')`,
+                        maskImage: `url('/icons/ic_bolt-outline.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -177,11 +177,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
                     <div 
                       className="w-4 h-4 mr-2 bg-[#DC2626] shrink-0"
                       style={{
-                        WebkitMaskImage: `url('/ic_refresh.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_refresh.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_refresh.svg')`,
+                        maskImage: `url('/icons/ic_refresh.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -194,11 +194,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
                     <div 
                       className="w-4 h-4 mr-2 bg-slate-500 shrink-0"
                       style={{
-                        WebkitMaskImage: `url('/ic_question-mark-circle-outline.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_question-mark-circle-outline.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_question-mark-circle-outline.svg')`,
+                        maskImage: `url('/icons/ic_question-mark-circle-outline.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -230,11 +230,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
                         <div 
                           className="w-4 h-4 shrink-0 bg-slate-400 group-open:rotate-180 transition-transform"
                           style={{
-                            WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                            WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
                             WebkitMaskSize: 'contain',
                             WebkitMaskRepeat: 'no-repeat',
                             WebkitMaskPosition: 'center',
-                            maskImage: `url('/ic_arrow-short-down.svg')`,
+                            maskImage: `url('/icons/ic_arrow-short-down.svg')`,
                             maskSize: 'contain',
                             maskRepeat: 'no-repeat',
                             maskPosition: 'center',
@@ -254,11 +254,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
                   <div 
                     className="w-4 h-4 bg-current shrink-0 rotate-180"
                     style={{
-                      WebkitMaskImage: `url('/ic_arrow-right.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_arrow-right.svg')`,
+                      maskImage: `url('/icons/ic_arrow-right.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
@@ -327,11 +327,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
                 <div 
                   className="w-5 h-5 bg-current shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/ic_send-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_send-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_send-outline.svg')`,
+                    maskImage: `url('/icons/ic_send-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -353,11 +353,11 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
           <div 
             className="w-8 h-8 bg-[#25D366] shrink-0"
             style={{
-              WebkitMaskImage: `url('/ic_whatsapp-outline.svg')`,
+              WebkitMaskImage: `url('/icons/ic_whatsapp-outline.svg')`,
               WebkitMaskSize: 'contain',
               WebkitMaskRepeat: 'no-repeat',
               WebkitMaskPosition: 'center',
-              maskImage: `url('/ic_whatsapp-outline.svg')`,
+              maskImage: `url('/icons/ic_whatsapp-outline.svg')`,
               maskSize: 'contain',
               maskRepeat: 'no-repeat',
               maskPosition: 'center',
@@ -411,11 +411,11 @@ export default function IndustrialRelationsPage() {
                   <div 
                     className="w-6 h-6 bg-green-600 shrink-0"
                     style={{
-                      WebkitMaskImage: `url('/ic_check.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_check.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_check.svg')`,
+                      maskImage: `url('/icons/ic_check.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',

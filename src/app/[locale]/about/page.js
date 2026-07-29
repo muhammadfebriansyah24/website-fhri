@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
-import { getAboutData } from '@/components/aboutData';
+import { getAboutData } from '../../../components/aboutData';
 
 
 // 1. BAGIAN KOMPONEN (SECTIONS)
@@ -84,11 +84,11 @@ function HeroSection({ data }) {
               <div 
                 className="w-5 h-5 bg-current"
                 style={{
-                  WebkitMaskImage: `url('/ic_download.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_download.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_download.svg')`,
+                  maskImage: `url('/icons/ic_download.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',
@@ -138,11 +138,11 @@ function VisionMissionSection({ data }) {
             <div 
               className="w-7 h-7 bg-white"
               style={{
-                WebkitMaskImage: `url('/ic_eye-outline.svg')`,
+                WebkitMaskImage: `url('/icons/ic_eye-outline.svg')`,
                 WebkitMaskSize: 'contain',
                 WebkitMaskRepeat: 'no-repeat',
                 WebkitMaskPosition: 'center',
-                maskImage: `url('/ic_eye-outline.svg')`,
+                maskImage: `url('/icons/ic_eye-outline.svg')`,
                 maskSize: 'contain',
                 maskRepeat: 'no-repeat',
                 maskPosition: 'center',
@@ -164,11 +164,11 @@ function VisionMissionSection({ data }) {
             <div 
               className="w-7 h-7 bg-white"
               style={{
-                WebkitMaskImage: `url('/ic_bolt-outline.svg')`,
+                WebkitMaskImage: `url('/icons/ic_bolt-outline.svg')`,
                 WebkitMaskSize: 'contain',
                 WebkitMaskRepeat: 'no-repeat',
                 WebkitMaskPosition: 'center',
-                maskImage: `url('/ic_bolt-outline.svg')`,
+                maskImage: `url('/icons/ic_bolt-outline.svg')`,
                 maskSize: 'contain',
                 maskRepeat: 'no-repeat',
                 maskPosition: 'center',
@@ -199,11 +199,11 @@ function CoreValuesSection({ data }) {
       key="1" 
       className="w-6 h-6 bg-brand-red"
       style={{
-        WebkitMaskImage: `url('/ic_check-shield-outline.svg')`,
+        WebkitMaskImage: `url('/icons/ic_check-shield-outline.svg')`,
         WebkitMaskSize: 'contain',
         WebkitMaskRepeat: 'no-repeat',
         WebkitMaskPosition: 'center',
-        maskImage: `url('/ic_check-shield-outline.svg')`,
+        maskImage: `url('/icons/ic_check-shield-outline.svg')`,
         maskSize: 'contain',
         maskRepeat: 'no-repeat',
         maskPosition: 'center',
@@ -214,11 +214,11 @@ function CoreValuesSection({ data }) {
       key="2" 
       className="w-6 h-6 bg-brand-red"
       style={{
-        WebkitMaskImage: `url('/ic_star-outline.svg')`,
+        WebkitMaskImage: `url('/icons/ic_star-outline.svg')`,
         WebkitMaskSize: 'contain',
         WebkitMaskRepeat: 'no-repeat',
         WebkitMaskPosition: 'center',
-        maskImage: `url('/ic_star-outline.svg')`,
+        maskImage: `url('/icons/ic_star-outline.svg')`,
         maskSize: 'contain',
         maskRepeat: 'no-repeat',
         maskPosition: 'center',
@@ -229,11 +229,11 @@ function CoreValuesSection({ data }) {
       key="3" 
       className="w-6 h-6 bg-brand-red"
       style={{
-        WebkitMaskImage: `url('/ic_users-outline.svg')`,
+        WebkitMaskImage: `url('/icons/ic_users-outline.svg')`,
         WebkitMaskSize: 'contain',
         WebkitMaskRepeat: 'no-repeat',
         WebkitMaskPosition: 'center',
-        maskImage: `url('/ic_users-outline.svg')`,
+        maskImage: `url('/icons/ic_users-outline.svg')`,
         maskSize: 'contain',
         maskRepeat: 'no-repeat',
         maskPosition: 'center',
@@ -244,11 +244,11 @@ function CoreValuesSection({ data }) {
       key="4" 
       className="w-6 h-6 bg-brand-red"
       style={{
-        WebkitMaskImage: `url('/ic_trending-up.svg')`,
+        WebkitMaskImage: `url('/icons/ic_trending-up.svg')`,
         WebkitMaskSize: 'contain',
         WebkitMaskRepeat: 'no-repeat',
         WebkitMaskPosition: 'center',
-        maskImage: `url('/ic_trending-up.svg')`,
+        maskImage: `url('/icons/ic_trending-up.svg')`,
         maskSize: 'contain',
         maskRepeat: 'no-repeat',
         maskPosition: 'center',
@@ -349,11 +349,11 @@ function ExecutiveProfilesSection({ data }) {
                 className="w-5 h-5 bg-current"
                 style={{
                   transform: 'rotate(90deg)',
-                  WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_arrow-short-down.svg')`,
+                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',
@@ -377,11 +377,11 @@ function ExecutiveProfilesSection({ data }) {
                 className="w-5 h-5 bg-current"
                 style={{
                   transform: 'rotate(-90deg)',
-                  WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_arrow-short-down.svg')`,
+                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',
@@ -499,11 +499,11 @@ function GallerySection({ data }) {
                 className="w-6 h-6 bg-current"
                 style={{
                   transform: 'rotate(90deg)',
-                  WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_arrow-short-down.svg')`,
+                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',
@@ -517,11 +517,11 @@ function GallerySection({ data }) {
                 className="w-6 h-6 bg-current"
                 style={{
                   transform: 'rotate(-90deg)',
-                  WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
                   WebkitMaskSize: 'contain',
                   WebkitMaskRepeat: 'no-repeat',
                   WebkitMaskPosition: 'center',
-                  maskImage: `url('/ic_arrow-short-down.svg')`,
+                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
                   maskSize: 'contain',
                   maskRepeat: 'no-repeat',
                   maskPosition: 'center',

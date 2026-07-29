@@ -78,7 +78,7 @@ export default function Navbar() {
         <Link href={`/${locale}`} className="flex items-center gap-2 select-none -ml-3">
           <div className="relative w-36 h-9 flex items-center">
             <Image
-              src="/fhri-logo.png" 
+              src="/images/fhri-logo.png" 
               alt="First HR Indonesia Logo"
               width={140}
               height={36}
@@ -99,12 +99,19 @@ export default function Navbar() {
                   className="flex items-center gap-1.5 text-[#00263C] hover:text-[#DC0017] font-semibold transition-colors focus:outline-none cursor-pointer"
                 >
                   {link.label}
-                  <svg 
-                    className={`w-3.5 h-3.5 mt-0.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-[#DC0017]' : ''}`} 
-                    viewBox="0 0 12 8" fill="none"
-                  >
-                    <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+                  <div 
+                    className={`w-3.5 h-3.5 mt-0.5 bg-current shrink-0 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-[#DC0017]' : ''}`}
+                    style={{
+                      WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/icons/ic_arrow-short-down.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
                 </button>
 
                 {/* MEGA-MENU DROPDOWN */}
@@ -131,9 +138,19 @@ export default function Navbar() {
                       <div className="pt-4 mt-2 border-t border-gray-100">
                         <Link href={`/${locale}/business`} onClick={() => setDropdownOpen(false)} className="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 font-bold text-sm px-1 transition">
                           {data.ui.scheduleDemo}
-                          <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                          </svg>
+                          <div 
+                            className="w-4 h-4 bg-current shrink-0"
+                            style={{
+                              WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
+                              WebkitMaskSize: 'contain',
+                              WebkitMaskRepeat: 'no-repeat',
+                              WebkitMaskPosition: 'center',
+                              maskImage: `url('/icons/ic_arrow-right.svg')`,
+                              maskSize: 'contain',
+                              maskRepeat: 'no-repeat',
+                              maskPosition: 'center',
+                            }}
+                          />
                         </Link>
                       </div>
                     </div>
@@ -175,9 +192,19 @@ export default function Navbar() {
                           className="inline-flex items-center gap-2 bg-[#0B2A4A] hover:bg-blue-950 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition duration-200 shadow-sm"
                         >
                           {data.ui.learnMore}
-                          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                            <path d="M5 12h14M12 5l7 7-7 7" />
-                          </svg>
+                          <div 
+                            className="w-3.5 h-3.5 bg-current shrink-0"
+                            style={{
+                              WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
+                              WebkitMaskSize: 'contain',
+                              WebkitMaskRepeat: 'no-repeat',
+                              WebkitMaskPosition: 'center',
+                              maskImage: `url('/icons/ic_arrow-right.svg')`,
+                              maskSize: 'contain',
+                              maskRepeat: 'no-repeat',
+                              maskPosition: 'center',
+                            }}
+                          />
                         </Link>
                       </div>
                     </div>
@@ -224,9 +251,19 @@ export default function Navbar() {
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {mobileOpen ? <path d="M6 6L18 18M6 18L18 6" strokeLinecap="round" /> : <path d="M3 6H21M3 12H21M3 18H21" strokeLinecap="round" />}
-          </svg>
+          <div 
+            className="w-7 h-7 bg-current shrink-0 transition-all duration-300"
+            style={{
+              WebkitMaskImage: `url('/icons/${mobileOpen ? 'ic_x-mark.svg' : 'ic_more.svg'}')`,
+              WebkitMaskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskImage: `url('/icons/${mobileOpen ? 'ic_x-mark.svg' : 'ic_more.svg'}')`,
+              maskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              maskPosition: 'center',
+            }}
+          />
         </button>
       </div>
 
@@ -247,9 +284,21 @@ export default function Navbar() {
                         </span>
                         <span className="text-[13px] font-bold text-[#0B2A4A]">{tab.title}</span>
                       </span>
-                      <svg className={`w-3.5 h-3.5 text-gray-400 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] shrink-0 ${isOpen ? 'rotate-180' : ''}`} viewBox="0 0 12 8" fill="none">
-                        <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
+                      
+                      {/* ICON CHEVRON DOWN */}
+                      <div 
+                        className={`w-3.5 h-3.5 bg-gray-400 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                        style={{
+                          WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
+                          WebkitMaskSize: 'contain',
+                          WebkitMaskRepeat: 'no-repeat',
+                          WebkitMaskPosition: 'center',
+                          maskImage: `url('/icons/ic_arrow-short-down.svg')`,
+                          maskSize: 'contain',
+                          maskRepeat: 'no-repeat',
+                          maskPosition: 'center',
+                        }}
+                      />
                     </button>
                     <div className={`grid transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                       <div className="overflow-hidden">

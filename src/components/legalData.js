@@ -17,25 +17,25 @@ export const getLegalData = (locale) => {
             id: "01",
             title: "Kepatuhan Hukum Ketenagakerjaan",
             desc: "Pastikan kepatuhan terhadap peraturan ketenagakerjaan terbaru melalui pengembangan dan peninjauan Peraturan Perusahaan (PP) dan Perjanjian Kerja Bersama (PKB).",
-            icon: 'ic_document-text-outline.svg'
+            icon: 'icons/ic_document-text-outline.svg'
           },
           {
             id: "02",
             title: "Manajemen Risiko",
             desc: "Mitigasi risiko ketenagakerjaan terkait restrukturisasi organisasi, status ketenagakerjaan (PKWT & PKWTT), dan proses PHK yang sesuai hukum.",
-            icon: 'ic_check-shield-outline.svg'
+            icon: 'icons/ic_check-shield-outline.svg'
           },
           {
             id: "03",
             title: "Penyelesaian Sengketa & Litigasi",
             desc: "Perkuat kemampuan melalui negosiasi bipartit yang efektif dan panduan mediasi, konsiliasi, serta proses Pengadilan Hubungan Industrial (PHI).",
-            icon: 'ic_scale.svg'
+            icon: 'icons/ic_scale.svg'
           },
           {
             id: "04",
             title: "Kemitraan Serikat Pekerja",
             desc: "Bangun hubungan konstruktif dan kolaboratif dengan serikat pekerja untuk mendorong hubungan industrial yang positif dan lingkungan kerja yang produktif.",
-            icon: 'ic_user-group-outline.svg'
+            icon: 'icons/ic_user-group-outline.svg'
           }
         ]
       },
@@ -109,25 +109,25 @@ export const getLegalData = (locale) => {
           id: "01",
           title: "Labor Law Compliance",
           desc: "Ensure compliance with the latest labor regulations through the development and review of Company Regulations (PP) and Collective Labor Agreements (PKB).",
-          icon: 'ic_document-text-outline.svg'
+          icon: 'icons/ic_document-text-outline.svg'
         },
         {
           id: "02",
           title: "Risk Management",
           desc: "Mitigate employment risks related to organizational restructuring, employment status (fixed-term & permanent), and legally compliant termination processes.",
-          icon: 'ic_check-shield-outline.svg'
+          icon: 'icons/ic_check-shield-outline.svg'
         },
         {
           id: "03",
           title: "Dispute Resolution & Litigation",
           desc: "Strengthen capabilities through effective bipartite negotiations and guidance on mediation, conciliation, and Industrial Relations Court (PHI) proceedings.",
-          icon: 'ic_scale.svg'
+          icon: 'icons/ic_scale.svg'
         },
         {
           id: "04",
           title: "Trade Union Partnership",
           desc: "Build constructive and collaborative relationships with labor unions to foster positive industrial relations and a productive work environment.",
-          icon: 'ic_user-group-outline.svg'
+          icon: 'icons/ic_user-group-outline.svg'
         }
       ]
     },

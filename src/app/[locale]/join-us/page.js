@@ -82,11 +82,11 @@ export default function JoinUsPage() {
                   <div 
                     className="w-8 h-8 bg-current shrink-0"
                     style={{
-                      WebkitMaskImage: `url('/ic_check.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_check.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_check.svg')`,
+                      maskImage: `url('/icons/ic_check.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
@@ -188,11 +188,11 @@ export default function JoinUsPage() {
                     <div 
                       className="w-4 h-4 text-slate-500 bg-current shrink-0"
                       style={{
-                        WebkitMaskImage: `url('/ic_arrow-short-down.svg')`,
+                        WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
                         WebkitMaskSize: 'contain',
                         WebkitMaskRepeat: 'no-repeat',
                         WebkitMaskPosition: 'center',
-                        maskImage: `url('/ic_arrow-short-down.svg')`,
+                        maskImage: `url('/icons/ic_arrow-short-down.svg')`,
                         maskSize: 'contain',
                         maskRepeat: 'no-repeat',
                         maskPosition: 'center',
@@ -212,11 +212,11 @@ export default function JoinUsPage() {
                   <div 
                     className="w-4 h-4 bg-current shrink-0"
                     style={{
-                      WebkitMaskImage: `url('/ic_send-solid.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_send-solid.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_send-solid.svg')`,
+                      maskImage: `url('/icons/ic_send-solid.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',

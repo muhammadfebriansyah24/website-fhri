@@ -13,12 +13,12 @@ export const getBusinessSupportData = (locale) => {
           {
             title: 'Pendirian Perusahaan',
             description: 'Panduan ahli melalui kepatuhan peraturan lokal, perizinan, dan persyaratan hukum untuk pendatang pasar baru. Kami memastikan struktur dasar Anda kuat dan patuh sejak hari pertama.',
-            icon: '/ic_clipboard-outline.svg'
+            icon: '/icons/ic_clipboard-outline.svg'
           },
           {
             title: 'Solusi Kesesuaian Budaya',
             description: 'Lokakarya dan sesi pelatihan yang dirancang untuk menjembatani kesenjangan budaya dan menciptakan integrasi tim yang harmonis. Membangun budaya perusahaan yang kohesif yang menghormati nuansa lokal sambil mempertahankan standar global.',
-            icon: '/ic_users-outline.svg'
+            icon: '/icons/ic_users-outline.svg'
           }
         ]
       },
@@ -57,12 +57,12 @@ export const getBusinessSupportData = (locale) => {
         {
           title: 'Company Establishment',
           description: 'Expert guidance through local regulatory compliance, licensing, and legal requirements for new market entrants. We ensure your foundational structures are sound and compliant from day one.',
-          icon: '/ic_clipboard-outline.svg'
+          icon: '/icons/ic_clipboard-outline.svg'
         },
         {
           title: 'Cultural Fit Solutions',
           description: 'Workshops and coaching sessions designed to bridge cultural gaps and create harmonious team integration. Build a cohesive corporate culture that respects local nuance while maintaining global standards.',
-          icon: '/ic_users-outline.svg'
+          icon: '/icons/ic_users-outline.svg'
         }
       ]
     },

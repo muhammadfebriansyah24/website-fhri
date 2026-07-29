@@ -16,20 +16,20 @@ import CTA from '@/components/CTA';
 // ==========================================
 
 const programsKeys = [
-  { key: 'support', image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=800&q=80', link: '/business/business-support' },
-  { key: 'hc', image: 'https://images.unsplash.com/photo-1754531976828-69e42ce4e0d9?auto=format&fit=crop&w=800&q=80', link: '/business/humancapital-solutions' },
-  { key: 'payroll', image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80', link: '/business/payroll' },
-  { key: 'assessment', image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80', link: '/business/assessment-tools' },
-  { key: 'bootcamp', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80', link: '/business/hr-bootcamp' },
-  { key: 'ir', image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=80', link: '/business/industrial-relations' },
-  { key: 'hse', image: 'https://images.unsplash.com/photo-1503428593586-e225b39bddfe?auto=format&fit=crop&w=800&q=80', link: '/business/hse' },
-  { key: 'certification', image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80', link: '/business/lsp' },
+  { key: 'support', image: '/images/home-bss.jpg', link: '/business/business-support' },
+  { key: 'hc', image: '/images/home-hcs.jpg', link: '/business/humancapital-solutions' },
+  { key: 'payroll', image: '/images/home-po.jpg', link: '/business/payroll' },
+  { key: 'assessment', image: '/images/home-at.jpg', link: '/business/assessment-tools' },
+  { key: 'bootcamp', image: '/images/home-hrbc.jpg', link: '/business/hr-bootcamp' },
+  { key: 'ir', image: '/images/home-irla.jpg', link: '/business/industrial-relations' },
+  { key: 'hse', image: '/images/home-hse.jpg', link: '/business/hse' },
+  { key: 'certification', image: '/images/home-pci.jpg', link: '/business/lsp' },
 ];
 
 const eventsKeys = [
-  { key: 'townhall', image: 'https://images.unsplash.com/photo-1560439514-4e9645039924?auto=format&fit=crop&w=800&q=80', link: '/business/corporate-culture' },
-  { key: 'csr', image: 'https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=800&q=80', link: '/business/corporate-culture' },
-  { key: 'outbound', image: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?auto=format&fit=crop&w=800&q=80', link: '/business/corporate-culture' },
+  { key: 'townhall', image: '/images/home-thm.jpg', link: '/business/corporate-culture' },
+  { key: 'csr', image: '/images/home-csr.jpg', link: '/business/corporate-culture' },
+  { key: 'outbound', image: '/images/home-obt.jpg', link: '/business/corporate-culture' },
 ];
 
 const NAVY_TAB_PATH = 'M80 59.313 L195.047 59.313 C205.776 59.313 215.308 52.4674 218.736 42.3009 L227.264 17.012 C230.692 6.8456 240.224 0 250.953 0 H1189.05 C1199.78 0 1209.31 6.8456 1212.74 17.012 L1221.26 42.3009 C1224.69 52.4674 1234.22 59.313 1244.95 59.313 L1362 59.313 Z';
@@ -62,7 +62,6 @@ function Hero({ t, locale }) {
         </div>
         <div className="md:w-1/2 w-full">
           <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative border border-slate-700/50 group shadow-2xl">
-            {/* Tag Image yang sudah diperbarui */}
             <Image 
               src="/images/home-hero.jpg" 
               alt="Modern HR Consulting Workspace" 
@@ -144,11 +143,11 @@ function News({ t, locale, newsData }) {
                   <div 
                     className="w-4 h-4 mr-1.5 bg-current shrink-0"
                     style={{
-                      WebkitMaskImage: `url('/ic_calendar-outline.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_calendar-outline.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_calendar-outline.svg')`,
+                      maskImage: `url('/icons/ic_calendar-outline.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',

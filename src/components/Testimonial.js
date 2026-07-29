@@ -76,9 +76,21 @@ export default function Testimonial() {
         {/* Kolom Kanan: Teks Testimonial */}
         <div className="w-full md:w-1/2 relative flex flex-col justify-center">
           
-          <svg className="absolute -top-8 -left-2 w-16 h-16 text-brand-red pointer-events-none select-none" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L5 15c0 2-1 4-2 6zm14 0c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1.5.5 1.5 1.5L19 15c0 2-1 4-2 6z"/>
-          </svg>
+          {/* Ikon Quote */}
+          <div 
+            className="absolute -top-8 -left-2 w-16 h-16 bg-brand-red pointer-events-none select-none"
+            aria-hidden="true"
+            style={{
+              WebkitMaskImage: `url('/icons/ic_quote.svg')`,
+              WebkitMaskSize: 'contain',
+              WebkitMaskRepeat: 'no-repeat',
+              WebkitMaskPosition: 'center',
+              maskImage: `url('/icons/ic_quote.svg')`,
+              maskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              maskPosition: 'center',
+            }}
+          />
           
           <div key={`text-${active}`} className="relative z-10 pt-8 animate-fade-slide">
             <div className="min-h-[140px] relative z-10">
@@ -95,20 +107,49 @@ export default function Testimonial() {
 
           {/* Tombol Navigasi */}
           <div className="flex gap-3 mt-10 md:mt-12">
+            
+            {/* Tombol Previous */}
             <button 
               onClick={prevTestimonial} 
               aria-label="Previous Testimonial"
-              className="w-12 h-12 rounded-full border-2 border-brand-red text-brand-red flex items-center justify-center hover:bg-brand-red hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_5px_15px_rgba(220,38,38,0.3)]"
+              className="w-12 h-12 rounded-full border-2 border-brand-red text-brand-red flex items-center justify-center hover:bg-brand-red hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_5px_15px_rgba(220,38,38,0.3)] group"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+              <div 
+                className="w-5 h-5 bg-current shrink-0 rotate-90"
+                style={{
+                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
             </button>
+            
+            {/* Tombol Next */}
             <button 
               onClick={nextTestimonial} 
               aria-label="Next Testimonial"
-              className="w-12 h-12 rounded-full border-2 border-brand-red text-brand-red flex items-center justify-center hover:bg-brand-red hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_5px_15px_rgba(220,38,38,0.3)]"
+              className="w-12 h-12 rounded-full border-2 border-brand-red text-brand-red flex items-center justify-center hover:bg-brand-red hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_5px_15px_rgba(220,38,38,0.3)] group"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"></path></svg>
+              <div 
+                className="w-5 h-5 bg-current shrink-0 -rotate-90"
+                style={{
+                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
+                  WebkitMaskSize: 'contain',
+                  WebkitMaskRepeat: 'no-repeat',
+                  WebkitMaskPosition: 'center',
+                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
+                  maskSize: 'contain',
+                  maskRepeat: 'no-repeat',
+                  maskPosition: 'center',
+                }}
+              />
             </button>
+    
           </div>
 
         </div>

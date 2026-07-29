@@ -102,11 +102,11 @@ export default function HsePage() {
                 <div 
                   className="w-5 h-5 bg-white shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/ic_check-shield-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_check-shield-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_check-shield-outline.svg')`,
+                    maskImage: `url('/icons/ic_check-shield-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -126,11 +126,11 @@ export default function HsePage() {
                 <div 
                   className="w-5 h-5 bg-white shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/ic_document-check-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_document-check-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_document-check-outline.svg')`,
+                    maskImage: `url('/icons/ic_document-check-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -150,11 +150,11 @@ export default function HsePage() {
                 <div 
                   className="w-5 h-5 bg-white shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/ic_globe-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_globe-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/ic_globe-outline.svg')`,
+                    maskImage: `url('/icons/ic_globe-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -196,11 +196,11 @@ export default function HsePage() {
                   <div 
                     className="w-6 h-6 bg-[#00263C] shrink-0 mt-0.5"
                     style={{
-                      WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_check-circle-solid.svg')`,
+                      maskImage: `url('/icons/ic_check-circle-solid.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
@@ -218,11 +218,11 @@ export default function HsePage() {
                   <div 
                     className="w-6 h-6 bg-[#C92A2A] shrink-0 mt-0.5"
                     style={{
-                      WebkitMaskImage: `url('/ic_check-circle-solid.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_check-circle-solid.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_check-circle-solid.svg')`,
+                      maskImage: `url('/icons/ic_check-circle-solid.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
@@ -370,11 +370,11 @@ export default function HsePage() {
                   <div 
                     className="w-6 h-6 bg-white shrink-0"
                     style={{
-                      WebkitMaskImage: `url('/ic_check.svg')`,
+                      WebkitMaskImage: `url('/icons/ic_check.svg')`,
                       WebkitMaskSize: 'contain',
                       WebkitMaskRepeat: 'no-repeat',
                       WebkitMaskPosition: 'center',
-                      maskImage: `url('/ic_check.svg')`,
+                      maskImage: `url('/icons/ic_check.svg')`,
                       maskSize: 'contain',
                       maskRepeat: 'no-repeat',
                       maskPosition: 'center',
@@ -437,9 +437,19 @@ export default function HsePage() {
             {/* Credential Card 3 */}
             <div className="bg-slate-50 ring-1 ring-slate-100 p-6 rounded-[1.75rem] flex items-center gap-4 group hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.12)] hover:-translate-y-1 transition-all duration-300">
               <div className="w-12 h-12 bg-[#00263C] rounded-xl flex items-center justify-center group-hover:bg-[#C92A2A] transition-colors duration-300">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                </svg>
+                <div 
+                  className="w-6 h-6 bg-white shrink-0"
+                  style={{
+                    WebkitMaskImage: `url('/icons/ic_check-shield-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/icons/ic_check-shield-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <div className="text-left">
                 <p className="text-[#00263C] font-black text-lg leading-none tracking-wider mb-1">{data.credentials.items[2].title}</p>
@@ -450,9 +460,19 @@ export default function HsePage() {
             {/* Credential Card 4 */}
             <div className="bg-slate-50 ring-1 ring-slate-100 p-6 rounded-[1.75rem] flex items-center gap-4 group hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.12)] hover:-translate-y-1 transition-all duration-300">
               <div className="w-12 h-12 bg-[#00263C] rounded-xl flex items-center justify-center group-hover:bg-[#C92A2A] transition-colors duration-300">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
+                <div 
+                  className="w-6 h-6 bg-white shrink-0"
+                  style={{
+                    WebkitMaskImage: `url('/icons/ic_globe-outline.svg')`,
+                    WebkitMaskSize: 'contain',
+                    WebkitMaskRepeat: 'no-repeat',
+                    WebkitMaskPosition: 'center',
+                    maskImage: `url('/icons/ic_globe-outline.svg')`,
+                    maskSize: 'contain',
+                    maskRepeat: 'no-repeat',
+                    maskPosition: 'center',
+                  }}
+                />
               </div>
               <div className="text-left">
                 <p className="text-[#00263C] font-black text-lg leading-none tracking-wider mb-1">{data.credentials.items[3].title}</p>

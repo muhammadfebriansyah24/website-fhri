@@ -15,10 +15,9 @@ export default function CTA() {
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80" 
+          src="/images/cta-business.jpg" 
           alt="Professional HR Team Collaboration" 
           fill 
-          unoptimized
           priority
           className="object-cover object-center"
         />
