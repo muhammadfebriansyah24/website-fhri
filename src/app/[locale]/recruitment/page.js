@@ -52,7 +52,7 @@ export default function RecruitmentPage() {
       <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1560264280-88b68371db39?q=80&w=2400&auto=format&fit=crop"
+            src="/images/recruitment-hero.jpg"
             alt="Job interview at First HR Indonesia"
             fill
             priority

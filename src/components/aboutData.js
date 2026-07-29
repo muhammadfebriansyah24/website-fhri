@@ -69,12 +69,12 @@ export const getAboutData = (locale) => {
         subtitle: "Masuk ke dalam dunia dinamis First HR Indonesia.",
         badge: "Momen FHRI",
         slides: [
-          { id: 1, title: 'Diskusi Kolaboratif', image: '/images/herokonten2.jpg' },
-          { id: 2, title: 'Lokakarya Ahli', image: '/images/herokonten3.jpg' },
-          { id: 3, title: 'Sesi Diskusi HR', image: '/images/herokonten4.jpg' },
-          { id: 4, title: 'Dasbor Analitik Digital', image: '/images/herokonten5.jpg' },
-          { id: 5, title: 'Mentoring Kepemimpinan', image: '/images/herokonten6.jpg' },
-          { id: 6, title: 'Aktivitas Team Building', image: '/images/herokonten8.jpg' },
+          { id: 1, title: 'Diskusi Kolaboratif', image: '/images/about-gallery-1.jpg' },
+          { id: 2, title: 'Lokakarya Ahli', image: '/images/about-gallery-2.jpg' },
+          { id: 3, title: 'Sesi Diskusi HR', image: '/images/about-gallery-3.jpg' },
+          { id: 4, title: 'Dasbor Analitik Digital', image: '/images/about-gallery-4.jpg' },
+          { id: 5, title: 'Mentoring Kepemimpinan', image: '/images/about-gallery-5.jpg' },
+          { id: 6, title: 'Aktivitas Team Building', image: '/images/about-gallery-6.jpg' },
         ]
       },
       leadershipTeam: [
@@ -372,12 +372,12 @@ export const getAboutData = (locale) => {
       subtitle: "Step into the vibrant world of First HR Indonesia.",
       badge: "FHRI Moment",
       slides: [
-        { id: 1, title: 'Collaborative Brainstorming', image: '/images/herokonten2.jpg' },
-        { id: 2, title: 'Expert Led Workshops', image: '/images/herokonten3.jpg' },
-        { id: 3, title: 'HR Discussion Sessions', image: '/images/herokonten4.jpg' },
-        { id: 4, title: 'Digital Analytics Dashboard', image: '/images/herokonten5.jpg' },
-        { id: 5, title: 'Leadership Mentoring', image: '/images/herokonten6.jpg' },
-        { id: 6, title: 'Team Building Activities', image: '/images/herokonten8.jpg' },
+        { id: 1, title: 'Collaborative Brainstorming', image: '/images/about-gallery-1.jpg' },
+        { id: 2, title: 'Expert Led Workshops', image: '/images/about-gallery-2.jpg' },
+        { id: 3, title: 'HR Discussion Sessions', image: '/images/about-gallery-3.jpg' },
+        { id: 4, title: 'Digital Analytics Dashboard', image: '/images/about-gallery-4.jpg' },
+        { id: 5, title: 'Leadership Mentoring', image: '/images/about-gallery-5.jpg' },
+        { id: 6, title: 'Team Building Activities', image: '/images/about-gallery-6.jpg' },
       ]
     },
     leadershipTeam: [

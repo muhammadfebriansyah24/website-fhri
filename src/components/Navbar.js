@@ -78,7 +78,7 @@ export default function Navbar() {
         <Link href={`/${locale}`} className="flex items-center gap-2 select-none -ml-3">
           <div className="relative w-36 h-9 flex items-center">
             <Image
-              src="/fhri-logo.png" 
+              src="/images/fhri-logo.png" 
               alt="First HR Indonesia Logo"
               width={140}
               height={36}

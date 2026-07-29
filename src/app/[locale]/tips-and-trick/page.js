@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import React, { useState } from 'react';
 import { useLocale } from 'next-intl';
 import { getTipsData } from '@/components/tipsData';
@@ -122,11 +123,11 @@ export default function TipsAndTricks() {
       {/* HERO */}
       <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy px-6 md:px-12 overflow-hidden">
         <div className="absolute inset-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2400&auto=format&fit=crop"
+          <Image
+            src="/images/tthr-hero.jpg"
             alt="Calm, focused workplace"
-            className="absolute inset-0 w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-brand-navy/80" />
         </div>

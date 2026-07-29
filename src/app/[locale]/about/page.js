@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
-import { getAboutData } from '@/components/aboutData';
+import { getAboutData } from '../../../components/aboutData';
 
 
 // 1. BAGIAN KOMPONEN (SECTIONS)
