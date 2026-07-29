@@ -18,7 +18,6 @@ export default function CTA() {
           src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1920&q=80" 
           alt="Professional HR Team Collaboration" 
           fill 
-          unoptimized
           priority
           className="object-cover object-center"
         />

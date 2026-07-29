@@ -62,7 +62,6 @@ function Hero({ t, locale }) {
         </div>
         <div className="md:w-1/2 w-full">
           <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative border border-slate-700/50 group shadow-2xl">
-            {/* Tag Image yang sudah diperbarui */}
             <Image 
               src="/images/home-hero.jpg" 
               alt="Modern HR Consulting Workspace" 

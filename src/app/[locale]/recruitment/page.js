@@ -55,7 +55,6 @@ export default function RecruitmentPage() {
             src="https://images.unsplash.com/photo-1560264280-88b68371db39?q=80&w=2400&auto=format&fit=crop"
             alt="Job interview at First HR Indonesia"
             fill
-            unoptimized
             priority
             className="object-cover"
           />
