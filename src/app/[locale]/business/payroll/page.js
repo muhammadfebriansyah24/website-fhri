@@ -46,7 +46,7 @@ export default function PayrollOutsourcingPage() {
             <div className="bg-white/5 p-2 md:p-3 rounded-[2rem] w-full shadow-2xl border border-white/10 backdrop-blur-sm group">
               <div className="relative w-full h-[240px] sm:h-[320px] md:h-[420px] rounded-[1.5rem] overflow-hidden">
                 <Image 
-                  src="/herokonten6.jpg" 
+                  src="/images/business-po-hero.jpg" 
                   alt="Payroll and Outsourcing Services" 
                   fill
                   unoptimized
