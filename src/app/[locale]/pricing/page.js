@@ -29,7 +29,7 @@ export default function PricingPage() {
 
         {/* --- Main Content --- */}
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             
             <span className="text-eyebrow-lg gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-md mb-6">
               {data.hero.eyebrow}
@@ -62,7 +62,7 @@ export default function PricingPage() {
               <div className="bg-white text-brand-navy rounded-[1.75rem] p-7 md:p-8 shadow-lg h-[280px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div>
                   <h3 className="mb-3">{data.plans.bootcamp.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{data.plans.bootcamp.desc}</p>
+                  <p className="text-teaser">{data.plans.bootcamp.desc}</p>
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
                   <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{isYearly ? data.plans.bootcamp.priceYearly : data.plans.bootcamp.priceMonthly}</div>
@@ -85,7 +85,7 @@ export default function PricingPage() {
               <div className="bg-white text-brand-navy rounded-[1.75rem] p-7 md:p-8 shadow-2xl ring-4 ring-brand-red h-[320px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-2">
                 <div>
                   <h3 className="mb-3">{data.plans.academy.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{data.plans.academy.desc}</p>
+                  <p className="text-teaser">{data.plans.academy.desc}</p>
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
                   {isYearly && <span className="line-through text-slate-400 text-sm block mb-1 font-bold">{data.plans.academy.originalPriceYearly}</span>}
@@ -109,7 +109,7 @@ export default function PricingPage() {
               <div className="bg-white text-brand-navy rounded-[1.75rem] p-7 md:p-8 shadow-lg h-[280px] flex flex-col relative z-10 transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div>
                   <h3 className="mb-3">{data.plans.team.title}</h3>
-                  <p className="text-sm text-slate-500 leading-relaxed">{data.plans.team.desc}</p>
+                  <p className="text-teaser">{data.plans.team.desc}</p>
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
                   <div className="text-sm text-slate-400 mb-1 font-bold">{data.plans.team.startingFrom}</div>
@@ -136,18 +136,16 @@ export default function PricingPage() {
         </div>
       </section>
 
-
-
       {/* SECTION 2: COMPARE PLANS */}
       <section id="compare" className="py-24 md:py-32 bg-white text-brand-navy px-6 md:px-12 relative pb-40">
         <div className="max-w-6xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-eyebrow-lg text-brand-red block mb-5">
+            <span className="text-eyebrow-lg block mb-6">
               {data.compare.eyebrow}
             </span>
-            <h2 className="text-brand-navy mb-5">{data.compare.title}</h2>
-            <p className="text-lg text-slate-600">{data.compare.subtitle}</p>
+            <h2 className="text-brand-navy mb-6">{data.compare.title}</h2>
+            <p className="text-slate-600">{data.compare.subtitle}</p>
           </div>
 
           <div className="w-full overflow-x-auto shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[1.75rem] ring-1 ring-slate-100">
@@ -157,16 +155,16 @@ export default function PricingPage() {
               <div className="grid grid-cols-4 border-b border-slate-100 bg-white sticky top-0 z-10">
                 <div className="p-6"></div>
                 <div className="p-6 text-center">
-                  <h4 className="text-brand-navy mb-1.5">{data.compare.col1Title}</h4>
-                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold">{data.compare.col1Sub}</p>
+                  <h4 className="text-brand-navy mb-2">{data.compare.col1Title}</h4>
+                  <h6 className="text-slate-400">{data.compare.col1Sub}</h6>
                 </div>
                 <div className="p-6 text-center bg-red-50 border-t-4 border-brand-red">
-                  <h4 className="text-brand-red mb-1.5">{data.compare.col2Title}</h4>
-                  <p className="text-xs text-brand-red/70 uppercase tracking-widest font-bold">{data.compare.col2Sub}</p>
+                  <h4 className="text-brand-red mb-2">{data.compare.col2Title}</h4>
+                  <h6 className="text-brand-red/70">{data.compare.col2Sub}</h6>
                 </div>
                 <div className="p-6 text-center">
-                  <h4 className="text-brand-navy mb-1.5">{data.compare.col3Title}</h4>
-                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold">{data.compare.col3Sub}</p>
+                  <h4 className="text-brand-navy mb-2">{data.compare.col3Title}</h4>
+                  <h6 className="text-slate-400">{data.compare.col3Sub}</h6>
                 </div>
               </div>
 
@@ -189,7 +187,7 @@ export default function PricingPage() {
                         {feature.info && (
                           <div 
                             className="w-4 h-4 bg-slate-400 shrink-0 cursor-help"
-                            title={feature.info} /* Menampilkan teks info saat di-hover */
+                            title={feature.info}
                             style={{
                               WebkitMaskImage: `url('/icons/ic_information-outline.svg')`,
                               WebkitMaskSize: 'contain',
@@ -237,7 +235,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-
       {/* SECTION 3: INLINE CTA */}
 
       <section className="bg-white relative py-12 md:py-24 px-6 md:px-12 -mt-16 z-20">
@@ -247,9 +244,9 @@ export default function PricingPage() {
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="max-w-3xl mx-auto text-center relative z-10">
-            <span className="text-eyebrow-lg text-brand-red block mb-4">{data.ctaBanner.eyebrow}</span>
+            <span className="text-eyebrow-lg block mb-6">{data.ctaBanner.eyebrow}</span>
             <h2 className="text-white mb-6 text-balance">{data.ctaBanner.title}</h2>
-            <p className="text-slate-300 text-lg mb-10">
+            <p className="text-slate-300 mb-10">
               {data.ctaBanner.description}
             </p>
             <Link href={`/${locale}/join-us`} className="inline-flex items-center justify-center bg-brand-red text-white px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:bg-[#a82222] shadow-[0_10px_25px_rgba(201,42,42,0.4)] text-sm font-bold uppercase tracking-widest">

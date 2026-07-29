@@ -25,15 +25,15 @@ export default function CTA() {
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        <span className="text-eyebrow block mb-5 opacity-90">
+        <span className="text-eyebrow block mb-6 opacity-90">
           {t('eyebrow')}
         </span>
         
-        <h2 className="text-white mb-6 md:mb-8 text-balance whitespace-pre-line">
+        <h2 className="text-white mb-6 text-balance whitespace-pre-line">
           {t('title')}
         </h2>
         
-        <p className="text-slate-300 mb-10 max-w-xl mx-auto">
+        <p className="text-slate-300 max-w-xl mx-auto mb-10">
           {t('description')}
         </p>
         

@@ -7,7 +7,6 @@ import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
 import { getAboutData } from '../../../components/aboutData';
 
-
 // 1. BAGIAN KOMPONEN (SECTIONS)
 
 function CustomStyles() {
@@ -62,16 +61,16 @@ function HeroSection({ data }) {
 
       <div className="max-w-7xl mx-auto relative z-30 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 w-full">
         <div className="w-full lg:w-1/2 text-center lg:text-left pt-10">
-          <span className="text-eyebrow-lg text-brand-red block mb-6 lg:mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+          <span className="text-eyebrow-lg block mb-6 lg:mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
             {data.hero.eyebrow}
           </span>
           
           <h1 className="text-white mb-6 drop-shadow-2xl text-balance">
             {data.hero.title1} <br className="hidden lg:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">{data.hero.title2}</span>
+            <span className="text-gradient-red text-transparent bg-clip-text">{data.hero.title2}</span>
           </h1>
           
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto lg:mx-0 drop-shadow-md mb-8">
+          <p className="text-slate-300 max-w-2xl mx-auto lg:mx-0 drop-shadow-md mb-8">
             {data.hero.description}
           </p>
 
@@ -105,8 +104,8 @@ function HeroSection({ data }) {
                 <div className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] bg-brand-red flex items-center justify-center text-[11px] font-bold text-white z-10">+11</div>
               </div>
               <div className="text-left pr-3">
-                <p className="text-white font-bold text-sm">{data.hero.expertLeaders}</p>
-                <p className="text-xs text-slate-400 mt-0.5 uppercase tracking-widest font-bold">{data.hero.readyToAssist}</p>
+                <p className="text-takeaway text-white">{data.hero.expertLeaders}</p>
+                <h6 className="text-slate-400 mt-0.5">{data.hero.readyToAssist}</h6>
               </div>
             </div>
           </div>
@@ -150,8 +149,8 @@ function VisionMissionSection({ data }) {
             />
 
           </div>
-          <span className="text-eyebrow-lg text-brand-red block mb-4">{data.visionMission.visionTitle}</span>
-          <h2 className="text-brand-navy mb-4 text-balance">
+          <span className="text-eyebrow-lg block mb-6">{data.visionMission.visionTitle}</span>
+          <h2 className="text-brand-navy mb-6 text-balance">
             {data.visionMission.visionText}
           </h2>
         </div>
@@ -181,7 +180,7 @@ function VisionMissionSection({ data }) {
             {data.visionMission.missions.map((item, idx) => (
               <li key={idx} className="flex items-start gap-4">
                 <span className="text-brand-red mt-1 drop-shadow-md text-xl">✦</span>
-                <span className="text-slate-100 text-lg leading-relaxed">{item}</span>
+                <p className="text-slate-100 m-0">{item}</p>
               </li>
             ))}
           </ul>
@@ -263,8 +262,8 @@ function CoreValuesSection({ data }) {
           <span className="text-eyebrow-lg gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             {data.coreValues.eyebrow}
           </span>
-          <h2 className="text-brand-navy mb-4">{data.coreValues.title}</h2>
-          <p className="text-slate-600 text-lg">{data.coreValues.description}</p>
+          <h2 className="text-brand-navy mb-6">{data.coreValues.title}</h2>
+          <p className="text-slate-600">{data.coreValues.description}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -274,7 +273,7 @@ function CoreValuesSection({ data }) {
                 {icons[idx]}
               </div>
               <h4 className="mb-3 group-hover:text-brand-red transition-colors text-brand-navy">{item.title}</h4>
-              <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+              <p className="text-slate-600">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -311,8 +310,8 @@ function ExecutiveProfilesSection({ data }) {
           <span className="text-eyebrow-lg gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             {data.executive.eyebrow}
           </span>
-          <h2 className="text-brand-navy mb-4">{data.executive.title}</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-slate-600 text-lg">{data.executive.subtitle}</p>
+          <h2 className="text-brand-navy mb-6">{data.executive.title}</h2>
+          <p className="max-w-2xl mx-auto text-slate-600">{data.executive.subtitle}</p>
         </div>
 
         <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 animate-gradient-shift border border-slate-200/80 rounded-[3rem] p-8 md:p-12 lg:p-14 shadow-[0_20px_60px_-15px_rgba(0,38,60,0.08)] transition-all duration-500 ease-in-out relative overflow-hidden">
@@ -322,7 +321,7 @@ function ExecutiveProfilesSection({ data }) {
                 <Image src={activeLeader.image} alt={activeLeader.name} fill className="object-cover transition-opacity duration-500" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <h3 className="text-brand-navy">{activeLeader.name}</h3>
-              <p className="text-brand-red font-bold uppercase tracking-widest text-xs mt-3">{activeLeader.role}</p>
+              <h6 className="text-brand-red mt-3">{activeLeader.role}</h6>
               <div className="w-12 h-1 bg-slate-200 mt-6 rounded-full mx-auto lg:mx-0"></div>
             </div>
 
@@ -333,7 +332,7 @@ function ExecutiveProfilesSection({ data }) {
               </h4>
               <div className="h-[340px] md:h-[400px] overflow-y-auto pr-3 md:pr-6 custom-scrollbar text-justify space-y-5">
                 {activeLeader.summary.map((paragraph, index) => (
-                  <p key={index} className="animate-fade-slide-up opacity-0 text-slate-600 leading-relaxed" style={{ animationDelay: `${index * 0.12}s` }}>
+                  <p key={index} className="animate-fade-slide-up opacity-0 text-slate-600" style={{ animationDelay: `${index * 0.12}s` }}>
                     {paragraph}
                   </p>
                 ))}
@@ -389,7 +388,7 @@ function ExecutiveProfilesSection({ data }) {
               />
             </button>
           </div>
-          <div className="text-xs font-bold text-slate-400 tracking-widest uppercase lg:shrink-0 hidden lg:block">
+          <div className="text-index text-slate-400 lg:shrink-0 hidden lg:block">
             {activeLeaderIndex + 1} / {leadershipTeam.length}
           </div>
         </div>
@@ -407,14 +406,14 @@ function JourneyTimelineSection({ data }) {
      <div className="absolute -right-32 bottom-0 w-96 h-96 rounded-full bg-brand-navy/5 blur-3xl pointer-events-none" />
 
      <div className="max-w-7xl mx-auto relative z-10">
-       <div className="text-center max-w-3xl mx-auto mb-20 md:mb-24">
-         <span className="text-eyebrow-lg text-brand-red block mb-6">
+       <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+         <span className="text-eyebrow-lg block mb-6">
            {data.journey.eyebrow}
          </span>
          <h2 className="text-brand-navy mb-6 text-balance">
            {data.journey.title1} <br className="hidden sm:block" /> {data.journey.title2}
          </h2>
-         <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+         <p className="text-slate-600 max-w-2xl mx-auto">
            {data.journey.subtitle}
          </p>
        </div>
@@ -440,7 +439,7 @@ function JourneyTimelineSection({ data }) {
                      <h4 className="mb-3 text-center text-brand-navy group-hover:text-brand-red transition-colors duration-500">
                        {item.title}
                      </h4>
-                     <p className="text-justify text-slate-600 text-sm leading-relaxed">
+                     <p className="text-slate-600 text-justify">
                        {item.desc}
                      </p>
                    </div>
@@ -461,7 +460,6 @@ function JourneyTimelineSection({ data }) {
    </section>
   );
 }
-
 
 function GallerySection({ data }) {
   const gallerySliderData = data.gallery.slides;
@@ -485,11 +483,11 @@ function GallerySection({ data }) {
   return (
     <section className="bg-brand-navy pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-12 overflow-hidden rounded-t-[3rem] lg:rounded-t-[5rem] -mt-16 relative z-20 shadow-[0_-20px_50px_rgba(0,38,60,0.15)]">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-10 md:mb-14 gap-6 text-center md:text-left">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 md:mb-20 gap-6 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start">
-            <span className="text-eyebrow-lg text-brand-red block mb-3">{data.gallery.eyebrow}</span>
-            <h2 className="text-white mb-4">{data.gallery.title}</h2>
-            <p className="mt-4 text-slate-400 text-lg">{data.gallery.subtitle}</p>
+            <span className="text-eyebrow-lg block mb-6">{data.gallery.eyebrow}</span>
+            <h2 className="text-white mb-6">{data.gallery.title}</h2>
+            <p className="text-slate-400">{data.gallery.subtitle}</p>
           </div>
           <div className="flex gap-4 justify-center md:justify-end">
             
@@ -544,7 +542,7 @@ function GallerySection({ data }) {
                     </div>
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
-                    <span className="text-brand-red text-xs font-bold uppercase tracking-widest block mb-2">{data.gallery.badge}</span>
+                    <h6 className="text-brand-red block mb-2">{data.gallery.badge}</h6>
                     <h4 className="text-white">{slide.title}</h4>
                   </div>
                 </div>
@@ -556,7 +554,6 @@ function GallerySection({ data }) {
     </section>
   );
 }
-
 
 // 2. MAIN PAGE EXPORT
 
