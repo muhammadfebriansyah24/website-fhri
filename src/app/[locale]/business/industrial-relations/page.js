@@ -411,14 +411,10 @@ export default function IndustrialRelationsPage() {
             <div className="relative w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] md:w-[450px] md:h-[450px]">
               <div className="absolute inset-0 border-[2px] border-white/20 rounded-full animate-[spin_20s_linear_infinite] border-dashed"></div>
               
-              <div className="absolute inset-4 rounded-full overflow-hidden border-8 border-brand-navy shadow-2xl group">
-                <Image 
-                  src="/herokonten2.jpg" 
-                  alt="Legal Advisory Meeting" 
-                  fill 
-                  className="object-cover transition-transform duration-700 group-hover:scale-105" 
-                  unoptimized 
-                  priority
+              <div className="absolute inset-4 rounded-full overflow-hidden border-8 border-[#00263C] shadow-2xl">
+                <Image src="/images/business-irla-hero.jpg" 
+                alt="Industrial Relations & Legal Advisory" 
+                fill className="object-cover"
                 />
               </div>
               
@@ -526,15 +522,13 @@ export default function IndustrialRelationsPage() {
             </div>
           </div>
 
-          <div className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden group shadow-2xl">
-            <Image 
-              src="/herokonten6.jpg" 
-              alt="Professional Consultation" 
-              fill 
-              className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105" 
-              unoptimized 
+          <div className="relative h-[600px] w-full rounded-[2.5rem] overflow-hidden">
+            <Image src="/images/business-irla-mitigating.jpg" 
+            alt="Professional Consultation" 
+            fill className="object-cover opacity-90 hover:scale-105 transition-transform duration-700" 
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-transparent to-transparent"></div>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-[#00263C] via-transparent to-transparent"></div>
           </div>
 
         </div>

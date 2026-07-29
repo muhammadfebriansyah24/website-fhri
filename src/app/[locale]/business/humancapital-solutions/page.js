@@ -17,10 +17,9 @@ export default function HumanCapitalSolutions() {
       <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1530099486328-e021101a494a?q=80&w=2400&auto=format&fit=crop"
-            alt="Indonesian Business Team Meeting in Modern Office"
+            src="/images/business-hcs-hero.jpg"
+            alt="Business Team Meeting in Modern Office"
             fill
-            unoptimized
             priority
             className="object-cover scale-105"
           />
@@ -101,10 +100,9 @@ export default function HumanCapitalSolutions() {
 
                 <div className="md:col-span-5 aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 relative shadow-inner">
                   <Image
-                    src="https://images.unsplash.com/photo-1577415124269-fc1140a69e91?q=80&w=1200&auto=format&fit=crop"
-                    alt="Asian Business Executives Shaking Hands in Conference Room"
+                    src="/images/business-hcs-pillar1.jpg"
+                    alt="Business Executives Meeting"
                     fill
-                    unoptimized
                     className="object-cover object-center group-hover:scale-105 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -130,7 +128,7 @@ export default function HumanCapitalSolutions() {
 
               <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-100 relative mb-8">
                 <Image
-                  src="https://images.unsplash.com/photo-1531498352491-042fbae4cf57?q=80&w=1200&auto=format&fit=crop"
+                  src="/images/business-hcs-pillar2.jpg"
                   alt="Asian Recruitment Team Reviewing Candidate Profiles on Computer"
                   fill
                   unoptimized
@@ -164,7 +162,7 @@ export default function HumanCapitalSolutions() {
 
               <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-100 relative mb-8">
                 <Image
-                  src="https://images.unsplash.com/photo-1681569685386-b7bda397672e?q=80&w=1200&auto=format&fit=crop"
+                  src="/images/business-hcs-pillar3.jpg"
                   alt="Asian HR Professionals Reviewing Talent Assessment Data on Laptop"
                   fill
                   unoptimized

@@ -55,7 +55,7 @@ export default function AssessmentToolsPage() {
                 </div>
                 <div className="p-1 bg-white aspect-[4/3] relative group">
                   <Image 
-                    src="https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=1000&q=80" 
+                    src="/images/business-at-hero.jpg" 
                     alt="Data Analytics Dashboard" 
                     fill
                     unoptimized
@@ -385,7 +385,7 @@ export default function AssessmentToolsPage() {
             <div className="relative rounded-[2rem] bg-white ring-1 ring-slate-200 p-2 group shadow-sm">
               <div className="relative h-72 md:h-96 rounded-[calc(2rem-0.5rem)] overflow-hidden">
                 <Image 
-                  src="https://images.unsplash.com/photo-1531493731235-b5c309dca387?auto=format&fit=crop&w=1000&q=80" 
+                  src="/images/business-at-final.jpg" 
                   alt="Executive Assessment Report Analysis" 
                   fill
                   unoptimized

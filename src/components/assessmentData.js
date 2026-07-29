@@ -28,7 +28,7 @@ export const getAssessmentData = (locale) => {
             focus: 'Mengukur kesenjangan kompetensi teknis & pencapaian Key Performance Indicators (KPI).',
             methodology: 'Tes fungsional, simulasi praktis, dan studi kasus spesifik industri.',
             output: 'Skor kuantitatif kesiapan teknis karyawan dan matriks kinerja.',
-            image: 'https://images.unsplash.com/photo-1701980889802-55ff39e2e973?auto=format&fit=crop&w=800&q=80',
+            image: '/images/business-at-skill.jpg',
           },
           {
             id: '360',
@@ -37,7 +37,7 @@ export const getAssessmentData = (locale) => {
             focus: 'Mengevaluasi efektivitas kolaborasi, gaya komunikasi, dan kepemimpinan.',
             methodology: 'Kuesioner anonim yang dikalibrasi dari atasan, rekan kerja, dan bawahan.',
             output: 'Pemetaan titik buta (blind spot) interpersonal dan laporan efektivitas kolaborasi.',
-            image: 'https://images.unsplash.com/photo-1530099486328-e021101a494a?auto=format&fit=crop&w=800&q=80',
+            image: '/images/business-at-feedback.jpg',
           },
           {
             id: 'potential',
@@ -46,7 +46,7 @@ export const getAssessmentData = (locale) => {
             focus: 'Kesiapan suksesi, ketangkasan belajar (learning agility), dan gaya kerja.',
             methodology: 'Tes psikometri, inventarisasi kepribadian, dan evaluasi kecocokan budaya.',
             output: 'Profil psikologis komprehensif dan rekomendasi jalur karier yang tepat.',
-            image: 'https://images.unsplash.com/photo-1581065178047-8ee15951ede6?auto=format&fit=crop&w=800&q=80',
+            image: '/images/business-at-potential.jpg',
           }
         ]
       },
@@ -147,7 +147,7 @@ export const getAssessmentData = (locale) => {
           focus: 'Measuring technical competency gaps & Key Performance Indicators (KPI) achievements.',
           methodology: 'Functional tests, practical simulations, and industry-specific case studies.',
           output: 'Quantitative scores of employee technical readiness and performance matrices.',
-          image: 'https://images.unsplash.com/photo-1701980889802-55ff39e2e973?auto=format&fit=crop&w=800&q=80',
+          image: '/images/business-at-skill.jpg',
         },
         {
           id: '360',
@@ -156,7 +156,7 @@ export const getAssessmentData = (locale) => {
           focus: 'Evaluating collaboration effectiveness, communication styles, and leadership.',
           methodology: 'Calibrated anonymous questionnaires from superiors, peers, and subordinates.',
           output: 'Interpersonal blind spot mapping and collaboration effectiveness reports.',
-          image: 'https://images.unsplash.com/photo-1530099486328-e021101a494a?auto=format&fit=crop&w=800&q=80',
+          image: '/images/business-at-feedback.jpg',
         },
         {
           id: 'potential',
@@ -165,7 +165,7 @@ export const getAssessmentData = (locale) => {
           focus: 'Succession readiness, learning agility, and working styles.',
           methodology: 'Psychometric tests, personality inventories, and cultural fit evaluations.',
           output: 'Comprehensive psychological profiles and precise career path recommendations.',
-          image: 'https://images.unsplash.com/photo-1581065178047-8ee15951ede6?auto=format&fit=crop&w=800&q=80',
+          image: '/images/business-at-potential.jpg',
         }
       ]
     },
