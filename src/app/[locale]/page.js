@@ -44,18 +44,18 @@ function Hero({ t, locale }) {
     <section className="relative bg-brand-navy min-h-[85vh] flex items-center pt-24 pb-36 md:pb-44 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16 relative z-10 w-full">
         <div className="md:w-1/2">
-          <span className="text-eyebrow-lg text-brand-red block mb-4 md:mb-5">
+          <span className="text-eyebrow-lg block mb-6">
             {t('Hero.eyebrow')}
           </span>
-          <h1 className="text-white text-balance">
+          <h1 className="text-white text-balance mb-6">
             {t('Hero.title')}
           </h1>
-          <p className="mt-6 md:mt-8 text-slate-300 max-w-md">
+          <p className="text-slate-300 max-w-md mb-8">
             {t('Hero.description')}
           </p>
           <Link 
             href={`/${locale}/about`} 
-            className="mt-8 inline-flex items-center justify-center bg-brand-red text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-700 hover:bg-white hover:text-brand-navy shadow-lg hover:shadow-xl hover:-translate-y-1"
+            className="inline-flex items-center justify-center bg-brand-red text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-700 hover:bg-white hover:text-brand-navy shadow-lg hover:shadow-xl hover:-translate-y-1"
           >
             {t('Hero.cta')}
           </Link>
@@ -108,10 +108,10 @@ function Network({ t }) {
           animation-play-state: paused;
         }
       `}</style>
-      <span className="text-eyebrow block mb-5 md:mb-6">{t('Network.eyebrow')}</span>
-      <h2 className="text-brand-navy">{t('Network.title')}</h2>
+      <span className="text-eyebrow block mb-6">{t('Network.eyebrow')}</span>
+      <h2 className="text-brand-navy mb-16">{t('Network.title')}</h2>
       
-      <div className="marquee-container relative max-w-6xl mx-auto mt-8 md:mt-10 overflow-hidden">
+      <div className="marquee-container relative max-w-6xl mx-auto overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
         <div className="animate-scroll gap-6 py-4">
@@ -130,7 +130,7 @@ function News({ t, locale, newsData }) {
   return (
     <section className="bg-brand-navy py-20 md:py-28 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-white mb-8 md:mb-10">{t('News.title')}</h2>
+        <h2 className="text-white mb-16">{t('News.title')}</h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {newsData.map((news, idx) => (
@@ -156,7 +156,7 @@ function News({ t, locale, newsData }) {
                   {news.publishedAt}
                 </div>
                 <h4 className="text-brand-navy mb-3 line-clamp-2 group-hover:text-brand-red transition-colors">{news.title}</h4>
-                <p className="text-slate-500 mb-6 flex-grow line-clamp-3 leading-relaxed">{news.description}</p>
+                <p className="text-slate-500 mb-6 flex-grow line-clamp-3">{news.description}</p>
                 
                 <Link href={`/${locale}/newsletter?id=${news.id}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors inline-flex items-center gap-2 mt-auto">
                   {t('News.viewMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
@@ -181,13 +181,13 @@ function Programs({ t, locale }) {
           </svg>
           <div className="bg-brand-navy mx-4 md:mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] px-5 md:px-12 pt-10 pb-32 md:pt-4 md:pb-44 text-center relative flex flex-col items-center md:-mt-[2px]">
             {/* Pill Eyebrow sesuai request pertama Anda */}
-            <span className="relative z-20 inline-flex items-center px-6 md:px-10 py-2 md:py-3 text-eyebrow-lg text-white rounded-full border-2 md:border-[3px] border-brand-red md:-mt-8 shadow-sm">
+            <span className="relative z-20 inline-flex items-center px-6 md:px-10 py-2 md:py-3 text-eyebrow-lg text-white rounded-full border-2 md:border-[3px] border-brand-red md:-mt-8 shadow-sm mb-6">
               {t('Programs.eyebrow')}
             </span>
-            <h2 className="mt-6 text-white max-w-4xl text-balance">
+            <h2 className="text-white max-w-4xl text-balance mb-6">
               {t('Programs.title')}
             </h2>
-            <p className="mt-6 md:mt-8 text-slate-300 max-w-4xl mx-auto">
+            <p className="text-slate-300 max-w-4xl mx-auto">
               {t('Programs.description')}
             </p>
           </div>
@@ -219,7 +219,7 @@ function Programs({ t, locale }) {
 
             <div className="mt-24 text-center">
               <h2 className="mb-6 text-brand-navy">{t('CorporateEvents.title')}</h2>
-              <p className="text-slate-500 mb-10 max-w-2xl mx-auto">
+              <p className="text-slate-500 mb-16 max-w-2xl mx-auto">
                 {t('CorporateEvents.description')}
               </p>
               

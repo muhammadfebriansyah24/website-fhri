@@ -62,13 +62,13 @@ export default function RecruitmentPage() {
         </div>
 
         <div className="max-w-3xl mx-auto text-center relative z-10 px-6 md:px-12">
-          <span className="text-eyebrow-lg text-brand-red block mb-4 md:mb-5 drop-shadow-md">
+          <span className="text-eyebrow-lg block mb-6 drop-shadow-md">
             {data.hero.eyebrow}
           </span>
 
-          <h1 className="text-white text-balance mb-6 md:mb-8">
+          <h1 className="text-white text-balance mb-6">
             {data.hero.title1} <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">{data.hero.title2}</span>
+            <span className="text-gradient-red text-transparent bg-clip-text">{data.hero.title2}</span>
           </h1>
 
           <p className="text-slate-300 max-w-xl mx-auto mb-10">
@@ -101,13 +101,13 @@ export default function RecruitmentPage() {
       <section className="py-24 px-6 md:px-12 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-eyebrow-lg text-brand-red block mb-4">
+            <span className="text-eyebrow-lg block mb-6">
               {data.perks.eyebrow}
             </span>
             <h2 className="text-brand-navy mb-6">
               {data.perks.title}
             </h2>
-            <p className="text-slate-600 text-lg">
+            <p className="text-slate-600">
               {data.perks.subtitle}
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function RecruitmentPage() {
                   
                 </div>
                 <h4 className="mb-3 text-brand-navy">{card.title}</h4>
-                <p className="text-slate-600 text-sm">{card.desc}</p>
+                <p className="text-slate-600">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -180,15 +180,15 @@ export default function RecruitmentPage() {
       {/* SECTION 3 — CURRENT OPENINGS */}
       <section id="open-positions" className="py-24 px-6 md:px-12 bg-slate-50">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-              <span className="text-eyebrow-lg text-brand-red block mb-4">
+              <span className="text-eyebrow-lg block mb-6">
                 {data.jobsSection.eyebrow}
               </span>
-              <h2 className="text-brand-navy mb-4">
+              <h2 className="text-brand-navy mb-6">
                 {data.jobsSection.title}
               </h2>
-              <p className="text-slate-600 text-lg">
+              <p className="text-slate-600">
                 {data.jobsSection.subtitle}
               </p>
             </div>
@@ -209,18 +209,17 @@ export default function RecruitmentPage() {
                 <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors">
                   {job.title}
                 </h4>
-                <p className="mb-8 flex-grow text-slate-600 text-sm">
+                <p className="mb-8 flex-grow text-slate-600">
                   {job.desc}
                 </p>
                 
                 <div className="pt-6 border-t border-slate-100 flex items-center justify-between mt-auto">
                   <div className="flex flex-col gap-1.5">
 
-                    <span className="text-xs font-semibold text-slate-400 flex items-center gap-1.5">
-                      
+                    <span className="text-sm font-semibold text-slate-400 flex items-center gap-1.5">
                       {/* Ikon Location */}
                       <div 
-                        className="w-3.5 h-3.5 bg-current"
+                        className="w-4 h-4 bg-current"
                         style={{
                           WebkitMaskImage: `url('/icons/ic_location-outline.svg')`,
                           WebkitMaskSize: 'contain',
@@ -232,15 +231,13 @@ export default function RecruitmentPage() {
                           maskPosition: 'center',
                         }}
                       />
-
                       {job.location}
-
                     </span>
-                    <span className="text-xs font-bold text-slate-600 flex items-center gap-1.5">
-                      
+
+                    <span className="text-sm font-bold text-slate-600 flex items-center gap-1.5">
                       {/* Ikon Clock */}
                       <div 
-                        className="w-3.5 h-3.5 bg-current"
+                        className="w-4 h-4 bg-current"
                         style={{
                           WebkitMaskImage: `url('/icons/ic_clock-outline.svg')`,
                           WebkitMaskSize: 'contain',
@@ -253,11 +250,10 @@ export default function RecruitmentPage() {
                         }}
                       />
                       {job.type}
-
                     </span>
+
                   </div>
                   <a href="#apply-form" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-brand-red border border-slate-100 group-hover:bg-brand-red group-hover:text-white group-hover:border-brand-red transition-all duration-300">
-                    
                     {/* Ikon Arrow Right */}
                     <div 
                       className="w-5 h-5 bg-current transition-colors duration-300"
@@ -272,7 +268,6 @@ export default function RecruitmentPage() {
                         maskPosition: 'center',
                       }}
                     />
-
                   </a>
                 </div>
               </div>
@@ -289,24 +284,24 @@ export default function RecruitmentPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 relative z-10 items-center">
             <div className="flex flex-col justify-center">
-              <span className="text-eyebrow-lg text-brand-red mb-4 block">
+              <span className="text-eyebrow-lg block mb-6">
                 {data.form.eyebrow}
               </span>
               <h2 className="text-white mb-6">
                 {data.form.title}
               </h2>
-              <p className="text-slate-300 mb-10 text-lg">
+              <p className="text-slate-300 mb-10">
                 {data.form.description}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-8 sm:gap-12">
                 <div>
-                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">{data.form.officeLocation}</p>
-                  <p className="text-white font-medium text-lg">{data.form.officeLocationVal}</p>
+                  <h6 className="text-slate-400 mb-2">{data.form.officeLocation}</h6>
+                  <p className="text-white">{data.form.officeLocationVal}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mb-2">{data.form.generalInquiry}</p>
-                  <p className="text-white font-medium text-lg">recruitment@firsthr.co.id</p>
+                  <h6 className="text-slate-400 mb-2">{data.form.generalInquiry}</h6>
+                  <p className="text-white">recruitment@firsthr.co.id</p>
                 </div>
               </div>
             </div>
