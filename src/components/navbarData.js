@@ -2,7 +2,6 @@ export const getNavbarData = (locale) => {
   if (locale === 'id') {
     return {
       ui: {
-        scheduleDemo: "Jadwalkan Demo",
         learnMore: "Pelajari Lebih Lanjut",
         viewAll: "Lihat Semua →"
       },
@@ -149,7 +148,6 @@ export const getNavbarData = (locale) => {
   // DEFAULT / ENGLISH (en)
   return {
     ui: {
-      scheduleDemo: "Schedule Demo",
       learnMore: "Learn More",
       viewAll: "View All →"
     },
@@ -271,7 +269,7 @@ export const getNavbarData = (locale) => {
           { title: 'Outbound Training', desc: 'Outdoor activities building trust, teamwork, and leadership through shared challenges.' },
           { title: 'Culture Assessment', desc: 'Diagnosing behavioral patterns and cultural gaps to identify development opportunities.' },
           { title: 'Curriculum Customization', desc: 'Tailoring custom culture transformation programs and event formats for alignment.' },
-          { title: 'Dynamic Facilitation', desc: 'High-energy execution of interactive workshops and events to drive organizational change.' },
+          { title: 'Dynamic Facilitation', berner: 'High-energy execution of interactive workshops to drive organizational change.' }, 
         ]
       },
       {

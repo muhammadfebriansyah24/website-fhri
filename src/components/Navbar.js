@@ -134,25 +134,6 @@ export default function Navbar() {
                           </button>
                         ))}
                       </div>
-
-                      <div className="pt-4 mt-2 border-t border-gray-100">
-                        <Link href={`/${locale}/business`} onClick={() => setDropdownOpen(false)} className="inline-flex items-center gap-1.5 text-red-600 hover:text-red-700 font-bold text-sm px-1 transition">
-                          {data.ui.scheduleDemo}
-                          <div 
-                            className="w-4 h-4 bg-current shrink-0"
-                            style={{
-                              WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
-                              WebkitMaskSize: 'contain',
-                              WebkitMaskRepeat: 'no-repeat',
-                              WebkitMaskPosition: 'center',
-                              maskImage: `url('/icons/ic_arrow-right.svg')`,
-                              maskSize: 'contain',
-                              maskRepeat: 'no-repeat',
-                              maskPosition: 'center',
-                            }}
-                          />
-                        </Link>
-                      </div>
                     </div>
 
                     <div className="w-[65%] flex flex-col justify-between pl-2">
