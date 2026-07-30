@@ -25,7 +25,7 @@ export default function CTA() {
       </div>
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        <span className="text-eyebrow block mb-6 opacity-90">
+        <span className="text-eyebrow-lg block mb-6 opacity-90">
           {t('eyebrow')}
         </span>
         
