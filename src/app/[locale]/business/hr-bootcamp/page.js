@@ -42,6 +42,7 @@ export default function HRBootcampPage() {
                   src="/images/business-hrbc-hero.jpg" 
                   alt="Executive Education Series" 
                   fill
+                  unoptimized={process.env.NODE_ENV === 'development'}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
@@ -63,6 +64,7 @@ export default function HRBootcampPage() {
                 src="/images/business-hrbc-flagship1.jpg" 
                 alt="HRBP Boot Camp 1" 
                 fill
+                unoptimized={process.env.NODE_ENV === 'development'}
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -71,6 +73,7 @@ export default function HRBootcampPage() {
                 src="/images/business-hrbc-flagship2.jpg" 
                 alt="HRBP Boot Camp 2" 
                 fill
+                unoptimized={process.env.NODE_ENV === 'development'}
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -79,6 +82,7 @@ export default function HRBootcampPage() {
                 src="/images/business-hrbc-flagship3.jpg" 
                 alt="HRBP Boot Camp 3" 
                 fill
+                unoptimized={process.env.NODE_ENV === 'development'}
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </div>
@@ -301,6 +305,7 @@ export default function HRBootcampPage() {
                     src="/images/business-hrbc-result.jpg" 
                     alt="Result-Oriented Development" 
                     fill
+                    unoptimized={process.env.NODE_ENV === 'development'}
                     className="object-cover opacity-80"
                   />
               </div>

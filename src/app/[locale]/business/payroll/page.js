@@ -49,7 +49,7 @@ export default function PayrollOutsourcingPage() {
                   src="/images/business-po-hero.jpg" 
                   alt="Payroll and Outsourcing Services" 
                   fill
-                  unoptimized
+                  unoptimized={process.env.NODE_ENV === 'development'}
                   className="object-cover transition-transform duration-700 group-hover:scale-105" 
                   priority
                 />
@@ -122,7 +122,7 @@ export default function PayrollOutsourcingPage() {
                       src={feature.image} 
                       alt={feature.title} 
                       fill
-                      unoptimized
+                      unoptimized={process.env.NODE_ENV === 'development'}
                       className="object-cover transition-transform duration-700 group-hover:scale-105" 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

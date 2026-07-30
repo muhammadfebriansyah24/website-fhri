@@ -372,10 +372,10 @@ export default function HsePage() {
         {/* Background Image & Gradient */}
         <div className="absolute inset-0 w-full h-full z-0">
           <Image 
-            src="https://images.unsplash.com/photo-1628147529780-36964fbb8d54?q=80&w=2000&auto=format&fit=crop" 
+            src="/images/business-hse-hero.jpg" 
             alt="Safe and orderly industrial work environment in the morning" 
             fill
-            unoptimized
+            unoptimized={process.env.NODE_ENV === 'development'}
             className="object-cover"
             priority
           />
@@ -598,10 +598,10 @@ export default function HsePage() {
               <div className="rounded-[2rem] bg-slate-50 border border-slate-100 p-2 group relative z-10 shadow-sm">
                 <div className="relative h-72 md:h-96 rounded-[calc(2rem-0.5rem)] overflow-hidden">
                   <Image 
-                    src="https://images.unsplash.com/photo-1685483749753-0dab7e144794?q=80&w=1000&auto=format&fit=crop" 
+                    src="/images/business-hse-more.jpg" 
                     alt="Industrial work environment that is neat, clean, and free of fire hazards" 
                     fill
-                    unoptimized
+                    unoptimized={process.env.NODE_ENV === 'development'}
                     className="object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-in-out"
                   />
                   

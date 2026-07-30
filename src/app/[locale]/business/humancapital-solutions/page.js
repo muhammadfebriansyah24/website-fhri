@@ -18,9 +18,10 @@ export default function HumanCapitalSolutions() {
         <div className="absolute inset-0">
           <Image
             src="/images/business-hcs-hero.jpg"
-            alt="Business Team Meeting in Modern Office"
+            alt="Team High Five"
             fill
             priority
+            unoptimized={process.env.NODE_ENV === 'development'} 
             className="object-cover scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/85 to-brand-navy/40" />
@@ -103,6 +104,7 @@ export default function HumanCapitalSolutions() {
                     src="/images/business-hcs-pillar1.jpg"
                     alt="Business Executives Meeting"
                     fill
+                    unoptimized={process.env.NODE_ENV === 'development'}
                     className="object-cover object-center group-hover:scale-105 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -129,9 +131,9 @@ export default function HumanCapitalSolutions() {
               <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-100 relative mb-8">
                 <Image
                   src="/images/business-hcs-pillar2.jpg"
-                  alt="Asian Recruitment Team Reviewing Candidate Profiles on Computer"
+                  alt="Recruitment Team Reviewing Candidate"
                   fill
-                  unoptimized
+                  unoptimized={process.env.NODE_ENV === 'development'}
                   className="object-cover object-center group-hover:scale-105 transition-all duration-700"
                 />
               </div>
@@ -163,9 +165,9 @@ export default function HumanCapitalSolutions() {
               <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-slate-100 relative mb-8">
                 <Image
                   src="/images/business-hcs-pillar3.jpg"
-                  alt="Asian HR Professionals Reviewing Talent Assessment Data on Laptop"
+                  alt="HR Professionals Reviewing Talent Assessment Data"
                   fill
-                  unoptimized
+                  unoptimized={process.env.NODE_ENV === 'development'}
                   className="object-cover object-center group-hover:scale-105 transition-all duration-700"
                 />
               </div>

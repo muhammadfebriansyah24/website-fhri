@@ -22,11 +22,11 @@ export default function LSPPage() {
         {/* Background Image & Effects */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?fm=jpg&q=80&w=2400&auto=format&fit=crop"
-            alt="Audience attending a professional HR certification training seminar"
+            src="/images/business-pci-hero.jpg"
+            alt="Team Reviewing on Laptop"
             fill
             priority
-            unoptimized
+            unoptimized={process.env.NODE_ENV === 'development'}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-brand-navy/70" />
