@@ -15,7 +15,7 @@ const testimonialKeys = [
   },
   {
     key: 'item3',
-    image: 'images/home-congrats-dunamis.png',
+    image: '/images/home-congrats-dunamis.png',
   }
 ];
 
