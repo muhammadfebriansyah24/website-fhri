@@ -8,7 +8,7 @@ import { getFooterData } from '@/components/footerData'; // 👇 Import data foo
 
 const kontak = {
   email: 'info@firsthrindonesia.com',
-  whatsapp: 'https://wa.me/62xxxxxxxxxx',
+  whatsapp: 'https://wa.me/628118101890',
 };
 
 export default function Footer() {

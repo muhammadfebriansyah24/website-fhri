@@ -54,13 +54,14 @@ function CustomStyles() {
 function HeroSection({ data }) {
   return (
     <section className="relative bg-brand-navy text-white pt-32 pb-24 md:pt-44 md:pb-48 px-6 md:px-12 overflow-hidden flex items-center min-h-[90vh]">
+      {/* ... kode background & styling ... */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-brand-navy/50 to-brand-navy z-10 pointer-events-none"></div>
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-navy/20 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-brand-red/15 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-30 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 w-full">
-        <div className="w-full lg:w-1/2 text-center lg:text-left pt-10">
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
           <span className="text-eyebrow-lg text-brand-red block mb-6 lg:mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
             {data.hero.eyebrow}
           </span>
@@ -75,9 +76,11 @@ function HeroSection({ data }) {
           </p>
 
           <div className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-6">
+            
             <a 
-              href="/company-profile.pptx" 
-              download="FHRI-Company-Profile.pptx"
+              href="https://drive.google.com/drive/folders/1xIUOT87rDa68WRlb6WOmyiZv1rhYvT52?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-brand-red hover:bg-red-700 text-white px-7 py-4 rounded-2xl font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.4)] hover:-translate-y-1 uppercase tracking-widest text-sm"
             >
               <div 

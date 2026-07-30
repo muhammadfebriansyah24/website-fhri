@@ -9,7 +9,7 @@ export default function JoinUsPage() {
   const data = getJoinData(locale);
 
   // Nomor WhatsApp tujuan (gunakan format 628...)
-  const ADMIN_WA_NUMBER = "628995722437"; 
+  const ADMIN_WA_NUMBER = "628118101890"; 
 
   // State untuk menyimpan data form
   const [formData, setFormData] = useState({

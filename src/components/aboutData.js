@@ -6,7 +6,7 @@ export const getAboutData = (locale) => {
         title1: "Satu Misi,",
         title2: "Inovasi Tanpa Batas",
         description: "Memberdayakan organisasi melalui solusi human capital strategis. Kami menghubungkan strategi kelas dunia dengan para profesional terbaik Indonesia untuk membentuk dunia kerja yang lebih baik.",
-        downloadBtn: "Unduh Profil (PPT)",
+        downloadBtn: "Unduh Company Profile",
         expertLeaders: "Pemimpin Ahli",
         readyToAssist: "Siap membantu Anda"
       },
