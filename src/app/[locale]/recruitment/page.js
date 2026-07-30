@@ -108,7 +108,7 @@ export default function RecruitmentPage() {
             <h2 className="text-brand-navy mb-6">
               {data.perks.title}
             </h2>
-            <p className="text-slate-600">
+            <p>
               {data.perks.subtitle}
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function RecruitmentPage() {
                   
                 </div>
                 <h4 className="mb-3 text-brand-navy">{card.title}</h4>
-                <p className="text-slate-600">{card.desc}</p>
+                <p className="text-teaser">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -189,7 +189,7 @@ export default function RecruitmentPage() {
               <h2 className="text-brand-navy mb-6">
                 {data.jobsSection.title}
               </h2>
-              <p className="text-slate-600">
+              <p>
                 {data.jobsSection.subtitle}
               </p>
             </div>
@@ -210,7 +210,7 @@ export default function RecruitmentPage() {
                 <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors">
                   {job.title}
                 </h4>
-                <p className="mb-8 flex-grow text-slate-600">
+                <p className="text-teaser mb-8 flex-grow">
                   {job.desc}
                 </p>
                 

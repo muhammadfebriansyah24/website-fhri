@@ -145,7 +145,7 @@ export default function PricingPage() {
               {data.compare.eyebrow}
             </span>
             <h2 className="text-brand-navy mb-6">{data.compare.title}</h2>
-            <p className="text-slate-600">{data.compare.subtitle}</p>
+            <p>{data.compare.subtitle}</p>
           </div>
 
           <div className="w-full overflow-x-auto shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[1.75rem] ring-1 ring-slate-100">

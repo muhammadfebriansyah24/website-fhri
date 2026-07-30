@@ -34,7 +34,7 @@ export default function AssessmentToolsPage() {
                 {data.hero.title1} <br className="hidden md:block" />
                 {data.hero.title2} <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">{data.hero.titleHighlight}</span>
               </h1>
-              <p className="text-slate-300 max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md text-lg">
+              <p className="text-slate-300 max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md">
                 {data.hero.description}
               </p>
             </div>
@@ -103,7 +103,7 @@ export default function AssessmentToolsPage() {
             <h2 className="text-brand-navy mb-6 text-balance">
               {data.portfolio.title}
             </h2>
-            <p className="text-slate-500 leading-relaxed text-lg">
+            <p>
               {data.portfolio.description}
             </p>
           </div>
@@ -132,7 +132,7 @@ export default function AssessmentToolsPage() {
                   <h3 className="text-brand-navy mb-4">
                     {data.portfolio.tabs[activeTab].title}
                   </h3>
-                  <p className="text-slate-500 text-lg leading-relaxed">
+                  <p>
                     {data.portfolio.tabs[activeTab].shortDesc}
                   </p>
                 </div>
@@ -156,7 +156,7 @@ export default function AssessmentToolsPage() {
                     />
                     <div>
                       <h4 className="text-brand-navy mb-1">{data.portfolio.labels.focus}</h4>
-                      <p className="text-teaser text-sm leading-relaxed">{data.portfolio.tabs[activeTab].focus}</p>
+                      <p className="text-teaser">{data.portfolio.tabs[activeTab].focus}</p>
                     </div>
                   </div>
 
@@ -177,7 +177,7 @@ export default function AssessmentToolsPage() {
                     />
                     <div>
                       <h4 className="text-brand-navy mb-1">{data.portfolio.labels.methodology}</h4>
-                      <p className="text-teaser text-sm leading-relaxed">{data.portfolio.tabs[activeTab].methodology}</p>
+                      <p className="text-teaser">{data.portfolio.tabs[activeTab].methodology}</p>
                     </div>
                   </div>
 
@@ -198,7 +198,7 @@ export default function AssessmentToolsPage() {
                     />
                     <div>
                       <h4 className="text-brand-navy mb-1">{data.portfolio.labels.output}</h4>
-                      <p className="text-teaser text-sm leading-relaxed">{data.portfolio.tabs[activeTab].output}</p>
+                      <p className="text-teaser">{data.portfolio.tabs[activeTab].output}</p>
                     </div>
                   </div>
 
@@ -236,7 +236,7 @@ export default function AssessmentToolsPage() {
             <h2 className="text-white mb-6 text-balance">
               {data.context.title}
             </h2>
-            <p className="text-slate-300 leading-relaxed text-lg">
+            <p className="text-slate-300">
               {data.context.description}
             </p>
           </div>
@@ -259,8 +259,8 @@ export default function AssessmentToolsPage() {
                   }}
                 />
               </div>
-              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[0].title}</h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm">{data.context.cards[0].desc}</p>
+              <h4 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[0].title}</h4>
+              <small className="text-slate-500 flex-grow block">{data.context.cards[0].desc}</small>
             </article>
 
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(220,38,38,0.18)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full">
@@ -279,8 +279,8 @@ export default function AssessmentToolsPage() {
                   }}
                 />
               </div>
-              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[1].title}</h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm">{data.context.cards[1].desc}</p>
+              <h4 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[1].title}</h4>
+              <small className="text-slate-500 flex-grow block">{data.context.cards[1].desc}</small>
             </article>
 
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(220,38,38,0.18)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full">
@@ -299,8 +299,8 @@ export default function AssessmentToolsPage() {
                   }}
                 />
               </div>
-              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[2].title}</h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm">{data.context.cards[2].desc}</p>
+              <h4 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[2].title}</h4>
+              <small className="text-slate-500 flex-grow block">{data.context.cards[2].desc}</small>
             </article>
 
             <article className="group rounded-[1.75rem] bg-white p-7 md:p-9 shadow-lg hover:shadow-[0_30px_60px_-20px_rgba(220,38,38,0.18)] transition-all duration-300 hover:-translate-y-1.5 flex flex-col h-full">
@@ -319,8 +319,8 @@ export default function AssessmentToolsPage() {
                   }}
                 />
               </div>
-              <h3 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[3].title}</h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm">{data.context.cards[3].desc}</p>
+              <h4 className="text-brand-navy mb-3 transition-colors group-hover:text-brand-red">{data.context.cards[3].title}</h4>
+              <small className="text-slate-500 flex-grow block">{data.context.cards[3].desc}</small>
             </article>
             
           </div>
@@ -340,7 +340,7 @@ export default function AssessmentToolsPage() {
             <h2 className="text-brand-navy mb-6 text-balance">
               {data.methodology.title}
             </h2>
-            <p className="text-slate-500 leading-relaxed text-lg">
+            <p>
               {data.methodology.description}
             </p>
           </div>
@@ -358,10 +358,12 @@ export default function AssessmentToolsPage() {
                   
                   <div className="bg-white p-7 md:p-9 rounded-[1.75rem] border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] group-hover:shadow-[0_10px_40px_-10px_rgba(0,38,60,0.1)] transition-all duration-300 relative">
                     <div className="absolute top-6 -left-3 w-3 h-3 bg-white border-b border-l border-slate-100 rotate-45 hidden md:block"></div>
-                    <h3 className="text-brand-navy mb-3">{step.title}</h3>
-                    <p className="text-slate-500 leading-relaxed text-sm">
+                    <h4 className="text-brand-navy mb-3 font-bold">
+                      {step.title}
+                    </h4>
+                    <small className="text-slate-500 block">
                       {step.desc}
-                    </p>
+                    </small>
                   </div>
                 </div>
               ))}
@@ -405,7 +407,7 @@ export default function AssessmentToolsPage() {
               {data.output.title}
             </h2>
 
-            <p className="text-slate-500 leading-relaxed mb-10 text-lg">
+            <p className="mb-10">
               {data.output.description}
             </p>
 
@@ -429,9 +431,9 @@ export default function AssessmentToolsPage() {
                 </div>
                 <div>
                   <h4 className="text-brand-navy mb-1.5">{data.output.items[0].title}</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <small className="text-slate-500 block">
                     {data.output.items[0].desc}
-                  </p>
+                  </small>
                 </div>
               </div>
 
@@ -453,9 +455,9 @@ export default function AssessmentToolsPage() {
                 </div>
                 <div>
                   <h4 className="text-brand-navy mb-1.5">{data.output.items[1].title}</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <small className="text-slate-500 block">
                     {data.output.items[1].desc}
-                  </p>
+                  </small>
                 </div>
               </div>
 
@@ -477,9 +479,9 @@ export default function AssessmentToolsPage() {
                 </div>
                 <div>
                   <h4 className="text-brand-navy mb-1.5">{data.output.items[2].title}</h4>
-                  <p className="text-sm text-slate-500 leading-relaxed">
+                  <small className="text-slate-500 block">
                     {data.output.items[2].desc}
-                  </p>
+                  </small>
                 </div>
               </div>
 

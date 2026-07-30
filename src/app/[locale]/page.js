@@ -150,7 +150,7 @@ function News({ t, locale, newsData }) {
                     <h6 className="text-slate-400">{news.publishedAt}</h6>
                   </time>
                   <h4 className="text-brand-navy mb-3 line-clamp-2 group-hover:text-brand-red transition-colors">{news.title}</h4>
-                  <p className="text-slate-500 mb-6 flex-grow line-clamp-3">{news.description}</p>
+                  <p className="text-teaser text-slate-500 mb-6 flex-grow line-clamp-3">{news.description}</p>
                   
                   <Link href={`/${locale}/newsletter?id=${news.id}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors inline-flex items-center gap-2 mt-auto">
                     {t('News.viewMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
@@ -208,7 +208,7 @@ function Programs({ t, locale }) {
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`ProgramsList.${item.key}.title`)}</h4>
-                    <p className="text-slate-500 mb-6 flex-grow">{t(`ProgramsList.${item.key}.desc`)}</p>
+                    <p className="text-teaser text-slate-500 mb-6 flex-grow">{t(`ProgramsList.${item.key}.desc`)}</p>
                     <Link href={`/${locale}${item.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors inline-flex items-center gap-2 mt-auto">
                       {t('Programs.readMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                     </Link>
@@ -237,7 +237,7 @@ function Programs({ t, locale }) {
                     </div>
                     <div className="px-2 flex flex-col flex-grow">
                       <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`EventsList.${event.key}.title`)}</h4>
-                      <p className="text-slate-500 mb-5 flex-grow">{t(`EventsList.${event.key}.desc`)}</p>
+                      <p className="text-teaser text-slate-500 mb-5 flex-grow">{t(`EventsList.${event.key}.desc`)}</p>
                       <Link href={`/${locale}${event.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors mt-auto inline-flex items-center gap-2">
                         {t('Programs.readMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                       </Link>

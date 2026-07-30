@@ -48,7 +48,7 @@ export default function LSPPage() {
               {data.hero.title}
             </h1>
             
-            <p className="text-slate-300 text-lg leading-relaxed mb-10 drop-shadow-md">
+            <p className="text-slate-300 mb-10 drop-shadow-md">
               {data.hero.description}
             </p>
             
@@ -84,9 +84,9 @@ export default function LSPPage() {
 
                     <div className="relative z-10">
                       <div className="mb-4 md:mb-5">
-                        <h6 className="text-brand-red">
+                        <h5 className="text-brand-red font-semibold uppercase tracking-widest">
                           {data.labels.category} {item.number}
-                        </h6>
+                        </h5>
                       </div>
                       
                       <h3 className="text-white mb-4">
@@ -97,8 +97,8 @@ export default function LSPPage() {
                       </p>
 
                       <div className="pt-6 border-t border-white/10 flex items-center justify-between text-slate-400">
-                        <h6>{data.labels.status}</h6>
-                        <h6 className="text-brand-red">{data.labels.standard}</h6>
+                        <h5>{data.labels.status}</h5>
+                        <h5 className="text-brand-red">{data.labels.standard}</h5>
                       </div>
                     </div>
                   </div>
@@ -107,16 +107,16 @@ export default function LSPPage() {
                 {/* SISI SEBALIKNYA: DETAIL INFORMASI & FITUR */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center text-left">
                   <div className="mb-4 md:mb-5">
-                    <h6 className="text-brand-red">
+                    <h5 className="text-brand-red font-semibold uppercase tracking-widest">
                       {item.badge}
-                    </h6>
+                    </h5>
                   </div>
 
                   <h2 className="text-brand-navy text-balance mb-6 md:mb-8">
                     {item.subtitle}
                   </h2>
 
-                  <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                  <p className="text-slate-500 mb-8">
                     {item.description}
                   </p>
 
@@ -159,7 +159,7 @@ export default function LSPPage() {
             <h2 className="text-white text-balance mb-6">
               {data.ctaBanner.title}
             </h2>
-            <p className="text-slate-300 text-lg mb-10 leading-relaxed max-w-xl">
+            <p className="text-slate-300 mb-10 max-w-xl">
               {data.ctaBanner.description}
             </p>
             <div className="flex flex-wrap justify-center gap-4">

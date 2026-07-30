@@ -35,7 +35,7 @@ function TipRow({ tip, accent, index, isOpen, onToggle, isLast }) {
           >
             {tip.title}
           </h4>
-          <p className={`text-base md:text-lg leading-relaxed text-slate-500 mt-3 max-w-xl transition-all duration-500 ${isOpen ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
+          <p className={`mt-3 max-w-xl transition-all duration-500 ${isOpen ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'}`}>
             {tip.teaser}
           </p>
         </div>
@@ -103,9 +103,9 @@ function CategoryBlock({ cat, idx, openKey, toggle }) {
           </span>
         </div>
 
-        <h2 className="text-brand-navy text-balance tracking-tight">
+        <h3 className="text-brand-navy text-balance tracking-tight">
           {cat.intro}
-        </h2>
+        </h3>
 
         {/* Timeline spine — garis vertikal tipis menyambung semua tips */}
         <div className="mt-14 relative">

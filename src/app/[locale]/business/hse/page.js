@@ -403,7 +403,7 @@ export default function HsePage() {
             </h1>
 
             {/* Sub-headline - Diperlebar menjadi max-w-2xl */}
-            <p className="text-slate-300 text-lg leading-relaxed max-w-2xl mb-10 drop-shadow-md">
+            <p className="text-slate-300 max-w-2xl mb-10 drop-shadow-md">
               {data.hero.description}
             </p>
 
@@ -440,7 +440,7 @@ export default function HsePage() {
             <h2 className="text-brand-navy text-balance mb-6 md:mb-8">
               {data.pillars.title}
             </h2>
-            <p className="text-slate-500 leading-relaxed text-lg">
+            <p className="text-slate-500 leading-relaxed">
               {data.pillars.description}
             </p>
           </div>
@@ -466,7 +466,7 @@ export default function HsePage() {
               <h3 className="text-brand-navy mb-3 group-hover:text-brand-red transition-colors duration-300">
                 {data.pillars.cards[0].title}
               </h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm md:text-base">
+              <p className="text-teaser text-slate-500 leading-relaxed flex-grow">
                 {data.pillars.cards[0].desc}
               </p>
             </article>
@@ -490,7 +490,7 @@ export default function HsePage() {
               <h3 className="text-brand-navy mb-3 group-hover:text-brand-red transition-colors duration-300">
                 {data.pillars.cards[1].title}
               </h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm md:text-base">
+              <p className="text-teaser text-slate-500 leading-relaxed flex-grow">
                 {data.pillars.cards[1].desc}
               </p>
             </article>
@@ -514,7 +514,7 @@ export default function HsePage() {
               <h3 className="text-brand-navy mb-3 group-hover:text-brand-red transition-colors duration-300">
                 {data.pillars.cards[2].title}
               </h3>
-              <p className="text-slate-500 leading-relaxed flex-grow text-sm md:text-base">
+              <p className="text-teaser text-slate-500 leading-relaxed flex-grow">
                 {data.pillars.cards[2].desc}
               </p>
             </article>
@@ -540,7 +540,7 @@ export default function HsePage() {
               <h2 className="text-brand-navy text-balance mb-6 md:mb-8">
                 {data.initiatives.title}
               </h2>
-              <p className="text-slate-500 leading-relaxed text-lg mb-10">
+              <p className="text-slate-500 leading-relaxed mb-10">
                 {data.initiatives.description}
               </p>
               
@@ -561,7 +561,7 @@ export default function HsePage() {
                   />
                   <div>
                     <h4 className="text-brand-navy mb-1">{data.initiatives.points[0].title}</h4>
-                    <p className="text-slate-500 leading-relaxed text-sm">
+                    <p className="text-teaser text-slate-500 leading-relaxed">
                       {data.initiatives.points[0].desc}
                     </p>
                   </div>

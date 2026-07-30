@@ -36,7 +36,7 @@ export default function PayrollOutsourcingPage() {
               {data.hero.title1} <br className="hidden md:block" />
               {data.hero.title2}
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md">
+            <p className="text-slate-300 mb-10 drop-shadow-md">
               {data.hero.description}
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function PayrollOutsourcingPage() {
             <h2 className="text-brand-navy mb-6 text-balance">
               {data.core.title}
             </h2>
-            <p className="text-teaser leading-relaxed">
+            <p>
               {data.core.description}
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function PayrollOutsourcingPage() {
                 </div>
                 
                 <h4 className="text-brand-navy mb-3 group-hover:text-brand-red transition-colors">{item.title}</h4>
-                <p className="text-teaser text-sm leading-relaxed flex-grow">{item.desc}</p>
+                <p className="text-teaser flex-grow">{item.desc}</p>
                 
               </article>
             ))}
@@ -137,7 +137,7 @@ export default function PayrollOutsourcingPage() {
                   <h2 className="text-brand-navy mb-6 text-balance">
                     {feature.title}
                   </h2>
-                  <p className="text-lg text-slate-600 mb-10 leading-relaxed">
+                  <p className="text-slate-600 mb-10">
                     {feature.desc}
                   </p>
                   

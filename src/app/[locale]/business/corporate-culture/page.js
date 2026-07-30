@@ -39,7 +39,7 @@ export default function CorporateCultureEvents() {
           <h1 className="text-white text-balance mb-6 md:mb-8">
             {data.hero.title}
           </h1>
-          <p className="text-slate-300 text-lg leading-relaxed max-w-xl mb-10 drop-shadow-md">
+          <p className="text-slate-300 max-w-xl mb-10 drop-shadow-md">
             {data.hero.description}
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function CorporateCultureEvents() {
           <h2 className="text-brand-navy text-balance mb-6 md:mb-8">
             {data.services.title}
           </h2>
-          <p className="text-slate-500 text-lg leading-relaxed">
+          <p className="text-slate-500">
             {data.services.description}
           </p>
         </div>
@@ -94,15 +94,15 @@ export default function CorporateCultureEvents() {
                 
                 {/* 1. Label Eyebrow di atas Judul */}
                 <div className="mb-4 md:mb-5">
-                  <h6 className="text-brand-red">
+                  <h5 className="text-brand-red font-semibold uppercase tracking-widest">
                     {row.tag}
-                  </h6>
+                  </h5>
                 </div>
                 
                 <h3 className="text-brand-navy mb-4">
                   {row.title}
                 </h3>
-                <p className="text-slate-500 leading-relaxed max-w-xl mb-6">
+                 <p className="text-slate-500 max-w-xl mb-6">
                   {row.desc}
                 </p>
 
@@ -140,7 +140,7 @@ export default function CorporateCultureEvents() {
             <h2 className="text-brand-navy text-balance mb-6 md:mb-8">
               {data.approach.title}
             </h2>
-            <p className="text-slate-500 text-lg leading-relaxed">
+            <p className="text-slate-500">
               {data.approach.description}
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function CorporateCultureEvents() {
                     <h3 className={`mb-4 ${step.dark ? 'text-white' : 'text-brand-navy group-hover:text-brand-red transition-colors duration-300'}`}>
                       {step.title}
                     </h3>
-                    <p className={`leading-relaxed text-sm md:text-base ${step.dark ? 'text-slate-300' : 'text-slate-500'}`}>
+                    <p className={`text-teaser ${step.dark ? 'text-slate-300' : 'text-slate-500'}`}>
                       {step.text}
                     </p>
                   </div>

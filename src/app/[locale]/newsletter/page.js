@@ -102,7 +102,7 @@ function ArticleReader({ article, locale, t }) {
         </span>
 
         <h4 className="relative z-10 text-white mb-3">{t('seeInAction')}</h4>
-        <p className="relative z-10 text-slate-300 mb-10 max-w-md">
+        <p className="text-slate-300 relative z-10 mb-10 max-w-md">
           {t('watchReelDesc')}
         </p>
 
@@ -252,7 +252,7 @@ function NewsContentWrapper() {
               <h1 className="text-white mb-6 text-balance">
                 {highlightedNews.title}
               </h1>
-              <p className="text-slate-300 text-lg leading-relaxed mb-10 max-w-lg">
+              <p className="text-slate-300 mb-10 max-w-lg">
                 {highlightedNews.description}
               </p>
               <Link 
@@ -311,12 +311,12 @@ function NewsContentWrapper() {
                 </div>
                 <div className="p-6 md:p-8 flex flex-col flex-grow">
                   <time className="mb-3 block text-slate-400">
-                    <h5 className="text-slate-400">{news.publishedAt.split('•')[0].trim()}</h5>
+                    <h6 className="text-slate-400">{news.publishedAt.split('•')[0].trim()}</h6>
                   </time>
                   <h4 className="mb-3 line-clamp-2 group-hover:text-brand-red transition-colors text-brand-navy">
                     {news.title}
                   </h4>
-                  <p className="text-slate-500 leading-relaxed mb-6 flex-grow line-clamp-3">
+                  <p className="text-teaser  mb-6 flex-grow line-clamp-3">
                     {news.description}
                   </p>
                   <Link 

@@ -65,7 +65,7 @@
 
   /* Small text (captions, fine print) */
   small {
-    @apply text-sm font-normal leading-relaxed text-slate-600;
+    @apply text-base font-normal leading-relaxed text-slate-600;
   }
 }
 
@@ -73,7 +73,7 @@
 @layer components {
   /* Eyebrow Label — FIXED ANCHOR */
   .text-eyebrow {
-    @apply text-base md:text-lg font-bold uppercase tracking-[0.3em] text-brand-red;
+    @apply text-base md:text-base font-bold uppercase tracking-[0.3em] text-brand-red;
   }
 
   /* Eyebrow Label (Large) */

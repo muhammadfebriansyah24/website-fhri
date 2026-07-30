@@ -400,7 +400,7 @@ export default function IndustrialRelationsPage() {
             <h1 className="text-white text-balance mb-6 md:mb-8">
               {data.hero.title1} <br className="hidden lg:block" /> <span className="text-white/70">{data.hero.title2}</span>
             </h1>
-            <p className="text-slate-300 text-lg leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md">
+            <p className="text-slate-300 max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md">
               {data.hero.description}
             </p>
           </div>
