@@ -222,11 +222,11 @@ function NewsContentWrapper() {
   return (
     <>
       {/* HERO SECTION - HIGHLIGHTED NEWS */}
-      <section className="relative bg-brand-navy min-h-[85vh] flex items-center px-6 md:px-12 overflow-hidden py-16 md:py-0">
+      <section className="relative bg-brand-navy min-h-[76vh] flex items-center px-6 md:px-12 overflow-hidden py-16 md:py-0">
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/20 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto relative z-10 -translate-y-8 md:-translate-y-10">
+        <div className="max-w-7xl mx-auto relative z-10">
           <span className="text-eyebrow-lg text-brand-red block mb-8">
             {t('featured')}
           </span>
