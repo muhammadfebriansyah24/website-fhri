@@ -7,15 +7,15 @@ import { useTranslations } from 'next-intl';
 const testimonialKeys = [
   {
     key: 'item1',
-    image: 'https://images.unsplash.com/photo-1529232356377-57971f020a94?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
+    image: '/images/home-congrats-monang.png',
   },
   {
     key: 'item2',
-    image: 'https://images.unsplash.com/photo-1665224751641-8ea911ca2267?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
+    image: '/images/home-congrats-devi.png',
   },
   {
     key: 'item3',
-    image: 'https://images.unsplash.com/photo-1751552805465-e4005aadd81d?auto=format&fit=crop&w=800&h=600&crop=faces&q=80',
+    image: 'images/home-congrats-dunamis.png',
   }
 ];
 
@@ -61,20 +61,19 @@ export default function Testimonial() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
         
         {/* Kolom Kiri: Gambar */}
-        <div key={`img-${active}`} className="w-full md:w-1/2 aspect-[4/3] relative rounded-[2rem] overflow-hidden bg-slate-100 shadow-[0_20px_50px_-15px_rgba(0,38,60,0.2)] group animate-fade-slide">
+        <div key={`img-${active}`} className="w-full md:w-2/5 aspect-square relative rounded-[2rem] overflow-hidden bg-slate-100 shadow-[0_20px_50px_-15px_rgba(0,38,60,0.2)] group animate-fade-slide md:-translate-y-10">
           <Image
             src={currentItem.image}
             alt={t(`list.${currentItem.key}.name`)}
             fill
-            unoptimized
+            unoptimized={process.env.NODE_ENV === 'development'}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/30 to-transparent pointer-events-none"></div>
         </div>
 
         {/* Kolom Kanan: Teks Testimonial */}
-        <div className="w-full md:w-1/2 relative flex flex-col justify-center">
+        <div className="w-full md:w-2/3 relative flex flex-col justify-center">
           
           {/* Ikon Quote */}
           <div 
@@ -92,16 +91,20 @@ export default function Testimonial() {
             }}
           />
           
-          <div key={`text-${active}`} className="relative z-10 pt-8 animate-fade-slide">
+          <div key={`text-${active}`} className="relative z-10 pt-16 md:pt-16 animate-fade-slide">
             <div className="min-h-[140px] relative z-10">
-              <h3 className="text-2xl md:text-3xl text-brand-navy leading-relaxed text-balance">
+              {/* Ucapan */}
+              <p className="text-brand-navy leading-relaxed text-balance">
                 {t(`list.${currentItem.key}.quote`)}
-              </h3>
+              </p>
             </div>
             
             <div className="mt-6 md:mt-8 border-l-4 border-brand-red pl-4">
-              <h3 className="text-brand-navy mb-1">{t(`list.${currentItem.key}.name`)}</h3>
-              <p className="text-slate-500 mt-1 block">{t(`list.${currentItem.key}.role`)}</p>
+              {/* Nama */}
+              <h4 className="text-brand-navy mb-1">{t(`list.${currentItem.key}.name`)}</h4>
+              
+              {/* Title */}
+              <small className="text-slate-500 mt-1 block">{t(`list.${currentItem.key}.role`)}</small>
             </div>
           </div>
 
