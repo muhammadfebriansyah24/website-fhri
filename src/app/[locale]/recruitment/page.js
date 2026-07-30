@@ -77,7 +77,7 @@ export default function RecruitmentPage() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="#open-positions" className="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-[#a82222] text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-1">
+            <a href="#open-positions" className="inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-red-700 text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-1">
               {data.hero.viewPositions}
             
               <div 
@@ -108,7 +108,7 @@ export default function RecruitmentPage() {
             <h2 className="text-brand-navy mb-6">
               {data.perks.title}
             </h2>
-            <p className="text-slate-600">
+            <p>
               {data.perks.subtitle}
             </p>
           </div>
@@ -171,7 +171,7 @@ export default function RecruitmentPage() {
                   
                 </div>
                 <h4 className="mb-3 text-brand-navy">{card.title}</h4>
-                <p className="text-slate-600">{card.desc}</p>
+                <p className="text-teaser">{card.desc}</p>
               </div>
             ))}
           </div>
@@ -189,7 +189,7 @@ export default function RecruitmentPage() {
               <h2 className="text-brand-navy mb-6">
                 {data.jobsSection.title}
               </h2>
-              <p className="text-slate-600">
+              <p>
                 {data.jobsSection.subtitle}
               </p>
             </div>
@@ -200,17 +200,17 @@ export default function RecruitmentPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {jobOpenings.map((job) => (
-              <div key={job.id} className="bg-white rounded-[1.5rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl hover:border-blue-100 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+              <div key={job.id} className="bg-white rounded-[1.5rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl hover:border-slate-200/60 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
                 <div className="mb-5">
-                  <span className="inline-flex px-3 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-navy bg-brand-navy/5 rounded-md">
+                  <h6 className="inline-flex px-3 py-1.5 text-brand-navy bg-brand-navy/5 rounded-md">
                     {job.department}
-                  </span>
+                  </h6>
                 </div>
                 
                 <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors">
                   {job.title}
                 </h4>
-                <p className="mb-8 flex-grow text-slate-600">
+                <p className="text-teaser mb-8 flex-grow">
                   {job.desc}
                 </p>
                 
@@ -254,7 +254,7 @@ export default function RecruitmentPage() {
                     </span>
 
                   </div>
-                  <a href="#apply-form" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-brand-red border border-slate-100 group-hover:bg-brand-red group-hover:text-white group-hover:border-brand-red transition-all duration-300">
+                  <a href="#apply-form" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-brand-red border border-slate-200/60 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300">
                     {/* Ikon Arrow Right */}
                     <div 
                       className="w-5 h-5 bg-current transition-colors duration-300"
@@ -279,7 +279,7 @@ export default function RecruitmentPage() {
 
       {/* SECTION 4 — APPLICATION FORM */}
       <section id="apply-form" className="py-24 px-6 md:px-12 bg-white pb-32">
-        <div className="max-w-6xl mx-auto bg-brand-navy rounded-[2.5rem] md:rounded-[3.5rem] p-8 md:p-14 shadow-2xl relative overflow-hidden">
+        <div className="max-w-6xl mx-auto bg-brand-navy rounded-[2.5rem] md:rounded-[3.5rem] p-6 md:p-14 shadow-2xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-red/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
 
@@ -312,7 +312,7 @@ export default function RecruitmentPage() {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.nameLabel}</label>
+                    <label className="ml-1 block"><h6 className="text-slate-300">{data.form.nameLabel}</h6></label>
                     <input 
                       type="text" 
                       name="name"
@@ -324,7 +324,7 @@ export default function RecruitmentPage() {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.emailLabel}</label>
+                    <label className="ml-1 block"><h6 className="text-slate-300">{data.form.emailLabel}</h6></label>
                     <input 
                       type="email" 
                       name="email"
@@ -339,7 +339,7 @@ export default function RecruitmentPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.posLabel}</label>
+                    <label className="ml-1 block"><h6 className="text-slate-300">{data.form.posLabel}</h6></label>
                     <select 
                       name="position"
                       value={formData.position}
@@ -355,7 +355,7 @@ export default function RecruitmentPage() {
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.linkedinLabel}</label>
+                    <label className="ml-1 block"><h6 className="text-slate-300">{data.form.linkedinLabel}</h6></label>
                     <input 
                       type="url" 
                       name="linkedin"
@@ -368,7 +368,7 @@ export default function RecruitmentPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-xs text-slate-300 font-bold uppercase tracking-widest ml-1 block">{data.form.coverLabel}</label>
+                  <label className="ml-1 block"><h6 className="text-slate-300">{data.form.coverLabel}</h6></label>
                   <textarea 
                     rows={4} 
                     name="coverLetter"
@@ -381,7 +381,7 @@ export default function RecruitmentPage() {
 
                 <button 
                 type="submit"
-                className="w-full bg-brand-red hover:bg-[#a82222] text-white font-bold py-4 rounded-xl transition-all shadow-[0_5px_15px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 mt-4 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
+                className="w-full bg-brand-red hover:bg-red-700 text-white font-bold py-4 rounded-xl transition-all shadow-[0_5px_15px_rgba(220,38,38,0.3)] hover:-translate-y-0.5 mt-4 uppercase tracking-widest text-sm flex items-center justify-center gap-3"
               >
                 {data.form.submitBtn}
                 

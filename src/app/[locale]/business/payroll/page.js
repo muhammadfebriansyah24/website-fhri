@@ -21,7 +21,7 @@ export default function PayrollOutsourcingPage() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)', backgroundSize: '60px 60px' }} />
         <div className="absolute inset-0 opacity-[0.07]" style={{ backgroundImage: 'radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="absolute -left-32 -top-32 w-[600px] h-[600px] rounded-full bg-brand-red/10 blur-[120px] pointer-events-none z-0" />
-        <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[120px] pointer-events-none z-0" />
+        <div className="absolute -right-32 -bottom-32 w-[600px] h-[600px] rounded-full bg-brand-navy/10 blur-[120px] pointer-events-none z-0" />
         <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy via-transparent to-brand-navy/80 pointer-events-none z-0" />
 
         {/* Kontainer Konten */}
@@ -36,7 +36,7 @@ export default function PayrollOutsourcingPage() {
               {data.hero.title1} <br className="hidden md:block" />
               {data.hero.title2}
             </h1>
-            <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md">
+            <p className="text-slate-300 mb-10 drop-shadow-md">
               {data.hero.description}
             </p>
           </div>
@@ -71,7 +71,7 @@ export default function PayrollOutsourcingPage() {
             <h2 className="text-brand-navy mb-6 text-balance">
               {data.core.title}
             </h2>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p>
               {data.core.description}
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function PayrollOutsourcingPage() {
                 </div>
                 
                 <h4 className="text-brand-navy mb-3 group-hover:text-brand-red transition-colors">{item.title}</h4>
-                <p className="text-sm text-slate-500 leading-relaxed flex-grow">{item.desc}</p>
+                <p className="text-teaser flex-grow">{item.desc}</p>
                 
               </article>
             ))}
@@ -137,7 +137,7 @@ export default function PayrollOutsourcingPage() {
                   <h2 className="text-brand-navy mb-6 text-balance">
                     {feature.title}
                   </h2>
-                  <p className="text-lg text-slate-600 mb-10 leading-relaxed">
+                  <p className="text-slate-600 mb-10">
                     {feature.desc}
                   </p>
                   
@@ -157,7 +157,7 @@ export default function PayrollOutsourcingPage() {
                             maskPosition: 'center',
                           }}
                         />
-                        <p className="text-base font-semibold text-brand-navy leading-relaxed">{bullet}</p>
+                        <p className="text-takeaway text-brand-navy leading-relaxed">{bullet}</p>
                       </div>
                     ))}
                   </div>

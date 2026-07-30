@@ -17,7 +17,7 @@ export default function CorporateCultureEvents() {
     <main className="min-h-screen bg-slate-50 text-brand-navy selection:bg-brand-red selection:text-white overflow-hidden">
 
       {/* SECTION 1 — HERO */}
-      <section className="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden pt-20 md:pt-0">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/business-cce-hero.jpg"
@@ -39,7 +39,7 @@ export default function CorporateCultureEvents() {
           <h1 className="text-white text-balance mb-6 md:mb-8">
             {data.hero.title}
           </h1>
-          <p className="text-slate-300 text-lg leading-relaxed max-w-xl mb-10 drop-shadow-md">
+          <p className="text-slate-300 max-w-xl mb-10 drop-shadow-md">
             {data.hero.description}
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function CorporateCultureEvents() {
           <h2 className="text-brand-navy text-balance mb-6 md:mb-8">
             {data.services.title}
           </h2>
-          <p className="text-slate-500 text-lg leading-relaxed">
+          <p className="text-slate-500">
             {data.services.description}
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function CorporateCultureEvents() {
                         unoptimized={process.env.NODE_ENV === 'development'}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent" />
-                      <div className="absolute bottom-5 left-5 text-[10px] font-bold uppercase tracking-widest text-white px-4 py-2 rounded-full backdrop-blur-md bg-brand-navy/80 border border-white/20">
+                      <div className="absolute bottom-5 left-5 text-xs font-bold uppercase tracking-widest text-white px-4 py-2 rounded-full backdrop-blur-md bg-brand-navy/80 border border-white/20">
                         {row.n} · {row.tag}
                       </div>
                     </div>
@@ -94,15 +94,15 @@ export default function CorporateCultureEvents() {
                 
                 {/* 1. Label Eyebrow di atas Judul */}
                 <div className="mb-4 md:mb-5">
-                  <span className="text-xs font-bold uppercase tracking-widest text-brand-red block drop-shadow-sm">
+                  <h5 className="text-brand-red font-semibold uppercase tracking-widest">
                     {row.tag}
-                  </span>
+                  </h5>
                 </div>
                 
                 <h3 className="text-brand-navy mb-4">
                   {row.title}
                 </h3>
-                <p className="text-slate-500 leading-relaxed max-w-xl mb-6">
+                 <p className="text-slate-500 max-w-xl mb-6">
                   {row.desc}
                 </p>
 
@@ -118,7 +118,7 @@ export default function CorporateCultureEvents() {
                 <div className="flex flex-col sm:flex-row gap-y-4 sm:gap-x-4 lg:gap-x-6 pt-8 border-t border-slate-200 w-full">
                   {row.meta.map((m, mi) => (
                     <div key={m.label} className={`flex-1 ${mi > 0 ? 'sm:pl-4 lg:pl-6 sm:border-l border-slate-200' : ''}`}>
-                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-tight mb-1">{m.label}</div>
+                      <h6 className="text-slate-400 mb-1">{m.label}</h6>
                       <div className="text-sm font-bold text-brand-navy leading-snug">{m.value}</div>
                     </div>
                   ))}
@@ -140,7 +140,7 @@ export default function CorporateCultureEvents() {
             <h2 className="text-brand-navy text-balance mb-6 md:mb-8">
               {data.approach.title}
             </h2>
-            <p className="text-slate-500 text-lg leading-relaxed">
+            <p className="text-slate-500">
               {data.approach.description}
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function CorporateCultureEvents() {
             {data.approach.steps.map((step, idx) => (
               <div
                 key={step.n}
-                className={`group relative w-full md:w-1/3 ${idx > 0 ? 'md:-ml-8' : ''} mb-6 md:mb-0`}
+                className={`group relative w-full md:w-1/3 ${idx > 0 ? 'md:-ml-8' : ''} mb-8 md:mb-0`}
                 style={{ zIndex: idx + 1 }}
               >
                 <div
@@ -171,7 +171,7 @@ export default function CorporateCultureEvents() {
                     <h3 className={`mb-4 ${step.dark ? 'text-white' : 'text-brand-navy group-hover:text-brand-red transition-colors duration-300'}`}>
                       {step.title}
                     </h3>
-                    <p className={`leading-relaxed text-sm md:text-base ${step.dark ? 'text-slate-300' : 'text-slate-500'}`}>
+                    <p className={`text-teaser ${step.dark ? 'text-slate-300' : 'text-slate-500'}`}>
                       {step.text}
                     </p>
                   </div>

@@ -94,14 +94,14 @@ export default function Testimonial() {
           
           <div key={`text-${active}`} className="relative z-10 pt-8 animate-fade-slide">
             <div className="min-h-[140px] relative z-10">
-              <p className="text-2xl md:text-3xl text-brand-navy leading-relaxed text-balance">
+              <h3 className="text-2xl md:text-3xl text-brand-navy leading-relaxed text-balance">
                 {t(`list.${currentItem.key}.quote`)}
-              </p>
+              </h3>
             </div>
             
             <div className="mt-6 md:mt-8 border-l-4 border-brand-red pl-4">
-              <h4 className="text-brand-navy mb-1">{t(`list.${currentItem.key}.name`)}</h4>
-              <p className="text-sm text-slate-500 mt-1">{t(`list.${currentItem.key}.role`)}</p>
+              <h3 className="text-brand-navy mb-1">{t(`list.${currentItem.key}.name`)}</h3>
+              <p className="text-slate-500 mt-1 block">{t(`list.${currentItem.key}.role`)}</p>
             </div>
           </div>
 

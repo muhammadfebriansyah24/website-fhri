@@ -17,7 +17,7 @@ export default function LSPPage() {
     <main className="min-h-screen bg-slate-50 text-brand-navy selection:bg-brand-red selection:text-white overflow-hidden">
 
       {/* SECTION 1 : HEADER UTAMA INSTITUT */}
-      <section className="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden pt-20 md:pt-0">
         
         {/* Background Image & Effects */}
         <div className="absolute inset-0 z-0">
@@ -48,7 +48,7 @@ export default function LSPPage() {
               {data.hero.title}
             </h1>
             
-            <p className="text-slate-300 text-lg leading-relaxed mb-10 drop-shadow-md">
+            <p className="text-slate-300 mb-10 drop-shadow-md">
               {data.hero.description}
             </p>
             
@@ -84,9 +84,9 @@ export default function LSPPage() {
 
                     <div className="relative z-10">
                       <div className="mb-4 md:mb-5">
-                        <span className="text-xs font-bold uppercase tracking-widest text-brand-red">
+                        <h5 className="text-brand-red font-semibold uppercase tracking-widest">
                           {data.labels.category} {item.number}
-                        </span>
+                        </h5>
                       </div>
                       
                       <h3 className="text-white mb-4">
@@ -96,9 +96,9 @@ export default function LSPPage() {
                         {item.description}
                       </p>
 
-                      <div className="pt-6 border-t border-white/10 flex items-center justify-between text-xs font-semibold tracking-wider uppercase text-slate-400">
-                        <span>{data.labels.status}</span>
-                        <span className="text-brand-red">{data.labels.standard}</span>
+                      <div className="pt-6 border-t border-white/10 flex items-center justify-between text-slate-400">
+                        <h5>{data.labels.status}</h5>
+                        <h5 className="text-brand-red">{data.labels.standard}</h5>
                       </div>
                     </div>
                   </div>
@@ -107,16 +107,16 @@ export default function LSPPage() {
                 {/* SISI SEBALIKNYA: DETAIL INFORMASI & FITUR */}
                 <div className="w-full lg:w-1/2 flex flex-col justify-center text-left">
                   <div className="mb-4 md:mb-5">
-                    <span className="text-xs font-bold uppercase tracking-widest text-brand-red">
+                    <h5 className="text-brand-red font-semibold uppercase tracking-widest">
                       {item.badge}
-                    </span>
+                    </h5>
                   </div>
 
                   <h2 className="text-brand-navy text-balance mb-6 md:mb-8">
                     {item.subtitle}
                   </h2>
 
-                  <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                  <p className="text-slate-500 mb-8">
                     {item.description}
                   </p>
 
@@ -151,7 +151,7 @@ export default function LSPPage() {
 
       {/* BANNER BAWAH: CALL TO ACTION */}
       <section className="py-24 md:py-32 max-w-7xl mx-auto px-6 md:px-12">
-        <div className="bg-brand-navy rounded-[2.5rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
+        <div className="bg-brand-navy rounded-[2.5rem] p-6 md:p-16 text-center text-white relative overflow-hidden shadow-2xl">
           <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -159,7 +159,7 @@ export default function LSPPage() {
             <h2 className="text-white text-balance mb-6">
               {data.ctaBanner.title}
             </h2>
-            <p className="text-slate-300 text-lg mb-10 leading-relaxed max-w-xl">
+            <p className="text-slate-300 mb-10 max-w-xl">
               {data.ctaBanner.description}
             </p>
             <div className="flex flex-wrap justify-center gap-4">

@@ -16,7 +16,7 @@ export default function HRBootcampPage() {
       {/* =========================================
           SECTION 1: HERO SECTION
           ========================================= */}
-      <section className="relative min-h-0 py-20 md:min-h-[85vh] md:py-0 flex items-center bg-brand-navy text-white overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center bg-brand-navy text-white overflow-hidden pt-20 md:pt-0">
         
         <div className="max-w-7xl mx-auto w-full px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             
@@ -30,7 +30,7 @@ export default function HRBootcampPage() {
               <h1 className="text-white text-balance mb-6 md:mb-8">
                 {data.hero.title1}<span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">{data.hero.titleHighlight}</span>
               </h1>
-              <p className="text-slate-300 max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md text-lg leading-relaxed">
+              <p className="text-slate-300 max-w-lg mx-auto lg:mx-0 mb-10 drop-shadow-md">
                 {data.hero.description}
               </p>
             </div>
@@ -98,7 +98,7 @@ export default function HRBootcampPage() {
               </h2>
             </div>
             
-            <p className="text-slate-600 text-lg leading-relaxed">
+             <p className="text-slate-600">
               {data.flagship.description}
             </p>
             
@@ -139,7 +139,7 @@ export default function HRBootcampPage() {
             <h2 className="text-brand-navy mb-4 text-balance">
               {data.pillars.title}
             </h2>
-            <p className="text-slate-500 text-lg leading-relaxed">
+            <p className="text-slate-500">
               {data.pillars.description}
             </p>
           </div>
@@ -166,12 +166,12 @@ export default function HRBootcampPage() {
               <h3 className="text-brand-navy mb-2 group-hover:text-brand-red transition-colors">
                 {data.pillars.cards[0].title}
               </h3>
-              <div className="text-brand-red text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="text-eyebrow mb-4">
                 {data.pillars.cards[0].badge}
-              </div>
-              <p className="text-slate-500 text-sm leading-relaxed flex-grow">
+              </span>
+              <small className="text-slate-500 flex-grow block">
                 {data.pillars.cards[0].desc}
-              </p>
+              </small>
             </article>
             
             {/* Pillar 2 */}
@@ -194,12 +194,12 @@ export default function HRBootcampPage() {
               <h3 className="text-brand-navy mb-2 group-hover:text-brand-red transition-colors">
                 {data.pillars.cards[1].title}
               </h3>
-              <div className="text-brand-red text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="text-eyebrow mb-4">
                 {data.pillars.cards[1].badge}
-              </div>
-              <p className="text-slate-500 text-sm leading-relaxed flex-grow">
+              </span>
+              <small className="text-slate-500 flex-grow block">
                 {data.pillars.cards[1].desc}
-              </p>
+              </small>
             </article>
             
             {/* Pillar 3 */}
@@ -222,12 +222,12 @@ export default function HRBootcampPage() {
               <h3 className="text-brand-navy mb-2 group-hover:text-brand-red transition-colors">
                 {data.pillars.cards[2].title}
               </h3>
-              <div className="text-brand-red text-xs font-bold uppercase tracking-wider mb-4">
+              <span className="text-eyebrow mb-4">
                 {data.pillars.cards[2].badge}
-              </div>
-              <p className="text-slate-500 text-sm leading-relaxed flex-grow">
+              </span>
+              <small className="text-slate-500 flex-grow block">
                 {data.pillars.cards[2].desc}
-              </p>
+              </small>
             </article>
 
           </div>
@@ -246,7 +246,7 @@ export default function HRBootcampPage() {
             <h2 className="text-white mb-6 text-balance">
               {data.outcomes.title}
             </h2>
-            <p className="text-slate-300 text-lg leading-relaxed mb-10 max-w-lg">
+            <p className="text-slate-300 mb-10 max-w-lg">
               {data.outcomes.description}
             </p>
             
@@ -268,7 +268,7 @@ export default function HRBootcampPage() {
                 />
                 <div>
                   <h4 className="text-white font-bold mb-1">{data.outcomes.features[0].title}</h4>
-                  <p className="text-slate-400 text-sm">{data.outcomes.features[0].desc}</p>
+                  <p className="text-slate-400">{data.outcomes.features[0].desc}</p>
                 </div>
               </div>
               
@@ -289,14 +289,14 @@ export default function HRBootcampPage() {
                 />
                 <div>
                   <h4 className="text-white font-bold mb-1">{data.outcomes.features[1].title}</h4>
-                  <p className="text-slate-400 text-sm">{data.outcomes.features[1].desc}</p>
+                  <p className="text-slate-400">{data.outcomes.features[1].desc}</p>
                 </div>
               </div>
             </div>
           </div>
           
           <div className="relative">
-            <div className="bg-slate-900 rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+              <div className="bg-brand-navy rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
               <div className="w-full aspect-[16/9] bg-brand-navy relative">
                   <div className="absolute top-4 left-4 text-white text-xs font-bold tracking-widest uppercase z-10 drop-shadow-md">
                     {data.outcomes.testimonial.badge}
@@ -309,11 +309,11 @@ export default function HRBootcampPage() {
                     className="object-cover opacity-80"
                   />
               </div>
-              <div className="bg-slate-800/80 backdrop-blur-md p-6 border-t border-slate-700/50">
+              <div className="bg-brand-navy/80 backdrop-blur-md p-6 border-t border-slate-700/50">
                 <p className="text-white text-lg font-medium italic mb-2">
                   {data.outcomes.testimonial.quote}
                 </p>
-                <p className="text-slate-300 text-sm">{data.outcomes.testimonial.author}</p>
+                <small className="text-slate-400">{data.outcomes.testimonial.author}</small>
               </div>
             </div>
           </div>

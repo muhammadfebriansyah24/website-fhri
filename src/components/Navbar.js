@@ -71,7 +71,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 bg-white text-[#00263C] shadow-md z-50">
+    <nav className="sticky top-0 bg-white text-brand-navy shadow-md z-50">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 relative">
         
         {/* COMPANY LOGO */}
@@ -90,17 +90,17 @@ export default function Navbar() {
         </Link>
 
         {/* DESKTOP LINKS */}
-        <div className="hidden lg:flex items-center gap-7 text-[#00263C]/90 font-medium text-sm">
+        <div className="hidden lg:flex items-center gap-7 text-brand-navy/90 font-medium text-sm">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.label} className="py-2" ref={dropdownRef}>
                 <button 
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex items-center gap-1.5 text-[#00263C] hover:text-[#DC0017] font-semibold transition-colors focus:outline-none cursor-pointer"
+                  className="flex items-center gap-1.5 text-brand-navy hover:text-brand-red font-semibold transition-colors focus:outline-none cursor-pointer"
                 >
                   {link.label}
                   <div 
-                    className={`w-3.5 h-3.5 mt-0.5 bg-current shrink-0 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-[#DC0017]' : ''}`}
+                    className={`w-3.5 h-3.5 mt-0.5 bg-current shrink-0 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-brand-red' : ''}`}
                     style={{
                       WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
                       WebkitMaskSize: 'contain',
@@ -124,7 +124,7 @@ export default function Navbar() {
                           <button 
                             key={tab.id}
                             onClick={() => setActiveTabId(tab.id)}
-                            className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-left text-[13px] font-semibold transition ${activeTabId === tab.id ? 'bg-[#0B2A4A] text-white shadow-md' : 'text-gray-600 hover:bg-gray-50 hover:text-[#0B2A4A]'}`}
+                            className={`flex items-center justify-between w-full px-3.5 py-2.5 rounded-xl text-left text-sm font-semibold transition ${activeTabId === tab.id ? 'bg-brand-navy text-white shadow-md' : 'text-slate-600 hover:bg-slate-50 hover:text-brand-navy'}`}
                           >
                             <span className="flex items-center gap-3">
                               <DynamicIcon name={tab.icon} className="w-4 h-4 shrink-0" />
@@ -139,12 +139,12 @@ export default function Navbar() {
                     <div className="w-[65%] flex flex-col justify-between pl-2">
                       <div>
                         <div className="flex items-center gap-3.5 mb-5">
-                          <div className="w-11 h-11 bg-[#0B2A4A] rounded-xl flex items-center justify-center text-white shadow-sm shrink-0">
+                          <div className="w-11 h-11 bg-brand-navy rounded-xl flex items-center justify-center text-white shadow-sm shrink-0">
                             <DynamicIcon name={activeTabData.icon} className="w-6 h-6" />
                           </div>
                           <div>
-                            <h3 className="text-lg font-bold text-[#0B2A4A] leading-tight">{activeTabData.title}</h3>
-                            <p className="text-xs text-gray-500 mt-0.5">{activeTabData.subtitle}</p>
+                            <h3 className="text-base font-bold text-brand-navy leading-tight">{activeTabData.title}</h3>
+                            <p className="text-xs text-slate-500 mt-0.5">{activeTabData.subtitle}</p>
                           </div>
                         </div>
 
@@ -152,13 +152,13 @@ export default function Navbar() {
                           {activeTabData.subMenus.map((item, idx) => (
                             <div key={idx} className="group relative rounded-[1.25rem] bg-gradient-to-b from-slate-50 to-white p-1 ring-1 ring-black/[0.04] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-2 hover:ring-[#DC0017]/20 hover:shadow-[0_28px_48px_-18px_rgba(21,60,86,0.24)]">
                               <div className="relative h-full rounded-[calc(1.25rem-0.25rem)] bg-white p-4 overflow-hidden transition-colors duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-gradient-to-br group-hover:from-white group-hover:to-red-50/50">
-                                <span className="absolute -right-1 -top-2 text-[2.75rem] font-bold text-slate-50 leading-none select-none transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:text-[#DC0017]/[0.07] group-hover:scale-110">
+                                <span className="absolute -right-1 -top-2 text-[2.75rem] font-bold text-slate-50 leading-none select-none transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:text-brand-red/[0.07] group-hover:scale-110">
                                   {String(idx + 1).padStart(2, '0')}
                                 </span>
                                 <div className="relative flex items-start justify-between gap-2">
-                                  <h4 className="text-[13px] font-bold text-[#0B2A4A] leading-snug pr-1 transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:text-[#DC0017]">{item.title}</h4>
+                                  <h4 className="text-sm font-bold text-brand-navy leading-snug pr-1 transition-colors duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:text-brand-red">{item.title}</h4>
                                 </div>
-                                <p className="relative text-[11.5px] text-gray-500 leading-relaxed mt-1.5 line-clamp-2">{item.desc}</p>
+                                <p className="relative text-xs text-slate-500 leading-relaxed mt-1.5 line-clamp-2">{item.desc}</p>
                                 <span className="absolute left-4 right-4 bottom-3 h-[2px] rounded-full bg-[#DC0017] origin-left scale-x-0 transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-x-100" />
                               </div>
                             </div>
@@ -170,7 +170,7 @@ export default function Navbar() {
                         <Link 
                           href={`/${locale}${activeTabData.path}`} 
                           onClick={() => setDropdownOpen(false)}
-                          className="inline-flex items-center gap-2 bg-[#0B2A4A] hover:bg-blue-950 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition duration-200 shadow-sm"
+                          className="inline-flex items-center gap-2 bg-brand-navy hover:bg-brand-navy/80 text-white text-xs font-semibold px-5 py-2.5 rounded-full transition duration-200 shadow-sm"
                         >
                           {data.ui.learnMore}
                           <div 
@@ -193,7 +193,7 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <Link key={link.label} href={`/${locale}${link.href}`} className="hover:text-[#DC0017] transition-colors py-2">
+              <Link key={link.label} href={`/${locale}${link.href}`} className="hover:text-brand-red transition-colors py-2">
                 {link.label}
               </Link>
             )
@@ -204,23 +204,23 @@ export default function Navbar() {
             <div className="flex items-center bg-slate-100/80 rounded-full p-1 border border-slate-200/60 shadow-inner">
               <button 
                 onClick={() => handleLanguageChange('en')}
-                className={`px-3.5 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-bold transition-all duration-300 ${
-                  locale === 'en' ? 'bg-white text-[#DC0017] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-[#00263C]'
+                className={`px-3.5 py-1.5 rounded-full text-xs uppercase tracking-wider font-bold transition-all duration-300 ${
+                  locale === 'en' ? 'bg-white text-brand-red shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-brand-navy'
                 }`}
               >
                 EN
               </button>
               <button 
                 onClick={() => handleLanguageChange('id')}
-                className={`px-3.5 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-bold transition-all duration-300 ${
-                  locale === 'id' ? 'bg-white text-[#DC0017] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-[#00263C]'
+                className={`px-3.5 py-1.5 rounded-full text-xs uppercase tracking-wider font-bold transition-all duration-300 ${
+                  locale === 'id' ? 'bg-white text-brand-red shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-brand-navy'
                 }`}
               >
                 ID
               </button>
             </div>
 
-            <Link href={`/${locale}/join-us`} className="bg-[#E60000] hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5">
+            <Link href={`/${locale}/join-us`} className="bg-brand-red hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5">
               {t('join')}
             </Link>
           </div>
@@ -228,7 +228,7 @@ export default function Navbar() {
 
         {/* MOBILE HAMBURGER MENU */}
         <button
-          className="lg:hidden text-[#00263C] hover:text-[#DC0017] focus:outline-none"
+          className="lg:hidden text-brand-navy hover:text-brand-red focus:outline-none"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -250,9 +250,9 @@ export default function Navbar() {
 
       {/* MOBILE PANEL */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-blue-900/40 px-6 py-5 flex flex-col gap-4 text-[#00263C]/90 font-medium text-sm shadow-inner max-h-[70vh] overflow-y-auto">
+        <div className="lg:hidden bg-white border-t border-blue-900/40 px-6 py-5 flex flex-col gap-4 text-brand-navy/90 font-medium text-sm shadow-inner max-h-[70vh] overflow-y-auto">
           <div className="border-b border-gray-100 pb-4 mb-3">
-            <span className="block text-[10px] font-bold text-gray-400 mb-2.5 uppercase tracking-[0.15em]">{t('business')}</span>
+            <span className="block text-xs font-bold text-slate-400 mb-2.5 uppercase tracking-[0.15em]">{t('business')}</span>
             <div className="flex flex-col gap-2">
               {businessTabs.map((tab) => {
                 const isOpen = expandedBizTab === tab.id;
@@ -260,10 +260,10 @@ export default function Navbar() {
                   <div key={tab.id} className="rounded-2xl bg-gradient-to-b from-slate-50 to-white p-1 ring-1 ring-black/[0.04] transition-colors duration-500">
                     <button onClick={() => setExpandedBizTab(isOpen ? null : tab.id)} className="w-full flex items-center justify-between rounded-[1rem] bg-white px-3.5 py-3 text-left">
                       <span className="flex items-center gap-3">
-                        <span className="w-8 h-8 rounded-lg bg-[#0B2A4A]/5 flex items-center justify-center shrink-0">
-                          <DynamicIcon name={tab.icon} className="w-4 h-4 text-[#0B2A4A]" />
+                        <span className="w-8 h-8 rounded-lg bg-brand-navy/5 flex items-center justify-center shrink-0">
+                          <DynamicIcon name={tab.icon} className="w-4 h-4 text-brand-navy" />
                         </span>
-                        <span className="text-[13px] font-bold text-[#0B2A4A]">{tab.title}</span>
+                        <span className="text-sm font-bold text-brand-navy">{tab.title}</span>
                       </span>
                       
                       {/* ICON CHEVRON DOWN */}
@@ -285,12 +285,12 @@ export default function Navbar() {
                       <div className="overflow-hidden">
                         <div className="flex flex-col gap-0.5 px-2 pt-2 pb-1">
                           {tab.subMenus.map((item, i) => (
-                            <Link key={i} href={`/${locale}${tab.path}`} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-xs text-gray-500 hover:text-[#DC0017] py-1.5 px-2">
-                              <span className="w-1 h-1 rounded-full bg-[#DC0017]/40 shrink-0" />
+                            <Link key={i} href={`/${locale}${tab.path}`} onClick={() => setMobileOpen(false)} className="flex items-center gap-2 text-xs text-slate-500 hover:text-brand-red py-1.5 px-2">
+                              <span className="w-1 h-1 rounded-full bg-brand-red/40 shrink-0" />
                               {item.title}
                             </Link>
                           ))}
-                          <Link href={`/${locale}${tab.path}`} onClick={() => setMobileOpen(false)} className="text-xs font-bold text-[#DC0017] py-2 px-2">
+                          <Link href={`/${locale}${tab.path}`} onClick={() => setMobileOpen(false)} className="text-xs font-bold text-brand-red py-2 px-2">
                             {data.ui.viewAll}
                           </Link>
                         </div>
@@ -302,29 +302,29 @@ export default function Navbar() {
             </div>
           </div>
           
-          <Link href={`/${locale}/tips-and-trick`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('tips')}</Link>
-          <Link href={`/${locale}/pricing`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('pricing')}</Link>
-          <Link href={`/${locale}/recruitment`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('recruitment')}</Link>
-          <Link href={`/${locale}/about`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('about')}</Link>
-          <Link href={`/${locale}/newsletter`} onClick={() => setMobileOpen(false)} className="hover:text-[#DC0017] py-1 font-semibold">{t('news')}</Link>
+          <Link href={`/${locale}/tips-and-trick`} onClick={() => setMobileOpen(false)} className="hover:text-brand-red py-1 font-semibold">{t('tips')}</Link>
+          <Link href={`/${locale}/pricing`} onClick={() => setMobileOpen(false)} className="hover:text-brand-red py-1 font-semibold">{t('pricing')}</Link>
+          <Link href={`/${locale}/recruitment`} onClick={() => setMobileOpen(false)} className="hover:text-brand-red py-1 font-semibold">{t('recruitment')}</Link>
+          <Link href={`/${locale}/about`} onClick={() => setMobileOpen(false)} className="hover:text-brand-red py-1 font-semibold">{t('about')}</Link>
+          <Link href={`/${locale}/newsletter`} onClick={() => setMobileOpen(false)} className="hover:text-brand-red py-1 font-semibold">{t('news')}</Link>
           
           <div className="flex items-center justify-between pt-4 mt-2 border-t border-gray-100">
             <div className="flex items-center bg-slate-100/80 rounded-full p-1 border border-slate-200/60 shadow-inner">
               <button 
                 onClick={() => handleLanguageChange('en')}
-                className={`px-4 py-2 rounded-full text-[11px] uppercase tracking-wider font-bold transition-all duration-300 ${locale === 'en' ? 'bg-white text-[#DC0017] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-[#00263C]'}`}
+                className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-bold transition-all duration-300 ${locale === 'en' ? 'bg-white text-brand-red shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-brand-navy'}`}
               >
                 EN
               </button>
               <button 
                 onClick={() => handleLanguageChange('id')}
-                className={`px-4 py-2 rounded-full text-[11px] uppercase tracking-wider font-bold transition-all duration-300 ${locale === 'id' ? 'bg-white text-[#DC0017] shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-[#00263C]'}`}
+                className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider font-bold transition-all duration-300 ${locale === 'id' ? 'bg-white text-brand-red shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-brand-navy'}`}
               >
                 ID
               </button>
             </div>
 
-            <Link href={`/${locale}/join-us`} onClick={() => setMobileOpen(false)} className="bg-[#E60000] text-white px-5 py-2.5 rounded-full font-bold text-center shadow-md">
+            <Link href={`/${locale}/join-us`} onClick={() => setMobileOpen(false)} className="bg-brand-red text-white px-5 py-2.5 rounded-full font-bold text-center shadow-md">
               {t('join')}
             </Link>
           </div>

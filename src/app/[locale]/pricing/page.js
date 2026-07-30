@@ -65,7 +65,7 @@ export default function PricingPage() {
                   <p className="text-teaser">{data.plans.bootcamp.desc}</p>
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
-                  <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{isYearly ? data.plans.bootcamp.priceYearly : data.plans.bootcamp.priceMonthly}</div>
+                  <div className="text-4xl font-bold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{isYearly ? data.plans.bootcamp.priceYearly : data.plans.bootcamp.priceMonthly}</div>
                   <p className="text-sm font-bold text-slate-500">{isYearly ? data.plans.bootcamp.periodYearly : data.plans.bootcamp.periodMonthly}</p>
                 </div>
               </div>
@@ -89,7 +89,7 @@ export default function PricingPage() {
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
                   {isYearly && <span className="line-through text-slate-400 text-sm block mb-1 font-bold">{data.plans.academy.originalPriceYearly}</span>}
-                  <div className="text-4xl font-extrabold text-brand-red mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-brand-navy">Rp</span>{isYearly ? data.plans.academy.priceYearly : data.plans.academy.priceMonthly}</div>
+                  <div className="text-4xl font-bold text-brand-red mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-brand-navy">Rp</span>{isYearly ? data.plans.academy.priceYearly : data.plans.academy.priceMonthly}</div>
                   <div className="flex items-center gap-2">
                     <p className="text-sm text-slate-500 font-bold">{isYearly ? data.plans.academy.periodYearly : data.plans.academy.periodMonthly}</p>
                     {isYearly && <span className="text-sm font-bold text-brand-red">{data.plans.academy.highlightText}</span>}
@@ -113,7 +113,7 @@ export default function PricingPage() {
                 </div>
                 <div className="flex-grow flex flex-col justify-center mt-2">
                   <div className="text-sm text-slate-400 mb-1 font-bold">{data.plans.team.startingFrom}</div>
-                  <div className="text-4xl font-extrabold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{data.plans.team.price}</div>
+                  <div className="text-4xl font-bold mb-1 tracking-tight"><span className="text-xl mr-1 font-bold text-slate-400">Rp</span>{data.plans.team.price}</div>
                   <p className="text-sm font-bold text-slate-500">{data.plans.team.period}</p>
                 </div>
               </div>
@@ -137,7 +137,7 @@ export default function PricingPage() {
       </section>
 
       {/* SECTION 2: COMPARE PLANS */}
-      <section id="compare" className="py-24 md:py-32 bg-white text-brand-navy px-6 md:px-12 relative pb-40">
+      <section id="compare" className="py-24 md:py-32 bg-white text-brand-navy px-6 md:px-12 relative pb-20 md:pb-40">
         <div className="max-w-6xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -145,7 +145,7 @@ export default function PricingPage() {
               {data.compare.eyebrow}
             </span>
             <h2 className="text-brand-navy mb-6">{data.compare.title}</h2>
-            <p className="text-slate-600">{data.compare.subtitle}</p>
+            <p>{data.compare.subtitle}</p>
           </div>
 
           <div className="w-full overflow-x-auto shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[1.75rem] ring-1 ring-slate-100">
@@ -172,9 +172,9 @@ export default function PricingPage() {
               {data.compare.groupedFeatures.map((group, groupIdx) => (
                 <div key={groupIdx}>
                   <div className="grid grid-cols-4 bg-slate-50 border-b border-slate-100">
-                    <div className="col-span-4 p-4 pl-8 text-sm font-bold text-brand-navy uppercase tracking-widest">
+                    <h6 className="col-span-4 p-4 pl-8 text-brand-navy">
                       {group.category}
-                    </div>
+                    </h6>
                   </div>
 
                   {group.items.map((feature, featureIdx) => (
@@ -238,11 +238,11 @@ export default function PricingPage() {
 
       {/* SECTION 3: INLINE CTA */}
 
-      <section className="bg-white relative py-12 md:py-24 px-6 md:px-12 -mt-16 z-20">
-        <div className="max-w-6xl mx-auto bg-gradient-to-br from-brand-navy to-[#0B2A4A] rounded-[2.5rem] md:rounded-[3rem] text-white py-16 md:py-20 px-6 md:px-12 relative overflow-hidden shadow-2xl border border-slate-800">
+      <section className="bg-white relative py-12 md:py-24 px-6 md:px-12 -mt-8 md:-mt-16 z-20">
+        <div className="max-w-6xl mx-auto bg-gradient-to-br from-brand-navy to-brand-navy rounded-[2.5rem] md:rounded-[3rem] text-white py-16 md:py-20 px-6 md:px-12 relative overflow-hidden shadow-2xl border border-slate-800">
           <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '30px 30px' }}></div>
           <div className="absolute -top-24 -right-24 w-96 h-96 bg-brand-red/30 rounded-full blur-3xl pointer-events-none"></div>
-          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-brand-navy/20 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="max-w-3xl mx-auto text-center relative z-10">
             <span className="text-eyebrow-lg block mb-6">{data.ctaBanner.eyebrow}</span>
@@ -250,7 +250,7 @@ export default function PricingPage() {
             <p className="text-slate-300 mb-10">
               {data.ctaBanner.description}
             </p>
-            <Link href={`/${locale}/join-us`} className="inline-flex items-center justify-center bg-brand-red text-white px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:bg-[#a82222] shadow-[0_10px_25px_rgba(201,42,42,0.4)] text-sm font-bold uppercase tracking-widest">
+            <Link href={`/${locale}/join-us`} className="inline-flex items-center justify-center bg-brand-red text-white px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:bg-red-700 shadow-[0_10px_25px_rgba(201,42,42,0.4)] text-sm font-bold uppercase tracking-widest">
               {data.ctaBanner.button}
             </Link>
           </div>
@@ -286,7 +286,7 @@ function FeatureItem({ text, active = false }) {
         />
       </div>
 
-      <span className={`text-[13.5px] leading-relaxed ${active ? 'text-white' : 'text-slate-400'}`}>
+      <span className={`text-sm leading-relaxed ${active ? 'text-white' : 'text-slate-400'}`}>
         {text}
       </span>
 

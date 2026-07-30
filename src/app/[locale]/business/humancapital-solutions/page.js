@@ -14,7 +14,7 @@ export default function HumanCapitalSolutions() {
     <main className="min-h-screen bg-slate-50 text-brand-navy selection:bg-brand-red selection:text-white overflow-hidden">
       
       {/* SECTION 1 — HERO SECTION */}
-      <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy text-white overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy text-white overflow-hidden pt-20 md:pt-0">
         <div className="absolute inset-0">
           <Image
             src="/images/business-hcs-hero.jpg"
@@ -34,7 +34,7 @@ export default function HumanCapitalSolutions() {
           <h1 className="text-white max-w-4xl text-balance mb-6 md:mb-8">
             {data.hero.title}
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-2xl drop-shadow-md mb-10">
+          <p className="text-slate-300 max-w-2xl drop-shadow-md mb-10">
             {data.hero.description}
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function HumanCapitalSolutions() {
           <h2 className="text-brand-navy mt-6 mb-4 text-balance">
             {data.pillars.title}
           </h2>
-          <p className="text-lg text-slate-600 leading-relaxed">
+          <p className="text-slate-600">
             {data.pillars.description}
           </p>
         </div>
@@ -62,8 +62,8 @@ export default function HumanCapitalSolutions() {
           <div className="lg:col-span-7 group bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-md hover:shadow-2xl hover:shadow-brand-red/10 hover:border-brand-red/30 hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-8">
-                <span className="text-sm font-bold tracking-widest uppercase text-slate-400">{data.pillars.card1.pillar}</span>
-                <span className="text-sm font-bold uppercase tracking-widest text-brand-red">
+                <span className="text-eyebrow text-slate-400">{data.pillars.card1.pillar}</span>
+                <span className="text-eyebrow">
                   {data.pillars.card1.badge}
                 </span>
               </div>
@@ -73,9 +73,9 @@ export default function HumanCapitalSolutions() {
                   <h3 className="text-brand-navy mb-4 group-hover:text-brand-red transition-colors">
                     {data.pillars.card1.title}
                   </h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6">
+                  <small className="text-slate-500 mb-6 block">
                     {data.pillars.card1.desc}
-                  </p>
+                  </small>
 
                   <ul className="space-y-4">
                     {data.pillars.card1.bullets.map((item, idx) => (
@@ -122,8 +122,8 @@ export default function HumanCapitalSolutions() {
           <div className="lg:col-span-5 group bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-md hover:shadow-2xl hover:shadow-brand-navy/10 hover:border-brand-navy/30 hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-8">
-                <span className="text-sm font-bold tracking-widest uppercase text-slate-400">{data.pillars.card2.pillar}</span>
-                <span className="text-sm font-bold uppercase tracking-widest text-brand-navy">
+                <span className="text-eyebrow text-slate-400">{data.pillars.card2.pillar}</span>
+                <span className="text-eyebrow">
                   {data.pillars.card2.badge}
                 </span>
               </div>
@@ -141,9 +141,9 @@ export default function HumanCapitalSolutions() {
               <h3 className="text-brand-navy mb-4 group-hover:text-brand-red transition-colors">
                 {data.pillars.card2.title}
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
+              <small className="text-slate-500 block leading-relaxed">
                 {data.pillars.card2.desc}
-              </p>
+              </small>
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-100 group-hover:border-brand-navy/20 transition-colors duration-500 flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
@@ -156,8 +156,8 @@ export default function HumanCapitalSolutions() {
           <div className="lg:col-span-5 group bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-md hover:shadow-2xl hover:shadow-brand-navy/10 hover:border-brand-navy/30 hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-8">
-                <span className="text-sm font-bold tracking-widest uppercase text-slate-400">{data.pillars.card3.pillar}</span>
-                <span className="text-sm font-bold uppercase tracking-widest text-brand-navy">
+                <span className="text-eyebrow text-slate-400">{data.pillars.card3.pillar}</span>
+                <span className="text-eyebrow">
                   {data.pillars.card3.badge}
                 </span>
               </div>
@@ -175,9 +175,9 @@ export default function HumanCapitalSolutions() {
               <h3 className="text-brand-navy mb-4 group-hover:text-brand-red transition-colors">
                 {data.pillars.card3.title}
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed">
+              <small className="text-slate-500 block leading-relaxed">
                 {data.pillars.card3.desc}
-              </p>
+              </small>
             </div>
 
             <div className="mt-8 pt-6 border-t border-slate-100 group-hover:border-brand-navy/20 transition-colors duration-500 flex items-center justify-between text-xs font-bold text-slate-400 uppercase tracking-widest">
@@ -190,28 +190,28 @@ export default function HumanCapitalSolutions() {
           <div className="lg:col-span-7 group bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-md hover:shadow-2xl hover:shadow-brand-red/10 hover:border-brand-red/30 hover:-translate-y-2 transition-all duration-500 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-8">
-                <span className="text-sm font-bold tracking-widest uppercase text-slate-400">{data.pillars.card4.pillar}</span>
-                <div className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-brand-red">
+                <span className="text-eyebrow text-slate-400">{data.pillars.card4.pillar}</span>
+                <div className="flex items-center gap-2 text-brand-red">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-red animate-pulse" />
-                  {data.pillars.card4.badge}
+                  <span className="text-eyebrow">{data.pillars.card4.badge}</span>
                 </div>
               </div>
 
               <h3 className="text-brand-navy mb-4 group-hover:text-brand-red transition-colors text-balance">
                 {data.pillars.card4.title}
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed max-w-xl">
+              <small className="text-slate-500 max-w-xl block leading-relaxed">
                 {data.pillars.card4.desc}
-              </p>
+              </small>
 
               <div className="mt-10 grid grid-cols-2 gap-4 md:gap-6 relative z-10">
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 group-hover:border-brand-red/20 group-hover:-translate-y-1 group-hover:shadow-md transition-all duration-500">
                   <span className="block text-3xl md:text-5xl font-bold text-brand-red mb-2">94%</span>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">{data.pillars.card4.stat1Label}</span>
+                  <h6 className="text-slate-400">{data.pillars.card4.stat1Label}</h6>
                 </div>
                 <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 group-hover:border-brand-navy/20 group-hover:-translate-y-1 group-hover:shadow-md transition-all duration-500">
                   <span className="block text-3xl md:text-5xl font-bold text-brand-navy mb-2">&lt;45 {locale === 'id' ? 'Hari' : 'Days'}</span>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">{data.pillars.card4.stat2Label}</span>
+                  <h6 className="text-slate-400">{data.pillars.card4.stat2Label}</h6>
                 </div>
               </div>
             </div>
@@ -236,7 +236,7 @@ export default function HumanCapitalSolutions() {
             <h2 className="text-brand-navy mt-6 mb-4 text-balance">
               {data.process.title}
             </h2>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p className="text-slate-600">
               {data.process.description}
             </p>
           </div>
@@ -261,9 +261,9 @@ export default function HumanCapitalSolutions() {
                   />
                 </div>
 
-                <span className="text-sm font-bold text-brand-red uppercase tracking-widest mb-3">{step.stepLabel}</span>
-                <h3 className="text-brand-navy mb-4 group-hover:text-brand-red transition-colors">{step.title}</h3>
-                <p className="text-slate-600 text-base leading-relaxed">{step.text}</p>
+                <h5 className="text-brand-red mb-3 font-bold">{step.stepLabel}</h5>
+                <h4 className="text-brand-navy mb-4 group-hover:text-brand-red transition-colors">{step.title}</h4>
+                <p className="text-slate-600">{step.text}</p>
                 
               </div>
             ))}
