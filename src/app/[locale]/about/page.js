@@ -53,7 +53,7 @@ function CustomStyles() {
 
 function HeroSection({ data }) {
   return (
-    <section className="relative bg-brand-navy text-white pt-32 pb-24 md:pt-44 md:pb-48 px-6 md:px-12 overflow-hidden flex items-center min-h-[90vh]">
+    <section className="relative bg-brand-navy text-white pt-20 pb-24 md:pt-28 md:pb-48 px-6 md:px-12 overflow-hidden flex items-center min-h-[85vh]">
       {/* ... kode background & styling ... */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-brand-navy/50 to-brand-navy z-10 pointer-events-none"></div>
@@ -75,7 +75,7 @@ function HeroSection({ data }) {
             {data.hero.description}
           </p>
 
-          <div className="mt-8 flex flex-wrap justify-center lg:justify-start items-center gap-6">
+          <div className="mt-8 flex flex-wrap lg:flex-nowrap justify-center lg:justify-start items-center gap-4 lg:gap-5">
             
             <a 
               href="https://drive.google.com/drive/folders/1xIUOT87rDa68WRlb6WOmyiZv1rhYvT52?usp=sharing" 
@@ -262,9 +262,9 @@ function CoreValuesSection({ data }) {
     <section className="py-24 px-6 md:px-12 bg-slate-50 border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <h6 className="gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
+          <span className="gradient-gold text-eyebrow-lg text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             {data.coreValues.eyebrow}
-          </h6>
+          </span>
           <h2 className="text-brand-navy mb-6">{data.coreValues.title}</h2>
           <p>{data.coreValues.description}</p>
         </div>
@@ -310,9 +310,9 @@ function ExecutiveProfilesSection({ data }) {
       <div className="max-w-6xl mx-auto relative z-10">
         
         <div className="text-center mb-16 md:mb-20">
-          <h6 className="gradient-gold text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
+          <span className="gradient-gold text-eyebrow-lg text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             {data.executive.eyebrow}
-          </h6>
+          </span>
           <h2 className="text-brand-navy mb-6">{data.executive.title}</h2>
           <p className="max-w-2xl mx-auto">{data.executive.subtitle}</p>
         </div>
