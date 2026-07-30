@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="flex flex-col gap-6">
             <Link href={`/${locale}`}>
               <Image
-                src="/fhri-logo.png"
+                src="/images/fhri-logo.png"
                 alt="First HR Indonesia"
                 width={140}
                 height={36}
