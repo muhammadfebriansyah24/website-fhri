@@ -260,13 +260,13 @@ export const getAboutData = (locale) => {
           role: 'Senior Trainer & Senior Facilitator', 
           image: '/images/profile_wawan.jpg',
           summary: [
-            "Wawan Kurniawan adalah seorang profesional di bidang Learning Experience yang berpengalaman dengan lebih dari 12 tahun dalam merancang dan memfasilitasi program pembelajaran berbasis pengalaman (experiential learning) untuk perusahaan, institusi pendidikan, lembaga pemerintahan, dan komunitas. Dengan spesialisasi pada Experiential Learning Model yang dikembangkan oleh David Kolb, beliau mentransformasikan proses pembelajaran menjadi peningkatan kinerja di tempat kerja yang terukur melalui metodologi pembelajaran yang imersif dan berbasis pengalaman.",
+            "Wawan Kurniawan adalah seorang profesional di bidang Experiential learning yang berpengalaman dengan lebih dari 12 tahun dalam merancang dan memfasilitasi program pembelajaran berbasis pengalaman (experiential learning) untuk perusahaan, institusi pendidikan, lembaga pemerintahan, dan komunitas. Dengan spesialisasi pada Experiential Learning Model yang dikembangkan oleh David Kolb, beliau mentransformasikan proses pembelajaran menjadi peningkatan kinerja di tempat kerja yang terukur melalui metodologi pembelajaran yang imersif dan berbasis pengalaman.",
             "Sebagai seorang dosen dalam bidang Experiential Learning for Special Interest Tourism, Wawan memadukan keunggulan akademik dengan praktik industri melalui perancangan pengalaman pembelajaran yang mengembangkan kemampuan kepemimpinan, kerja sama tim, komunikasi, dan pemecahan masalah, sekaligus mendorong perubahan perilaku yang berkelanjutan.",
             "Keahliannya mencakup Experiential Learning Design, Leadership & Team Development, Facilitation Excellence, Outdoor & Indoor Learning Programs, Curriculum Development, serta Reflection & Debriefing Methodology. Dikenal mampu menghadirkan pengalaman pembelajaran dengan tujuan yang jelas, standar keselamatan yang tinggi, dan hasil bisnis yang terukur, beliau membantu organisasi membangun tim berkinerja tinggi dan talenta yang siap menghadapi kebutuhan masa depan melalui pembelajaran yang menginspirasi tindakan serta menciptakan dampak organisasi yang berkelanjutan."
           ]
         },
         { 
-          name: 'Laura Milka Valencia', 
+          name: 'Laura Milka Valencia',
           role: 'Talent Acquisition', 
           image: '/images/profile_laura.jpg',
           summary: [
