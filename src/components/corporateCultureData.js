@@ -23,7 +23,7 @@ export const getCorporateCultureData = (locale) => {
               { label: 'Durasi', value: 'Intensif 1–2 Hari' },
               { label: 'Terbaik Untuk', value: 'Garis Depan & Manajemen Menengah' },
             ],
-            img: 'https://images.unsplash.com/photo-1558698972-c50e325e6799?q=80&w=1400&auto=format&fit=crop',
+            img: '/images/business-cce-workshop.jpg',
             rotate: '-rotate-2',
           },
           {
@@ -38,7 +38,7 @@ export const getCorporateCultureData = (locale) => {
               { label: 'Skala', value: '50–2.000+ Peserta' },
               { label: 'Terbaik Untuk', value: 'Tim HR & Komunikasi Korporat' },
             ],
-            img: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?q=80&w=1400&auto=format&fit=crop',
+            img: '/images/business-cce-event.jpg',
             rotate: 'rotate-2',
           },
           {
@@ -53,7 +53,7 @@ export const getCorporateCultureData = (locale) => {
               { label: 'Lokasi', value: 'Berbagai Lokasi Nasional' },
               { label: 'Terbaik Untuk', value: 'Lintas Fungsi & Kepemimpinan' },
             ],
-            img: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?q=80&w=1400&auto=format&fit=crop',
+            img: '/images/business-cce-team.jpg',
             rotate: '-rotate-2',
           },
         ]
@@ -113,7 +113,7 @@ export const getCorporateCultureData = (locale) => {
             { label: 'Duration', value: '1–2 Day Intensive' },
             { label: 'Best For', value: 'Frontline & Mid-Management' },
           ],
-          img: 'https://images.unsplash.com/photo-1558698972-c50e325e6799?q=80&w=1400&auto=format&fit=crop',
+          img: '/images/business-cce-workshop.jpg',
           rotate: '-rotate-2',
         },
         {
@@ -128,7 +128,7 @@ export const getCorporateCultureData = (locale) => {
             { label: 'Scale', value: '50–2,000+ Attendees' },
             { label: 'Best For', value: 'HR & Corporate Comms Teams' },
           ],
-          img: 'https://images.unsplash.com/photo-1558008258-3256797b43f3?q=80&w=1400&auto=format&fit=crop',
+          img: '/images/business-cce-event.jpg',
           rotate: 'rotate-2',
         },
         {
@@ -143,7 +143,7 @@ export const getCorporateCultureData = (locale) => {
             { label: 'Location', value: 'Nationwide Venues' },
             { label: 'Best For', value: 'Cross-Functional & Leadership' },
           ],
-          img: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?q=80&w=1400&auto=format&fit=crop',
+          img: '/images/business-cce-team.jpg',
           rotate: '-rotate-2',
         },
       ]

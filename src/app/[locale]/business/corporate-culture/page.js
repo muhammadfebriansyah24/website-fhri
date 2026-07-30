@@ -20,11 +20,11 @@ export default function CorporateCultureEvents() {
       <section className="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1531547977107-a5f0f32d6d87?q=80&w=2400&auto=format&fit=crop"
-            alt="Indonesian Professionals Collaborating in a Relaxed Office Culture Setting"
+            src="/images/business-cce-hero.jpg"
+            alt="Peoples Gathering in a Hall"
             fill
             className="object-cover grayscale-[0.3]"
-            unoptimized
+            unoptimized={process.env.NODE_ENV === 'development'}
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-brand-navy/20" />
@@ -78,7 +78,7 @@ export default function CorporateCultureEvents() {
                         alt={row.title}
                         fill
                         className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out"
-                        unoptimized
+                        unoptimized={process.env.NODE_ENV === 'development'}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent" />
                       <div className="absolute bottom-5 left-5 text-[10px] font-bold uppercase tracking-widest text-white px-4 py-2 rounded-full backdrop-blur-md bg-brand-navy/80 border border-white/20">

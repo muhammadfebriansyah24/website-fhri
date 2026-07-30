@@ -125,6 +125,7 @@ export default function TipsAndTricks() {
             src="/images/tthr-hero.jpg"
             alt="Calm, focused workplace"
             fill
+            unoptimized={process.env.NODE_ENV === 'development'}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-brand-navy/80" />

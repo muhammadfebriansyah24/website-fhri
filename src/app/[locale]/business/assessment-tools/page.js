@@ -58,7 +58,7 @@ export default function AssessmentToolsPage() {
                     src="/images/business-at-hero.jpg" 
                     alt="Data Analytics Dashboard" 
                     fill
-                    unoptimized
+                    unoptimized={process.env.NODE_ENV === 'development'}
                     className="object-cover opacity-90 rounded-b-xl transition-transform duration-700 group-hover:scale-105" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent"></div>
@@ -211,7 +211,7 @@ export default function AssessmentToolsPage() {
                     src={data.portfolio.tabs[activeTab].image} 
                     alt={data.portfolio.tabs[activeTab].title}
                     fill
-                    unoptimized
+                    unoptimized={process.env.NODE_ENV === 'development'}
                     className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -388,7 +388,7 @@ export default function AssessmentToolsPage() {
                   src="/images/business-at-final.jpg" 
                   alt="Executive Assessment Report Analysis" 
                   fill
-                  unoptimized
+                  unoptimized={process.env.NODE_ENV === 'development'}
                   className="object-cover transform group-hover:scale-105 transition-transform duration-700 ease-in-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-navy/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

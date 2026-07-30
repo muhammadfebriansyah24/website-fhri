@@ -56,6 +56,7 @@ export default function RecruitmentPage() {
             alt="Job interview at First HR Indonesia"
             fill
             priority
+            unoptimized={process.env.NODE_ENV === 'development'}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-brand-navy/75" />

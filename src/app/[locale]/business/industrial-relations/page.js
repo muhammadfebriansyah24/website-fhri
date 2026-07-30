@@ -413,8 +413,9 @@ export default function IndustrialRelationsPage() {
               
               <div className="absolute inset-4 rounded-full overflow-hidden border-8 border-[#00263C] shadow-2xl">
                 <Image src="/images/business-irla-hero.jpg" 
-                alt="Industrial Relations & Legal Advisory" 
+                alt="Person Reviewing Legal Document" 
                 fill className="object-cover"
+                unoptimized={process.env.NODE_ENV === 'development'}
                 />
               </div>
               
@@ -526,6 +527,7 @@ export default function IndustrialRelationsPage() {
             <Image src="/images/business-irla-mitigating.jpg" 
             alt="Professional Consultation" 
             fill className="object-cover opacity-90 hover:scale-105 transition-transform duration-700" 
+            unoptimized={process.env.NODE_ENV === 'development'}
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-[#00263C] via-transparent to-transparent"></div>

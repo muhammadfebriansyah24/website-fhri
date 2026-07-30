@@ -67,6 +67,7 @@ function Hero({ t, locale }) {
               alt="Modern HR Consulting Workspace" 
               fill 
               sizes="(max-width: 768px) 100vw, 50vw" 
+              unoptimized={process.env.NODE_ENV === 'development'}
               className="object-cover object-center transition-transform duration-500 group-hover:scale-105" 
             />
           </div>
@@ -136,7 +137,13 @@ function News({ t, locale, newsData }) {
           {newsData.map((news, idx) => (
             <div key={idx} className="bg-white rounded-[1.5rem] overflow-hidden border border-gray-100 flex flex-col group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
               <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
-                <Image src={news.image} alt={news.title} fill unoptimized sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                <Image 
+                src={news.image} 
+                alt={news.title} 
+                fill 
+                unoptimized={process.env.NODE_ENV === 'development'} 
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" 
+                className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="p-6 md:p-8 flex flex-col flex-grow">
                 <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center">
@@ -204,7 +211,13 @@ function Programs({ t, locale }) {
               {programsKeys.map((item, idx) => (
                 <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                   <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
-                    <Image src={item.image} alt={t(`ProgramsList.${item.key}.title`)} fill unoptimized sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                    <Image 
+                    src={item.image} 
+                    alt={t(`ProgramsList.${item.key}.title`)} 
+                    fill 
+                    unoptimized={process.env.NODE_ENV === 'development'} 
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" 
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-6 flex flex-col flex-grow">
                     <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`ProgramsList.${item.key}.title`)}</h4>
@@ -227,7 +240,13 @@ function Programs({ t, locale }) {
                 {eventsKeys.map((event, idx) => (
                   <div key={idx} className="flex flex-col cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 p-4 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                     <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-5 bg-gray-100">
-                      <Image src={event.image} alt={t(`EventsList.${event.key}.title`)} fill unoptimized sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                      <Image 
+                      src={event.image} 
+                      alt={t(`EventsList.${event.key}.title`)} 
+                      fill 
+                      unoptimized={process.env.NODE_ENV === 'development'} 
+                      sizes="(max-width: 768px) 100vw, 33vw" 
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="px-2 flex flex-col flex-grow">
                       <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`EventsList.${event.key}.title`)}</h4>

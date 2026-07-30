@@ -29,6 +29,7 @@ export default function BusinessSupportPage() {
             alt="Modern Corporate Office Environment" 
             fill
             priority
+            unoptimized={process.env.NODE_ENV === 'development'}
             className="object-cover"
           />
           <div className="absolute inset-0 bg-brand-navy/85"></div>
@@ -106,7 +107,7 @@ export default function BusinessSupportPage() {
                 src={IMG.structural} 
                 alt="Hands signing a corporate legal document" 
                 fill
-                unoptimized
+                unoptimized={process.env.NODE_ENV === 'development'}
                 className="object-cover transition-transform duration-700 group-hover:scale-105" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -198,7 +199,7 @@ export default function BusinessSupportPage() {
                 src={IMG.cultural} 
                 alt="Asian professional team collaborating in a modern office" 
                 fill
-                unoptimized
+                unoptimized={process.env.NODE_ENV === 'development'}
                 className="object-cover transition-transform duration-700 group-hover:scale-105" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

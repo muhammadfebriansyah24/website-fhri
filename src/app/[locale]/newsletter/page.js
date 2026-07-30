@@ -68,7 +68,7 @@ function ArticleReader({ article, locale, t }) {
           src={article.image} 
           alt={article.title} 
           fill
-          unoptimized
+          unoptimized={process.env.NODE_ENV === 'development'}
           className="object-cover object-center"
         />
       </div>
@@ -281,7 +281,7 @@ function NewsContentWrapper() {
                 src={highlightedNews.image} 
                 alt={highlightedNews.title} 
                 fill 
-                unoptimized
+                unoptimized={process.env.NODE_ENV === 'development'}
                 className="object-cover group-hover:scale-105 transition-transform duration-700" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-transparent to-transparent"></div>
@@ -305,7 +305,7 @@ function NewsContentWrapper() {
                     src={news.image} 
                     alt={news.title} 
                     fill 
-                    unoptimized
+                    unoptimized={process.env.NODE_ENV === 'development'}
                     className="object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
                 </div>
