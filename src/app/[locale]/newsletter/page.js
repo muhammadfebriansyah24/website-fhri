@@ -222,11 +222,11 @@ function NewsContentWrapper() {
   return (
     <>
       {/* HERO SECTION - HIGHLIGHTED NEWS */}
-      <section className="relative bg-brand-navy pt-32 pb-24 md:pt-40 md:pb-32 px-6 md:px-12 overflow-hidden">
+      <section className="relative bg-brand-navy min-h-[85vh] flex items-center px-6 md:px-12 overflow-hidden py-16 md:py-0">
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
         <div className="absolute top-0 right-0 w-96 h-96 bg-brand-red/20 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10 -translate-y-8 md:-translate-y-10">
           <span className="text-eyebrow-lg text-brand-red block mb-8">
             {t('featured')}
           </span>
@@ -263,11 +263,11 @@ function NewsContentWrapper() {
                 <div 
                   className="w-4 h-4 bg-current shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/icons/ic_arrow-right-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/icons/ic_arrow-right-outline.svg')`,
+                    maskImage: `url('/icons/ic_arrow-right.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
@@ -293,8 +293,8 @@ function NewsContentWrapper() {
       {/* LATEST NEWS GRID */}
       <section className="py-24 px-6 md:px-12 bg-slate-50 min-h-[50vh]">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-12 border-b border-slate-200 pb-6 flex items-end justify-between">
-            <h2 className="text-brand-navy mb-0">{t('latestArticles')}</h2>
+          <div className="mb-8 border-b border-slate-200 pb-4 flex items-end justify-between">
+            <h3 className="text-brand-navy mb-0 font-bold uppercase">{t('latestArticles')}</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
