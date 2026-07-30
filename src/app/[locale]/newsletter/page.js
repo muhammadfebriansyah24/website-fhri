@@ -42,7 +42,7 @@ function ArticleReader({ article, locale, t }) {
 
       <header className="mb-10 text-center md:text-left">
         {/* 2. IKON KALENDER */}
-        <h4 className="text-slate-400 mb-4 flex items-center justify-center md:justify-start uppercase tracking-widest">
+        <time className="mb-4 flex items-center justify-center md:justify-start text-slate-400">
           <div 
             className="w-4 h-4 mr-2 bg-current shrink-0"
             style={{
@@ -56,8 +56,8 @@ function ArticleReader({ article, locale, t }) {
               maskPosition: 'center',
             }}
           />
-          {article.publishedAt}
-        </h4>
+          <h6 className="text-slate-400">{article.publishedAt}</h6>
+        </time>
         <h2 className="text-brand-navy mb-6 text-balance">
           {article.title}
         </h2>
@@ -73,14 +73,14 @@ function ArticleReader({ article, locale, t }) {
         />
       </div>
 
-      <div 
+      <blockquote 
         className="prose prose-lg max-w-none text-slate-600 leading-relaxed prose-p:mb-6 prose-strong:text-brand-navy prose-a:text-brand-red"
         dangerouslySetInnerHTML={{ __html: article.content }}
       />
       
       {/* INSTAGRAM REEL EMBED */}
       <div className="my-16 relative p-8 md:p-14 bg-brand-navy rounded-[2.5rem] overflow-hidden flex flex-col items-center text-center">
-        <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-pink-500/20 via-purple-500/10 to-transparent blur-3xl pointer-events-none" />
+        <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-brand-navy/10 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -right-24 w-72 h-72 rounded-full bg-brand-red/10 blur-3xl pointer-events-none" />
 
         {/* 3. IKON INSTAGRAM */}
@@ -145,9 +145,9 @@ function ArticleReader({ article, locale, t }) {
       </div>
 
       <div className="mt-16 pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="text-sm font-bold text-brand-navy uppercase tracking-widest">
+        <h6 className="text-brand-navy">
           {t('publishedBy')}
-        </div>
+        </h6>
         
         {/* 5. SHARE*/}
         <button
@@ -310,9 +310,9 @@ function NewsContentWrapper() {
                   />
                 </div>
                 <div className="p-6 md:p-8 flex flex-col flex-grow">
-                  <h5 className="text-slate-400 mb-3 uppercase tracking-wider">
-                    {news.publishedAt.split('•')[0].trim()}
-                  </h5>
+                  <time className="mb-3 block text-slate-400">
+                    <h5 className="text-slate-400">{news.publishedAt.split('•')[0].trim()}</h5>
+                  </time>
                   <h4 className="mb-3 line-clamp-2 group-hover:text-brand-red transition-colors text-brand-navy">
                     {news.title}
                   </h4>

@@ -98,7 +98,7 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
       `}} />
 
       {isOpen && (
-        <div className="bg-white w-[350px] md:w-[400px] h-[550px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-slate-200 mb-4 flex flex-col overflow-hidden animate-fade-slide-up origin-bottom-right">
+        <div className="bg-white w-[calc(100vw-3rem)] max-w-[350px] md:max-w-[400px] h-[550px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-slate-200 mb-4 flex flex-col overflow-hidden animate-fade-slide-up origin-bottom-right">
           
           {/* Header Chat */}
           <div className="bg-brand-navy text-white p-4 flex items-center justify-between shadow-md z-10">
@@ -437,7 +437,7 @@ export default function IndustrialRelationsPage() {
                   />
                 </div>
                 <div className="text-left">
-                  <div className="text-[10px] sm:text-xs text-slate-500 font-semibold uppercase tracking-wider">{data.hero.badgeStatus}</div>
+                  <div className="text-xs sm:text-xs text-slate-500 font-semibold uppercase tracking-wider">{data.hero.badgeStatus}</div>
                   <div className="text-xs sm:text-sm font-semibold text-brand-navy">{data.hero.badgeText}</div>
                 </div>
               </div>
@@ -450,9 +450,9 @@ export default function IndustrialRelationsPage() {
       {/* SECTION 2 : AREA OF EXPERTISE */}
       <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto relative">
         <div className="text-center mb-16">
-          <h2 className="text-eyebrow-lg block mb-2">
+          <span className="text-eyebrow-lg block mb-2">
             {data.expertise.title}
-          </h2>
+          </span>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">

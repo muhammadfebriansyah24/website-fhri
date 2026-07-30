@@ -53,15 +53,15 @@ function CustomStyles() {
 
 function HeroSection({ data }) {
   return (
-    <section className="relative bg-brand-navy text-white pt-32 pb-44 md:pt-44 md:pb-48 px-6 md:px-12 overflow-hidden flex items-center min-h-[90vh]">
+    <section className="relative bg-brand-navy text-white pt-32 pb-24 md:pt-44 md:pb-48 px-6 md:px-12 overflow-hidden flex items-center min-h-[90vh]">
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-brand-navy/50 to-brand-navy z-10 pointer-events-none"></div>
-      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[140px] pointer-events-none"></div>
+      <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-navy/20 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-brand-red/15 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-30 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 w-full">
         <div className="w-full lg:w-1/2 text-center lg:text-left pt-10">
-          <span className="text-eyebrow-lg block mb-6 lg:mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+          <span className="text-eyebrow-lg text-brand-red block mb-6 lg:mb-8 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
             {data.hero.eyebrow}
           </span>
           
@@ -96,16 +96,16 @@ function HeroSection({ data }) {
               {data.hero.downloadBtn}
             </a>
 
-            <div className="bg-gradient-to-br from-[#0B2A4A] to-brand-navy border border-slate-700/50 p-3.5 rounded-2xl flex items-center gap-4 shadow-xl">
+            <div className="bg-gradient-to-br from-brand-navy to-brand-navy border border-slate-700/50 p-3.5 rounded-2xl flex items-center gap-4 shadow-xl">
               <div className="flex -space-x-3">
-                <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/1.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-                <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/2.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-                <img className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] object-cover" src="/3.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-                <div className="w-10 h-10 rounded-full border-2 border-[#0B2A4A] bg-brand-red flex items-center justify-center text-[11px] font-bold text-white z-10">+11</div>
+                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/1.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/2.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/3.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <div className="w-10 h-10 rounded-full border-2 border-brand-navy bg-brand-red flex items-center justify-center text-xs font-bold text-white z-10">+11</div>
               </div>
               <div className="text-left pr-3">
                 <p className="text-takeaway text-white">{data.hero.expertLeaders}</p>
-                <h6 className="text-slate-400 mt-0.5">{data.hero.readyToAssist}</h6>
+                <p className="text-xs text-slate-400 mt-0.5">{data.hero.readyToAssist}</p>
               </div>
             </div>
           </div>
@@ -156,7 +156,7 @@ function VisionMissionSection({ data }) {
         </div>
 
         {/* MISSION CARD */}
-        <div className="bg-gradient-to-br from-[#0B2A4A] to-brand-navy text-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.25)] border border-slate-700 relative overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
+        <div className="bg-gradient-to-br from-brand-navy to-brand-navy text-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.25)] border border-slate-700 relative overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
           <div className="w-14 h-14 bg-brand-red rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-red/30 relative z-10">
             
@@ -321,7 +321,7 @@ function ExecutiveProfilesSection({ data }) {
                 <Image src={activeLeader.image} alt={activeLeader.name} fill className="object-cover transition-opacity duration-500" onError={(e) => { e.target.style.display = 'none'; }} />
               </div>
               <h3 className="text-brand-navy">{activeLeader.name}</h3>
-              <h6 className="text-brand-red mt-3">{activeLeader.role}</h6>
+              <h4 className="text-brand-red mt-3">{activeLeader.role}</h4>
               <div className="w-12 h-1 bg-slate-200 mt-6 rounded-full mx-auto lg:mx-0"></div>
             </div>
 

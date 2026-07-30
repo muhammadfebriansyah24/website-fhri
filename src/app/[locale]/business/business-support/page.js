@@ -21,7 +21,7 @@ export default function BusinessSupportPage() {
     <main className="min-h-screen bg-white selection:bg-brand-red selection:text-white overflow-hidden">
       
       {/* SECTION 1 — HERO */}
-      <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-center bg-brand-navy overflow-hidden pt-20 md:pt-0">
         
         <div className="absolute inset-0 z-0">
           <Image 
@@ -88,7 +88,7 @@ export default function BusinessSupportPage() {
                 <h4 className="text-brand-navy mb-3 group-hover:text-brand-red transition-colors">
                   {item.title}
                 </h4>
-                <p className="text-sm text-slate-500 leading-relaxed">
+                <p className="text-teaser text-sm leading-relaxed">
                   {item.description}
                 </p>
               </article>
@@ -121,7 +121,7 @@ export default function BusinessSupportPage() {
             <h2 className="text-brand-navy mb-6 text-balance">
               {data.structural.title}
             </h2>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed">
+            <p className="text-teaser text-lg mb-10 leading-relaxed">
               {data.structural.description}
             </p>
             
@@ -142,8 +142,8 @@ export default function BusinessSupportPage() {
                     }}
                   />
                   <div>
-                    <h4 className="font-bold text-brand-navy mb-1.5">{item.title}</h4>
-                    <p className="text-sm text-slate-500 leading-relaxed">{item.description}</p>
+                    <h4 className="text-brand-navy mb-1.5">{item.title}</h4>
+                    <p className="text-teaser text-sm leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -164,7 +164,7 @@ export default function BusinessSupportPage() {
             <h2 className="text-brand-navy mb-6 text-balance">
               {data.cultural.title}
             </h2>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed">
+            <p className="text-teaser text-lg mb-10 leading-relaxed">
               {data.cultural.description}
             </p>
             
@@ -185,8 +185,8 @@ export default function BusinessSupportPage() {
                     }}
                   />
                   <div>
-                    <h4 className="font-bold text-brand-navy mb-1.5">{item.title}</h4>
-                    <p className="text-sm text-slate-500 leading-relaxed">{item.description}</p>
+                    <h4 className="text-brand-navy mb-1.5">{item.title}</h4>
+                    <p className="text-teaser text-sm leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               ))}

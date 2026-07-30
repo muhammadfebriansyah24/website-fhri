@@ -35,7 +35,7 @@ export default function Footer() {
       />
 
       {/* Top accent line */}
-      <div className="relative h-[2px] w-full bg-gradient-to-r from-transparent via-[#DC0017]/60 to-transparent" />
+      <div className="relative h-[2px] w-full bg-gradient-to-r from-transparent via-brand-red/60 to-transparent" />
 
       {/* Main content */}
       <div className="relative mx-auto max-w-7xl px-6 md:px-12 pt-16 pb-10">
@@ -64,7 +64,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="LinkedIn First HR Indonesia"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#DC0017] transition-colors duration-300 flex items-center justify-center text-white"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-red transition-colors duration-300 flex items-center justify-center text-white"
               >
                 <div 
                   className="w-3.5 h-3.5 bg-current shrink-0"
@@ -85,7 +85,7 @@ export default function Footer() {
               <a
                 href="#"
                 aria-label="Instagram First HR Indonesia"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#DC0017] transition-colors duration-300 flex items-center justify-center text-white"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-red transition-colors duration-300 flex items-center justify-center text-white"
               >
                 <div 
                   className="w-3.5 h-3.5 bg-current shrink-0"
@@ -108,7 +108,7 @@ export default function Footer() {
                 aria-label="WhatsApp First HR Indonesia"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#DC0017] transition-colors duration-300 flex items-center justify-center text-white"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-red transition-colors duration-300 flex items-center justify-center text-white"
               >
                 <div 
                   className="w-3.5 h-3.5 bg-current shrink-0"
@@ -129,7 +129,7 @@ export default function Footer() {
 
           {/* ── KOLOM 2: Layanan ── */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-white/40">
+            <h4 className="text-sm font-bold uppercase tracking-[0.18em] text-white/40">
               {t('servicesTitle')}
             </h4>
             <ul className="flex flex-col gap-2.5">
@@ -148,7 +148,7 @@ export default function Footer() {
 
           {/* ── KOLOM 3: Navigasi ── */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-white/40">
+            <h4 className="text-sm font-bold uppercase tracking-[0.18em] text-white/40">
               {t('companyTitle')}
             </h4>
             <ul className="flex flex-col gap-2.5">
@@ -167,7 +167,7 @@ export default function Footer() {
 
           {/* ── KOLOM 4: Kontak ── */}
           <div className="flex flex-col gap-4">
-            <h4 className="text-xs font-bold uppercase tracking-[0.18em] text-white/40">
+            <h4 className="text-sm font-bold uppercase tracking-[0.18em] text-white/40">
               {t('contactTitle')}
             </h4>
 
@@ -176,7 +176,7 @@ export default function Footer() {
               <div className="flex gap-3">
                 <div className="mt-0.5 shrink-0">
                   <div 
-                    className="w-4 h-4 bg-[#DC0017] shrink-0"
+                    className="w-4 h-4 bg-brand-red shrink-0"
                     style={{
                       WebkitMaskImage: `url('/icons/ic_location-outline.svg')`,
                       WebkitMaskSize: 'contain',
@@ -196,7 +196,7 @@ export default function Footer() {
               <div className="flex gap-3">
                 <div className="mt-0.5 shrink-0">
                   <div 
-                    className="w-4 h-4 bg-[#DC0017] shrink-0"
+                    className="w-4 h-4 bg-brand-red shrink-0"
                     style={{
                       WebkitMaskImage: `url('/icons/ic_mail-outline.svg')`,
                       WebkitMaskSize: 'contain',
@@ -221,7 +221,7 @@ export default function Footer() {
                 href={kontak.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80 hover:bg-[#DC0017] hover:border-[#DC0017] hover:text-white transition-all duration-300"
+                className="mt-2 inline-flex items-center gap-2 self-start rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-semibold text-white/80 hover:bg-brand-red hover:border-brand-red hover:text-white transition-all duration-300"
               >
                 <div 
                   className="w-3.5 h-3.5 bg-current shrink-0"
@@ -247,10 +247,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-6 flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="text-[12px] text-white/30">
+          <p className="text-sm text-white/30">
             &copy; {new Date().getFullYear()} First HR Indonesia. All rights reserved.
           </p>
-          <div className="flex gap-5 text-[12px] text-white/30">
+          <div className="flex gap-5 text-sm text-white/30">
             <a href="#" className="hover:text-white/60 transition-colors duration-200">{t('privacy')}</a>
             <a href="#" className="hover:text-white/60 transition-colors duration-200">{t('terms')}</a>
           </div>

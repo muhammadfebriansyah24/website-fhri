@@ -19,7 +19,7 @@ export default function AssessmentToolsPage() {
       {/* =========================================
           SECTION 1: HERO SECTION
           ========================================= */}
-      <section className="relative min-h-0 py-20 md:min-h-[85vh] md:py-0 flex items-center bg-brand-navy text-white overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center bg-brand-navy text-white overflow-hidden pt-24 pb-20 md:py-0">
         
         <div className="max-w-7xl mx-auto w-full px-6 md:px-12 relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             
@@ -49,7 +49,7 @@ export default function AssessmentToolsPage() {
                     <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
                   </div>
-                  <div className="mx-auto text-brand-navy/60 text-[10px] font-bold tracking-widest uppercase pr-6">
+                  <div className="mx-auto text-brand-navy/60 text-xs font-bold tracking-widest uppercase pr-6">
                     {data.hero.badge}
                   </div>
                 </div>
@@ -80,7 +80,7 @@ export default function AssessmentToolsPage() {
                       </div>
                       <div>
                         <h4 className="text-brand-navy mb-0.5">{data.hero.mockupTitle}</h4>
-                        <p className="text-xs text-slate-500 font-medium">{data.hero.mockupDesc}</p>
+                        <small className="text-slate-500 font-medium">{data.hero.mockupDesc}</small>
                       </div>
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export default function AssessmentToolsPage() {
                     />
                     <div>
                       <h4 className="text-brand-navy mb-1">{data.portfolio.labels.focus}</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed">{data.portfolio.tabs[activeTab].focus}</p>
+                      <p className="text-teaser text-sm leading-relaxed">{data.portfolio.tabs[activeTab].focus}</p>
                     </div>
                   </div>
 
@@ -177,7 +177,7 @@ export default function AssessmentToolsPage() {
                     />
                     <div>
                       <h4 className="text-brand-navy mb-1">{data.portfolio.labels.methodology}</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed">{data.portfolio.tabs[activeTab].methodology}</p>
+                      <p className="text-teaser text-sm leading-relaxed">{data.portfolio.tabs[activeTab].methodology}</p>
                     </div>
                   </div>
 
@@ -198,7 +198,7 @@ export default function AssessmentToolsPage() {
                     />
                     <div>
                       <h4 className="text-brand-navy mb-1">{data.portfolio.labels.output}</h4>
-                      <p className="text-sm text-slate-500 leading-relaxed">{data.portfolio.tabs[activeTab].output}</p>
+                      <p className="text-teaser text-sm leading-relaxed">{data.portfolio.tabs[activeTab].output}</p>
                     </div>
                   </div>
 
@@ -351,7 +351,7 @@ export default function AssessmentToolsPage() {
             <div className="space-y-12 md:space-y-16">
               
               {data.methodology.steps.map((step, index) => (
-                <div key={index} className="relative pl-16 md:pl-24 group">
+                <div key={index} className="relative pl-12 md:pl-24 group">
                   <div className="absolute left-4 md:left-6 top-1 w-10 h-10 bg-white border-4 border-brand-red rounded-full flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-brand-red transition-all duration-300 z-10">
                      <span className="text-brand-navy group-hover:text-white font-bold text-sm transition-colors">{index + 1}</span>
                   </div>

@@ -41,7 +41,7 @@ const WHITE_TAB_PATH = 'M80 47.664 L196.378 47.664 C206.448 47.664 215.535 41.62
 
 function Hero({ t, locale }) {
   return (
-    <section className="relative bg-brand-navy min-h-[85vh] flex items-center pt-24 pb-36 md:pb-44 px-6 md:px-12 overflow-hidden">
+    <section className="relative bg-brand-navy min-h-[85vh] flex items-center pt-24 pb-20 md:pb-44 px-6 md:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-16 relative z-10 w-full">
         <div className="md:w-1/2">
           <span className="text-eyebrow-lg block mb-6">
@@ -117,7 +117,7 @@ function Network({ t }) {
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
         <div className="animate-scroll gap-6 py-4">
           {duplicatedPartners.map((partner, index) => (
-            <div key={index} className="w-48 h-20 shrink-0 bg-white border border-gray-200 rounded-xl flex items-center justify-center p-4 transition-transform duration-500 ease-out cursor-pointer hover:-translate-y-1">
+            <div key={index} className="w-48 h-20 shrink-0 bg-white border border-slate-200 rounded-xl flex items-center justify-center p-4 transition-transform duration-500 ease-out cursor-pointer hover:-translate-y-1">
               {partner.svg}
             </div>
           ))}
@@ -135,41 +135,28 @@ function News({ t, locale, newsData }) {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {newsData.map((news, idx) => (
-            <div key={idx} className="bg-white rounded-[1.5rem] overflow-hidden border border-gray-100 flex flex-col group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-              <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
-                <Image 
-                src={news.image} 
-                alt={news.title} 
-                fill 
-                unoptimized={process.env.NODE_ENV === 'development'} 
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" 
-                className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
-              </div>
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <div className="text-xs font-bold uppercase tracking-widest text-slate-400 mb-3 flex items-center">
-                  <div 
-                    className="w-4 h-4 mr-1.5 bg-current shrink-0"
-                    style={{
-                      WebkitMaskImage: `url('/icons/ic_calendar-outline.svg')`,
-                      WebkitMaskSize: 'contain',
-                      WebkitMaskRepeat: 'no-repeat',
-                      WebkitMaskPosition: 'center',
-                      maskImage: `url('/icons/ic_calendar-outline.svg')`,
-                      maskSize: 'contain',
-                      maskRepeat: 'no-repeat',
-                      maskPosition: 'center',
-                    }}
-                  />
-                  {news.publishedAt}
+              <div key={idx} className="bg-white rounded-[1.5rem] overflow-hidden border border-gray-100 flex flex-col group transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
+                  <Image 
+                  src={news.image} 
+                  alt={news.title} 
+                  fill 
+                  unoptimized={process.env.NODE_ENV === 'development'} 
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" 
+                  className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                 </div>
-                <h4 className="text-brand-navy mb-3 line-clamp-2 group-hover:text-brand-red transition-colors">{news.title}</h4>
-                <p className="text-slate-500 mb-6 flex-grow line-clamp-3">{news.description}</p>
-                
-                <Link href={`/${locale}/newsletter?id=${news.id}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors inline-flex items-center gap-2 mt-auto">
-                  {t('News.viewMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
-                </Link>
+                <div className="p-6 md:p-8 flex flex-col flex-grow">
+                  <time className="mb-3 block text-slate-400">
+                    <h6 className="text-slate-400">{news.publishedAt}</h6>
+                  </time>
+                  <h4 className="text-brand-navy mb-3 line-clamp-2 group-hover:text-brand-red transition-colors">{news.title}</h4>
+                  <p className="text-slate-500 mb-6 flex-grow line-clamp-3">{news.description}</p>
+                  
+                  <Link href={`/${locale}/newsletter?id=${news.id}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors inline-flex items-center gap-2 mt-auto">
+                    {t('News.viewMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
+                  </Link>
+                </div>
               </div>
-            </div>
           ))}
         </div>
       </div>
@@ -179,7 +166,7 @@ function News({ t, locale, newsData }) {
 
 function Programs({ t, locale }) {
   return (
-    <section className="bg-white py-20 md:py-28 px-2 md:px-8 flex justify-center overflow-hidden">
+    <section className="bg-white py-20 md:py-28 px-4 md:px-8 flex justify-center overflow-hidden">
       <div className="w-full max-w-[1440px]">
         {/* ===== FOLDER NAVY (luar) ===== */}
         <div className="relative w-full drop-shadow-xl md:drop-shadow-2xl">
@@ -222,7 +209,7 @@ function Programs({ t, locale }) {
                   <div className="p-6 flex flex-col flex-grow">
                     <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`ProgramsList.${item.key}.title`)}</h4>
                     <p className="text-slate-500 mb-6 flex-grow">{t(`ProgramsList.${item.key}.desc`)}</p>
-                    <Link href={`/${locale}${item.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors inline-flex items-center gap-2 mt-auto">
+                    <Link href={`/${locale}${item.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors inline-flex items-center gap-2 mt-auto">
                       {t('Programs.readMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                     </Link>
                   </div>
@@ -251,7 +238,7 @@ function Programs({ t, locale }) {
                     <div className="px-2 flex flex-col flex-grow">
                       <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`EventsList.${event.key}.title`)}</h4>
                       <p className="text-slate-500 mb-5 flex-grow">{t(`EventsList.${event.key}.desc`)}</p>
-                      <Link href={`/${locale}${event.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-[#a82222] transition-colors mt-auto inline-flex items-center gap-2">
+                      <Link href={`/${locale}${event.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors mt-auto inline-flex items-center gap-2">
                         {t('Programs.readMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                       </Link>
                     </div>

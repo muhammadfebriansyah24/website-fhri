@@ -81,7 +81,7 @@ function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
       `}} />
 
       {isOpen && (
-        <div className="bg-white w-[350px] md:w-[400px] h-[550px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-slate-200 mb-4 flex flex-col overflow-hidden animate-fade-slide-up origin-bottom-right">
+        <div className="bg-white w-[calc(100vw-3rem)] max-w-[350px] md:max-w-[400px] h-[550px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-slate-200 mb-4 flex flex-col overflow-hidden animate-fade-slide-up origin-bottom-right">
           
           {/* Header Chat */}
           <div className="bg-brand-navy text-white p-4 flex items-center justify-between shadow-md z-10">
@@ -367,7 +367,7 @@ export default function HsePage() {
       {/* =========================================
           SECTION 1: HERO BANNER (HSE) 
           ========================================= */}
-      <section className="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center bg-brand-navy overflow-hidden pt-20 md:pt-0">
         
         {/* Background Image & Gradient */}
         <div className="absolute inset-0 w-full h-full z-0">
@@ -411,15 +411,15 @@ export default function HsePage() {
             <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-white/20 pt-8">
               <div>
                 <div className="text-3xl font-bold text-white mb-1">{data.hero.highlights[0].value}</div>
-                <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">{data.hero.highlights[0].label}</div>
+                <h6 className="text-slate-400">{data.hero.highlights[0].label}</h6>
               </div>
               <div>
                 <div className="text-3xl font-bold text-white mb-1">{data.hero.highlights[1].value}</div>
-                <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">{data.hero.highlights[1].label}</div>
+                <h6 className="text-slate-400">{data.hero.highlights[1].label}</h6>
               </div>
               <div className="hidden md:block">
                 <div className="text-3xl font-bold text-white mb-1">{data.hero.highlights[2].value}</div>
-                <div className="text-xs text-slate-400 font-bold uppercase tracking-wider">{data.hero.highlights[2].label}</div>
+                <h6 className="text-slate-400">{data.hero.highlights[2].label}</h6>
               </div>
             </div>
 
@@ -614,7 +614,7 @@ export default function HsePage() {
                     </div>
                     <div className="flex flex-col">
                       <div className="text-brand-navy font-bold text-sm tracking-wide leading-tight">{data.initiatives.status.label}</div>
-                      <div className="text-slate-500 text-xs uppercase tracking-wider font-semibold">{data.initiatives.status.desc}</div>
+                      <h6 className="text-slate-500">{data.initiatives.status.desc}</h6>
                     </div>
                   </div>
                 </div>
@@ -774,9 +774,9 @@ export default function HsePage() {
               <div className="w-12 h-12 border-2 border-brand-navy rounded-full flex items-center justify-center">
                 <span className="text-brand-navy font-bold text-xs tracking-tighter">ISO</span>
               </div>
-              <div className="text-left">
+                <div className="text-left">
                 <h4 className="text-brand-navy mb-1 leading-none">{data.credentials.items[0].title}</h4>
-                <div className="text-slate-500 text-xs font-semibold uppercase tracking-widest">{data.credentials.items[0].subtitle}</div>
+                <h6 className="text-slate-500">{data.credentials.items[0].subtitle}</h6>
               </div>
             </div>
 
@@ -787,7 +787,7 @@ export default function HsePage() {
               </div>
               <div className="text-left">
                 <h4 className="text-brand-navy mb-1 leading-none">{data.credentials.items[1].title}</h4>
-                <div className="text-slate-500 text-xs font-semibold uppercase tracking-widest">{data.credentials.items[1].subtitle}</div>
+                <h6 className="text-slate-500">{data.credentials.items[1].subtitle}</h6>
               </div>
             </div>
 
@@ -810,7 +810,7 @@ export default function HsePage() {
               </div>
               <div className="text-left">
                 <h4 className="text-brand-navy mb-1 leading-none">{data.credentials.items[2].title}</h4>
-                <div className="text-slate-500 text-xs font-semibold uppercase tracking-widest">{data.credentials.items[2].subtitle}</div>
+                <h6 className="text-slate-500">{data.credentials.items[2].subtitle}</h6>
               </div>
             </div>
 
@@ -833,7 +833,7 @@ export default function HsePage() {
               </div>
               <div className="text-left">
                 <h4 className="text-brand-navy mb-1 leading-none">{data.credentials.items[3].title}</h4>
-                <div className="text-slate-500 text-xs font-semibold uppercase tracking-widest">{data.credentials.items[3].subtitle}</div>
+                <h6 className="text-slate-500">{data.credentials.items[3].subtitle}</h6>
               </div>
             </div>
 
