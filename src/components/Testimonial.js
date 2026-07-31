@@ -16,7 +16,39 @@ const testimonialKeys = [
   {
     key: 'item3',
     image: '/images/home-congrats-dunamis.png',
-  }
+  },
+  {
+    key: 'item4',
+    image: '/images/home-congrats-kimsooil.png',
+  },
+  {
+    key: 'item5',
+    image: '/images/home-congrats-lucia.png',
+  },
+  {
+    key: 'item6',
+    image: '/images/home-congrats-ibnu.png',
+  },
+  {
+    key: 'item7',
+    image: '/images/home-congrats-saringin.png',
+  },
+  {
+    key: 'item8',
+    image: '/images/home-congrats-reza.png',
+  },
+  {
+    key: 'item9',
+    image: '/images/home-congrats-rudy.png',
+  },
+  {
+    key: 'item10',
+    image: '/images/home-congrats-linan.png',
+  },
+  {
+    key: 'item11',
+    image: '/images/home-congrats-erik.png',
+  },
 ];
 
 export default function Testimonial() {
