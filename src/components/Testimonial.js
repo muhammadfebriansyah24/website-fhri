@@ -52,6 +52,18 @@ const testimonialKeys = [
   {
     key: 'item12',
     image: '/images/home-congrats-robby.png',
+  },
+  {
+    key: 'item13',
+    image: '/images/home-congrats-dina.png',
+  },
+  {
+    key: 'item14',
+    image: '/images/home-congrats-inyoman.png',
+  },
+  {
+    key: 'item15',
+    image: '/images/home-congrats-wahyono.png',
   }
 ];
 
