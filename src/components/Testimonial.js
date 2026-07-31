@@ -49,6 +49,10 @@ const testimonialKeys = [
     key: 'item11',
     image: '/images/home-congrats-erik.png',
   },
+  {
+    key: 'item12',
+    image: '/images/home-congrats-robby.png',
+  }
 ];
 
 export default function Testimonial() {

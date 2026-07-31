@@ -27,15 +27,15 @@ export const getAboutData = (locale) => {
         description: "Empat pilar yang mendefinisikan cara kami bekerja, memperlakukan satu sama lain, dan memberikan dampak nyata.",
         values: [
           {
-            title: 'Kepemilikan (Ownership)',
+            title: 'Rasa Memiliki',
             desc: 'Kami bertindak dengan akuntabilitas, mengambil inisiatif, dan mengubah tantangan menjadi peluang melalui pemecahan masalah proaktif.'
           },
           {
-            title: 'Keunggulan (Excellence)',
+            title: 'Keunggulan',
             desc: 'Kami mengejar standar tertinggi, terus berinovasi, dan memberikan hasil luar biasa dengan semangat dan tujuan.'
           },
           {
-            title: 'Kepercayaan (Trust)',
+            title: 'Kepercayaan',
             desc: 'Kami membangun hubungan jangka panjang melalui kepercayaan, integritas, dan akuntabilitas sembari menepati komitmen.'
           },
           {
