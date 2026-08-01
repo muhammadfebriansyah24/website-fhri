@@ -42,7 +42,7 @@ export default function RecruitmentPage() {
       `Best regards,\n${formData.name}`
     );
 
-    window.location.href = `mailto:fiqlacampus24@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@firsthrindonesia.com?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -302,7 +302,7 @@ export default function RecruitmentPage() {
                 </div>
                 <div>
                   <h6 className="text-slate-400 mb-2">{data.form.generalInquiry}</h6>
-                  <p className="text-white">recruitment@firsthr.co.id</p>
+                  <p className="text-white">recruitment@firsthrindonesia.com</p>
                 </div>
               </div>
             </div>
