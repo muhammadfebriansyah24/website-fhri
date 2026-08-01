@@ -34,19 +34,52 @@
       "description": "Discover various internal events and cultural activities designed to foster team building, engagement, and alignment with our core values."
     },
     "ProgramsList": {
-      "support": { "title": "Business Support Services", "desc": "Operational support for market entry, covering company establishment, regulatory compliance, and cultural integration." },
-      "hc": { "title": "Human Capital Solutions", "desc": "End-to-end talent acquisition from entry-level to C-suite, including executive search and talent assessment." },
-      "payroll": { "title": "Payroll & Outsourcing", "desc": "Comprehensive HR administrative management, accurate payroll processing, and flexible workforce solutions." },
-      "assessment": { "title": "Assessment Tools", "desc": "Evaluation tools including 360-degree feedback and personality assessments to identify capabilities and drive employee development." },
-      "bootcamp": { "title": "HR Boot Camp", "desc": "Intensive, results-oriented training programs designed to accelerate HR team development and strategic business partnering." },
-      "ir": { "title": "Industrial Relations & Legal Advisory", "desc": "Expert labor law consulting, dispute management, and union partnership strategies to maintain a harmonious workplace." },
-      "hse": { "title": "Health, Safety and Environment (HSE)", "desc": "Comprehensive solutions for a safe workplace, environmental compliance, risk assessment, and safety management systems." },
-      "certification": { "title": "Professional Certification Institute", "desc": "Recognized certification programs designed to elevate professional standards and validate HR competencies." }
+      "support": {
+        "title": "Business Support Services",
+        "desc": "Operational support for market entry, covering company establishment, regulatory compliance, and cultural integration."
+      },
+      "hc": {
+        "title": "Human Capital Solutions",
+        "desc": "End-to-end talent acquisition from entry-level to C-suite, including executive search and talent assessment."
+      },
+      "payroll": {
+        "title": "Payroll & Outsourcing",
+        "desc": "Comprehensive HR administrative management, accurate payroll processing, and flexible workforce solutions."
+      },
+      "assessment": {
+        "title": "Assessment Tools",
+        "desc": "Evaluation tools including 360-degree feedback and personality assessments to identify capabilities and drive employee development."
+      },
+      "bootcamp": {
+        "title": "HR Boot Camp",
+        "desc": "Intensive, results-oriented training programs designed to accelerate HR team development and strategic business partnering."
+      },
+      "ir": {
+        "title": "Industrial Relations & Legal Advisory",
+        "desc": "Expert labor law consulting, dispute management, and union partnership strategies to maintain a harmonious workplace."
+      },
+      "hse": {
+        "title": "Health, Safety and Environment (HSE)",
+        "desc": "Comprehensive solutions for a safe workplace, environmental compliance, risk assessment, and safety management systems."
+      },
+      "certification": {
+        "title": "Professional Certification Institute",
+        "desc": "Recognized certification programs designed to elevate professional standards and validate HR competencies."
+      }
     },
     "EventsList": {
-      "townhall": { "title": "Town Hall Meeting", "desc": "Quarterly company update and performance review sessions." },
-      "csr": { "title": "Corporate Social Responsibility", "desc": "Community outreach and environmental sustainability programs." },
-      "outbound": { "title": "Outbound Training (OBT)", "desc": "Team building and leadership development in outdoor settings." }
+      "townhall": {
+        "title": "Town Hall Meeting",
+        "desc": "Quarterly company update and performance review sessions."
+      },
+      "csr": {
+        "title": "Corporate Social Responsibility",
+        "desc": "Community outreach and environmental sustainability programs."
+      },
+      "outbound": {
+        "title": "Outbound Training (OBT)",
+        "desc": "Team building and leadership development in outdoor settings."
+      }
     }
   },
   "CTA": {
@@ -58,9 +91,9 @@
   "Testimonial": {
     "list": {
       "item1": {
-        "quote": "Heartfelt congratulations on this exciting milestone! May the launch of your website be the beginning of greater impact, stronger connections, and continued success in empowering people and organizations. Wishing First HR Indonesia a bright future ahead!",
-        "name": "Monang Marbun, SE, CHMA",
-        "role": "Founder & Principal Consultant of Hotel Consultant Indonesia"
+        "quote": "Congratulations on the Launch of First HR Indonesia’s Official Website. On behalf of KALLA Land & Property, I extend my heartfelt congratulations to First HR Indonesia on the successful launch of your official website. This remarkable milestone reflects your unwavering commitment to advancing Human Capital excellence and empowering organizations to build high-performing, future-ready teams. We believe this new platform will serve as a valuable hub for knowledge, innovation, and meaningful collaboration across Indonesia’s business community. May this achievement mark the beginning of an even greater journey, inspiring organizations to unlock the full potential of their people and create sustainable business success. We wish First HR Indonesia continued growth, lasting success, and many more milestones ahead. We look forward to strengthening our partnership and creating greater value together.",
+        "name": "Ricky Theodores",
+        "role": "Chief Executive Officer KALLA Land & Property"
       },
       "item2": {
         "quote": "Congratulations on the official launch of the First HR Indonesia Website. Wishing First HR Indonesia continued success in empowering organizations and shaping the future of Human Capital in Indonesia. May this new platform inspire growth, collaboration, and lasting impact.",
@@ -68,66 +101,71 @@
         "role": "General Manager of Ibis Palembang Sanggar"
       },
       "item3": {
-        "quote": "Congratulations on the launch of the First HR Indonesia website. A timely initiative. As the role of Human Resource Professionals becomes increasingly strategic in guiding corporate transformation, First HR Indonesia offers reliable partnership services. The founder of First HR Indonesia is Mr. Robby Tambunan, an executive with over 30 years of experience in Human Capital and Business Transformation. A creative, highly dedicated professional with strong integrity and a trusted business partner. I believe this remarkable initiative will serve as a bridge in developing Human Resource Professionals, especially in Indonesia, to become world-class professionals.",
-        "name": "Tommy Sudjarwadi",
-        "role": "Dunamis Organizational"
-      },
-      "item4": {
-        "quote": "Dear Mr. Robby, Congratulations on the establishment of FIRST HR INDONESIA. May this company continue to advance and grow steadily, ultimately becoming a strong foundation that ensures the well-being and happiness of the entire corporate family. Furthermore, may it become a valuable asset to society, demonstrating great dedication to the prosperity of the Indonesian people.",
-        "name": "Prof. Dr. Kim Soo-il",
-        "role": "Chairman of PT BIC Jaya Indonesia (Former Ambassador of the Republic of Korea / Honorary Consul General of the Republic of Indonesia in Busan, South Korea)"
-      },
-      "item5": {
-        "quote": "Hi Pak Robby, Congratulations on the Launching of the First HR Indonesia! Wishing you every success as this exciting new journey begins. May the First HR Indonesia continue to inspire, serve, and make a lasting positive impact.",
-        "name": "Lucia Sitiabudi Hendraka",
-        "role": "Professional HR"
-      },
-      "item6": {
-        "quote": "Congratulations on the Launch of First HR Indonesia Website. May this milestone mark the beginning of greater innovation, stronger partnerships, and continued excellence in developing Indonesia's future-ready talents. As a newly renovated four-star hotel in Malang, Atria Hotel Malang proudly supports initiatives that foster people development and organizational excellence. Wishing First HR Indonesia continued success and a remarkable journey ahead.",
-        "name": "Ibnu Darmawan, SH., MH.",
-        "role": "General Manager of Atria Hotel Malang"
-      },
-      "item7": {
-        "quote": "On behalf of AMSIH-HHRMA DKI JAKARTA, I would like to extend our heartfelt congratulations to First HR Indonesia on its official establishment, September 25th, 2017. Your pioneering step as a Human Resources Consultant marks a new milestone in advancing professionalism and excellence within the hospitality industry. May this journey bring continuous innovation, impactful contributions, and sustainable growth for Indonesia's tourism and hotel sector. Congratulations once again, and let us look forward to a future filled with success and collaboration.",
-        "name": "Muhammad Saringin",
-        "role": "Chairman of AMSIH-HHRMA DKI Jakarta"
-      },
-      "item8": {
-        "quote": "Managing people is an art of the highest level. It requires individuals who possess not only capabilities and competencies but also extensive experience and broad exposure across various industry sectors and the business world. Looking at the people behind First HR Indonesia, especially Mr. Robby Tambunan, a good friend I have known for 15 years, I am confident that First HR Indonesia will bring forth valuable solutions, contributions, and collaborations for the corporate world and HR professionals in Indonesia. Congratulations and best wishes on the launch of First HR Indonesia. May it continue to grow, create a positive impact, and become a trusted partner in providing Human Capital solutions for organizations across Indonesia. ",
-        "name": "Reza Widyaprastha",
-        "role": "HR Director of JABABECA & CO."
-      },
-      "item9": {
-        "quote": "Congratulations to First HR Indonesia on the official launch of the company. Wishing you continued growth and success in empowering organizations through impactful Human Capital solutions. I have had the pleasure of knowing Mr. Robby P. Tambunan as a leader of integrity, professionalism, and deep expertise. His dedication, strategic vision, and unwavering commitment have earned him the trust and respect of colleagues, partners, and clients alike. Congratulations once again to Mr. Robby and the entire First HR Indonesia team on this remarkable milestone. Wishing you every success as you embark on this exciting journey and continue creating meaningful value for organizations across Indonesia.",
-        "name": "Rudy Pahala",
-        "role": "President Director of PT Asta Kanti Insurance Brokers"
-      },
-      "item10": {
-        "quote": "On behalf of Blue Sky Group, warmest congratulations on your official website launch. Having worked alongside you, we have witnessed firsthand your dedication to advancing human capital excellence in Indonesia. This milestone reflects your unwavering commitment to elevating HR standards across Indonesia. We truly value our partnership and look forward to achieving even greater success together. May this new platform further empower your reach, amplify your vision, and inspire even greater success. Wishing you continued success, sustainable growth, and many remarkable achievements in this exciting new chapter.",
-        "name": "Linan Kurniahu",
-        "role": "Chief Executive Officer of Blue Sky Group"
-      },
-      "item11": {
-        "quote": "Congratulations to Pak Robby and the entire First HR Indonesia team on this exciting milestone. Wishing you every success in helping organizations navigate the evolving challenges of human capital development and shaping the future of HR in Indonesia through fast adaptation, innovation and excellence.",
-        "name": "Erik Meijer",
-        "role": "Co-Founder & Co-Chairman 9Sky Venture Pte. Ltd."
-      },
-      "item12": {
-        "quote": "Congratulations for the launch of First HR Indonesia website. Wish First HR Indonesia more success🙏",
-        "name": "Robby Fachri",
-        "role": "Director Of Human Resources - Indonesia Marriott International"
-      },
-      "item13": {
         "quote": "Congratulations to First HR Indonesia on the official launch of your website. This milestone reflects your continued commitment to advancing the HR profession and creating greater value for organizations and HR practitioners across Indonesia. Wishing First HR Indonesia, under the leadership of Mr. Robby P. Tambunan, continued success, sustainable growth, and an even greater impact in shaping the future of people and organizations. May this new platform become a valuable source of knowledge, collaboration, and innovation for the HR community. Congratulations and best wishes for a successful launch!",
         "name": "Dina Sandri Fani",
         "role": "HR Director of ParagonCorp"
       },
+      "item4": {
+        "quote": "Congratulations on the launch of the First HR Indonesia website. A timely initiative. As the role of Human Resource Professionals becomes increasingly strategic in guiding corporate transformation, First HR Indonesia offers reliable partnership services. The founder of First HR Indonesia is Mr. Robby Tambunan, an executive with over 30 years of experience in Human Capital and Business Transformation. A creative, highly dedicated professional with strong integrity and a trusted business partner. I believe this remarkable initiative will serve as a bridge in developing Human Resource Professionals, especially in Indonesia, to become world-class professionals.",
+        "name": "Tommy Sudjarwadi",
+        "role": "Dunamis Organizational"
+      },
+      "item5": {
+        "quote": "Dear Mr. Robby, Congratulations on the establishment of FIRST HR INDONESIA. May this company continue to advance and grow steadily, ultimately becoming a strong foundation that ensures the well-being and happiness of the entire corporate family. Furthermore, may it become a valuable asset to society, demonstrating great dedication to the prosperity of the Indonesian people.",
+        "name": "Prof. Dr. Kim Soo-il",
+        "role": "Chairman of PT BIC Jaya Indonesia (Former Ambassador of the Republic of Korea / Honorary Consul General of the Republic of Indonesia in Busan, South Korea)"
+      },
+      "item6": {
+        "quote": "Hi Pak Robby, Congratulations on the Launching of the First HR Indonesia! Wishing you every success as this exciting new journey begins. May the First HR Indonesia continue to inspire, serve, and make a lasting positive impact.",
+        "name": "Lucia Sitiabudi Hendraka",
+        "role": "Professional HR"
+      },
+      "item7": {
+        "quote": "Heartfelt congratulations on this exciting milestone! May the launch of your website be the beginning of greater impact, stronger connections, and continued success in empowering people and organizations. Wishing First HR Indonesia a bright future ahead!",
+        "name": "Monang Marbun, SE, CHMA",
+        "role": "Founder & Principal Consultant of Hotel Consultant Indonesia"
+      },
+      "item8": {
+        "quote": "Congratulations on the Launch of First HR Indonesia Website. May this milestone mark the beginning of greater innovation, stronger partnerships, and continued excellence in developing Indonesia's future-ready talents. As a newly renovated four-star hotel in Malang, Atria Hotel Malang proudly supports initiatives that foster people development and organizational excellence. Wishing First HR Indonesia continued success and a remarkable journey ahead.",
+        "name": "Ibnu Darmawan, SH., MH.",
+        "role": "General Manager of Atria Hotel Malang"
+      },
+      "item9": {
+        "quote": "On behalf of AMSIH-HHRMA DKI JAKARTA, I would like to extend our heartfelt congratulations to First HR Indonesia on its official establishment, September 25th, 2017. Your pioneering step as a Human Resources Consultant marks a new milestone in advancing professionalism and excellence within the hospitality industry. May this journey bring continuous innovation, impactful contributions, and sustainable growth for Indonesia's tourism and hotel sector. Congratulations once again, and let us look forward to a future filled with success and collaboration.",
+        "name": "Muhammad Saringin",
+        "role": "Chairman of AMSIH-HHRMA DKI Jakarta"
+      },
+      "item10": {
+        "quote": "Managing people is an art of the highest level. It requires individuals who possess not only capabilities and competencies but also extensive experience and broad exposure across various industry sectors and the business world. Looking at the people behind First HR Indonesia, especially Mr. Robby Tambunan, a good friend I have known for 15 years, I am confident that First HR Indonesia will bring forth valuable solutions, contributions, and collaborations for the corporate world and HR professionals in Indonesia. Congratulations and best wishes on the launch of First HR Indonesia. May it continue to grow, create a positive impact, and become a trusted partner in providing Human Capital solutions for organizations across Indonesia. ",
+        "name": "Reza Widyaprastha",
+        "role": "HR Director of JABABECA & CO."
+      },
+      "item11": {
+        "quote": "Congratulations to First HR Indonesia on the official launch of the company. Wishing you continued growth and success in empowering organizations through impactful Human Capital solutions. I have had the pleasure of knowing Mr. Robby P. Tambunan as a leader of integrity, professionalism, and deep expertise. His dedication, strategic vision, and unwavering commitment have earned him the trust and respect of colleagues, partners, and clients alike. Congratulations once again to Mr. Robby and the entire First HR Indonesia team on this remarkable milestone. Wishing you every success as you embark on this exciting journey and continue creating meaningful value for organizations across Indonesia.",
+        "name": "Rudy Pahala",
+        "role": "President Director of PT Asta Kanti Insurance Brokers"
+      },
+      "item12": {
+        "quote": "On behalf of Blue Sky Group, warmest congratulations on your official website launch. Having worked alongside you, we have witnessed firsthand your dedication to advancing human capital excellence in Indonesia. This milestone reflects your unwavering commitment to elevating HR standards across Indonesia. We truly value our partnership and look forward to achieving even greater success together. May this new platform further empower your reach, amplify your vision, and inspire even greater success. Wishing you continued success, sustainable growth, and many remarkable achievements in this exciting new chapter.",
+        "name": "Linan Kurniahu",
+        "role": "Chief Executive Officer of Blue Sky Group"
+      },
+      "item13": {
+        "quote": "Congratulations to Pak Robby and the entire First HR Indonesia team on this exciting milestone. Wishing you every success in helping organizations navigate the evolving challenges of human capital development and shaping the future of HR in Indonesia through fast adaptation, innovation and excellence.",
+        "name": "Erik Meijer",
+        "role": "Co-Founder & Co-Chairman 9Sky Venture Pte. Ltd."
+      },
       "item14": {
+        "quote": "Congratulations for the launch of First HR Indonesia website. Wish First HR Indonesia more success🙏",
+        "name": "Robby Fachri",
+        "role": "Director Of Human Resources - Indonesia Marriott International"
+      },
+      "item15": {
         "quote": "Congratulations on the launch of the First HR Indonesia website! IHGMA DPD Jakarta fully supports the synergy in developing exceptional and future-ready human resources for the hospitality industry. Wishing continued success to Mr. Robby and the team.",
         "name": "I Nyoman Iswara, SE, MM, CHA",
         "role": "Chairman of Indonesia Hotel General Manager Association (DPD Jakarta)"
       },
-      "item15": {
+      "item16": {
         "quote": "Congratulations to First HR Indonesia on the official launch of your website. This important milestone reflects your continued commitment to advancing Human Capital excellence and supporting sustainable business transformation. May your new digital platform strengthen your impact, connect more organizations with your expertise, and further establish First HR Indonesia as a trusted partner in developing people, leaders, and high-performing organizations. Wishing you every success as you continue creating lasting value for businesses across Indonesia.",
         "name": "Wahyono Yoyon, SH. MM. CHA",
         "role": "Cluster General Manager of Atria Hotel and Residences Gading Serpong"

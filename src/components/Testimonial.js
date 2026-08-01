@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 const testimonialKeys = [
   {
     key: 'item1',
-    image: '/images/home-congrats-monang.png',
+    image: '/images/home-congrats-ricky.png',
   },
   {
     key: 'item2',
@@ -15,54 +15,58 @@ const testimonialKeys = [
   },
   {
     key: 'item3',
-    image: '/images/home-congrats-dunamis.png',
-  },
-  {
-    key: 'item4',
-    image: '/images/home-congrats-kimsooil.png',
-  },
-  {
-    key: 'item5',
-    image: '/images/home-congrats-lucia.png',
-  },
-  {
-    key: 'item6',
-    image: '/images/home-congrats-ibnu.png',
-  },
-  {
-    key: 'item7',
-    image: '/images/home-congrats-saringin.png',
-  },
-  {
-    key: 'item8',
-    image: '/images/home-congrats-reza.png',
-  },
-  {
-    key: 'item9',
-    image: '/images/home-congrats-rudy.png',
-  },
-  {
-    key: 'item10',
-    image: '/images/home-congrats-linan.png',
-  },
-  {
-    key: 'item11',
-    image: '/images/home-congrats-erik.png',
-  },
-  {
-    key: 'item12',
-    image: '/images/home-congrats-robby.png',
-  },
-  {
-    key: 'item13',
     image: '/images/home-congrats-dina.png',
   },
   {
+    key: 'item4',
+    image: '/images/home-congrats-dunamis.png',
+  },
+  {
+    key: 'item5',
+    image: '/images/home-congrats-kimsooil.png',
+  },
+  {
+    key: 'item6',
+    image: '/images/home-congrats-lucia.png',
+  },
+  {
+    key: 'item7',
+    image: '/images/home-congrats-monang.png',
+  },
+  {
+    key: 'item8',
+    image: '/images/home-congrats-ibnu.png',
+  },
+  {
+    key: 'item9',
+    image: '/images/home-congrats-saringin.png',
+  },
+  {
+    key: 'item10',
+    image: '/images/home-congrats-reza.png',
+  },
+  {
+    key: 'item11',
+    image: '/images/home-congrats-rudy.png',
+  },
+  {
+    key: 'item12',
+    image: '/images/home-congrats-linan.png',
+  },
+  {
+    key: 'item13',
+    image: '/images/home-congrats-erik.png',
+  },
+  {
     key: 'item14',
-    image: '/images/home-congrats-inyoman.png',
+    image: '/images/home-congrats-robby.png',
   },
   {
     key: 'item15',
+    image: '/images/home-congrats-inyoman.png',
+  },
+  {
+    key: 'item16',
     image: '/images/home-congrats-wahyono.png',
   }
 ];
