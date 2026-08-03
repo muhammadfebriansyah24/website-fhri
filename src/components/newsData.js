@@ -102,7 +102,7 @@ export const getNewsData = (locale) => {
   return [
     { 
       id: 'fhrinews-id1',
-      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2000&auto=format&fit=crop', 
+      image: '/images/fhrinews-pakrobby.jpeg', 
       title: 'QUIET QUITTING IS NOT THE EMPLOYEE\'S FAULT.', 
       description: 'This is a Loud Alarm for Leadership. Every time they hear the term quiet quitting, many leaders immediately conclude: "Employees today are less loyal." "Their mentality is weak." "They want work-life balance, but do not want to work hard." Is that really true?',
       publishedAt: '03 August 2026 • 15:00 WIB',
