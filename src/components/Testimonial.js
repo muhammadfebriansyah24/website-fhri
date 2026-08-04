@@ -68,6 +68,10 @@ const testimonialKeys = [
   {
     key: 'item16',
     image: '/images/home-congrats-wahyono.png',
+  },
+  {
+    key: 'item17',
+    image: '/images/home-congrats-asep.png',
   }
 ];
 
