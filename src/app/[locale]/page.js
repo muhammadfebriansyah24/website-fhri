@@ -84,41 +84,63 @@ function Hero({ t, locale }) {
 
 function Network({ t }) {
   const partnerLogos = [
-    { name: 'NEXUS CORP', svg: <svg className="h-7 w-auto fill-current" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" r="10" fill="#00263C" /><path d="M10 15 L15 10 L20 15 L15 20 Z" fill="#DC2626" /><text x="32" y="21" fontFamily="sans-serif" fontSize="15" fontWeight="bold" fill="#00263C">NEXUS</text></svg> },
-    { name: 'VERTEX', svg: <svg className="h-7 w-auto fill-current" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg"><polygon points="15,5 25,25 5,25" fill="#DC2626" /><polygon points="15,12 21,23 9,23" fill="#ffffff" /><text x="32" y="21" fontFamily="sans-serif" fontSize="15" fontWeight="bold" fill="#00263C">VERTEX</text></svg> },
-    { name: 'GLOBAL HR', svg: <svg className="h-7 w-auto fill-current" viewBox="0 0 150 30" xmlns="http://www.w3.org/2000/svg"><circle cx="15" cy="15" r="11" stroke="#00263C" strokeWidth="3" fill="none" /><path d="M4 15 H26 M15 4 A11 11 0 0 0 15 26" stroke="#DC2626" strokeWidth="2" fill="none" /><text x="32" y="21" fontFamily="sans-serif" fontSize="14" fontWeight="bold" fill="#00263C">GLOBAL HR</text></svg> },
-    { name: 'APEX GROUP', svg: <svg className="h-7 w-auto fill-current" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="15" width="6" height="10" fill="#00263C" /><rect x="13" y="10" width="6" height="15" fill="#00263C" /><rect x="21" y="5" width="6" height="20" fill="#DC2626" /><text x="34" y="21" fontFamily="sans-serif" fontSize="15" fontWeight="bold" fill="#00263C">APEX</text></svg> },
-    { name: 'ELEVATE', svg: <svg className="h-7 w-auto fill-current" viewBox="0 0 150 30" xmlns="http://www.w3.org/2000/svg"><path d="M5 22 L15 8 L25 22 Z" fill="#DC2626" /><path d="M11 22 L15 15 L19 22 Z" fill="#00263C" /><text x="32" y="21" fontFamily="sans-serif" fontSize="15" fontWeight="bold" fill="#00263C">ELEVATE</text></svg> },
-    { name: 'SYNERGY', svg: <svg className="h-7 w-auto fill-current" viewBox="0 0 150 30" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="15" r="6" fill="#00263C" /><circle cx="22" cy="15" r="6" fill="#DC2626" opacity="0.8" /><text x="34" y="21" fontFamily="sans-serif" fontSize="14" fontWeight="bold" fill="#00263C">SYNERGY</text></svg> }
+    { 
+      name: 'Busan Indonesia Center', 
+      img: '/images/home-network-busan.png' 
+    },
+    { 
+      name: 'NMC Klinik Pratama', 
+      img: '/images/home-network-nmc.png' 
+    },
+    { 
+      name: 'Asta Kanti', 
+      img: '/images/home-network-asta.png' 
+    }
   ];
-  const duplicatedPartners = [...partnerLogos, ...partnerLogos];
+
+  const duplicatedPartners = [
+    ...partnerLogos, 
+    ...partnerLogos, 
+    ...partnerLogos, 
+    ...partnerLogos
+  ];
 
   return (
     <section className="bg-white py-20 md:py-28 px-6 md:px-12 text-center overflow-hidden">
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(-50%); } 
         }
         .animate-scroll {
           display: flex;
           width: max-content;
-          animation: scroll 25s linear infinite;
+          animation: scroll 20s linear infinite;
         }
         .marquee-container:hover .animate-scroll {
           animation-play-state: paused;
         }
       `}</style>
+      
       <span className="text-eyebrow block mb-6">{t('Network.eyebrow')}</span>
       <h2 className="text-brand-navy mb-16">{t('Network.title')}</h2>
       
       <div className="marquee-container relative max-w-6xl mx-auto overflow-hidden">
+        {/* Efek fade kiri & kanan */}
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        
         <div className="animate-scroll gap-6 py-4">
           {duplicatedPartners.map((partner, index) => (
-            <div key={index} className="w-48 h-20 shrink-0 bg-white border border-slate-200 rounded-xl flex items-center justify-center p-4 transition-transform duration-500 ease-out cursor-pointer hover:-translate-y-1">
-              {partner.svg}
+            <div 
+              key={index} 
+              className="w-52 h-24 shrink-0 bg-white border border-slate-200 rounded-xl flex items-center justify-center p-2 transition-transform duration-500 ease-out cursor-pointer hover:-translate-y-1"
+            >
+              <img 
+                src={partner.img} 
+                alt={`Logo ${partner.name}`} 
+                className="max-h-full max-w-[85%] object-contain scale-125 grayscale hover:grayscale-0 transition-all duration-300" 
+              />
             </div>
           ))}
         </div>
