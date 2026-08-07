@@ -83,7 +83,8 @@ export default function Footer() {
 
               {/* INSTAGRAM */}
               <a
-                href="#"
+                href="https://www.instagram.com/firsthrindonesia"
+                target="_blank"
                 aria-label="Instagram First HR Indonesia"
                 className="w-8 h-8 rounded-full bg-white/10 hover:bg-brand-red transition-colors duration-300 flex items-center justify-center text-white"
               >
