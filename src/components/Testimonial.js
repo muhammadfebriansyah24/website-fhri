@@ -72,6 +72,14 @@ const testimonialKeys = [
   {
     key: 'item17',
     image: '/images/home-congrats-asep.png',
+  },
+  {
+    key: 'item18',
+    image: '/images/home-congrats-siska.png',
+  },
+  {
+    key: 'item19',
+    image: '/images/home-congrats-dianti.jpg',
   }
 ];
 
