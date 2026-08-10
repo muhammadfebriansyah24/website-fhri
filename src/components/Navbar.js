@@ -5,9 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
-import { getNavbarData } from '@/components/navbarData'; // 👇 Import Data
+import { getNavbarData } from '@/components/navbarData';
 
-// Komponen template icon
 const DynamicIcon = ({ name, className }) => (
   <div 
     className={`bg-current ${className}`}
@@ -30,12 +29,10 @@ export default function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   
-  // Ambil data navbar dinamis berdasarkan bahasa
   const data = getNavbarData(locale);
   const businessTabs = data.businessTabs;
 
   const [mobileOpen, setMobileOpen] = useState(false);
-  // Gunakan 'support' sebagai ID default yang aman lintas bahasa
   const [activeTabId, setActiveTabId] = useState('support'); 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [expandedBizTab, setExpandedBizTab] = useState(null);
@@ -66,17 +63,19 @@ export default function Navbar() {
 
   const handleLanguageChange = (newLocale) => {
     if (locale === newLocale) return;
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
+    const newPath = pathname.replace(new RegExp(`^/${locale}`), `/${newLocale}`);
     router.push(newPath);
   };
 
   return (
     <nav className="sticky top-0 bg-white text-brand-navy shadow-md z-50">
-      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 md:px-12 relative">
+      {/* 1. PERBAIKAN: Kurangi padding di layar lg (tablet) menjadi px-6, lalu gunakan px-12 di layar xl (desktop besar) */}
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6 lg:px-6 xl:px-12 relative">
         
         {/* COMPANY LOGO */}
-        <Link href={`/${locale}`} className="flex items-center gap-2 select-none -ml-3">
-          <div className="relative w-36 h-9 flex items-center">
+        {/* Tambahkan shrink-0 agar logo tidak mengecil saat tersudut */}
+        <Link href={`/${locale}`} className="flex items-center gap-2 select-none -ml-3 shrink-0">
+          <div className="relative w-32 xl:w-36 h-8 xl:h-9 flex items-center">
             <Image
               src="/images/fhri-logo.png" 
               alt="First HR Indonesia Logo"
@@ -90,13 +89,15 @@ export default function Navbar() {
         </Link>
 
         {/* DESKTOP LINKS */}
-        <div className="hidden lg:flex items-center gap-7 text-brand-navy/90 font-medium text-sm">
+        {/* 2. PERBAIKAN: Gunakan gap-3 di tablet (lg), dan gap-7 di desktop besar (xl) */}
+        <div className="hidden lg:flex items-center gap-3 xl:gap-7 text-brand-navy/90 font-medium text-xs xl:text-sm">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.label} className="py-2" ref={dropdownRef}>
                 <button 
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex items-center gap-1.5 text-brand-navy hover:text-brand-red font-semibold transition-colors focus:outline-none cursor-pointer"
+                  /* 3. PERBAIKAN: Tambahkan whitespace-nowrap agar teks tidak pecah ke baris baru */
+                  className="flex items-center gap-1 xl:gap-1.5 text-brand-navy hover:text-brand-red font-semibold transition-colors focus:outline-none cursor-pointer whitespace-nowrap"
                 >
                   {link.label}
                   <div 
@@ -115,7 +116,7 @@ export default function Navbar() {
                 </button>
 
                 {/* MEGA-MENU DROPDOWN */}
-                <div className={`transition-all duration-300 absolute top-full left-6 right-6 lg:left-12 lg:right-12 mt-2 z-50 ${dropdownOpen ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 -translate-y-2 pointer-events-none'}`}>
+                <div className={`transition-all duration-300 absolute top-full left-6 right-6 lg:left-6 lg:right-6 xl:left-12 xl:right-12 mt-2 z-50 ${dropdownOpen ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 -translate-y-2 pointer-events-none'}`}>
                   <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-6 md:p-8 flex gap-8 text-gray-800 w-full">
                     
                     <div className="w-[35%] flex flex-col justify-between border-r border-gray-100 pr-6 shrink-0">
@@ -128,7 +129,7 @@ export default function Navbar() {
                           >
                             <span className="flex items-center gap-3">
                               <DynamicIcon name={tab.icon} className="w-4 h-4 shrink-0" />
-                              <span className="truncate">{tab.title}</span> {/* Gunakan title */}
+                              <span className="truncate">{tab.title}</span> 
                             </span>
                             <span className="text-xs ml-2 shrink-0">›</span>
                           </button>
@@ -193,18 +194,19 @@ export default function Navbar() {
                 </div>
               </div>
             ) : (
-              <Link key={link.label} href={`/${locale}${link.href}`} className="hover:text-brand-red transition-colors py-2">
+              /* Tambahkan whitespace-nowrap pada link standar */
+              <Link key={link.label} href={`/${locale}${link.href}`} className="hover:text-brand-red transition-colors py-2 whitespace-nowrap">
                 {link.label}
               </Link>
             )
           )}
           
-          <div className="flex items-center gap-6 ml-2">
+          <div className="flex items-center gap-2 xl:gap-6 ml-2 shrink-0">
             {/* BUTTON LANGUAGE SWITCHER */}
             <div className="flex items-center bg-slate-100/80 rounded-full p-1 border border-slate-200/60 shadow-inner">
               <button 
                 onClick={() => handleLanguageChange('en')}
-                className={`px-3.5 py-1.5 rounded-full text-xs uppercase tracking-wider font-bold transition-all duration-300 ${
+                className={`px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full text-[10px] xl:text-xs uppercase tracking-wider font-bold transition-all duration-300 ${
                   locale === 'en' ? 'bg-white text-brand-red shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-brand-navy'
                 }`}
               >
@@ -212,7 +214,7 @@ export default function Navbar() {
               </button>
               <button 
                 onClick={() => handleLanguageChange('id')}
-                className={`px-3.5 py-1.5 rounded-full text-xs uppercase tracking-wider font-bold transition-all duration-300 ${
+                className={`px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full text-[10px] xl:text-xs uppercase tracking-wider font-bold transition-all duration-300 ${
                   locale === 'id' ? 'bg-white text-brand-red shadow-[0_2px_8px_-2px_rgba(0,0,0,0.1)]' : 'text-slate-500 hover:text-brand-navy'
                 }`}
               >
@@ -220,7 +222,8 @@ export default function Navbar() {
               </button>
             </div>
 
-            <Link href={`/${locale}/join-us`} className="bg-brand-red hover:bg-red-700 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5">
+            {/* Tambahkan whitespace-nowrap dan shrink-0 pada tombol */}
+            <Link href={`/${locale}/join-us`} className="bg-brand-red hover:bg-red-700 text-white px-5 py-2 xl:px-6 xl:py-2.5 rounded-full font-bold shadow-md transition-all transform hover:-translate-y-0.5 whitespace-nowrap shrink-0 text-xs xl:text-sm">
               {t('join')}
             </Link>
           </div>
@@ -248,7 +251,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* MOBILE PANEL */}
+      {/* MOBILE PANEL (Tetap Sama) */}
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-blue-900/40 px-6 py-5 flex flex-col gap-4 text-brand-navy/90 font-medium text-sm shadow-inner max-h-[70vh] overflow-y-auto">
           <div className="border-b border-gray-100 pb-4 mb-3">
