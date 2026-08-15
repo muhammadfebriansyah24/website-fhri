@@ -36,6 +36,10 @@
     "seed": "node prisma/seed.js"
   },
   "scripts": {
-    "build": "prisma migrate deploy && next build"
-  }
+  "dev": "next dev",
+  "build": "prisma migrate deploy && next build",
+  "start": "next start",
+  "lint": "eslint",
+  "postinstall": "prisma generate"
+}
 }
