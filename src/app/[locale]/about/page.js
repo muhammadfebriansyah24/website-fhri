@@ -2,42 +2,25 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import CTA from '@/components/CTA';
-import { getAboutData } from '../../../components/aboutData';
+import { getAboutData } from '@/components/aboutData';
 
 // 1. BAGIAN KOMPONEN (SECTIONS)
 
 function CustomStyles() {
   return (
     <style dangerouslySetInnerHTML={{__html: `
-      @keyframes float {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-15px) rotate(1.5deg); }
-      }
-      @keyframes float-reverse {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-10px) rotate(-1.5deg); }
-      }
-      @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-      }
-      @keyframes scaleIn {
-        from { opacity: 0; transform: scale(0.97); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      @keyframes fadeSlideUp {
-        from { opacity: 0; transform: translateY(12px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
+      @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-15px) rotate(1.5deg); } }
+      @keyframes float-reverse { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-10px) rotate(-1.5deg); } }
+      @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+      @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+      @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
       .animate-float { animation: float 6s ease-in-out infinite; }
       .animate-float-reverse { animation: float-reverse 7s ease-in-out infinite; }
       .animate-gradient-shift { animation: gradientShift 12s ease infinite; background-size: 200% 200%; }
-      .animate-scale-in { animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+      .animate-scale-in { animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
       .animate-fade-slide-up { animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
       
       .custom-scrollbar::-webkit-scrollbar { width: 5px; height: 5px; }
@@ -52,9 +35,21 @@ function CustomStyles() {
 }
 
 function HeroSection({ data }) {
+  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setProfileDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   return (
     <section className="relative bg-brand-navy text-white pt-20 pb-24 md:pt-28 md:pb-48 px-6 md:px-12 overflow-hidden flex items-center min-h-[85vh]">
-      {/* ... kode background & styling ... */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent via-brand-navy/50 to-brand-navy z-10 pointer-events-none"></div>
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-brand-navy/20 rounded-full blur-[140px] pointer-events-none"></div>
@@ -77,33 +72,66 @@ function HeroSection({ data }) {
 
           <div className="mt-8 flex flex-wrap lg:flex-nowrap justify-center lg:justify-start items-center gap-4 lg:gap-5">
             
-            <a 
-              href="https://drive.google.com/drive/folders/1xIUOT87rDa68WRlb6WOmyiZv1rhYvT52?usp=sharing" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-brand-red hover:bg-red-700 text-white px-7 py-4 rounded-2xl font-bold transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.4)] hover:-translate-y-1 uppercase tracking-widest text-sm"
-            >
-              <div 
-                className="w-5 h-5 bg-current"
-                style={{
-                  WebkitMaskImage: `url('/icons/ic_download.svg')`,
-                  WebkitMaskSize: 'contain',
-                  WebkitMaskRepeat: 'no-repeat',
-                  WebkitMaskPosition: 'center',
-                  maskImage: `url('/icons/ic_download.svg')`,
-                  maskSize: 'contain',
-                  maskRepeat: 'no-repeat',
-                  maskPosition: 'center',
-                }}
-              />
-              {data.hero.downloadBtn}
-            </a>
+            {/* 🚀 DROPDOWN BUTTON DENGAN LEBAR YANG SEJAJAR DENGAN TOMBOL */}
+            <div className="relative inline-block text-left w-full sm:w-auto" ref={dropdownRef}>
+              <button 
+                onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
+                className="w-full sm:w-auto inline-flex items-center justify-between gap-3 bg-brand-red hover:bg-white hover:text-brand-navy text-white px-5 py-3 rounded-xl font-bold transition-all duration-300 shadow-lg hover:-translate-y-1 uppercase tracking-wider text-[12px] cursor-pointer group"
+              >
+                <div className="flex items-center gap-2">
+                  <div 
+                    className="w-4 h-4 bg-current group-hover:text-brand-navy transition-colors shrink-0"
+                    style={{
+                      WebkitMaskImage: `url('/icons/ic_download.svg')`,
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: `url('/icons/ic_download.svg')`,
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  />
+                  <span>{data.hero.downloadBtn}</span>
+                </div>
+                <svg 
+                  className={`w-3.5 h-3.5 transition-transform duration-300 shrink-0 ${profileDropdownOpen ? 'rotate-180' : ''}`} 
+                  fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Menu Dropdown dengan w-full (persis sejajar dengan tombol) */}
+              {profileDropdownOpen && (
+                <div className="absolute left-0 top-full mt-2 w-full rounded-xl bg-white shadow-xl border border-slate-100 p-1 z-50 animate-fade-slide-up text-brand-navy">
+                  <a 
+                    href="/Comprof_FirstHRIndonesia_ID.pdf"
+                    download="Company_Profile_First_HR_Indonesia_ID.pdf"
+                    onClick={() => setProfileDropdownOpen(false)}
+                    className="flex items-center justify-between w-full px-3 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider hover:bg-slate-50 hover:text-brand-red transition-colors"
+                  >
+                    <span>ID (Bahasa)</span>
+                    <span className="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500">PDF</span>
+                  </a>
+                  <a 
+                    href="/Comprof_FirstHRIndonesia_EN.pdf"
+                    download="Company_Profile_First_HR_Indonesia_EN.pdf"
+                    onClick={() => setProfileDropdownOpen(false)}
+                    className="flex items-center justify-between w-full px-3 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider hover:bg-slate-50 hover:text-brand-red transition-colors mt-0.5"
+                  >
+                    <span>EN (English)</span>
+                    <span className="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500">PDF</span>
+                  </a>
+                </div>
+              )}
+            </div>
 
             <div className="bg-gradient-to-br from-brand-navy to-brand-navy border border-slate-700/50 p-3.5 rounded-2xl flex items-center gap-4 shadow-xl">
               <div className="flex -space-x-3">
-                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/1.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/2.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
-                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/3.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/images/1.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/images/2.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
+                <img className="w-10 h-10 rounded-full border-2 border-brand-navy object-cover" src="/images/3.png" alt="Team" onError={(e) => { e.target.style.display = 'none'; }} />
                 <div className="w-10 h-10 rounded-full border-2 border-brand-navy bg-brand-red flex items-center justify-center text-xs font-bold text-white z-10">+11</div>
               </div>
               <div className="text-left pr-3">
@@ -132,51 +160,25 @@ function VisionMissionSection({ data }) {
     <section className="relative px-6 md:px-12 -mt-20 md:-mt-24 z-40 pb-24">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         
-        {/* VISION CARD */}
         <div className="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.1)] border border-slate-100 transform transition-transform hover:-translate-y-2 duration-500 flex flex-col justify-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-slate-50 rounded-bl-[100px] -z-10"></div>
           <div className="w-14 h-14 bg-brand-navy rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-navy/20">
-            
             <div 
               className="w-7 h-7 bg-white"
-              style={{
-                WebkitMaskImage: `url('/icons/ic_eye-outline.svg')`,
-                WebkitMaskSize: 'contain',
-                WebkitMaskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'center',
-                maskImage: `url('/icons/ic_eye-outline.svg')`,
-                maskSize: 'contain',
-                maskRepeat: 'no-repeat',
-                maskPosition: 'center',
-              }}
+              style={{ WebkitMaskImage: `url('/icons/ic_eye-outline.svg')`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskImage: `url('/icons/ic_eye-outline.svg')`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center' }}
             />
-
           </div>
           <span className="text-eyebrow-lg block mb-6">{data.visionMission.visionTitle}</span>
-          <h3 className="text-brand-navy mb-6 text-balance">
-            {data.visionMission.visionText}
-          </h3>
+          <h3 className="text-brand-navy mb-6 text-balance">{data.visionMission.visionText}</h3>
         </div>
 
-        {/* MISSION CARD */}
         <div className="bg-gradient-to-br from-brand-navy to-brand-navy text-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,38,60,0.25)] border border-slate-700 relative overflow-hidden transform transition-transform hover:-translate-y-2 duration-500">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
           <div className="w-14 h-14 bg-brand-red rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-brand-red/30 relative z-10">
-            
             <div 
               className="w-7 h-7 bg-white"
-              style={{
-                WebkitMaskImage: `url('/icons/ic_bolt-outline.svg')`,
-                WebkitMaskSize: 'contain',
-                WebkitMaskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'center',
-                maskImage: `url('/icons/ic_bolt-outline.svg')`,
-                maskSize: 'contain',
-                maskRepeat: 'no-repeat',
-                maskPosition: 'center',
-              }}
+              style={{ WebkitMaskImage: `url('/icons/ic_bolt-outline.svg')`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskImage: `url('/icons/ic_bolt-outline.svg')`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center' }}
             />
-
           </div>
           <span className="text-eyebrow-lg text-slate-400 block mb-6 relative z-10">{data.visionMission.missionTitle}</span>
           <ul className="space-y-5 relative z-10">
@@ -196,79 +198,20 @@ function VisionMissionSection({ data }) {
 
 function CoreValuesSection({ data }) {
   const icons = [
-    
-    <div 
-      key="1" 
-      className="w-6 h-6 bg-brand-red"
-      style={{
-        WebkitMaskImage: `url('/icons/ic_check-shield-outline.svg')`,
-        WebkitMaskSize: 'contain',
-        WebkitMaskRepeat: 'no-repeat',
-        WebkitMaskPosition: 'center',
-        maskImage: `url('/icons/ic_check-shield-outline.svg')`,
-        maskSize: 'contain',
-        maskRepeat: 'no-repeat',
-        maskPosition: 'center',
-      }}
-    />,
-    
-    <div 
-      key="2" 
-      className="w-6 h-6 bg-brand-red"
-      style={{
-        WebkitMaskImage: `url('/icons/ic_star-outline.svg')`,
-        WebkitMaskSize: 'contain',
-        WebkitMaskRepeat: 'no-repeat',
-        WebkitMaskPosition: 'center',
-        maskImage: `url('/icons/ic_star-outline.svg')`,
-        maskSize: 'contain',
-        maskRepeat: 'no-repeat',
-        maskPosition: 'center',
-      }}
-    />,
-
-    <div 
-      key="3" 
-      className="w-6 h-6 bg-brand-red"
-      style={{
-        WebkitMaskImage: `url('/icons/ic_users-outline.svg')`,
-        WebkitMaskSize: 'contain',
-        WebkitMaskRepeat: 'no-repeat',
-        WebkitMaskPosition: 'center',
-        maskImage: `url('/icons/ic_users-outline.svg')`,
-        maskSize: 'contain',
-        maskRepeat: 'no-repeat',
-        maskPosition: 'center',
-      }}
-    />,
-
-    <div 
-      key="4" 
-      className="w-6 h-6 bg-brand-red"
-      style={{
-        WebkitMaskImage: `url('/icons/ic_trending-up.svg')`,
-        WebkitMaskSize: 'contain',
-        WebkitMaskRepeat: 'no-repeat',
-        WebkitMaskPosition: 'center',
-        maskImage: `url('/icons/ic_trending-up.svg')`,
-        maskSize: 'contain',
-        maskRepeat: 'no-repeat',
-        maskPosition: 'center',
-      }}
-    />
+    <div key="1" className="w-6 h-6 bg-brand-red" style={{ WebkitMaskImage: `url('/icons/ic_check-shield-outline.svg')`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskImage: `url('/icons/ic_check-shield-outline.svg')`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center' }} />,
+    <div key="2" className="w-6 h-6 bg-brand-red" style={{ WebkitMaskImage: `url('/icons/ic_star-outline.svg')`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskImage: `url('/icons/ic_star-outline.svg')`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center' }} />,
+    <div key="3" className="w-6 h-6 bg-brand-red" style={{ WebkitMaskImage: `url('/icons/ic_users-outline.svg')`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskImage: `url('/icons/ic_users-outline.svg')`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center' }} />,
+    <div key="4" className="w-6 h-6 bg-brand-red" style={{ WebkitMaskImage: `url('/icons/ic_trending-up.svg')`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskImage: `url('/icons/ic_trending-up.svg')`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center' }} />
   ];
 
   return (
     <section className="py-24 px-6 md:px-12 bg-slate-50 border-t border-slate-200/60">
       <div className="max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="gradient-gold text-eyebrow-lg text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
-            {data.coreValues.eyebrow}
-          </span>
+          <span className="gradient-gold text-eyebrow-lg text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">{data.coreValues.eyebrow}</span>
           <h2 className="text-brand-navy mb-6">{data.coreValues.title}</h2>
           <p>{data.coreValues.description}</p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {data.coreValues.values.map((item, idx) => (
             <div key={idx} className={`group bg-white p-8 md:p-10 rounded-[2rem] border border-slate-100 hover:border-blue-100 hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.12)] transition-all duration-500 relative ${idx % 2 === 0 ? 'lg:translate-y-4' : 'lg:-translate-y-4'}`}>
@@ -286,30 +229,20 @@ function CoreValuesSection({ data }) {
 }
 
 function ExecutiveProfilesSection({ data }) {
-  const [activeLeaderIndex, setActiveLeaderIndex] = useState(0);
-  const thumbnailContainerRef = useRef(null);
-  const leadershipTeam = data.leadershipTeam;
-  const activeLeader = leadershipTeam[activeLeaderIndex];
+  const categories = data.teamCategories;
+  const [modalLeader, setModalLeader] = useState(null);
 
   useEffect(() => {
-    if (thumbnailContainerRef.current) {
-      const container = thumbnailContainerRef.current;
-      const activeThumbnail = container.children[activeLeaderIndex];
-      if (activeThumbnail) {
-        const scrollPos = activeThumbnail.offsetLeft - (container.clientWidth / 2) + (activeThumbnail.clientWidth / 2);
-        container.scrollTo({ left: scrollPos, behavior: 'smooth' });
-      }
-    }
-  }, [activeLeaderIndex]);
-
-  const nextLeader = () => setActiveLeaderIndex((prev) => (prev === leadershipTeam.length - 1 ? 0 : prev + 1));
-  const prevLeader = () => setActiveLeaderIndex((prev) => (prev === 0 ? leadershipTeam.length - 1 : prev - 1));
+    if (modalLeader) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [modalLeader]);
 
   return (
-    <section className="py-28 px-6 md:px-12 bg-white relative overflow-hidden border-t border-slate-100">
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section className="py-24 md:py-32 px-6 md:px-12 bg-white relative overflow-hidden border-t border-slate-100">
+      <div className="max-w-7xl mx-auto relative z-10">
         
-        <div className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-20 md:mb-24">
           <span className="gradient-gold text-eyebrow-lg text-white px-5 py-2 rounded-full inline-block shadow-sm mb-6">
             {data.executive.eyebrow}
           </span>
@@ -317,85 +250,110 @@ function ExecutiveProfilesSection({ data }) {
           <p className="max-w-2xl mx-auto">{data.executive.subtitle}</p>
         </div>
 
-        <div className="bg-gradient-to-br from-slate-50 via-white to-slate-50 animate-gradient-shift border border-slate-200/80 rounded-[3rem] p-8 md:p-12 lg:p-14 shadow-[0_20px_60px_-15px_rgba(0,38,60,0.08)] transition-all duration-500 ease-in-out relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start relative z-10">
-            <div key={`img-${activeLeaderIndex}`} className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left animate-scale-in">
-              <div className="relative w-full max-w-[260px] lg:max-w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl shadow-brand-navy/10 border-[6px] border-white mb-8">
-                <Image src={activeLeader.image} alt={activeLeader.name} fill className="object-cover transition-opacity duration-500" onError={(e) => { e.target.style.display = 'none'; }} />
+        <div className="space-y-24 md:space-y-32">
+          {categories.map((cat) => (
+            <div key={cat.id} id={cat.id} className="scroll-mt-32">
+              
+              <div className="flex flex-col items-center justify-center gap-3 mb-12 md:mb-16">
+                <h3 className="text-2xl md:text-[28px] font-extrabold text-brand-navy text-center capitalize tracking-wide">{cat.title}</h3>
+                <div className="w-16 h-[5px] bg-brand-red rounded-full"></div>
               </div>
-              <h3 className="text-brand-navy">{activeLeader.name}</h3>
-              <h4 className="text-brand-red mt-3">{activeLeader.role}</h4>
-              <div className="w-12 h-1 bg-slate-200 mt-6 rounded-full mx-auto lg:mx-0"></div>
-            </div>
 
-            <div key={`txt-${activeLeaderIndex}`} className="lg:col-span-8 animate-fade-slide-up">
-              <h4 className="text-brand-navy mb-6 flex items-center gap-3 justify-center lg:justify-start">
-                <svg className="w-6 h-6 text-brand-red" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                {data.executive.summaryHeader}
-              </h4>
-              <div className="h-[340px] md:h-[400px] overflow-y-auto pr-3 md:pr-6 custom-scrollbar text-justify space-y-5">
-                {activeLeader.summary.map((paragraph, index) => (
-                  <p key={index} className="animate-fade-slide-up opacity-0" style={{ animationDelay: `${index * 0.12}s` }}>
-                    {paragraph}
-                  </p>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-12 md:gap-x-8 md:gap-y-16">
+                {cat.members.map((member, mIdx) => (
+                  <div 
+                    key={mIdx} 
+                    onClick={() => setModalLeader(member)} 
+                    className="group cursor-pointer flex flex-col items-start text-left w-full sm:w-[calc(50%-1.5rem)] md:w-[calc(33.333%-2rem)] lg:w-[calc(25%-2rem)] max-w-[280px] md:max-w-[230px] lg:max-w-[260px] xl:max-w-[280px]"
+                  >
+                    <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 mb-5 shadow-[0_10px_20px_-10px_rgba(0,38,60,0.15)] transition-all duration-500 group-hover:shadow-[0_20px_40px_-15px_rgba(0,38,60,0.3)] group-hover:-translate-y-2">
+                      <Image 
+                        src={member.image} 
+                        alt={member.name} 
+                        fill 
+                        className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                        onError={(e) => { e.target.style.display = 'none'; }} 
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B2A4A] via-[#0B2A4A]/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end p-5 lg:p-6 text-white">
+                        <div className="w-full flex items-center justify-between transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]">
+                          <span className="font-bold text-[13px] tracking-wide">{data.executive.summaryHeader || 'Lihat Profil'}</span>
+                          <svg className="w-5 h-5 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+
+                    <h4 className="text-[16px] md:text-[15.5px] lg:text-[18px] xl:text-[19px] font-extrabold text-brand-navy leading-snug transition-colors group-hover:text-brand-red pr-2">{member.name}</h4>
+                    <p className="text-[11px] md:text-[11px] lg:text-[12px] xl:text-[13px] font-bold text-slate-500 mt-1.5 uppercase tracking-wide opacity-90">{member.role}</p>
+                  </div>
                 ))}
               </div>
+
             </div>
-          </div>
+          ))}
         </div>
 
-        <div className="mt-14 flex flex-col lg:flex-row items-center justify-between gap-6 px-4">
-          <div className="flex items-center gap-3 md:gap-5 w-full justify-center">
-            <button onClick={prevLeader} className="shrink-0 w-12 h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
-              <div 
-                className="w-5 h-5 bg-current"
-                style={{
-                  transform: 'rotate(90deg)',
-                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                  WebkitMaskSize: 'contain',
-                  WebkitMaskRepeat: 'no-repeat',
-                  WebkitMaskPosition: 'center',
-                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                  maskSize: 'contain',
-                  maskRepeat: 'no-repeat',
-                  maskPosition: 'center',
-                }}
-              />
-            </button>
-
-            <div ref={thumbnailContainerRef} className="flex overflow-x-auto gap-4 py-4 px-2 max-w-[250px] sm:max-w-[450px] md:max-w-xl custom-scrollbar hide-scroll-mobile scroll-smooth">
-              {leadershipTeam.map((leader, index) => (
-                <button 
-                  key={index} onClick={() => setActiveLeaderIndex(index)} 
-                  className={`relative w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-full overflow-hidden border-[3px] transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${index === activeLeaderIndex ? 'border-brand-red scale-110 shadow-md' : 'border-transparent opacity-50 hover:opacity-100 hover:scale-105'}`}
-                >
-                  <Image src={leader.image} alt={leader.name} fill className="object-cover" onError={(e) => { e.target.style.display = 'none'; }} />
-                </button>
-              ))}
-            </div>
-
-            <button onClick={nextLeader} className="shrink-0 w-12 h-12 rounded-full border border-slate-200 bg-white shadow-sm flex items-center justify-center text-slate-500 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all">
-              <div 
-                className="w-5 h-5 bg-current"
-                style={{
-                  transform: 'rotate(-90deg)',
-                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                  WebkitMaskSize: 'contain',
-                  WebkitMaskRepeat: 'no-repeat',
-                  WebkitMaskPosition: 'center',
-                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                  maskSize: 'contain',
-                  maskRepeat: 'no-repeat',
-                  maskPosition: 'center',
-                }}
-              />
-            </button>
-          </div>
-          <div className="text-index text-slate-400 lg:shrink-0 hidden lg:block">
-            {activeLeaderIndex + 1} / {leadershipTeam.length}
-          </div>
-        </div>
       </div>
+
+      {/* --- MODAL POP-UP RESPONSIF --- */}
+      {modalLeader && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-8 bg-[#0B2A4A]/80 backdrop-blur-sm transition-opacity">
+          
+          <div className="absolute inset-0" onClick={() => setModalLeader(null)}></div>
+          
+          <div className="relative w-full max-w-5xl animate-scale-in z-10">
+            
+            <button 
+              onClick={() => setModalLeader(null)} 
+              className="absolute -top-3 -right-3 md:-top-5 md:-right-5 w-10 h-10 md:w-12 md:h-12 bg-[#DC0017] border-[3px] md:border-4 border-white rounded-full flex items-center justify-center text-white hover:bg-red-700 hover:scale-105 z-50 transition-all shadow-xl"
+            >
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+            </button>
+
+            <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] w-full max-h-[85vh] md:max-h-[80vh] lg:h-[600px] overflow-hidden shadow-2xl flex flex-col lg:flex-row border border-white/20">
+              
+              <div className="lg:hidden pt-8 pb-4 px-6 bg-slate-50/50 border-b border-slate-100 flex flex-col items-center justify-center relative shrink-0">
+                <div className="absolute -top-12 -right-12 w-40 h-40 bg-[#DC0017]/[0.04] rounded-full pointer-events-none"></div>
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full border-4 border-white shadow-[0_10px_25px_-5px_rgba(0,0,0,0.15)] overflow-hidden bg-white z-10">
+                  <Image 
+                    src={modalLeader.image} 
+                    alt={modalLeader.name} 
+                    fill 
+                    className="object-cover object-top" 
+                    onError={(e) => { e.target.style.display = 'none'; }}
+                  />
+                </div>
+              </div>
+
+              <div className="hidden lg:block lg:w-[45%] h-full relative shrink-0 bg-slate-100 border-r border-slate-100">
+                <Image 
+                  src={modalLeader.image} 
+                  alt={modalLeader.name} 
+                  fill 
+                  className="object-cover object-top" 
+                  onError={(e) => { e.target.style.display = 'none'; }}
+                />
+              </div>
+
+              <div className="w-full lg:w-[55%] p-6 md:p-10 lg:p-12 overflow-y-auto custom-scrollbar bg-white flex flex-col">
+                <h3 className="text-xl sm:text-2xl md:text-[32px] font-extrabold text-brand-navy leading-tight pr-6">{modalLeader.name}</h3>
+                <p className="text-[#DC0017] mt-1.5 md:mt-2 text-xs sm:text-sm md:text-[14.5px] font-bold uppercase tracking-widest mb-4 md:mb-6">{modalLeader.role}</p>
+                
+                <div className="w-12 h-1 bg-slate-200 rounded-full mb-4 md:mb-6 shrink-0"></div>
+                
+                <div className="space-y-4 text-slate-600 text-[13.5px] md:text-[15.5px] leading-relaxed text-justify pb-4">
+                  {modalLeader.summary.map((paragraph, i) => (
+                    <p key={i}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -410,15 +368,9 @@ function JourneyTimelineSection({ data }) {
 
      <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-          <span className="text-eyebrow-lg block mb-6">
-            {data.journey.eyebrow}
-          </span>
-          <h2 className="text-brand-navy mb-6 text-balance">
-            {data.journey.title1} <br className="hidden sm:block" /> {data.journey.title2}
-          </h2>
-          <p className="max-w-2xl mx-auto">
-            {data.journey.subtitle}
-          </p>
+          <span className="text-eyebrow-lg block mb-6">{data.journey.eyebrow}</span>
+          <h2 className="text-brand-navy mb-6 text-balance">{data.journey.title1} <br className="hidden sm:block" /> {data.journey.title2}</h2>
+          <p className="max-w-2xl mx-auto">{data.journey.subtitle}</p>
         </div>
 
        <div className="flex flex-col gap-y-16">
@@ -427,31 +379,18 @@ function JourneyTimelineSection({ data }) {
          ).map((row, rowIdx) => {
            const isFullRow = row.length === 3;
            return (
-             <div
-               key={rowIdx}
-               className={`flex flex-wrap items-start gap-y-14 justify-center ${
-                 isFullRow ? 'lg:flex-nowrap lg:justify-between' : 'lg:gap-x-16'
-               }`}
-             >
+             <div key={rowIdx} className={`flex flex-wrap items-start gap-y-14 justify-center ${isFullRow ? 'lg:flex-nowrap lg:justify-between' : 'lg:gap-x-16'}`}>
                {row.map((item, idx) => (
                  <React.Fragment key={idx}>
                    <div className="group flex flex-col items-center w-72 px-2 shrink-0">
-                     <div className="w-[72px] h-[72px] rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-sm mb-7 shadow-[0_15px_35px_-10px_rgba(0,38,60,0.5)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-brand-red group-hover:scale-105">
-                       <span className="text-center leading-tight">{item.year}</span>
+                     <div className="w-[120px] h-[48px] rounded-full bg-brand-navy text-white flex items-center justify-center font-bold text-[14px] mb-7 shadow-[0_15px_35px_-10px_rgba(0,38,60,0.5)] transition-all duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-brand-red group-hover:scale-105">
+                       <span className="text-center leading-tight whitespace-nowrap tracking-wide">{item.year}</span>
                      </div>
-                      <h4 className="mb-3 text-center text-brand-navy group-hover:text-brand-red transition-colors duration-500">
-                        {item.title}
-                      </h4>
-                      <p className="text-teaser text-justify">
-                        {item.desc}
-                      </p>
+                      <h4 className="mb-3 text-center text-brand-navy group-hover:text-brand-red transition-colors duration-500">{item.title}</h4>
+                      <p className="text-teaser text-justify">{item.desc}</p>
                    </div>
                    {idx < row.length - 1 && (
-                     <div
-                       className={`hidden lg:flex border-t-2 border-dashed border-slate-300 mt-9 shrink-0 ${
-                         isFullRow ? 'flex-1 mx-2 min-w-[2rem]' : 'w-16'
-                       }`}
-                     />
+                     <div className={`hidden lg:flex border-t-2 border-dashed border-slate-300 mt-6 shrink-0 ${isFullRow ? 'flex-1 mx-2 min-w-[2rem]' : 'w-16'}`} />
                    )}
                  </React.Fragment>
                ))}
@@ -493,57 +432,21 @@ function GallerySection({ data }) {
             <p className="text-slate-300">{data.gallery.subtitle}</p>
           </div>
           <div className="flex gap-4 justify-center md:justify-end">
-            
-            {/* Tombol Previous */}
             <button onClick={prevGallery} className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all shadow-lg">
-              <div 
-                className="w-6 h-6 bg-current"
-                style={{
-                  transform: 'rotate(90deg)',
-                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                  WebkitMaskSize: 'contain',
-                  WebkitMaskRepeat: 'no-repeat',
-                  WebkitMaskPosition: 'center',
-                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                  maskSize: 'contain',
-                  maskRepeat: 'no-repeat',
-                  maskPosition: 'center',
-                }}
-              />
+              <div className="w-6 h-6 bg-current" style={{ transform: 'rotate(90deg)', WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskImage: `url('/icons/ic_arrow-short-down.svg')`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center', }} />
             </button>
-
-            {/* Tombol Next */}
             <button onClick={nextGallery} className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white hover:bg-brand-red hover:border-brand-red transition-all shadow-lg">
-              <div 
-                className="w-6 h-6 bg-current"
-                style={{
-                  transform: 'rotate(-90deg)',
-                  WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                  WebkitMaskSize: 'contain',
-                  WebkitMaskRepeat: 'no-repeat',
-                  WebkitMaskPosition: 'center',
-                  maskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                  maskSize: 'contain',
-                  maskRepeat: 'no-repeat',
-                  maskPosition: 'center',
-                }}
-              />
+              <div className="w-6 h-6 bg-current" style={{ transform: 'rotate(-90deg)', WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`, WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center', maskImage: `url('/icons/ic_arrow-short-down.svg')`, maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center', }} />
             </button>
-
           </div>
         </div>
-
         <div className="relative">
           <div className="overflow-hidden"> 
             <div className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] gap-6" style={{ transform: `translateX(-${gallerySlide * (100 / galleryViews)}%)` }}>
               {gallerySliderData.map((slide) => (
                 <div key={slide.id} className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] shrink-0 aspect-[4/3] md:aspect-[5/4] relative rounded-[2rem] overflow-hidden group border border-slate-700/50 shadow-xl">
                   <Image src={slide.image} alt={slide.title} fill className="object-cover group-hover:scale-110 transition duration-700" onError={(e) => { e.target.style.display = 'none'; }} />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0B2A4A] to-slate-900 flex flex-col items-center justify-center -z-10">
-                    <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-3">
-                       <svg className="w-8 h-8 text-white/30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0B2A4A] to-slate-900 flex flex-col items-center justify-center -z-10"></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
                     <h5 className="text-brand-red block mb-2">{data.gallery.badge}</h5>
                     <h4 className="text-white">{slide.title}</h4>
@@ -557,8 +460,6 @@ function GallerySection({ data }) {
     </section>
   );
 }
-
-// 2. MAIN PAGE EXPORT
 
 export default function AboutUsPage() {
   const [mounted, setMounted] = useState(false);
