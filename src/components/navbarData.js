@@ -5,13 +5,80 @@ export const getNavbarData = (locale) => {
         learnMore: "Pelajari Lebih Lanjut",
         viewAll: "Lihat Semua →"
       },
+      aboutTabs: [
+        {
+          id: 'commissioners',
+          title: 'Dewan Komisaris',
+          path: '/about#commissioners',
+          subtitle: 'Pengawas dan penasihat strategis perusahaan.',
+          icon: 'ic_building-library-outline.svg',
+          subMenus: [
+            { title: 'Indriany Rumbi T. Simatupang', desc: 'Commissioner' },
+            { title: 'Julianto Bona Pardamean', desc: 'Commissioner' }
+          ]
+        },
+        {
+          id: 'management',
+          title: 'Dewan Direksi & Manajemen',
+          path: '/about#management',
+          subtitle: 'Pemimpin eksekutif yang mengarahkan visi dan operasional.',
+          icon: 'ic_briefcase-outline.svg',
+          subMenus: [
+            { title: 'Robby P. Tambunan', desc: 'Chief Executive Officer' },
+            { title: 'Charles Gatan', desc: 'Chief Operating Officer' },
+            { title: 'Yopie Bungaran Halomoan S.E., M.M.', desc: 'Chief Financial Officer' },
+            { title: 'Hana Tiranda', desc: 'General Manager - Operation' }
+          ]
+        },
+        {
+          id: 'trainers',
+          title: 'Pelatih & Fasilitator Utama',
+          path: '/about#trainers',
+          subtitle: 'Pakar yang mentransformasi kinerja melalui pembelajaran.',
+          icon: 'ic_education-outline.svg',
+          subMenus: [
+            { title: 'Saut Sitompul, Drs., M.Si., CEM', desc: 'Master Trainer, Executive Coach' },
+            { title: 'Ronald Ticoalu', desc: 'Master Trainer, Executive Coach' },
+            { title: 'Novriadi', desc: 'Master Trainer, Executive Coach' },
+            { title: 'Priadi Gunanto, S.T.', desc: 'Senior Trainer & Facilitator' },
+            { title: 'Martha Nurlia', desc: 'Senior Trainer & Facilitator' },
+            { title: 'Miftakhul Ikhsan, S.T.', desc: 'Senior Trainer & Facilitator' },
+            { title: 'Wawan Kurniawan', desc: 'Senior Trainer & Facilitator' }
+          ]
+        },
+        {
+          id: 'sales',
+          title: 'Penjualan & Pemasaran Digital',
+          path: '/about#sales',
+          subtitle: 'Penggerak pertumbuhan bisnis dan hubungan klien.',
+          icon: 'ic_trending-up.svg',
+          subMenus: [
+            { title: 'Paulus Sebastian', desc: 'Sales & Digital Marketing' },
+            { title: 'Diza Gondo', desc: 'Sales & Digital Marketing' },
+            { title: 'Adriel Tambunan', desc: 'Sales & Digital Marketing' }
+          ]
+        },
+        {
+          id: 'support',
+          title: 'Spesialis & Dukungan Operasional',
+          path: '/about#support',
+          subtitle: 'Pilar pendukung teknis dan kelancaran operasional.',
+          icon: 'ic_users-outline.svg',
+          subMenus: [
+            { title: 'Laura Milka Valencia', desc: 'Talent Acquisition' },
+            { title: 'Abelard Sebastian Simanjuntak, S.H.', desc: 'Industrial Relation Advisory' },
+            { title: 'I. Kadek Lendra Sanjaya', desc: 'General Affair' },
+            { title: 'Muhammad Febriansyah', desc: 'Web Developer' }
+          ]
+        }
+      ],
       businessTabs: [
         {
           id: 'support',
           title: 'Layanan Dukungan Bisnis',
           path: '/business/business-support',
           subtitle: 'Dukungan komprehensif untuk memperkuat operasi dan strategi bisnis Anda.',
-          icon: 'icons/ic_briefcase-outline.svg',
+          icon: 'ic_briefcase-outline.svg',
           subMenus: [
             { title: 'Pendirian Perusahaan', desc: 'Panduan ahli melalui kepatuhan peraturan lokal dan perizinan.' },
             { title: 'Solusi Kesesuaian Budaya', desc: 'Lokakarya untuk menjembatani kesenjangan budaya dan integrasi tim.' },
@@ -26,7 +93,7 @@ export const getNavbarData = (locale) => {
           title: 'Solusi Human Capital',
           path: '/business/humancapital-solutions',
           subtitle: 'Solusi strategis untuk mengoptimalkan dan mengembangkan aset SDM Anda.',
-          icon: 'icons/ic_search-outline.svg',
+          icon: 'ic_search-outline.svg',
           subMenus: [
             { title: 'Pencarian Eksekutif', desc: 'Pendekatan proaktif untuk merekrut talenta C-suite pasif.' },
             { title: 'Layanan Rekrutmen', desc: 'Manajemen rekrutmen menyeluruh untuk posisi menengah & spesialis.' },
@@ -41,7 +108,7 @@ export const getNavbarData = (locale) => {
           title: 'Penggajian & Alih Daya',
           path: '/business/payroll',
           subtitle: 'Manajemen penggajian terpadu dan solusi alih daya proses bisnis.',
-          icon: 'icons/ic_circle-stack-outline.svg',
+          icon: 'ic_circle-stack-outline.svg',
           subMenus: [
             { title: 'Pemrosesan Penggajian', desc: 'Pemrosesan gaji yang akurat selaras dengan peraturan tenaga kerja & PPh 21.' },
             { title: 'Alih Daya Staf', desc: 'Solusi tenaga kerja fleksibel yang mengurangi beban administratif.' },
@@ -56,7 +123,7 @@ export const getNavbarData = (locale) => {
           title: 'Alat Asesmen',
           path: '/business/assessment-tools',
           subtitle: 'Alat penilaian canggih untuk mengevaluasi kompetensi dan potensi karyawan.',
-          icon: 'icons/ic_education-outline.svg',
+          icon: 'ic_education-outline.svg',
           subMenus: [
             { title: 'Keterampilan & Kinerja', desc: 'Evaluasi kesiapan teknis dan pencapaian target kerja.' },
             { title: 'Umpan Balik 360-Derajat', desc: 'Dapatkan pandangan komprehensif dari struktur interaksi profesional.' },
@@ -71,7 +138,7 @@ export const getNavbarData = (locale) => {
           title: 'Boot Camp HR',
           path: '/business/hr-bootcamp',
           subtitle: 'Program pelatihan intensif untuk membangun keunggulan HR strategis.',
-          icon: 'icons/ic_computer-outline.svg',
+          icon: 'ic_computer-outline.svg',
           subMenus: [
             { title: 'Boot Camp HRBP', desc: 'Program transisi intensif untuk menjadi HR Business Partner strategis.' },
             { title: 'Studi Kasus Langsung', desc: 'Analisis studi kasus praktis dan sesi resolusi bisnis dunia nyata.' },
@@ -86,7 +153,7 @@ export const getNavbarData = (locale) => {
           title: 'Hubungan Industrial & Hukum',
           path: '/business/industrial-relations',
           subtitle: 'Panduan ahli tentang hubungan kerja, hukum ketenagakerjaan, & sengketa.',
-          icon: 'icons/ic_building-library-outline.svg',
+          icon: 'ic_building-library-outline.svg',
           subMenus: [
             { title: 'Kepatuhan Hukum', desc: 'Pengembangan dan tinjauan Peraturan Perusahaan (PP) & PKB.' },
             { title: 'Manajemen Risiko', desc: 'Mitigasi risiko restrukturisasi, kontrak, dan pemutusan hubungan kerja.' },
@@ -101,7 +168,7 @@ export const getNavbarData = (locale) => {
           title: 'Kesehatan & Keselamatan Lingkungan',
           path: '/business/hse',
           subtitle: 'Program K3L komprehensif untuk keselamatan tempat kerja.',
-          icon: 'icons/ic_check-shield-outline.svg',
+          icon: 'ic_check-shield-outline.svg',
           subMenus: [
             { title: 'Penilaian Risiko', desc: 'Identifikasi bahaya, investigasi insiden, dan tindakan korektif.' },
             { title: 'Pembuatan Kebijakan & SOP', desc: 'Pembuatan manual dan panduan sistem manajemen ISO 45001.' },
@@ -116,14 +183,14 @@ export const getNavbarData = (locale) => {
           title: 'Budaya & Acara Perusahaan',
           path: '/business/corporate-culture',
           subtitle: 'Bangun budaya perusahaan berkembang melalui program strategis.',
-          icon: 'icons/ic_users-outline.svg',
+          icon: 'ic_users-outline.svg',
           subMenus: [
             { title: 'Etika Kerja Profesional', desc: 'Lokakarya penanaman akuntabilitas, integritas, dan kolaborasi.' },
             { title: 'Penyelenggara Acara Korporat', desc: 'Perencanaan town hall dan acara penghargaan tahunan.' },
             { title: 'Pelatihan Outbound', desc: 'Aktivitas luar ruangan membangun kepercayaan, tim, & kepemimpinan.' },
             { title: 'Asesmen Budaya', desc: 'Diagnosis pola perilaku dan kesenjangan budaya.' },
             { title: 'Kustomisasi Kurikulum', desc: 'Menyesuaikan program transformasi budaya khusus.' },
-            { title: 'Fasilitasi Dinamis', berner: 'Eksekusi lokakarya interaktif berenergi tinggi untuk mendorong perubahan.' },
+            { title: 'Fasilitasi Dinamis', desc: 'Eksekusi lokakarya interaktif berenergi tinggi untuk mendorong perubahan.' },
           ]
         },
         {
@@ -131,7 +198,7 @@ export const getNavbarData = (locale) => {
           title: 'Lembaga Sertifikasi Profesi',
           path: '/business/lsp',
           subtitle: 'Program sertifikasi untuk memvalidasi dan meningkatkan kompetensi HR.',
-          icon: 'icons/ic_check-badge-outline.svg',
+          icon: 'ic_check-badge-outline.svg',
           subMenus: [
             { title: 'Sertifikasi HR', desc: 'Sertifikasi profesional yang diakui untuk spesialis & praktisi HR.' },
             { title: 'Standar Kompetensi', desc: 'Kerangka kerja kompetensi dan kriteria penilaian standar industri.' },
@@ -151,13 +218,80 @@ export const getNavbarData = (locale) => {
       learnMore: "Learn More",
       viewAll: "View All →"
     },
+    aboutTabs: [
+      {
+        id: 'commissioners',
+        title: 'Board of Commissioners',
+        path: '/about#commissioners',
+        subtitle: 'Strategic advisors and corporate overseers.',
+        icon: 'ic_building-library-outline.svg',
+        subMenus: [
+          { title: 'Indriany Rumbi T. Simatupang', desc: 'Commissioner' },
+          { title: 'Julianto Bona Pardamean', desc: 'Commissioner' }
+        ]
+      },
+      {
+        id: 'management',
+        title: 'Board of Management',
+        path: '/about#management',
+        subtitle: 'Executive leaders driving vision and operations.',
+        icon: 'ic_briefcase-outline.svg',
+        subMenus: [
+          { title: 'Robby P. Tambunan', desc: 'Chief Executive Officer' },
+          { title: 'Charles Gatan', desc: 'Chief Operating Officer' },
+          { title: 'Yopie Bungaran Halomoan S.E., M.M.', desc: 'Chief Financial Officer' },
+          { title: 'Hana Tiranda', desc: 'General Manager - Operation' }
+        ]
+      },
+      {
+        id: 'trainers',
+        title: 'Master Trainers & Facilitators',
+        path: '/about#trainers',
+        subtitle: 'Experts transforming performance through learning.',
+        icon: 'ic_education-outline.svg',
+        subMenus: [
+          { title: 'Saut Sitompul, Drs., M.Si., CEM', desc: 'Master Trainer, Executive Coach' },
+          { title: 'Ronald Ticoalu', desc: 'Master Trainer, Executive Coach' },
+          { title: 'Novriadi', desc: 'Master Trainer, Executive Coach' },
+          { title: 'Priadi Gunanto, S.T.', desc: 'Senior Trainer & Facilitator' },
+          { title: 'Martha Nurlia', desc: 'Senior Trainer & Facilitator' },
+          { title: 'Miftakhul Ikhsan, S.T.', desc: 'Senior Trainer & Facilitator' },
+          { title: 'Wawan Kurniawan', desc: 'Senior Trainer & Facilitator' }
+        ]
+      },
+      {
+        id: 'sales',
+        title: 'Sales & Digital Marketing',
+        path: '/about#sales',
+        subtitle: 'Drivers of business growth and client relationships.',
+        icon: 'ic_trending-up.svg',
+        subMenus: [
+          { title: 'Paulus Sebastian', desc: 'Sales & Digital Marketing' },
+          { title: 'Diza Gondo', desc: 'Sales & Digital Marketing' },
+          { title: 'Adriel Tambunan', desc: 'Sales & Digital Marketing' }
+        ]
+      },
+      {
+        id: 'support',
+        title: 'Specialists & Operational Support',
+        path: '/about#support',
+        subtitle: 'Technical pillars ensuring operational excellence.',
+        icon: 'ic_users-outline.svg',
+        subMenus: [
+          { title: 'Laura Milka Valencia', desc: 'Talent Acquisition' },
+          { title: 'Abelard Sebastian Simanjuntak, S.H.', desc: 'Industrial Relation Advisory' },
+          { title: 'I. Kadek Lendra Sanjaya', desc: 'General Affair' },
+          { title: 'Muhammad Febriansyah', desc: 'Web Developer' }
+        ]
+      }
+    ],
     businessTabs: [
       {
         id: 'support',
         title: 'Business Support Services',
         path: '/business/business-support',
         subtitle: 'Comprehensive support to strengthen your business operations and strategy.',
-        icon: 'icons/ic_briefcase-outline.svg',
+        icon: 'ic_briefcase-outline.svg',
         subMenus: [
           { title: 'Company Establishment', desc: 'Expert guidance through local regulatory compliance, licensing, and legal requirements for new market entrants.' },
           { title: 'Cultural Fit Solutions', desc: 'Workshops and coaching sessions designed to bridge cultural gaps and create harmonious team integration.' },
@@ -172,7 +306,7 @@ export const getNavbarData = (locale) => {
         title: 'Human Capital Solutions',
         path: '/business/humancapital-solutions',
         subtitle: 'Strategic solutions to optimize and develop your human capital assets.',
-        icon: 'icons/ic_search-outline.svg',
+        icon: 'ic_search-outline.svg',
         subMenus: [
           { title: 'Executive Search', desc: 'A proactive, targeted approach to recruiting passive C-suite talents and senior leaders.' },
           { title: 'Recruitment Services', desc: 'End-to-end recruitment process management for mid-level positions and specialists across industries.' },
@@ -187,7 +321,7 @@ export const getNavbarData = (locale) => {
         title: 'Payroll & Outsourcing',
         path: '/business/payroll',
         subtitle: 'End-to-end payroll management and business process outsourcing solutions.',
-        icon: 'icons/ic_circle-stack-outline.svg',
+        icon: 'ic_circle-stack-outline.svg',
         subMenus: [
           { title: 'Payroll Processing', desc: 'Accurate, timely payroll processing aligned with Indonesian labor and PPh 21 tax regulations.' },
           { title: 'Staff Outsourcing', desc: 'Flexible workforce solutions that scale with your business and reduce administrative burden.' },
@@ -202,7 +336,7 @@ export const getNavbarData = (locale) => {
         title: 'Assessment Tools',
         path: '/business/assessment-tools',
         subtitle: 'Advanced assessment tools to evaluate employee competencies and potential.',
-        icon: 'icons/ic_education-outline.svg',
+        icon: 'ic_education-outline.svg',
         subMenus: [
           { title: 'Skill & Performance', desc: 'Evaluate technical readiness and work target achievements with measurable metrics.' },
           { title: '360-Degree Feedback', desc: 'Gain a comprehensive view from the entire professional interaction structure via anonymous feedback.' },
@@ -217,7 +351,7 @@ export const getNavbarData = (locale) => {
         title: 'HR Boot Camp',
         path: '/business/hr-bootcamp',
         subtitle: 'Intensive training programs to build HR excellence and strategic capabilities.',
-        icon: 'icons/ic_computer-outline.svg',
+        icon: 'ic_computer-outline.svg',
         subMenus: [
           { title: 'HRBP Boot Camp', desc: 'Intensive cohort-based program to transition traditional HR practitioners into strategic business partners.' },
           { title: 'Live Case Studies', desc: 'Practical case study analysis and real-world business resolution sessions with peer collaboration.' },
@@ -232,7 +366,7 @@ export const getNavbarData = (locale) => {
         title: 'Industrial Relations & Legal Advisory',
         path: '/business/industrial-relations',
         subtitle: 'Expert guidance on labor relations, employment law, and dispute resolution.',
-        icon: 'icons/ic_building-library-outline.svg',
+        icon: 'ic_building-library-outline.svg',
         subMenus: [
           { title: 'Labor Law Compliance', desc: 'Development and review of Company Regulations (PP) and Collective Labor Agreements (PKB).' },
           { title: 'Risk Management', desc: 'Mitigate employment risks related to restructuring, contracts, and legally compliant termination.' },
@@ -247,7 +381,7 @@ export const getNavbarData = (locale) => {
         title: 'Health, Safety, and Environment',
         path: '/business/hse',
         subtitle: 'Comprehensive HSE programs to ensure workplace safety and employee wellbeing.',
-        icon: 'icons/ic_check-shield-outline.svg',
+        icon: 'ic_check-shield-outline.svg',
         subMenus: [
           { title: 'Risk Assessment', desc: 'Proactively identify workplace hazards, conduct incident investigations, and determine corrective actions.' },
           { title: 'Policy & SOP Creation', desc: 'Creation of safety manuals and guidance for implementing standard ISO 45001 management systems.' },
@@ -262,14 +396,14 @@ export const getNavbarData = (locale) => {
         title: 'Corporate Culture & Events',
         path: '/business/corporate-culture',
         subtitle: 'Build a thriving corporate culture through strategic programs and events.',
-        icon: 'icons/ic_users-outline.svg',
+        icon: 'ic_users-outline.svg',
         subMenus: [
           { title: 'Professional Work Ethic', desc: 'Workshops instilling accountability, integrity, collaboration, and service excellence standards.' },
           { title: 'Corporate Event Organizing', desc: 'End-to-end planning of town halls and annual recognition events to strengthen cohesion.' },
           { title: 'Outbound Training', desc: 'Outdoor activities building trust, teamwork, and leadership through shared challenges.' },
           { title: 'Culture Assessment', desc: 'Diagnosing behavioral patterns and cultural gaps to identify development opportunities.' },
           { title: 'Curriculum Customization', desc: 'Tailoring custom culture transformation programs and event formats for alignment.' },
-          { title: 'Dynamic Facilitation', berner: 'High-energy execution of interactive workshops to drive organizational change.' }, 
+          { title: 'Dynamic Facilitation', desc: 'High-energy execution of interactive workshops to drive organizational change.' }, 
         ]
       },
       {
@@ -277,7 +411,7 @@ export const getNavbarData = (locale) => {
         title: 'Professional Certification Institute',
         path: '/business/lsp',
         subtitle: 'Professional certification programs to validate and enhance HR competencies.',
-        icon: 'icons/ic_check-badge-outline.svg',
+        icon: 'ic_check-badge-outline.svg',
         subMenus: [
           { title: 'HR Certification', desc: 'Recognized professional certifications for HR specialists and practitioners.' },
           { title: 'Competency Standards', desc: 'Industry-standard competency frameworks and assessment criteria.' },
