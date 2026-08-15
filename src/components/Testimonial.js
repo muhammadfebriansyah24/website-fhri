@@ -80,6 +80,10 @@ const testimonialKeys = [
   {
     key: 'item19',
     image: '/images/home-congrats-dianti.jpg',
+  },
+  {
+    key: 'item20',
+    image: '/images/home-congrats-morizio.png',
   }
 ];
 
