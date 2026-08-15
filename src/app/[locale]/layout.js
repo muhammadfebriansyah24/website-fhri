@@ -37,11 +37,9 @@ export default async function RootLayout({ children, params }) {
     <html lang={locale} className={poppins.variable}>
       <body className="font-sans antialiased bg-white text-brand-navy min-h-screen flex flex-col">
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <Navbar />
           <main className="flex-grow">
             {children}
           </main>
-          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
