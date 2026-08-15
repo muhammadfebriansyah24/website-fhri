@@ -1,116 +1,52 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
-const testimonialKeys = [
-  {
-    key: 'item1',
-    image: '/images/home-congrats-ricky.png',
-  },
-  {
-    key: 'item2',
-    image: '/images/home-congrats-devi.png',
-  },
-  {
-    key: 'item3',
-    image: '/images/home-congrats-dina.png',
-  },
-  {
-    key: 'item4',
-    image: '/images/home-congrats-dunamis.png',
-  },
-  {
-    key: 'item5',
-    image: '/images/home-congrats-kimsooil.png',
-  },
-  {
-    key: 'item6',
-    image: '/images/home-congrats-lucia.png',
-  },
-  {
-    key: 'item7',
-    image: '/images/home-congrats-monang.png',
-  },
-  {
-    key: 'item8',
-    image: '/images/home-congrats-ibnu.png',
-  },
-  {
-    key: 'item9',
-    image: '/images/home-congrats-saringin.png',
-  },
-  {
-    key: 'item10',
-    image: '/images/home-congrats-reza.png',
-  },
-  {
-    key: 'item11',
-    image: '/images/home-congrats-rudy.png',
-  },
-  {
-    key: 'item12',
-    image: '/images/home-congrats-linan.png',
-  },
-  {
-    key: 'item13',
-    image: '/images/home-congrats-erik.png',
-  },
-  {
-    key: 'item14',
-    image: '/images/home-congrats-robby.png',
-  },
-  {
-    key: 'item15',
-    image: '/images/home-congrats-inyoman.png',
-  },
-  {
-    key: 'item16',
-    image: '/images/home-congrats-wahyono.png',
-  },
-  {
-    key: 'item17',
-    image: '/images/home-congrats-asep.png',
-  },
-  {
-    key: 'item18',
-    image: '/images/home-congrats-siska.png',
-  },
-  {
-    key: 'item19',
-    image: '/images/home-congrats-dianti.jpg',
-  }
-];
-
-export default function Testimonial() {
-  const t = useTranslations('Testimonial');
+export default function Testimonial({ items }) {
+  const locale = useLocale();
   const [active, setActive] = useState(0);
+  const activeRef = useRef(0);
+  const itemsLength = items?.length || 0;
 
-  // Fungsi untuk maju & mundur
+  // Sync ref dengan state
+  useEffect(() => {
+    activeRef.current = active;
+  }, [active]);
+
+  // Fungsi untuk maju & mundur (menggunakan ref supaya interval tidak di-recreate)
   const nextTestimonial = () => {
-    setActive((prev) => (prev + 1) % testimonialKeys.length);
+    if (itemsLength > 0) {
+      setActive((activeRef.current + 1) % itemsLength);
+    }
   };
 
   const prevTestimonial = () => {
-    setActive((prev) => (prev === 0 ? testimonialKeys.length - 1 : prev - 1));
+    if (itemsLength > 0) {
+      setActive(activeRef.current === 0 ? itemsLength - 1 : activeRef.current - 1);
+    }
   };
 
-  // Efek Auto-Slide (Ganti setiap 6 detik)
+  // Efek Auto-Slide (Ganti setiap 6 detik) — ponytail: dibuat sekali di awal memakai ref
   useEffect(() => {
+    if (itemsLength <= 1) return;
     const slideInterval = setInterval(() => {
       nextTestimonial();
     }, 6000);
 
     return () => clearInterval(slideInterval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [active]);
+  }, [itemsLength]);
 
-  const currentItem = testimonialKeys[active];
+  if (!items || itemsLength === 0) return null;
+
+  const currentItem = items[active];
+  const quote = locale === 'id' ? currentItem.quoteId : currentItem.quoteEn;
+  const role = locale === 'id' ? currentItem.roleId : currentItem.roleEn;
+  const name = currentItem.name;
 
   return (
     <section className="bg-slate-50 py-20 md:py-28 px-6 md:px-12 overflow-hidden">
-      
       {/* Inject Custom CSS Animation */}
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes fadeSlideUp {
@@ -123,12 +59,11 @@ export default function Testimonial() {
       `}} />
 
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-16">
-        
         {/* Kolom Kiri: Gambar */}
         <div key={`img-${active}`} className="w-full md:w-2/5 aspect-square relative rounded-[2rem] overflow-hidden bg-slate-100 shadow-[0_20px_50px_-15px_rgba(0,38,60,0.2)] group animate-fade-slide md:-translate-y-10">
           <Image
-            src={currentItem.image}
-            alt={t(`list.${currentItem.key}.name`)}
+            src={currentItem.photo}
+            alt={name}
             fill
             unoptimized={process.env.NODE_ENV === 'development'}
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -138,7 +73,6 @@ export default function Testimonial() {
 
         {/* Kolom Kanan: Teks Testimonial */}
         <div className="w-full md:w-2/3 relative flex flex-col justify-center">
-          
           {/* Ikon Quote */}
           <div 
             className="absolute -top-8 -left-2 w-16 h-16 bg-brand-red pointer-events-none select-none"
@@ -159,22 +93,28 @@ export default function Testimonial() {
             <div className="min-h-[140px] relative z-10">
               {/* Ucapan */}
               <p className="text-brand-navy leading-relaxed text-balance">
-                {t(`list.${currentItem.key}.quote`)}
+                {quote}
               </p>
             </div>
             
             <div className="mt-6 md:mt-8 border-l-4 border-brand-red pl-4">
               {/* Nama */}
-              <h4 className="text-brand-navy mb-1">{t(`list.${currentItem.key}.name`)}</h4>
+              <h4 className="text-brand-navy mb-1">
+                {name}
+                {currentItem.company && (
+                  <span className="text-slate-500 font-normal"> — {currentItem.company}</span>
+                )}
+              </h4>
               
               {/* Title */}
-              <small className="text-slate-500 mt-1 block">{t(`list.${currentItem.key}.role`)}</small>
+              {role && (
+                <small className="text-slate-500 mt-1 block">{role}</small>
+              )}
             </div>
           </div>
 
           {/* Tombol Navigasi */}
           <div className="flex gap-3 mt-10 md:mt-12">
-            
             {/* Tombol Previous */}
             <button 
               onClick={prevTestimonial} 
@@ -216,9 +156,7 @@ export default function Testimonial() {
                 }}
               />
             </button>
-    
           </div>
-
         </div>
       </div>
     </section>

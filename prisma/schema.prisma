@@ -1,0 +1,207 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────
+// User — auth, role, alur approval
+// ─────────────────────────────────────────────
+
+enum Role {
+  super_admin
+  editor
+}
+
+enum UserStatus {
+  pending
+  active
+  rejected
+}
+
+model User {
+  id            Int        @id @default(autoincrement())
+  name          String
+  email         String     @unique
+  passwordHash  String
+  role          Role       @default(editor)
+  status        UserStatus @default(pending)
+
+  // Super Admin yang approve akun ini (nullable — belum di-approve / akun seed pertama)
+  approvedById  Int?
+  approvedBy    User?      @relation("UserApprovals", fields: [approvedById], references: [id])
+  approvedAt    DateTime?
+
+  // Kebalikan relasi approval: akun-akun yang di-approve oleh user ini (kalau dia Super Admin)
+  approvals     User[]     @relation("UserApprovals")
+
+  createdAt     DateTime   @default(now())
+
+  // Jejak akuntabilitas (createdBy/updatedBy) di tiap content type — lihat masing-masing relation name
+  newsCreated        News[]                   @relation("NewsCreatedBy")
+  newsUpdated        News[]                   @relation("NewsUpdatedBy")
+  wallCreated         WallOfCongratulations[] @relation("WallCreatedBy")
+  wallUpdated         WallOfCongratulations[] @relation("WallUpdatedBy")
+  recruitmentCreated  Recruitment[]           @relation("RecruitmentCreatedBy")
+  recruitmentUpdated  Recruitment[]           @relation("RecruitmentUpdatedBy")
+  sponsorCreated      Sponsor[]               @relation("SponsorCreatedBy")
+  sponsorUpdated      Sponsor[]               @relation("SponsorUpdatedBy")
+
+  @@map("users")
+}
+
+// ─────────────────────────────────────────────
+// News (Berita FHRI)
+// ─────────────────────────────────────────────
+
+model News {
+  id             Int      @id @default(autoincrement())
+
+  titleId        String   @map("title_id")
+  titleEn        String   @map("title_en")
+
+  slug           String   @unique
+
+  image          String
+
+  // field baru — link Instagram post terkait, opsional per artikel
+  instagramUrl   String?  @map("instagram_url")
+
+  descriptionId  String   @db.Text @map("description_id")
+  descriptionEn  String   @db.Text @map("description_en")
+
+  contentId      String   @db.Text @map("content_id")
+  contentEn      String   @db.Text @map("content_en")
+
+  publishedAt    DateTime
+
+  featured       Boolean  @default(false)
+
+  createdById    Int
+  createdBy      User     @relation("NewsCreatedBy", fields: [createdById], references: [id])
+  updatedById    Int
+  updatedBy      User     @relation("NewsUpdatedBy", fields: [updatedById], references: [id])
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@map("news")
+}
+
+// ─────────────────────────────────────────────
+// Wall of Congratulations — carousel, bukan grid
+// ─────────────────────────────────────────────
+
+model WallOfCongratulations {
+  id           Int      @id @default(autoincrement())
+
+  // bisa nama individu maupun nama perusahaan (kode asli mencampur keduanya)
+  name         String
+
+  // field baru, dikonfirmasi ditambahkan — nullable, kosong untuk data migrasi awal
+  company      String?
+
+  roleId       String?  @map("role_id")
+  roleEn       String?  @map("role_en")
+
+  quoteId      String   @db.Text @map("quote_id")
+  quoteEn      String   @db.Text @map("quote_en")
+
+  photo        String
+
+  // urutan tampil di carousel — dipetakan dari urutan array testimonialKeys (item1 → item20)
+  order        Int      @default(0)
+
+  // field baru — belum ada di kode asli, dipertahankan agar HR bisa sembunyikan tanpa hapus data
+  active       Boolean  @default(true)
+
+  createdById  Int
+  createdBy    User     @relation("WallCreatedBy", fields: [createdById], references: [id])
+  updatedById  Int
+  updatedBy    User     @relation("WallUpdatedBy", fields: [updatedById], references: [id])
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("wall_of_congratulations")
+}
+
+// ─────────────────────────────────────────────
+// Recruitment (Lowongan) — listing flat, tanpa filter
+// ─────────────────────────────────────────────
+
+enum EmploymentType {
+  full_time
+  contract
+  internship
+}
+
+enum RecruitmentStatus {
+  open
+  closed
+}
+
+model Recruitment {
+  id              Int                @id @default(autoincrement())
+
+  titleId         String             @map("title_id")
+  titleEn         String             @map("title_en")
+
+  // sama di kedua bahasa
+  department      String
+  location        String
+
+  employmentType  EmploymentType     @map("employment_type")
+
+  // deskripsi singkat, tampil di card — tetap 1 paragraf, tidak ada kolom requirements terpisah
+  descId          String             @db.Text @map("desc_id")
+  descEn          String             @db.Text @map("desc_en")
+
+  postedAt        DateTime           @map("posted_at")
+  deadline        DateTime?
+
+  // hanya "open" yang muncul di listing publik & dropdown form aplikasi
+  status          RecruitmentStatus  @default(open)
+
+  createdById     Int
+  createdBy       User               @relation("RecruitmentCreatedBy", fields: [createdById], references: [id])
+  updatedById     Int
+  updatedBy       User               @relation("RecruitmentUpdatedBy", fields: [updatedById], references: [id])
+
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+
+  @@map("recruitment")
+}
+
+// ─────────────────────────────────────────────
+// Sponsor / Partner Logo
+// ─────────────────────────────────────────────
+
+model Sponsor {
+  id           Int      @id @default(autoincrement())
+
+  name         String
+
+  // path lokal, misal /images/home-network-busan.png — kode asli pakai <img> biasa
+  logo         String
+
+  // belum ada di kode asli — ditambahkan agar HR bisa atur urutan marquee tanpa edit kode
+  order        Int      @default(0)
+
+  // field baru — belum ada di implementasi sekarang
+  active       Boolean  @default(true)
+
+  createdById  Int
+  createdBy    User     @relation("SponsorCreatedBy", fields: [createdById], references: [id])
+  updatedById  Int
+  updatedBy    User     @relation("SponsorUpdatedBy", fields: [updatedById], references: [id])
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("sponsors")
+}

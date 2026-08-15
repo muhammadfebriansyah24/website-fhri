@@ -467,7 +467,9 @@ export default function AboutUsPage() {
   const aboutData = getAboutData(locale);
 
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => {
+      setMounted(true);
+    }, 0);
   }, []);
 
   if (!mounted) return null; 
