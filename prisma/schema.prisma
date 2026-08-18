@@ -20,6 +20,7 @@ enum UserStatus {
   pending
   active
   rejected
+  inactive
 }
 
 model User {
@@ -156,14 +157,11 @@ model Recruitment {
 
   employmentType  EmploymentType     @map("employment_type")
 
-  // deskripsi singkat, tampil di card — tetap 1 paragraf, tidak ada kolom requirements terpisah
   descId          String             @db.Text @map("desc_id")
   descEn          String             @db.Text @map("desc_en")
 
   postedAt        DateTime           @map("posted_at")
   deadline        DateTime?
-
-  // hanya "open" yang muncul di listing publik & dropdown form aplikasi
   status          RecruitmentStatus  @default(open)
 
   createdById     Int
@@ -183,18 +181,10 @@ model Recruitment {
 
 model Sponsor {
   id           Int      @id @default(autoincrement())
-
   name         String
-
-  // path lokal, misal /images/home-network-busan.png — kode asli pakai <img> biasa
   logo         String
-
-  // belum ada di kode asli — ditambahkan agar HR bisa atur urutan marquee tanpa edit kode
   order        Int      @default(0)
-
-  // field baru — belum ada di implementasi sekarang
   active       Boolean  @default(true)
-
   createdById  Int
   createdBy    User     @relation("SponsorCreatedBy", fields: [createdById], references: [id])
   updatedById  Int

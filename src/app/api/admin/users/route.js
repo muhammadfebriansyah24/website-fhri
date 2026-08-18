@@ -1,64 +1,56 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
-import { getSession } from '@/lib/session';
+import { requireSuperAdminApi } from '@/lib/auth';
 
-// Hanya super_admin yang boleh akses endpoint ini
-async function requireSuperAdmin() {
-  const session = await getSession();
-  if (!session.user || session.user.role !== 'super_admin') {
-    return null;
+export async function GET(request) {
+  const admin = await requireSuperAdminApi();
+  if (!admin) {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
-  return session;
-}
 
-export async function GET() {
-  if (!(await requireSuperAdmin())) {
-    return NextResponse.json({ error: 'Akses ditolak.' }, { status: 403 });
-  }
+  const { searchParams } = new URL(request.url);
+  const statuses = (searchParams.get('status') || 'pending,active').split(',');
 
   const users = await prisma.user.findMany({
-    orderBy: [{ status: 'asc' }, { createdAt: 'desc' }],
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      role: true,
-      status: true,
-      createdAt: true,
-      approvedBy: { select: { name: true } },
-      approvedAt: true,
-    },
+    where: { status: { in: statuses } },
+    select: { id: true, name: true, email: true, role: true, status: true, createdAt: true, approvedAt: true },
+    orderBy: { createdAt: 'desc' },
   });
 
-  return NextResponse.json(users);
+  return NextResponse.json({ users });
 }
 
+const ALLOWED_STATUSES = ['active', 'rejected', 'inactive'];
+
 export async function PATCH(request) {
-  const session = await requireSuperAdmin();
-  if (!session) {
-    return NextResponse.json({ error: 'Akses ditolak.' }, { status: 403 });
+  const admin = await requireSuperAdminApi();
+  if (!admin) {
+    return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
-  const { userId, action } = await request.json();
+  const { id, status } = await request.json();
 
-  if (!userId || !['approve', 'reject'].includes(action)) {
-    return NextResponse.json({ error: 'userId dan action (approve/reject) wajib diisi.' }, { status: 400 });
+  if (!id || !ALLOWED_STATUSES.includes(status)) {
+    return NextResponse.json(
+      { error: 'id dan status (active/rejected/inactive) wajib diisi.' },
+      { status: 400 }
+    );
+  }
+  if (id === admin.id) {
+    return NextResponse.json({ error: 'Tidak bisa mengubah status akun sendiri.' }, { status: 400 });
   }
 
-  const target = await prisma.user.findUnique({ where: { id: userId } });
-  if (!target) {
-    return NextResponse.json({ error: 'User tidak ditemukan.' }, { status: 404 });
-  }
-  if (target.status !== 'pending') {
-    return NextResponse.json({ error: `User sudah berstatus "${target.status}".` }, { status: 400 });
+  const data = { status };
+  if (status === 'active') {
+    data.approvedById = admin.id;
+    data.approvedAt = new Date();
   }
 
-  const data =
-    action === 'approve'
-      ? { status: 'active', approvedById: session.user.id, approvedAt: new Date() }
-      : { status: 'rejected' };
+  const user = await prisma.user.update({
+    where: { id },
+    data,
+    select: { id: true, name: true, email: true, role: true, status: true },
+  });
 
-  await prisma.user.update({ where: { id: userId }, data });
-
-  return NextResponse.json({ message: `User berhasil di-${action}.` });
+  return NextResponse.json({ user });
 }
