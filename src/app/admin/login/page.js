@@ -62,7 +62,12 @@ export default function LoginPage() {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-[10px] uppercase tracking-wider font-bold text-slate-500 pl-1">Password</label>
+              <div className="flex justify-between items-center pl-1 pr-1">
+                <label className="text-[10px] uppercase tracking-wider font-bold text-slate-500">Password</label>
+                <Link href="/admin/forgot-password" className="text-[10px] font-bold text-brand-red hover:text-brand-navy transition-all underline">
+                  Lupa Password?
+                </Link>
+              </div>
               <input
                 type="password"
                 placeholder="Masukkan password"

@@ -38,6 +38,7 @@ model User {
 
   // Kebalikan relasi approval: akun-akun yang di-approve oleh user ini (kalau dia Super Admin)
   approvals     User[]     @relation("UserApprovals")
+  passwordResetTokens PasswordResetToken[]
 
   createdAt     DateTime   @default(now())
 
@@ -54,6 +55,18 @@ model User {
   @@map("users")
 }
 
+model PasswordResetToken {
+  id        Int       @id @default(autoincrement())
+  userId    Int
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user      User      @relation(fields: [userId], references: [id])
+
+  @@index([userId])
+}
 // ─────────────────────────────────────────────
 // News (Berita FHRI)
 // ─────────────────────────────────────────────
