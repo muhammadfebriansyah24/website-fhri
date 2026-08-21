@@ -8,7 +8,7 @@ const intlMiddleware = createMiddleware({
   defaultLocale: 'en'
 });
 
-const PUBLIC_ADMIN_PATHS = ['/admin/login', '/admin/register'];
+const PUBLIC_ADMIN_PATHS = ['/admin/login', '/admin/register', '/admin/forgot-password', '/admin/reset-password'];
 
 export default async function middleware(request) {
   const { pathname } = request.nextUrl;
