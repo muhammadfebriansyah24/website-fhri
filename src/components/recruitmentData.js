@@ -1,4 +1,4 @@
-export const getRecruitmentData = (locale) => {
+export const getStaticRecruitmentData = (locale) => {
   if (locale === 'id') {
     return {
       hero: {
@@ -52,57 +52,7 @@ export const getRecruitmentData = (locale) => {
         coverLabel: "Ringkasan Surat Lamaran (Cover Letter)",
         coverPlaceholder: "Ceritakan mengapa Anda cocok untuk peran ini...",
         submitBtn: "Kirim Lamaran"
-      },
-      jobOpenings: [
-        {
-          id: 1,
-          title: "Senior HR Consultant",
-          department: "Human Capital Solutions",
-          location: "Jakarta, Indonesia",
-          type: "Penuh waktu (Full-time)",
-          desc: "Memimpin proyek transformasi HR strategis, merancang kerangka kerja kompetensi, dan memberikan bimbingan ahli kepada klien enterprise kami."
-        },
-        {
-          id: 2,
-          title: "Industrial Relations Specialist",
-          department: "Legal Advisory",
-          location: "Jakarta, Indonesia",
-          type: "Penuh waktu (Full-time)",
-          desc: "Memberikan konseling ahli tentang kepatuhan hukum ketenagakerjaan, mengelola resolusi sengketa, dan merancang Peraturan Perusahaan / PKB."
-        },
-        {
-          id: 3,
-          title: "Talent Acquisition Associate",
-          department: "Executive Search",
-          location: "Jakarta, Indonesia",
-          type: "Penuh waktu (Full-time)",
-          desc: "Menggerakkan proses rekrutmen end-to-end, melakukan headhunting untuk peran eksekutif, dan memastikan pengalaman kandidat yang mulus."
-        },
-        {
-          id: 4,
-          title: "HSE Corporate Trainer",
-          department: "Health & Safety",
-          location: "Jakarta, Indonesia",
-          type: "Kontrak / Berbasis Proyek",
-          desc: "Merancang dan menyampaikan program pelatihan Kesehatan, Keselamatan, dan Lingkungan (K3L/HSE) yang berdampak bagi klien manufaktur dan korporat."
-        },
-        {
-          id: 5,
-          title: "Digital Marketing Executive",
-          department: "Marketing & Sales",
-          location: "Jakarta, Indonesia",
-          type: "Penuh waktu (Full-time)",
-          desc: "Mengelola kampanye media sosial, membuat konten yang menarik, dan mendorong pembuatan prospek (lead generation) untuk HR Bootcamp dan Acara Korporat."
-        },
-        {
-          id: 6,
-          title: "Payroll Processing Officer",
-          department: "Payroll & Outsourcing",
-          location: "Jakarta, Indonesia",
-          type: "Penuh waktu (Full-time)",
-          desc: "Memastikan eksekusi penggajian yang akurat dan tepat waktu, mengelola administrasi BPJS, dan menjaga kepatuhan penuh terhadap regulasi PPh 21."
-        }
-      ]
+      }
     };
   }
 
@@ -159,56 +109,6 @@ export const getRecruitmentData = (locale) => {
       coverLabel: "Brief Cover Letter",
       coverPlaceholder: "Tell us why you are a great fit for this role...",
       submitBtn: "Submit Application"
-    },
-    jobOpenings: [
-      {
-        id: 1,
-        title: "Senior HR Consultant",
-        department: "Human Capital Solutions",
-        location: "Jakarta, Indonesia",
-        type: "Full-time",
-        desc: "Lead strategic HR transformation projects, design competency frameworks, and provide expert mentoring to our enterprise clients."
-      },
-      {
-        id: 2,
-        title: "Industrial Relations Specialist",
-        department: "Legal Advisory",
-        location: "Jakarta, Indonesia",
-        type: "Full-time",
-        desc: "Provide expert counsel on labor law compliance, manage dispute resolutions, and draft collective labor agreements (PKB)."
-      },
-      {
-        id: 3,
-        title: "Talent Acquisition Associate",
-        department: "Executive Search",
-        location: "Jakarta, Indonesia",
-        type: "Full-time",
-        desc: "Drive end-to-end recruitment processes, conduct headhunting for executive roles, and ensure a seamless candidate experience."
-      },
-      {
-        id: 4,
-        title: "HSE Corporate Trainer",
-        department: "Health & Safety",
-        location: "Jakarta, Indonesia",
-        type: "Contract / Project-based",
-        desc: "Design and deliver impactful Health, Safety, and Environment (HSE) training programs for manufacturing and corporate clients."
-      },
-      {
-        id: 5,
-        title: "Digital Marketing Executive",
-        department: "Marketing & Sales",
-        location: "Jakarta, Indonesia",
-        type: "Full-time",
-        desc: "Manage social media campaigns, create engaging content, and drive lead generation for our HR Bootcamps and Corporate Events."
-      },
-      {
-        id: 6,
-        title: "Payroll Processing Officer",
-        department: "Payroll & Outsourcing",
-        location: "Jakarta, Indonesia",
-        type: "Full-time",
-        desc: "Ensure accurate and timely payroll execution, manage BPJS administration, and maintain full compliance with PPh 21 regulations."
-      }
-    ]
+    }
   };
 };
