@@ -72,7 +72,7 @@ function HeroSection({ data }) {
 
           <div className="mt-8 flex flex-wrap lg:flex-nowrap justify-center lg:justify-start items-center gap-4 lg:gap-5">
             
-            {/* 🚀 DROPDOWN BUTTON DENGAN LEBAR YANG SEJAJAR DENGAN TOMBOL */}
+            {/* DROPDOWN BUTTON DENGAN LEBAR YANG SEJAJAR DENGAN TOMBOL */}
             <div className="relative inline-block text-left w-full sm:w-auto" ref={dropdownRef}>
               <button 
                 onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
@@ -115,8 +115,8 @@ function HeroSection({ data }) {
                     <span className="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500">PDF</span>
                   </a>
                   <a 
-                    href="/Comprof_FirstHRIndonesia_EN.pdf"
-                    download="Company_Profile_First_HR_Indonesia_EN.pdf"
+                    href="/Comprof_FirstHRIndonesia_ENG.pdf"
+                    download="Company_Profile_First_HR_Indonesia_ENG.pdf"
                     onClick={() => setProfileDropdownOpen(false)}
                     className="flex items-center justify-between w-full px-3 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider hover:bg-slate-50 hover:text-brand-red transition-colors mt-0.5"
                   >
