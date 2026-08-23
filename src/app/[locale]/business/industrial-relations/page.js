@@ -24,348 +24,98 @@ function Eyebrow({ children, tone = 'light' }) {
 }
 
 // ============================================================
-// KOMPONEN CHATBOT LEGAL 
+// KOMPONEN PORTAL KONSULTASI
 // ============================================================
-function LegalChatbotWidget({ isOpen, setIsOpen, botData }) {
-  const [step, setStep] = useState(1); 
-  const [chatType, setChatType] = useState(''); // 'new' | 'topup' | 'faq'
-  const [userMessage, setUserMessage] = useState('');
-  const [inputText, setInputText] = useState('');
-  const chatEndRef = useRef(null);
-
-  const ADMIN_WA_NUMBER = "628995722437"; 
-
-  useEffect(() => {
-    if (chatEndRef.current) chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
-  }, [step, isOpen]);
-
-  const handleSelectType = (type) => {
-    setChatType(type);
-    if (type === 'faq') {
-      setStep(4);
-    } else {
-      setStep(2);
-    }
-  };
-
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!inputText.trim()) return;
-    
-    setUserMessage(inputText);
-    setInputText('');
-    
-    setTimeout(() => {
-      setStep(3);
-    }, 600);
-  };
-
-  const handleSelectPackage = (selectedPackage) => {
-    let waText = '';
-
-    if (chatType === 'new') {
-      waText = `${botData.waNewIntro}%0A_"${userMessage}"_%0A%0A${botData.waPackageSelect}%0A*${selectedPackage.title} (${selectedPackage.token}) - ${selectedPackage.price}*%0A%0A${botData.waClosingNew}`;
-    } else {
-      waText = `${botData.waTopUpIntro}%0A*${userMessage}*%0A%0A${botData.waPackageSelectTopUp}%0A*${selectedPackage.title} (${selectedPackage.token}) - ${selectedPackage.price}*%0A%0A${botData.waClosingTopUp}`;
-    }
-    
-    window.open(`https://wa.me/${ADMIN_WA_NUMBER}?text=${waText}`, '_blank');
-  };
-
-  const resetChat = () => {
-    setStep(1);
-    setChatType('');
-    setUserMessage('');
-    setInputText('');
-  };
-
-  const closeChat = () => {
-    setIsOpen(false);
-    setTimeout(resetChat, 300);
-  };
-
+function ConsultationPortalSection() {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <section className="py-24 px-6 md:px-12 bg-slate-50 relative flex justify-center items-center">
       
-      <style dangerouslySetInnerHTML={{__html: `
-        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
-        .animate-fade-slide-up { animation: fadeSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .custom-scrollbar::-webkit-scrollbar { width: 5px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        details > summary { list-style: none; }
-        details > summary::-webkit-details-marker { display: none; }
-      `}} />
+      {/* Container Card Premium */}
+      <div className="relative w-full max-w-5xl bg-brand-navy rounded-[2.5rem] p-10 md:p-16 text-center shadow-[0_20px_50px_-15px_rgba(0,38,60,0.5)] overflow-hidden group">
+        
+        {/* Ornamen Latar Belakang (Glow Effects) */}
+        <div className="absolute top-0 right-0 w-72 h-72 bg-brand-red/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 group-hover:bg-brand-red/30 transition-colors duration-700 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-[80px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+        
+        {/* Pola Grid Tipis (Opsional untuk tekstur) */}
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '32px 32px' }}></div>
 
-      {isOpen && (
-        <div className="bg-white w-[calc(100vw-3rem)] max-w-[350px] md:max-w-[400px] h-[550px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-slate-200 mb-4 flex flex-col overflow-hidden animate-fade-slide-up origin-bottom-right">
+        {/* Konten Utama */}
+        <div className="relative z-10 flex flex-col items-center">
           
-          {/* Header Chat */}
-          <div className="bg-brand-navy text-white p-4 flex items-center justify-between shadow-md z-10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/10 border border-white/20 rounded-full flex items-center justify-center backdrop-blur-sm shadow-inner">
-                <div 
-                  className="w-5 h-5 bg-white shrink-0"
-                  style={{
-                    WebkitMaskImage: `url('/icons/ic_check-shield-outline.svg')`,
-                    WebkitMaskSize: 'contain',
-                    WebkitMaskRepeat: 'no-repeat',
-                    WebkitMaskPosition: 'center',
-                    maskImage: `url('/icons/ic_check-shield-outline.svg')`,
-                    maskSize: 'contain',
-                    maskRepeat: 'no-repeat',
-                    maskPosition: 'center',
-                  }}
-                />
-              </div>
-              <div>
-                <div className="font-semibold text-sm">{botData.header}</div>
-                <div className="text-xs text-green-400 flex items-center gap-1 font-medium"><span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span> {botData.online}</div>
-              </div>
-            </div>
+          {/* Eyebrow Label */}
+          <span className="inline-flex items-center rounded-full px-5 py-1.5 text-xs font-bold uppercase tracking-[0.2em] bg-white/10 text-white border border-white/20 mb-6 backdrop-blur-sm shadow-sm">
+            Direct Expert Access
+          </span>
+          
+          {/* Headline Utama */}
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight max-w-3xl">
+            Get Instant Clarity on Your <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-red-400">
+              Legal & Industrial Relations
+            </span>
+          </h2>
+          
+          {/* Deskripsi */}
+          <p className="text-slate-300 text-base md:text-lg mb-10 max-w-2xl leading-relaxed">
+            Don't navigate complex labor regulations alone. Connect directly with our certified First HR Indonesia professionals for personalized, confidential, and actionable legal advisory.
+          </p>
+          
+          {/* ==================================================== */}
+          {/* CTA MENUJU SUBDOMAIN */}
+          {/* ==================================================== */}
+          <div className="relative mt-2">
+            <div className="absolute -inset-1 bg-brand-red/30 rounded-full blur animate-pulse"></div>
             
-            <button onClick={closeChat} className="text-white/60 hover:text-white transition-colors bg-white/10 p-1.5 rounded-lg group">
-              <div 
-                className="w-5 h-5 bg-current shrink-0 transition-colors"
-                style={{
-                  WebkitMaskImage: `url('/icons/ic_x-mark.svg')`,
-                  WebkitMaskSize: 'contain',
-                  WebkitMaskRepeat: 'no-repeat',
-                  WebkitMaskPosition: 'center',
-                  maskImage: `url('/icons/ic_x-mark.svg')`,
-                  maskSize: 'contain',
-                  maskRepeat: 'no-repeat',
-                  maskPosition: 'center',
-                }}
-              />
-            </button>
-          </div>
-
-          {/* Area Percakapan */}
-          <div className="flex-1 p-4 bg-slate-50 overflow-y-auto custom-scrollbar flex flex-col gap-4">
-            
-            {/* Step 1: Pesan Pembuka & Pilih Jalur */}
-            <div className="flex flex-col gap-2 w-[90%]">
-              <div className="bg-white border border-slate-200 text-slate-700 p-3.5 rounded-2xl rounded-tl-sm text-sm shadow-sm leading-relaxed">
-                {botData.welcome}
-              </div>
-              <div className="bg-white border border-slate-200 text-slate-700 p-3.5 rounded-2xl rounded-tl-sm text-sm shadow-sm leading-relaxed">
-                {botData.prompt}
-              </div>
+            <a 
+              href="JANLUP ISI LINK SUBDOMAIN DISINI" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="relative flex items-center justify-center px-8 py-4 font-bold text-brand-navy bg-white rounded-full overflow-hidden group/btn shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-all duration-300 hover:-translate-y-1"
+            >
+              {/* Animasi Background Hover Tombol (Berubah jadi Merah) */}
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-red to-red-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></span>
               
-              {/* Tombol Pilihan Step 1 */}
-              {step === 1 && (
-                <div className="flex flex-col gap-2 mt-2 animate-fade-slide-up">
-                  <button onClick={() => handleSelectType('new')} className="bg-brand-navy text-white py-3 px-4 rounded-xl text-sm font-semibold hover:bg-brand-navy/90 transition-colors shadow-sm text-left flex items-center">
-                    <div 
-                      className="w-4 h-4 mr-2 bg-yellow-400 shrink-0"
-                      style={{
-                        WebkitMaskImage: `url('/icons/ic_bolt-outline.svg')`,
-                        WebkitMaskSize: 'contain',
-                        WebkitMaskRepeat: 'no-repeat',
-                        WebkitMaskPosition: 'center',
-                        maskImage: `url('/icons/ic_bolt-outline.svg')`,
-                        maskSize: 'contain',
-                        maskRepeat: 'no-repeat',
-                        maskPosition: 'center',
-                      }}
-                    />
-                    {botData.btnNew}
-                  </button>
-                  
-                  <button onClick={() => handleSelectType('topup')} className="bg-white text-brand-red border-2 border-brand-red py-2.5 px-4 rounded-xl text-sm font-semibold hover:bg-red-50 transition-colors shadow-sm text-left flex items-center">
-                    <div 
-                      className="w-4 h-4 mr-2 bg-brand-red shrink-0"
-                      style={{
-                        WebkitMaskImage: `url('/icons/ic_refresh.svg')`,
-                        WebkitMaskSize: 'contain',
-                        WebkitMaskRepeat: 'no-repeat',
-                        WebkitMaskPosition: 'center',
-                        maskImage: `url('/icons/ic_refresh.svg')`,
-                        maskSize: 'contain',
-                        maskRepeat: 'no-repeat',
-                        maskPosition: 'center',
-                      }}
-                    />
-                    {botData.btnTopUp}
-                  </button>
-                  
-                  <button onClick={() => handleSelectType('faq')} className="bg-white text-slate-600 border border-slate-300 py-2.5 px-4 rounded-xl text-sm font-semibold hover:bg-slate-100 transition-colors shadow-sm text-left flex items-center">
-                    <div 
-                      className="w-4 h-4 mr-2 bg-slate-500 shrink-0"
-                      style={{
-                        WebkitMaskImage: `url('/icons/ic_question-mark-circle-outline.svg')`,
-                        WebkitMaskSize: 'contain',
-                        WebkitMaskRepeat: 'no-repeat',
-                        WebkitMaskPosition: 'center',
-                        maskImage: `url('/icons/ic_question-mark-circle-outline.svg')`,
-                        maskSize: 'contain',
-                        maskRepeat: 'no-repeat',
-                        maskPosition: 'center',
-                      }}
-                    />
-                    {botData.btnFaq}
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Bubble Pilihan User Umum */}
-            {step >= 2 && (
-              <div className="bg-brand-red text-white p-3 rounded-2xl rounded-tr-sm text-sm shadow-sm max-w-[85%] self-end">
-                {chatType === 'new' ? botData.userSelectionNew : chatType === 'topup' ? botData.userSelectionTopUp : botData.userSelectionFaq}
-              </div>
-            )}
-
-            {/* Step 4: KHUSUS TAMPILAN FAQ */}
-            {step === 4 && chatType === 'faq' && (
-              <div className="bg-white border border-slate-200 text-slate-700 p-4 rounded-2xl rounded-tl-sm text-sm shadow-sm w-full animate-fade-slide-up">
-                <div className="mb-3 font-semibold text-brand-navy">{botData.faqTitle}</div>
+              {/* Konten Tombol */}
+              <span className="relative flex items-center gap-3 group-hover/btn:text-white transition-colors duration-300">
                 
-                <div className="space-y-2">
-                  {botData.faqs.map((faq, index) => (
-                    <details key={index} className="group bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
-                      <summary className="text-xs font-semibold p-3 cursor-pointer text-brand-navy hover:text-brand-red flex justify-between items-center bg-white transition-colors">
-                        <span className="pr-4">{faq.q}</span>
-                        <div 
-                          className="w-4 h-4 shrink-0 bg-slate-400 group-open:rotate-180 transition-transform"
-                          style={{
-                            WebkitMaskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                            WebkitMaskSize: 'contain',
-                            WebkitMaskRepeat: 'no-repeat',
-                            WebkitMaskPosition: 'center',
-                            maskImage: `url('/icons/ic_arrow-short-down.svg')`,
-                            maskSize: 'contain',
-                            maskRepeat: 'no-repeat',
-                            maskPosition: 'center',
-                          }}
-                        />
-                      </summary>
-                      <div className="p-3 pt-1 text-xs text-slate-600 leading-relaxed border-t border-slate-100 bg-slate-50">
-                        {faq.a}
-                      </div>
-                    </details>
-                  ))}
-                </div>
-
-                <div className="mt-4 mb-2 text-center text-xs text-slate-500">{botData.faqMore}</div>
-                
-                <button onClick={resetChat} className="w-full bg-brand-navy text-white py-2.5 rounded-xl text-xs font-semibold hover:bg-brand-navy/90 transition-colors flex items-center justify-center gap-2">
-                  <div 
-                    className="w-4 h-4 bg-current shrink-0 rotate-180"
-                    style={{
-                      WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
-                      WebkitMaskSize: 'contain',
-                      WebkitMaskRepeat: 'no-repeat',
-                      WebkitMaskPosition: 'center',
-                      maskImage: `url('/icons/ic_arrow-right.svg')`,
-                      maskSize: 'contain',
-                      maskRepeat: 'no-repeat',
-                      maskPosition: 'center',
-                    }}
-                  />
-                  {botData.btnBack}
-                </button>
-              </div>
-            )}
-
-            {/* Step 2: Form Pertanyaan */}
-            {step === 2 && chatType !== 'faq' && (
-              <div className="bg-white border border-slate-200 text-slate-700 p-3.5 rounded-2xl rounded-tl-sm text-sm shadow-sm w-[90%] animate-fade-slide-up">
-                {chatType === 'new' ? botData.inputPromptNew : botData.inputPromptTopUp}
-              </div>
-            )}
-
-            {/* Bubble Jawaban User di Step 2 */}
-            {step >= 3 && chatType !== 'faq' && (
-              <div className="bg-brand-red text-white p-3 rounded-2xl rounded-tr-sm text-sm shadow-sm max-w-[85%] self-end">
-                {userMessage}
-              </div>
-            )}
-
-            {/* Step 3: Pilih Paket Token */}
-            {step === 3 && chatType !== 'faq' && (
-              <div className="bg-white border border-slate-200 text-slate-700 p-4 rounded-2xl rounded-tl-sm text-sm shadow-sm w-full animate-fade-slide-up">
-                <div className="mb-4">
-                  {chatType === 'new' ? botData.packagePromptNew : botData.packagePromptTopUp}
-                </div>
-                
-                <div className="space-y-2.5">
-                  {botData.packages.map((pkg) => (
-                    <button 
-                      key={pkg.id}
-                      onClick={() => handleSelectPackage(pkg)}
-                      className="w-full text-left bg-slate-50 hover:bg-slate-100 border border-slate-200 hover:border-brand-navy p-3.5 rounded-xl transition-all group shadow-sm"
-                    >
-                      <div className="flex justify-between items-center mb-1.5">
-                        <span className="font-semibold text-brand-navy text-sm">{pkg.title}</span>
-                        <span className="text-xs bg-brand-navy/10 text-brand-navy px-2 py-0.5 rounded-full font-semibold">{pkg.token}</span>
-                      </div>
-                      <div className="text-xs text-slate-500 mb-2.5 leading-tight">{pkg.desc}</div>
-                      <div className="text-sm font-semibold text-brand-red">{pkg.price}</div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-            
-            <div ref={chatEndRef} />
-          </div>
-
-          {/* Area Input */}
-          {step === 2 && chatType !== 'faq' && (
-            <form onSubmit={handleSendMessage} className="p-3 bg-white border-t border-slate-200 flex gap-2">
-              <input 
-                type="text" 
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                placeholder={chatType === 'new' ? botData.inputPlaceholderNew : botData.inputPlaceholderTopUp}
-                className="flex-1 bg-slate-100 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-navy transition-all"
-                autoFocus
-              />
-              <button type="submit" disabled={!inputText.trim()} className="bg-brand-navy hover:bg-brand-navy/90 text-white w-11 h-11 rounded-xl flex items-center justify-center disabled:opacity-50 transition-colors">
+                {/* 1. Ikon Chat (Kiri) - Menggunakan Masking agar warnanya responsif */}
                 <div 
-                  className="w-5 h-5 bg-current shrink-0"
+                  className="w-5 h-5 bg-brand-navy group-hover/btn:bg-white transition-colors duration-300 shrink-0"
                   style={{
-                    WebkitMaskImage: `url('/icons/ic_send-outline.svg')`,
+                    WebkitMaskImage: `url('/icons/ic_chat-text-outline.svg')`,
                     WebkitMaskSize: 'contain',
                     WebkitMaskRepeat: 'no-repeat',
                     WebkitMaskPosition: 'center',
-                    maskImage: `url('/icons/ic_send-outline.svg')`,
+                    maskImage: `url('/icons/ic_chat-text-outline.svg')`,
                     maskSize: 'contain',
                     maskRepeat: 'no-repeat',
                     maskPosition: 'center',
                   }}
                 />
-              </button>
-            </form>
-          )}
-        </div>
-      )}
 
-      {/* TOMBOL FLOATING WHATSAPP */}
-      {!isOpen && (
-        <button 
-          onClick={() => setIsOpen(true)}
-          className="bg-brand-navy hover:bg-brand-navy/90 border border-white/10 text-white w-16 h-16 rounded-full shadow-[0_10px_25px_rgba(0,38,60,0.4)] flex items-center justify-center transition-transform hover:scale-110 animate-bounce"
-          style={{ animationDuration: '3s' }}
-        >
-          <div 
-            className="w-8 h-8 bg-green-500 shrink-0"
-            style={{
-              WebkitMaskImage: `url('/icons/ic_whatsapp-outline.svg')`,
-              WebkitMaskSize: 'contain',
-              WebkitMaskRepeat: 'no-repeat',
-              WebkitMaskPosition: 'center',
-              maskImage: `url('/icons/ic_whatsapp-outline.svg')`,
-              maskSize: 'contain',
-              maskRepeat: 'no-repeat',
-              maskPosition: 'center',
-            }}
-          />
-        </button>
-      )}
-    </div>
+                <span className="mt-0.5">Consult with an Expert</span>
+                
+                {/* 2. Ikon Panah Kanan (Tetap dipertahankan untuk indikasi link keluar) */}
+                <svg 
+                  className="w-5 h-5 group-hover/btn:translate-x-1.5 transition-transform duration-300" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </a>
+          </div>
+          
+          <p className="mt-6 text-xs text-white/50 font-medium">
+            Secure, confidential, and tailored to your corporate needs.
+          </p>
+
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -536,11 +286,11 @@ export default function IndustrialRelationsPage() {
         </div>
       </section>
 
-      {/* 4. CALL TO ACTION */}
-      <CTA />
+      {/* 4. CHATBOT SECTION */}
+      <ConsultationPortalSection />
 
-      {/* === WIDGET CHATBOT === */}
-      <LegalChatbotWidget isOpen={isChatOpen} setIsOpen={setIsChatOpen} botData={data.chatbot} />
+      {/* 5. CALL TO ACTION */}
+      <CTA />
 
     </main>
   );
