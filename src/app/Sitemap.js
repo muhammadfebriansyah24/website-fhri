@@ -54,8 +54,6 @@ export default async function sitemap() {
       }
     }
   } catch (error) {
-    // If the DB is unreachable at build time, fall back to static routes only
-    // rather than failing the whole sitemap generation.
     console.error('sitemap: failed to fetch news articles', error);
   }
 
