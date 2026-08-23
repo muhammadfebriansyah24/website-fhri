@@ -68,7 +68,7 @@ function ConsultationPortalSection() {
             <div className="absolute -inset-1 bg-brand-red/30 rounded-full blur animate-pulse"></div>
             
             <a 
-              href="JANLUP ISI LINK SUBDOMAIN DISINI" 
+              href="https://legal.firsthrindonesia.com" 
               target="_blank" 
               rel="noopener noreferrer"
               className="relative flex items-center justify-center px-8 py-4 font-bold text-brand-navy bg-white rounded-full overflow-hidden group/btn shadow-[0_10px_20px_rgba(0,0,0,0.15)] hover:shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-all duration-300 hover:-translate-y-1"
