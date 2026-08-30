@@ -59,7 +59,7 @@ function Hero({ t, locale }) {
             {t('Hero.cta')}
           </Link>
         </div>
-        <div className="md:w-1/2 w-full">
+        <div className="md:w-1/2 w-full pb-10 md:pb-0">
           <div className="w-full aspect-[16/10] rounded-2xl overflow-hidden relative border border-slate-700/50 group shadow-2xl">
             <Image 
               src="/images/home-hero.jpg" 
@@ -176,37 +176,38 @@ function News({ t, locale, newsData }) {
 
 function Programs({ t, locale }) {
   return (
-    <section className="bg-white py-20 md:py-28 px-4 md:px-8 flex justify-center overflow-hidden">
+    <section className="bg-white py-12 md:py-28 px-0 md:px-8 flex justify-center overflow-hidden">
       <div className="w-full max-w-[1440px]">
-        {/* ===== FOLDER NAVY (luar) ===== */}
-        <div className="relative w-full drop-shadow-xl md:drop-shadow-2xl">
+        
+        {/* ===== HEADER AREA (Transparan di Mobile, Navy di Desktop) ===== */}
+        <div className="relative w-full md:drop-shadow-2xl">
           <svg viewBox="0 0 1440 60" preserveAspectRatio="none" className="hidden md:block w-full h-[60px] relative z-10" aria-hidden="true">
             <path d={NAVY_TAB_PATH} fill="#00263C" />
           </svg>
-          <div className="bg-brand-navy mx-4 md:mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] px-5 md:px-12 pt-10 pb-32 md:pt-4 md:pb-44 text-center relative flex flex-col items-center md:-mt-[2px]">
-            {/* Pill Eyebrow sesuai request pertama Anda */}
-            <span className="relative z-20 inline-flex items-center px-6 md:px-10 py-2 md:py-3 text-eyebrow-lg text-white rounded-full border-2 md:border-[3px] border-brand-red md:-mt-8 shadow-sm mb-6">
+          <div className="bg-transparent md:bg-brand-navy mx-4 md:mx-[5.5%] rounded-none md:rounded-[2.5rem] px-2 md:px-12 pt-4 pb-12 md:pt-4 md:pb-44 text-center relative flex flex-col items-center md:-mt-[2px]">
+            <span className="relative z-20 inline-flex items-center text-center px-6 md:px-10 py-2.5 md:py-3 text-[11px] sm:text-sm md:text-eyebrow-lg font-bold tracking-widest uppercase text-brand-red md:text-white rounded-full border-2 md:border-[3px] border-brand-red md:-mt-8 shadow-none md:shadow-sm mb-6 md:mb-6">
               {t('Programs.eyebrow')}
             </span>
-            <h2 className="text-white max-w-4xl text-balance mb-6">
+            <h2 className="text-brand-navy md:text-white max-w-4xl text-balance mb-4 md:mb-5 px-0 leading-tight md:leading-tight text-3xl md:text-5xl font-bold">
               {t('Programs.title')}
             </h2>
-            <p className="text-slate-300 max-w-4xl mx-auto">
+            <p className="text-slate-500 md:text-slate-300 max-w-3xl mx-auto px-0 text-sm sm:text-base leading-relaxed md:leading-relaxed">
               {t('Programs.description')}
             </p>
           </div>
         </div>
 
-        {/* ===== FOLDER PUTIH (dalam) ===== */}
-        <div className="relative w-full mx-auto -mt-20 md:-mt-36 z-10 drop-shadow-[0_15px_40px_rgba(21,60,86,0.12)] md:drop-shadow-[0_20px_50px_rgba(21,60,86,0.15)]">
+        {/* ===== CONTENT AREA (Menyatu di Mobile, Putih di Desktop) ===== */}
+        <div className="relative w-full mx-auto mt-0 md:-mt-36 z-10 drop-shadow-none md:drop-shadow-[0_20px_50px_rgba(21,60,86,0.15)]">
           <svg viewBox="0 0 1440 48" preserveAspectRatio="none" className="hidden md:block w-full h-12 relative z-10" aria-hidden="true">
             <path d={WHITE_TAB_PATH} fill="white" />
           </svg>
-          <div className="bg-white mx-4 md:mx-[5.5%] rounded-[2rem] md:rounded-[2.5rem] p-5 md:p-10 shadow-sm relative z-0 md:-mt-[2px]">
+          <div className="bg-transparent md:bg-white mx-4 md:mx-[5.5%] rounded-none md:rounded-[2.5rem] p-0 md:p-10 shadow-none md:shadow-sm relative z-0 md:-mt-[2px]">
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Grid Layanan */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-6">
               {programsKeys.map((item, idx) => (
-                <div key={idx} className="bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                <div key={idx} className="bg-brand-navy md:bg-white rounded-2xl overflow-hidden border border-transparent md:border-gray-100 flex flex-col group hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.15)] md:shadow-none hover:shadow-2xl transition-all duration-300">
                   <div className="relative aspect-[16/10] w-full bg-gray-100 overflow-hidden">
                     <Image 
                     src={item.image} 
@@ -216,10 +217,10 @@ function Programs({ t, locale }) {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" 
                     className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                   </div>
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`ProgramsList.${item.key}.title`)}</h4>
-                    <p className="text-teaser text-slate-500 mb-6 flex-grow">{t(`ProgramsList.${item.key}.desc`)}</p>
-                    <Link href={`/${locale}${item.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors inline-flex items-center gap-2 mt-auto">
+                  <div className="p-6 md:p-6 flex flex-col flex-grow">
+                    <h4 className="mb-3 text-white md:text-brand-navy text-lg md:text-xl font-extrabold group-hover:text-brand-red transition-colors leading-snug">{t(`ProgramsList.${item.key}.title`)}</h4>
+                    <p className="text-sm md:text-base text-slate-300 md:text-slate-500 mb-6 flex-grow line-clamp-3 leading-relaxed">{t(`ProgramsList.${item.key}.desc`)}</p>
+                    <Link href={`/${locale}${item.link}`} className="text-brand-red text-xs md:text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors inline-flex items-center gap-2 mt-auto">
                       {t('Programs.readMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                     </Link>
                   </div>
@@ -227,15 +228,16 @@ function Programs({ t, locale }) {
               ))}
             </div>
 
-            <div className="mt-24 text-center">
-              <h2 className="mb-6 text-brand-navy">{t('CorporateEvents.title')}</h2>
-              <p className="text-slate-500 mb-16 max-w-2xl mx-auto">
+            {/* Bagian Corporate Events */}
+            <div className="mt-16 md:mt-24 text-center pb-8 md:pb-0">
+              <h2 className="mb-4 md:mb-6 text-brand-navy px-0 text-2xl md:text-4xl font-bold">{t('CorporateEvents.title')}</h2>
+              <p className="text-slate-500 mb-10 md:mb-16 max-w-2xl mx-auto text-sm md:text-base px-0 leading-relaxed">
                 {t('CorporateEvents.description')}
               </p>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-6 text-left">
                 {eventsKeys.map((event, idx) => (
-                  <div key={idx} className="flex flex-col cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 p-4 group hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                  <div key={idx} className="flex flex-col cursor-pointer bg-brand-navy md:bg-white rounded-2xl overflow-hidden border border-transparent md:border-gray-100 p-4 md:p-4 group hover:-translate-y-1 shadow-[0_8px_30px_rgb(0,0,0,0.15)] md:shadow-none hover:shadow-2xl transition-all duration-300">
                     <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden mb-5 bg-gray-100">
                       <Image 
                       src={event.image} 
@@ -246,9 +248,9 @@ function Programs({ t, locale }) {
                       className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="px-2 flex flex-col flex-grow">
-                      <h4 className="mb-2 text-brand-navy group-hover:text-brand-red transition-colors">{t(`EventsList.${event.key}.title`)}</h4>
-                      <p className="text-teaser text-slate-500 mb-5 flex-grow">{t(`EventsList.${event.key}.desc`)}</p>
-                      <Link href={`/${locale}${event.link}`} className="text-brand-red text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors mt-auto inline-flex items-center gap-2">
+                      <h4 className="mb-3 text-white md:text-brand-navy text-lg md:text-xl font-extrabold group-hover:text-brand-red transition-colors leading-snug">{t(`EventsList.${event.key}.title`)}</h4>
+                      <p className="text-sm md:text-base text-slate-300 md:text-slate-500 mb-6 flex-grow line-clamp-2 leading-relaxed">{t(`EventsList.${event.key}.desc`)}</p>
+                      <Link href={`/${locale}${event.link}`} className="text-brand-red text-xs md:text-sm font-bold uppercase tracking-widest hover:text-brand-red/80 transition-colors mt-auto inline-flex items-center gap-2">
                         {t('Programs.readMore')} <span className="transition-transform group-hover:translate-x-1">&gt;</span>
                       </Link>
                     </div>
