@@ -12,6 +12,15 @@ const nextConfig = {
       },
     ],
   },
+  // Backward compat: old images stored as /uploads/x → served via /api/uploads/x
+  async rewrites() {
+    return [
+      {
+        source: '/uploads/:path*',
+        destination: '/api/uploads/:path*',
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

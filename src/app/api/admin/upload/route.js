@@ -34,5 +34,5 @@ export async function POST(request) {
   const buffer = Buffer.from(await file.arrayBuffer());
   await writeFile(path.join(uploadDir, filename), buffer);
 
-  return NextResponse.json({ path: `/uploads/${filename}` });
+  return NextResponse.json({ path: `/api/uploads/${filename}` });
 }

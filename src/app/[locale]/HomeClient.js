@@ -150,7 +150,7 @@ function News({ t, locale, newsData }) {
                   src={news.image} 
                   alt={title} 
                   fill 
-                  unoptimized={process.env.NODE_ENV === 'development'} 
+                  unoptimized 
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" 
                   className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
                 </div>

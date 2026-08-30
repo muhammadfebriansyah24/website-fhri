@@ -86,10 +86,10 @@ export default function ArticleClient({ article }) {
         </header>
 
         <div className="relative w-full aspect-[21/9] rounded-[2rem] overflow-hidden mb-12 shadow-xl border border-slate-100">
-          <Image src={article.image} alt={title} fill unoptimized={process.env.NODE_ENV === 'development'} className="object-cover object-center" />
+          <Image src={article.image} alt={title} fill unoptimized className="object-cover object-center" />
         </div>
 
-        <blockquote
+        <div
           className="prose prose-lg max-w-none text-slate-600 leading-relaxed prose-p:mb-6 prose-strong:text-brand-navy prose-a:text-brand-red"
           dangerouslySetInnerHTML={{ __html: content }}
         />
