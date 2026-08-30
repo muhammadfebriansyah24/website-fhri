@@ -94,18 +94,6 @@ export const getAboutData = (locale) => {
               ]
             },
             { 
-              name: 'Charles Gatan', 
-              role: 'Chief Operating Officer', 
-              image: '/images/profile_gatan.jpg',
-              summary: [
-                "Charles Gatan adalah seorang profesional di bidang Learning & Organizational Development yang memiliki pengalaman eksekutif lebih dari 20 tahun dalam bidang Learning & Development, Quality Assurance, Organizational Development, dan Service Excellence di berbagai industri, termasuk perhotelan mewah, properti, telekomunikasi, pendidikan, dan konsultasi.",
-                "Dikenal atas kemampuannya dalam membangun budaya pembelajaran berkinerja tinggi, Charles memiliki keahlian dalam merancang dan menerapkan strategi pembelajaran terintegrasi yang memperkuat kapabilitas organisasi, meningkatkan efektivitas kepemimpinan, serta meningkatkan pengalaman pelanggan. Keahliannya mencakup Learning Strategy, Training Needs Analysis, Corporate Academy Development, Competency Frameworks, Leadership Development, Quality Assurance, Service Excellence, Organizational Development, Talent Development, Employee Engagement, dan Performance Improvement.",
-                "Sepanjang perjalanan kariernya, beliau telah berhasil memimpin fungsi Learning & Development dan Quality Assurance di berbagai organisasi yang diakui secara internasional, termasuk terlibat dalam berbagai proyek pre-opening hotel mewah, di mana beliau membangun sistem pembelajaran, standar operasional, kerangka kerja service excellence, serta kesiapan organisasi yang mendukung keberhasilan peluncuran bisnis dan keberlanjutan kinerja operasional. Pengalamannya juga mencakup pengembangan organisasi korporasi, peningkatan kapabilitas tenaga kerja, manajemen perubahan, serta berbagai inisiatif efektivitas organisasi yang selaras dengan strategi sumber daya manusia dan tujuan bisnis.",
-                "Dikenal memiliki pola pikir strategis, kreativitas, dan kemampuan fasilitasi yang kuat, Charles memadukan keahlian operasional dengan metodologi pembelajaran inovatif untuk menciptakan pengalaman belajar yang transformatif. Gaya kepemimpinannya yang komunikatif, didukung kemampuan komunikasi dan pengelolaan pemangku kepentingan yang sangat baik, memungkinkannya untuk menginspirasi individu, membangun budaya kolaboratif, serta mengembangkan pemimpin yang siap menghadapi kebutuhan masa depan di berbagai lingkungan bisnis.",
-                "Dengan semangat untuk mengembangkan potensi manusia secara optimal, Charles meyakini bahwa keunggulan organisasi dapat dicapai melalui pemberdayaan individu, pengembangan budaya pembelajaran berkelanjutan, serta penerapan service excellence sebagai bagian yang melekat dalam budaya organisasi. Misinya adalah membantu organisasi mentransformasikan pembelajaran menjadi kapabilitas bisnis strategis yang mampu mendorong pertumbuhan berkelanjutan, memperkuat keunggulan kompetitif, dan menghasilkan dampak bisnis yang terukur."
-              ]
-            },
-            { 
               name: 'Yopie Bungaran Halomoan S.E., M.M.', 
               role: 'Chief Financial Officer', 
               image: '/images/profile_yopie.jpg',
@@ -415,18 +403,6 @@ export const getAboutData = (locale) => {
               "Robby Tambunan is an experienced executive in Human Capital and Business Transformation with over 30 years of leadership experience across various functions, including Human Resources, Corporate Services, Business Support, Industrial Relations, Legal, Governance, Internal Audit, HSE, and Information Technology in multiple industry sectors, including hospitality, manufacturing, healthcare, agribusiness, logistics, mining, and outsourcing.",
               "As the Founder & Principal Consultant of First HR Indonesia, he collaborates with business owners, boards of directors, and executive leadership to align human resources strategies with business goals, thereby driving organizational transformation, building leadership excellence, and supporting sustainable business growth.",
               "His expertise encompasses Human Capital Strategy, HR Transformation, Organizational Development, Talent Management, Leadership Development, Executive Coaching, HR Governance, Change Management, Executive Search, Assessment Center, Learning & Development, and Business Process Improvement. Known for combining strategic vision with practical implementation, he helps organizations build high-performing teams, strengthen organizational capabilities, and transform human capital into a sustainable competitive advantage."
-            ]
-          },
-          { 
-            name: 'Charles Gatan', 
-            role: 'Chief Operating Officer', 
-            image: '/images/profile_gatan.jpg',
-            summary: [
-              "Charles Gatan is a Learning & Organizational Development professional with over 20 years of executive experience in Learning & Development, Quality Assurance, Organizational Development, and Service Excellence across various industries, including luxury hospitality, property, telecommunications, education, and consulting.",
-              "Known for his ability to build a high-performance learning culture, Charles has expertise in designing and implementing integrated learning strategies that strengthen organizational capabilities, enhance leadership effectiveness, and improve customer experience. His expertise covers Learning Strategy, Training Needs Analysis, Corporate Academy Development, Competency Frameworks, Leadership Development, Quality Assurance, Service Excellence, Organizational Development, Talent Development, Employee Engagement, and Performance Improvement.",
-              "Throughout his career, he has successfully led the Learning & Development and Quality Assurance functions in various internationally recognized organizations, including involvement in numerous luxury hotel pre-opening projects, where he built learning systems, operational standards, service excellence frameworks, and organizational readiness that supported successful business launches and operational performance sustainability. His experience also includes corporate organizational development, workforce capability enhancement, change management, and various organizational effectiveness initiatives aligned with human resources strategies and business goals.",
-              "Known for having a strategic mindset, creativity, and strong facilitation skills, Charles combines operational expertise with innovative learning methodologies to create transformative learning experiences. His communicative leadership style, supported by excellent communication and stakeholder management skills, enables him to inspire individuals, build collaborative cultures, and develop leaders ready to face future needs in various business environments.",
-              "With a passion for developing human potential optimally, Charles believes that organizational excellence can be achieved through empowering individuals, developing a continuous learning culture, and implementing service excellence as an inherent part of the organizational culture. His mission is to help organizations transform learning into a strategic business capability capable of driving sustainable growth, strengthening competitive advantage, and generating measurable business impact."
             ]
           },
           { 
