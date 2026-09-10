@@ -72,14 +72,14 @@ function HeroSection({ data }) {
 
           <div className="mt-8 flex flex-wrap lg:flex-nowrap justify-center lg:justify-start items-center gap-4 lg:gap-5">
             
-            {/* DROPDOWN BUTTON DENGAN LEBAR YANG SEJAJAR DENGAN TOMBOL */}
+            {/*
             <div className="relative inline-block text-left w-full sm:w-auto" ref={dropdownRef}>
-              <button 
+              <button
                 onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
                 className="w-full sm:w-auto inline-flex items-center justify-between gap-3 bg-brand-red hover:bg-white hover:text-brand-navy text-white px-5 py-3 rounded-xl font-bold transition-all duration-300 shadow-lg hover:-translate-y-1 uppercase tracking-wider text-[12px] cursor-pointer group"
               >
                 <div className="flex items-center gap-2">
-                  <div 
+                  <div
                     className="w-4 h-4 bg-current group-hover:text-brand-navy transition-colors shrink-0"
                     style={{
                       WebkitMaskImage: `url('/icons/ic_download.svg')`,
@@ -94,18 +94,17 @@ function HeroSection({ data }) {
                   />
                   <span>{data.hero.downloadBtn}</span>
                 </div>
-                <svg 
-                  className={`w-3.5 h-3.5 transition-transform duration-300 shrink-0 ${profileDropdownOpen ? 'rotate-180' : ''}`} 
+                <svg
+                  className={`w-3.5 h-3.5 transition-transform duration-300 shrink-0 ${profileDropdownOpen ? 'rotate-180' : ''}`}
                   fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
 
-              {/* Menu Dropdown dengan w-full (persis sejajar dengan tombol) */}
               {profileDropdownOpen && (
                 <div className="absolute left-0 top-full mt-2 w-full rounded-xl bg-white shadow-xl border border-slate-100 p-1 z-50 animate-fade-slide-up text-brand-navy">
-                  <a 
+                  <a
                     href="/Comprof_FirstHRIndonesia_ID.pdf"
                     download="Company_Profile_First_HR_Indonesia_ID.pdf"
                     onClick={() => setProfileDropdownOpen(false)}
@@ -114,7 +113,7 @@ function HeroSection({ data }) {
                     <span>ID (Bahasa)</span>
                     <span className="text-[9px] bg-slate-100 px-1.5 py-0.5 rounded text-slate-500">PDF</span>
                   </a>
-                  <a 
+                  <a
                     href="/Comprof_FirstHRIndonesia_ENG.pdf"
                     download="Company_Profile_First_HR_Indonesia_ENG.pdf"
                     onClick={() => setProfileDropdownOpen(false)}
@@ -126,6 +125,7 @@ function HeroSection({ data }) {
                 </div>
               )}
             </div>
+            */}
 
             <div className="bg-gradient-to-br from-brand-navy to-brand-navy border border-slate-700/50 p-3.5 rounded-2xl flex items-center gap-4 shadow-xl">
               <div className="flex -space-x-3">

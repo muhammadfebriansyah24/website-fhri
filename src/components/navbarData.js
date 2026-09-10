@@ -25,7 +25,6 @@ export const getNavbarData = (locale) => {
           icon: 'ic_briefcase-outline.svg',
           subMenus: [
             { title: 'Robby P. Tambunan', desc: 'Chief Executive Officer' },
-            { title: 'Charles Gatan', desc: 'Chief Operating Officer' },
             { title: 'Yopie Bungaran Halomoan S.E., M.M.', desc: 'Chief Financial Officer' },
             { title: 'Hana Tiranda', desc: 'General Manager - Operation' }
           ]
@@ -238,7 +237,6 @@ export const getNavbarData = (locale) => {
         icon: 'ic_briefcase-outline.svg',
         subMenus: [
           { title: 'Robby P. Tambunan', desc: 'Chief Executive Officer' },
-          { title: 'Charles Gatan', desc: 'Chief Operating Officer' },
           { title: 'Yopie Bungaran Halomoan S.E., M.M.', desc: 'Chief Financial Officer' },
           { title: 'Hana Tiranda', desc: 'General Manager - Operation' }
         ]
