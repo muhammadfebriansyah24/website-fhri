@@ -23,7 +23,10 @@ export default function RecruitmentClient({ jobOpenings }) {
     department: job.department,
     location: job.location,
     type: EMPLOYMENT_TYPE_LABELS[job.employmentType]?.[locale] ?? job.employmentType,
+    deadline: job.deadline,
   }));
+
+  const [selectedJob, setSelectedJob] = useState(null);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -215,7 +218,7 @@ export default function RecruitmentClient({ jobOpenings }) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {jobs.map((job) => (
-              <div key={job.id} className="bg-white rounded-[1.5rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl hover:border-slate-200/60 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group">
+              <div key={job.id} onClick={() => setSelectedJob(job)} className="bg-white rounded-[1.5rem] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 hover:shadow-xl hover:border-slate-200/60 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full group cursor-pointer">
                 <div className="mb-5">
                   <h6 className="inline-flex px-3 py-1.5 text-brand-navy bg-brand-navy/5 rounded-md">
                     {job.department}
@@ -225,7 +228,7 @@ export default function RecruitmentClient({ jobOpenings }) {
                 <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors">
                   {job.title}
                 </h4>
-                <p className="text-teaser mb-8 flex-grow">
+                <p className="text-teaser mb-8 flex-grow line-clamp-3">
                   {job.desc}
                 </p>
                 
@@ -420,6 +423,101 @@ export default function RecruitmentClient({ jobOpenings }) {
           </div>
         </div>
       </section>
+
+      {/* MODAL — Job Detail Popup */}
+      {selectedJob && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setSelectedJob(null)}>
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative bg-white rounded-[2rem] max-w-lg w-full max-h-[85vh] overflow-y-auto shadow-2xl"
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedJob(null)}
+              className="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-brand-red hover:text-white text-slate-400 flex items-center justify-center transition-all duration-300 z-10"
+            >
+              <svg className="w-4 h-4 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2.5">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="p-8 md:p-10">
+              {/* Department badge */}
+              <h6 className="inline-flex px-3 py-1.5 text-brand-navy bg-brand-navy/5 rounded-md mb-5">
+                {selectedJob.department}
+              </h6>
+
+              {/* Title */}
+              <h3 className="text-brand-navy mb-6">{selectedJob.title}</h3>
+
+              {/* Meta info */}
+              <div className="flex flex-wrap gap-4 mb-6">
+                <span className="text-sm text-slate-500 flex items-center gap-1.5">
+                  <div
+                    className="w-4 h-4 bg-current"
+                    style={{
+                      WebkitMaskImage: `url('/icons/ic_location-outline.svg')`,
+                      WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center',
+                      maskImage: `url('/icons/ic_location-outline.svg')`,
+                      maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center',
+                    }}
+                  />
+                  {selectedJob.location}
+                </span>
+                <span className="text-sm font-bold text-slate-600 flex items-center gap-1.5">
+                  <div
+                    className="w-4 h-4 bg-current"
+                    style={{
+                      WebkitMaskImage: `url('/icons/ic_clock-outline.svg')`,
+                      WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center',
+                      maskImage: `url('/icons/ic_clock-outline.svg')`,
+                      maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center',
+                    }}
+                  />
+                  {selectedJob.type}
+                </span>
+              </div>
+
+              {/* Deadline */}
+              {selectedJob.deadline && (
+                <div className="mb-6 px-4 py-3 bg-amber-50 border border-amber-100 rounded-xl">
+                  <p className="text-xs font-bold uppercase tracking-wider text-amber-600">
+                    {locale === 'id' ? 'Batas Pendaftaran' : 'Application Deadline'}
+                  </p>
+                  <p className="text-sm font-semibold text-amber-800 mt-1">
+                    {new Date(selectedJob.deadline).toLocaleDateString(locale === 'id' ? 'id-ID' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  </p>
+                </div>
+              )}
+
+              {/* Full description */}
+              <div className="border-t border-slate-100 pt-6 mb-8">
+                <h6 className="text-slate-400 mb-3">{locale === 'id' ? 'Deskripsi & Kualifikasi' : 'Description & Qualifications'}</h6>
+                <p className="text-sm leading-relaxed text-slate-600 whitespace-pre-line">{selectedJob.desc}</p>
+              </div>
+
+              {/* Apply button */}
+              <a
+                href="#apply-form"
+                onClick={() => setSelectedJob(null)}
+                className="w-full inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-red-700 text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-[0_10px_25px_rgba(220,38,38,0.3)] hover:-translate-y-0.5"
+              >
+                {locale === 'id' ? 'Lamar Posisi Ini' : 'Apply for This Position'}
+                <div
+                  className="w-4 h-4 bg-white"
+                  style={{
+                    WebkitMaskImage: `url('/icons/ic_arrow-right.svg')`,
+                    WebkitMaskSize: 'contain', WebkitMaskRepeat: 'no-repeat', WebkitMaskPosition: 'center',
+                    maskImage: `url('/icons/ic_arrow-right.svg')`,
+                    maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center',
+                  }}
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
     </main>
   );

@@ -14,6 +14,7 @@ const TYPE_BADGES = {
 export default function RecruitmentListPage() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showGuide, setShowGuide] = useState(false);
 
   async function fetchData() {
     const res = await fetch('/api/admin/recruitment');
@@ -58,6 +59,39 @@ export default function RecruitmentListPage() {
             </span>
           </div>
         </Link>
+      </div>
+
+      {/* Collapsible Guide */}
+      <div className="p-1.5 bg-blue-50/50 border border-blue-100/50 rounded-[1.5rem]">
+        <button
+          onClick={() => setShowGuide(!showGuide)}
+          className="w-full flex items-center justify-between bg-white border border-blue-100 rounded-[calc(1.5rem-0.25rem)] px-5 py-3.5 text-left transition-colors hover:bg-blue-50/30"
+        >
+          <span className="flex items-center gap-2.5">
+            <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-xs font-bold shrink-0">?</span>
+            <span className="text-xs font-bold text-brand-navy uppercase tracking-wider">Panduan Kelola Lowongan</span>
+          </span>
+          <svg className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${showGuide ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth="2.5" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+        {showGuide && (
+          <div className="px-5 pb-5 pt-4 space-y-3 text-xs text-slate-600 leading-relaxed">
+            <div className="flex gap-2">
+              <span className="font-bold text-emerald-600 shrink-0">Open</span>
+              <span>— Lowongan aktif dan <strong>tampil di halaman publik</strong> website. Pelamar bisa melihat dan melamar posisi ini.</span>
+            </div>
+            <div className="flex gap-2">
+              <span className="font-bold text-red-500 shrink-0">Closed</span>
+              <span>— Lowongan ditutup dan <strong>tidak ditampilkan</strong> ke publik. Gunakan status ini jika posisi sudah terisi atau rekrutmen dihentikan.</span>
+            </div>
+            <div className="border-t border-blue-100 pt-3 space-y-1.5">
+              <p><strong>Full-time</strong> = Pegawai tetap &nbsp;|&nbsp; <strong>Kontrak</strong> = Jangka waktu tertentu &nbsp;|&nbsp; <strong>Magang</strong> = Program internship</p>
+              <p>Klik <strong>&quot;Tambah Lowongan&quot;</strong> untuk membuat lowongan baru. Gunakan <strong>&quot;Edit&quot;</strong> untuk mengubah detail atau <strong>&quot;Hapus&quot;</strong> untuk menghapus.</p>
+              <p>Pastikan mengisi deskripsi dalam <strong>Bahasa Indonesia</strong> dan <strong>English</strong> agar tampil di kedua versi bahasa website.</p>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Clean Table Container */}
