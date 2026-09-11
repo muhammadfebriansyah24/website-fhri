@@ -228,9 +228,12 @@ export default function RecruitmentClient({ jobOpenings }) {
                 <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors">
                   {job.title}
                 </h4>
-                <p className="text-teaser mb-8 flex-grow line-clamp-3">
+                <p className="text-teaser flex-grow line-clamp-4">
                   {job.desc}
                 </p>
+                <span className="text-xs font-semibold text-brand-red hover:text-red-700 mt-2 mb-8 inline-block transition-colors">
+                  {locale === 'id' ? 'Lihat selengkapnya →' : 'Read more →'}
+                </span>
                 
                 <div className="pt-6 border-t border-slate-100 flex items-center justify-between mt-auto">
                   <div className="flex flex-col gap-1.5">
@@ -272,7 +275,7 @@ export default function RecruitmentClient({ jobOpenings }) {
                     </span>
 
                   </div>
-                  <a href="#apply-form" className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-brand-red border border-slate-200/60 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300">
+                  <a href="#apply-form" onClick={(e) => e.stopPropagation()} className="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-brand-red border border-slate-200/60 hover:bg-brand-red hover:text-white hover:border-brand-red transition-all duration-300">
                     {/* Ikon Arrow Right */}
                     <div 
                       className="w-5 h-5 bg-current transition-colors duration-300"
