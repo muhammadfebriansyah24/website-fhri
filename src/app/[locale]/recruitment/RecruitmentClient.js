@@ -228,7 +228,7 @@ export default function RecruitmentClient({ jobOpenings }) {
                 <h4 className="mb-3 text-brand-navy group-hover:text-brand-red transition-colors">
                   {job.title}
                 </h4>
-                <p className="text-teaser flex-grow line-clamp-4">
+                <p className="text-teaser flex-grow line-clamp-4 overflow-hidden break-words">
                   {job.desc}
                 </p>
                 <span className="text-xs font-semibold text-brand-red hover:text-red-700 mt-2 mb-8 inline-block transition-colors">
