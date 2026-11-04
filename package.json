@@ -33,14 +33,7 @@
     "prisma": "^6.2.1",
     "tailwindcss": "^4.3.2"
   },
-  "prisma": {
+    "prisma": {
     "seed": "node prisma/seed.js"
-  },
-  "scripts": {
-  "dev": "next dev",
-  "build": "prisma migrate deploy && next build",
-  "start": "next start",
-  "lint": "eslint",
-  "postinstall": "prisma generate"
   }
 }
