@@ -2,6 +2,13 @@
   "name": "website-fhri",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma migrate deploy && next build",
+    "start": "next start",
+    "lint": "eslint",
+    "postinstall": "prisma generate"
+  },
   "dependencies": {
     "@prisma/client": "^6.2.1",
     "@tiptap/pm": "^3.30.1",
